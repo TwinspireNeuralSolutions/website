@@ -20,17 +20,20 @@ export const MenuToggle = ({
       <motion.span
         animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
         transition={{ duration: 0.2 }}
-        className={`absolute h-0.5 w-6 rounded-full bg-${color}`}
+        className="absolute h-0.5 w-6 rounded-full"
+        style={{ backgroundColor: color }}
       />
       <motion.span
         animate={isOpen ? { opacity: 0 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
-        className={`absolute h-0.5 w-6 rounded-full bg-${color}`}
+        className="absolute h-0.5 w-6 rounded-full"
+        style={{ backgroundColor: color }}
       />
       <motion.span
         animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
         transition={{ duration: 0.2 }}
-        className={`absolute h-0.5 w-6 rounded-full bg-${color}`}
+        className="absolute h-0.5 w-6 rounded-full"
+        style={{ backgroundColor: color }}
       />
     </button>
   )
