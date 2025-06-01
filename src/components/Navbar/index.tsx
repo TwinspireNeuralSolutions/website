@@ -71,18 +71,18 @@ export default function Navbar() {
     }
   }
 
-  const handleClick = (id: string) => {
-    setActiveId(id)
-    router.push(navItems.find((item) => item.id === id)?.href || '#')
+  const handleClick = (item: { id: string; href: string }) => {
+    setActiveId(item.id)
+    router.push(item.href)
 
     // Smooth scroll to section
-    const section = document.getElementById(id)
+    const section = document.getElementById(item.id)
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
     }
 
     // Optionally update the URL hash (without jumping)
-    window.history.replaceState(null, '', `#${id}`)
+    window.history.replaceState(null, '', `${item.href}`)
   }
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export default function Navbar() {
                 }`}
                 onMouseEnter={() => handleMouseEnter(item.id, idx)}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick(item.id)}
+                onClick={() => handleClick(item)}
               >
                 {item.label}
               </li>
