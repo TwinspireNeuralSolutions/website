@@ -1,5 +1,8 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react'
+
+import { LanguageSelect } from '@/components/atoms'
+
 import Image from 'next/image'
 import logoBlack from '@/public/logo-black.png'
 import logoWhite from '@/public/logo-white.png'
@@ -13,8 +16,17 @@ const navItems = [
 
 export default function Navbar() {
   const [activeId, setActiveId] = useState('home')
-  const [blueStyle, setBlueStyle] = useState({ left: 0, width: 0, transition: 'none' })
-  const [greyStyle, setGreyStyle] = useState({ left: 0, width: 0, opacity: 0, transition: 'none' })
+  const [blueStyle, setBlueStyle] = useState({
+    left: 0,
+    width: 0,
+    transition: 'none',
+  })
+  const [greyStyle, setGreyStyle] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+    transition: 'none',
+  })
   const navRefs = useRef<(HTMLLIElement | null)[]>([])
   const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
@@ -39,7 +51,10 @@ export default function Navbar() {
     // After first render, enable transition for future moves
     setTimeout(() => {
       setBlueStyle((prev) => ({ ...prev, transition: 'left 0.3s, width 0.3s' }))
-      setGreyStyle((prev) => ({ ...prev, transition: 'left 0.3s, width 0.3s, opacity 0.2s' }))
+      setGreyStyle((prev) => ({
+        ...prev,
+        transition: 'left 0.3s, width 0.3s, opacity 0.2s',
+      }))
     }, 50)
     // eslint-disable-next-line
   }, [activeId, navRefs.current.length])
@@ -94,37 +109,34 @@ export default function Navbar() {
   }, [])
 
   return (
-    <div className="fixed top-0 left-0 w-full flex justify-center z-50 pointer-events-none">
+    <div className="pointer-events-none fixed top-0 left-0 z-50 flex w-full justify-center">
       <header
-        className={`
-          transition-all duration-500
-          ${scrolled ? 'bg-white shadow-lg rounded-full' : 'bg-transparent'}
-          flex justify-between items-center mx-auto px-12 pointer-events-auto
-        `}
+        className={`transition-all duration-500 ${scrolled ? 'rounded-full bg-white shadow-lg' : 'bg-transparent'} pointer-events-auto mx-auto flex items-center px-12`}
         style={{
           marginTop: scrolled ? '24px' : '0px',
           width: scrolled ? '1400px' : '100%',
-
           padding: '0 2rem',
           transition: 'all 0.5s cubic-bezier(0.4,0,0.2,1)',
         }}
       >
-        <Image
-          src={scrolled ? logoBlack : logoWhite}
-          alt="logo"
-          width={70}
-          height={70}
-          className="rounded-full"
-        />
-        <nav>
-          <ul className="flex justify-center relative">
+        <div className="flex flex-1 justify-start">
+          <Image
+            src={scrolled ? logoBlack : logoWhite}
+            alt="logo"
+            width={70}
+            height={70}
+            className="rounded-full"
+          />
+        </div>
+        <nav className="flex flex-1 justify-center">
+          <ul className="relative flex justify-center">
             {navItems.map((item, idx) => (
               <li
                 key={item.id}
                 ref={(el) => {
                   navRefs.current[idx] = el
                 }}
-                className={`relative px-4 py-2 cursor-pointer ${
+                className={`relative cursor-pointer px-4 py-2 ${
                   scrolled ? 'text-black' : 'text-white'
                 }`}
                 onMouseEnter={() => handleMouseEnter(item.id, idx)}
@@ -142,7 +154,7 @@ export default function Navbar() {
                 width: blueStyle.width,
                 height: '4px',
                 bottom: '-15px',
-                background: '#1e40af', // Tailwind blue-800
+                background: '#060e96',
                 borderRadius: '2px',
                 transition: blueStyle.transition,
                 pointerEvents: 'none',
@@ -157,7 +169,7 @@ export default function Navbar() {
                 width: greyStyle.width,
                 height: '4px',
                 bottom: '-15px',
-                background: '#9ca3af', // Tailwind gray-400
+                background: '#9ca3af',
                 borderRadius: '2px',
                 transition: greyStyle.transition,
                 pointerEvents: 'none',
@@ -167,7 +179,14 @@ export default function Navbar() {
             />
           </ul>
         </nav>
-        <button>buttons</button>
+        <div className="flex flex-1 items-center justify-end gap-6">
+          <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} />
+
+          {/* Book a call button */}
+          <button className="text-md cursor-pointer rounded-full bg-[#060e96] px-6 py-2 font-normal text-white shadow-md transition hover:bg-[#001060]">
+            Book a call
+          </button>
+        </div>
       </header>
     </div>
   )
