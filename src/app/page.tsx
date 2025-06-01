@@ -17,9 +17,15 @@ export default function Home() {
             height: '100vh',
             filter: 'grayscale(100%)',
           }}
-        ></div>
-        {/* Section 2: About Section */}
-        <div></div>
+        >
+          <h1>Home</h1>
+        </div>
+        {/* Section 2*/}
+        <section id="solutions">
+          <div className="h-screen w-full bg-cover bg-center text-black">
+            <h1>Solutions 2</h1>
+          </div>
+        </section>
       </main>
       <footer></footer>
     </>
