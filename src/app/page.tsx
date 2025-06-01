@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Navbar } from '@/components'
 
 export default function Home() {
@@ -39,7 +40,39 @@ export default function Home() {
           </div>
         </section>
         {/* Section 2*/}
-        <section id="solutions"></section>
+
+        <section
+          id="solutions"
+          className="custom-shape-divider-top-1748815566 flex w-full flex-col items-center justify-center bg-black p-10 text-white"
+        >
+          <span className="text-center text-2xl font-bold uppercase">
+            Partners
+          </span>
+          <div className="mt-10 flex flex-row gap-4">
+            <Image
+              src="/partners/dtu.png"
+              alt="DTU"
+              width={250}
+              height={100}
+              style={{ width: 'auto' }}
+            />
+
+            <Image
+              src="/partners/sf.png"
+              alt="SF"
+              width={250}
+              height={100}
+              style={{ width: 'auto' }}
+            />
+            <Image
+              src="/partners/hui.png"
+              alt="HUI"
+              width={250}
+              height={100}
+              style={{ width: 'auto' }}
+            />
+          </div>
+        </section>
       </main>
       <footer></footer>
     </>
