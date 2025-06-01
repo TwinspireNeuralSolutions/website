@@ -1,12 +1,5 @@
 'use client'
-import React, { useRef, useState, useEffect } from 'react'
-
-import { LanguageSelect } from '@/components/atoms'
-
-import Image from 'next/image'
-import logoBlack from '@/public/logo-black.png'
-import logoWhite from '@/public/logo-white.png'
-import { useRouter } from 'next/navigation'
+import React, { useState, useEffect } from 'react'
 
 const navItems = [
   { label: 'Home', id: 'home', href: '#home' },
@@ -14,91 +7,12 @@ const navItems = [
   { label: 'About Us', id: 'about', href: '#about' },
 ]
 
+import NavbarDesktop from './NavbarDesktop'
+import NavbarMobile from './NavbarMobile'
+
 export default function Navbar() {
-  const [activeId, setActiveId] = useState('home')
-  const [blueStyle, setBlueStyle] = useState({
-    left: 0,
-    width: 0,
-    transition: 'none',
-  })
-  const [greyStyle, setGreyStyle] = useState({
-    left: 0,
-    width: 0,
-    opacity: 0,
-    transition: 'none',
-  })
-  const navRefs = useRef<(HTMLLIElement | null)[]>([])
-  const router = useRouter()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-
-  // Set blue underline on initial load and when activeId changes
-  useEffect(() => {
-    const idx = navItems.findIndex((item) => item.id === activeId)
-    const el = navRefs.current[idx]
-    if (el) {
-      setBlueStyle({
-        left: el.offsetLeft,
-        width: el.offsetWidth,
-        transition: 'none',
-      })
-      setGreyStyle({
-        left: el.offsetLeft,
-        width: el.offsetWidth,
-        opacity: 0,
-        transition: 'none',
-      })
-    }
-    // After first render, enable transition for future moves
-    setTimeout(() => {
-      setBlueStyle((prev) => ({ ...prev, transition: 'left 0.3s, width 0.3s' }))
-      setGreyStyle((prev) => ({
-        ...prev,
-        transition: 'left 0.3s, width 0.3s, opacity 0.2s',
-      }))
-    }, 50)
-    // eslint-disable-next-line
-  }, [activeId, navRefs.current.length])
-
-  // On hover, animate grey underline to hovered item and show it
-  const handleMouseEnter = (id: string, idx: number) => {
-    const el = navRefs.current[idx]
-    if (el) {
-      setGreyStyle({
-        left: el.offsetLeft,
-        width: el.offsetWidth,
-        opacity: 1,
-        transition: 'left 0.3s, width 0.3s, opacity 0.2s',
-      })
-    }
-  }
-
-  // On mouse leave, animate grey underline back to active item and hide it
-  const handleMouseLeave = () => {
-    const idx = navItems.findIndex((item) => item.id === activeId)
-    const el = navRefs.current[idx]
-    if (el) {
-      setGreyStyle({
-        left: el.offsetLeft,
-        width: el.offsetWidth,
-        opacity: 0,
-        transition: 'left 0.3s, width 0.3s, opacity 0.2s',
-      })
-    }
-  }
-
-  const handleClick = (item: { id: string; href: string }) => {
-    setActiveId(item.id)
-    router.push(item.href)
-
-    // Smooth scroll to section
-    const section = document.getElementById(item.id)
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
-    }
-
-    // Optionally update the URL hash (without jumping)
-    window.history.replaceState(null, '', `${item.href}`)
-  }
 
   useEffect(() => {
     const onScroll = () => {
@@ -111,82 +25,18 @@ export default function Navbar() {
   return (
     <div className="pointer-events-none fixed top-0 left-0 z-50 flex w-full justify-center">
       <header
-        className={`transition-all duration-500 ${scrolled ? 'rounded-full bg-white shadow-lg' : 'bg-transparent'} pointer-events-auto mx-auto flex items-center px-12`}
+        className={`w-full transition-all duration-500 md:w-[1440px] h-${isMenuOpen ? 'auto' : '70px'} ${scrolled || isMenuOpen ? 'mt-4 mr-4 ml-4 rounded-[35px] bg-white shadow-lg' : 'bg-transparent'} pointer-events-auto mx-auto flex flex-row items-center justify-between px-12`}
         style={{
-          marginTop: scrolled ? '24px' : '0px',
-          width: scrolled ? '1400px' : '100%',
-          padding: '0 2rem',
           transition: 'all 0.5s cubic-bezier(0.4,0,0.2,1)',
         }}
       >
-        <div className="flex flex-1 justify-start">
-          <Image
-            src={scrolled ? logoBlack : logoWhite}
-            alt="logo"
-            width={70}
-            height={70}
-            className="rounded-full"
-          />
-        </div>
-        <nav className="flex flex-1 justify-center">
-          <ul className="relative flex justify-center">
-            {navItems.map((item, idx) => (
-              <li
-                key={item.id}
-                ref={(el) => {
-                  navRefs.current[idx] = el
-                }}
-                className={`relative cursor-pointer px-4 py-2 ${
-                  scrolled ? 'text-black' : 'text-white'
-                }`}
-                onMouseEnter={() => handleMouseEnter(item.id, idx)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick(item)}
-              >
-                {item.label}
-              </li>
-            ))}
-            {/* Blue underline (active) */}
-            <div
-              className="absolute"
-              style={{
-                left: blueStyle.left,
-                width: blueStyle.width,
-                height: '4px',
-                bottom: '-15px',
-                background: '#060e96',
-                borderRadius: '2px',
-                transition: blueStyle.transition,
-                pointerEvents: 'none',
-                zIndex: 10,
-              }}
-            />
-            {/* Grey underline (hover, underneath blue) */}
-            <div
-              className="absolute"
-              style={{
-                left: greyStyle.left,
-                width: greyStyle.width,
-                height: '4px',
-                bottom: '-15px',
-                background: '#9ca3af',
-                borderRadius: '2px',
-                transition: greyStyle.transition,
-                pointerEvents: 'none',
-                zIndex: 5,
-                opacity: greyStyle.opacity,
-              }}
-            />
-          </ul>
-        </nav>
-        <div className="flex flex-1 items-center justify-end gap-6">
-          <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} />
-
-          {/* Book a call button */}
-          <button className="text-md cursor-pointer rounded-full bg-[#060e96] px-6 py-2 font-normal text-white shadow-md transition hover:bg-[#001060]">
-            Book a call
-          </button>
-        </div>
+        <NavbarDesktop navItems={navItems} scrolled={scrolled} />
+        <NavbarMobile
+          isMenuOpen={isMenuOpen}
+          scrolled={scrolled}
+          setIsMenuOpen={setIsMenuOpen}
+          navItems={navItems}
+        />
       </header>
     </div>
   )
