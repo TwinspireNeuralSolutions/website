@@ -71,10 +71,18 @@ export default function Navbar() {
     }
   }
 
-  // On click, animate blue underline to clicked item
   const handleClick = (id: string) => {
     setActiveId(id)
     router.push(navItems.find((item) => item.id === id)?.href || '#')
+
+    // Smooth scroll to section
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+
+    // Optionally update the URL hash (without jumping)
+    window.history.replaceState(null, '', `#${id}`)
   }
 
   useEffect(() => {
@@ -86,70 +94,81 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header
-      className={`flex justify-between items-center z-50 mx-auto px-12 transition-all duration-500
-          ${scrolled ? 'sticky bg-white top-4 w-[90%] rounded-full' : 'absolute w-full'} 
-     `}
-    >
-      <Image
-        src={scrolled ? logoBlack : logoWhite}
-        alt="logo"
-        width={70}
-        height={70}
-        className="rounded-full"
-      />
-      <nav>
-        <ul className="flex justify-center relative">
-          {navItems.map((item, idx) => (
-            <li
-              key={item.id}
-              ref={(el) => {
-                navRefs.current[idx] = el
+    <div className="fixed top-0 left-0 w-full flex justify-center z-50 pointer-events-none">
+      <header
+        className={`
+          transition-all duration-500
+          ${scrolled ? 'bg-white shadow-lg rounded-full' : 'bg-transparent'}
+          flex justify-between items-center mx-auto px-12 pointer-events-auto
+        `}
+        style={{
+          marginTop: scrolled ? '24px' : '0px',
+          width: scrolled ? '1400px' : '100%',
+
+          padding: '0 2rem',
+          transition: 'all 0.5s cubic-bezier(0.4,0,0.2,1)',
+        }}
+      >
+        <Image
+          src={scrolled ? logoBlack : logoWhite}
+          alt="logo"
+          width={70}
+          height={70}
+          className="rounded-full"
+        />
+        <nav>
+          <ul className="flex justify-center relative">
+            {navItems.map((item, idx) => (
+              <li
+                key={item.id}
+                ref={(el) => {
+                  navRefs.current[idx] = el
+                }}
+                className={`relative px-4 py-2 cursor-pointer ${
+                  scrolled ? 'text-black' : 'text-white'
+                }`}
+                onMouseEnter={() => handleMouseEnter(item.id, idx)}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => handleClick(item.id)}
+              >
+                {item.label}
+              </li>
+            ))}
+            {/* Blue underline (active) */}
+            <div
+              className="absolute"
+              style={{
+                left: blueStyle.left,
+                width: blueStyle.width,
+                height: '4px',
+                bottom: '-15px',
+                background: '#1e40af', // Tailwind blue-800
+                borderRadius: '2px',
+                transition: blueStyle.transition,
+                pointerEvents: 'none',
+                zIndex: 10,
               }}
-              className={`relative px-4 py-2 cursor-pointer ${
-                scrolled ? 'text-black' : 'text-white'
-              }`}
-              onMouseEnter={() => handleMouseEnter(item.id, idx)}
-              onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(item.id)}
-            >
-              {item.label}
-            </li>
-          ))}
-          {/* Blue underline (active) */}
-          <div
-            className="absolute"
-            style={{
-              left: blueStyle.left,
-              width: blueStyle.width,
-              height: '4px',
-              bottom: '-14px',
-              background: '#1e40af', // Tailwind blue-800
-              borderRadius: '2px',
-              transition: blueStyle.transition,
-              pointerEvents: 'none',
-              zIndex: 10,
-            }}
-          />
-          {/* Grey underline (hover, underneath blue) */}
-          <div
-            className="absolute"
-            style={{
-              left: greyStyle.left,
-              width: greyStyle.width,
-              height: '4px',
-              bottom: '-14px',
-              background: '#9ca3af', // Tailwind gray-400
-              borderRadius: '2px',
-              transition: greyStyle.transition,
-              pointerEvents: 'none',
-              zIndex: 5,
-              opacity: greyStyle.opacity,
-            }}
-          />
-        </ul>
-      </nav>
-      <button>buttons</button>
-    </header>
+            />
+            {/* Grey underline (hover, underneath blue) */}
+            <div
+              className="absolute"
+              style={{
+                left: greyStyle.left,
+                width: greyStyle.width,
+                height: '4px',
+                bottom: '-15px',
+                background: '#9ca3af', // Tailwind gray-400
+                borderRadius: '2px',
+                transition: greyStyle.transition,
+                pointerEvents: 'none',
+                zIndex: 5,
+                opacity: greyStyle.opacity,
+              }}
+            />
+          </ul>
+        </nav>
+        <button>buttons</button>
+      </header>
+    </div>
   )
 }
