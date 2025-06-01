@@ -9,7 +9,8 @@ export default function Home() {
 
       <main style={{ minHeight: '4000px' }}>
         {/* Section 1: Hero Section */}
-        <div
+        <section
+          id="home"
           className="h-screen w-full bg-cover bg-center text-white"
           style={{
             backgroundImage: `url(${heroImage.src})`,
@@ -19,7 +20,7 @@ export default function Home() {
           }}
         >
           <h1>Home</h1>
-        </div>
+        </section>
         {/* Section 2*/}
         <section id="solutions">
           <div className="h-screen w-full bg-cover bg-center text-black">
