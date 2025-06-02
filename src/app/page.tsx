@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import { Navbar } from '@/components'
+import { Navbar, ProcessSteps } from '@/components'
 
 export default function Home() {
   return (
     <>
       <Navbar />
 
-      <main style={{ minHeight: '4000px' }}>
+      <main>
         {/* Section 1: Hero Section */}
         <section id="home" className="relative h-screen w-full overflow-hidden">
           <video
@@ -149,7 +149,7 @@ export default function Home() {
         {/* Section 4 - Solutions */}
         <section
           id="solutions"
-          className="flex items-center justify-center bg-neutral-900 p-40 text-white"
+          className="flex h-screen items-center justify-center bg-neutral-900 p-40 text-white"
         >
           <div className="flex max-w-[1400px] items-center justify-center">
             <div className="flex flex-1 flex-col items-start justify-between">
@@ -176,6 +176,27 @@ export default function Home() {
                   bio-mechanical and physiological data
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+        <section className="m-auto h-screen max-w-[1400px]">
+          <div className="flex h-full items-center justify-between">
+            <h1 className="mb-20 flex-1 text-left text-8xl font-bold uppercase">
+              Who can benefit and how?
+            </h1>
+            <div>
+              <ProcessSteps />
+            </div>
+            <div className="flex flex-1 flex-col justify-center gap-4">
+              <h2 className="text-4xl font-bold">Data Acquisition</h2>
+              <p className="max-w-sm text-sm">
+                TNS integrates with a variety of devices and sensor fusion is
+                used to combine the multiple sources, for
+                example: Bio-mechanical data such as pose tracking Physiological
+                data from wearables (HR, HRV, Emg) Tests conducted by therapists
+                Third party devices (Apple, whoop, fitbit...) Fully customizable
+                to match the needs customer 
+              </p>
             </div>
           </div>
         </section>
