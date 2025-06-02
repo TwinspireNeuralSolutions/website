@@ -33,17 +33,16 @@ export default function Home() {
               <button className="text-md cursor-pointer rounded-full bg-white px-6 py-2 font-normal text-black shadow-md transition hover:bg-[#e0e0e0]">
                 Apply as a Team
               </button>
-              <button className="text-md cursor-pointer rounded-full bg-[#060e96] px-6 py-2 font-normal text-white shadow-md transition hover:bg-[#001060]">
+              <button className="text-md cursor-pointer rounded-full bg-[#0802A3] px-6 py-2 font-normal text-white shadow-md transition hover:bg-[#001060]">
                 Apply as a Therapist
               </button>
             </div>
           </div>
         </section>
-        {/* Section 2*/}
-
+        {/* Section 2 - Partners */}
         <section
           id="solutions"
-          className="custom-shape-divider-top-1748815566 flex w-full flex-col items-center justify-center bg-neutral-900 p-10 text-white"
+          className="custom-shape-divider-top-1748815566 flex w-full flex-col items-center justify-center bg-[#0802A3] p-10 text-white"
         >
           <span className="text-center text-2xl font-bold uppercase">
             Partners
@@ -71,6 +70,80 @@ export default function Home() {
               height={100}
               style={{ width: 'auto' }}
             />
+          </div>
+        </section>
+        <Image
+          src="/shapes/partners-shape-bottom.svg"
+          alt="Analytics"
+          width={100}
+          height={100}
+          style={{ width: '100%' }}
+        />
+        {/* Section 3 - About */}
+        <section
+          id="about"
+          className="flex w-full flex-col items-center justify-center p-10"
+        >
+          <h1 className="mb-10 text-center text-4xl font-bold uppercase">
+            About Twinpsire
+          </h1>
+          <div className="grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
+            {/* Top Left: Image */}
+            <div className="flex flex-col items-center">
+              <Image
+                src="/shapes/shape-1.svg"
+                alt="Analytics"
+                width={400}
+                height={400}
+              />
+            </div>
+            {/* Top Right: Text */}
+            <div className="flex flex-col justify-center">
+              <p className="font-medium">
+                The Twinspire platform enables{' '}
+                <b>dynamic personalization of training programs</b>,
+                continuously adapting to the user's physical performance and
+                objective recovery data. Feedback and recommendations evolve in
+                real time — tailored to each user's needs, progress, and risk
+                profile.
+              </p>
+            </div>
+            {/* Bottom Left: Text */}
+            <div className="flex flex-col justify-center">
+              <p>
+                The <b>voice-based interface</b> allows hands-free coaching and
+                real-time interaction via headset during physical training. This
+                enhances usability in active training environments where manual
+                or visual interfaces are impractical.
+              </p>
+            </div>
+            {/* Bottom Right: Image */}
+            <div className="flex flex-col items-center">
+              <Image
+                src="/shapes/shape-2.svg"
+                alt="Analytics"
+                width={400}
+                height={400}
+              />
+            </div>
+            {/* Bottom Left: Image */}
+            <div className="flex flex-col items-center">
+              <Image
+                src="/shapes/shape-3.svg"
+                alt="Analytics"
+                width={400}
+                height={400}
+              />
+            </div>
+            {/* Bottom Right: Text */}
+            <div className="flex flex-col justify-center">
+              <p>
+                At the foundation of the platform is a uniquely{' '}
+                <b>robust privacy and security architecture</b>, ensuring that
+                all sensitive health data is handled in full compliance with
+                GDPR and leading standards for secure, ethical AI.
+              </p>
+            </div>
           </div>
         </section>
       </main>
