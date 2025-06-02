@@ -146,6 +146,39 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Section 4 - Solutions */}
+        <section
+          id="solutions"
+          className="flex items-center justify-center bg-neutral-900 p-40 text-white"
+        >
+          <div className="flex max-w-[1400px] items-center justify-center">
+            <div className="flex flex-1 flex-col items-start justify-between">
+              <h1 className="mb-20 text-left text-8xl font-bold uppercase">
+                Who can benefit and how?
+              </h1>
+              <div className="flex w-full max-w-[300px] flex-row gap-2">
+                <span className="h-[6px] w-full flex-1 rounded-full bg-white" />
+                <span className="h-[6px] w-full flex-1 rounded-full bg-gray-500" />
+                <span className="h-[6px] w-full flex-1 rounded-full bg-gray-500" />
+              </div>
+            </div>
+            <div className="flex flex-1 flex-row items-center justify-center gap-4 text-center">
+              <div className="flex flex-col items-center justify-center">
+                <Image
+                  src="/illustrations/injury-cuate.png"
+                  alt="Analytics"
+                  width={400}
+                  height={400}
+                />
+                <h2 className="mt-6 mb-2 text-2xl font-bold">For Athletes</h2>
+                <p className="max-w-sm text-sm">
+                  We empower athletes to make return-to-play decisions based on
+                  bio-mechanical and physiological data
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer></footer>
     </>
