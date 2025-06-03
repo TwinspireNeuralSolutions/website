@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import {
+  Heading,
   Navbar,
   ProcessSteps,
   ServicesRowExpand,
@@ -25,13 +26,9 @@ export default function Home() {
             <source src="/hero-veido.mp4" type="video/mp4" />
           </video>
           <div className="relative flex h-screen w-full flex-col items-center justify-center text-white">
-            <h1 className="mb-4 text-center text-7xl font-extrabold uppercase">
-              TWINPSIRE
-            </h1>
-
-            <h1 className="mb-4 text-center text-6xl font-extrabold uppercase">
-              Neural Solutions
-            </h1>
+            <Heading className="mb-4 text-center">
+              TWINPSIRE <br /> Neural Solutions
+            </Heading>
             <h2 className="mt-6text-center text-2xl">
               Predicting Performance, Preventing Failures
             </h2>
