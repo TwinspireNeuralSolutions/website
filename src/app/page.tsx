@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Navbar, ProcessSteps, ServicesRowExpand } from '@/components'
+import { Navbar, ProcessSteps, ServicesRowExpand, Footer } from '@/components'
 
 export default function Home() {
   return (
@@ -184,7 +184,7 @@ export default function Home() {
             <h1 className="mb-20 flex-1 text-left text-8xl font-bold uppercase">
               Who can benefit and how?
             </h1>
-            <div>
+            <div className="h-[60%]">
               <ProcessSteps />
             </div>
             <div className="flex flex-1 flex-col justify-center gap-4">
@@ -208,8 +208,26 @@ export default function Home() {
             <ServicesRowExpand className="flex-1" />
           </div>
         </section>
+
+        <section className="flex h-screen w-full text-white">
+          <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
+            <h1 className="mb-20 text-8xl font-bold uppercase">Reviews</h1>
+          </div>
+        </section>
+        <Image
+          src="/shapes/partners-shape-bottom.svg"
+          alt="Analytics"
+          width={100}
+          height={100}
+          style={{ width: '100%', rotate: '180deg' }}
+        />
+        <section className="flex h-200 w-full bg-[#0802A3] text-white">
+          <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
+            <h1 className="mb-20 text-8xl font-bold uppercase">Reach Out!</h1>
+          </div>
+        </section>
       </main>
-      <footer></footer>
+      <Footer className="bg-neutral-900" />
     </>
   )
 }
