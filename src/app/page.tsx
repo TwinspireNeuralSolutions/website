@@ -1,5 +1,11 @@
 import Image from 'next/image'
-import { Navbar, ProcessSteps, ServicesRowExpand, Footer } from '@/components'
+import {
+  Navbar,
+  ProcessSteps,
+  ServicesRowExpand,
+  Footer,
+  TestimonialSlider,
+} from '@/components'
 
 export default function Home() {
   return (
@@ -51,7 +57,7 @@ export default function Home() {
             <Image
               src="/partners/dtu.png"
               alt="DTU"
-              width={250}
+              width={500}
               height={100}
               style={{ width: 'auto' }}
             />
@@ -59,14 +65,14 @@ export default function Home() {
             <Image
               src="/partners/sf.png"
               alt="SF"
-              width={250}
+              width={500}
               height={100}
               style={{ width: 'auto' }}
             />
             <Image
               src="/partners/hui.png"
               alt="HUI"
-              width={250}
+              width={500}
               height={100}
               style={{ width: 'auto' }}
             />
@@ -170,6 +176,7 @@ export default function Home() {
                   width={400}
                   height={400}
                 />
+
                 <h2 className="mt-6 mb-2 text-2xl font-bold">For Athletes</h2>
                 <p className="max-w-sm text-sm">
                   We empower athletes to make return-to-play decisions based on
@@ -209,9 +216,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex h-screen w-full text-white">
+        <section className="flex h-screen w-full">
           <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
-            <h1 className="mb-20 text-8xl font-bold uppercase">Reviews</h1>
+            <h1 className="mb-20 text-8xl font-bold uppercase">
+              WHAT PEOPLE <br /> SAY
+              <span className="text-[#0802A3]">ABOUT US?</span>
+            </h1>
+            <TestimonialSlider />
           </div>
         </section>
         <Image
