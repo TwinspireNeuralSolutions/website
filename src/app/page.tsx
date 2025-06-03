@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Navbar, ProcessSteps } from '@/components'
+import { Navbar, ProcessSteps, ServicesRowExpand } from '@/components'
 
 export default function Home() {
   return (
@@ -165,7 +165,7 @@ export default function Home() {
             <div className="flex flex-1 flex-row items-center justify-center gap-4 text-center">
               <div className="flex flex-col items-center justify-center">
                 <Image
-                  src="/illustrations/injury-cuate.png"
+                  src="/illustrations/injury.gif"
                   alt="Analytics"
                   width={400}
                   height={400}
@@ -198,6 +198,14 @@ export default function Home() {
                 to match the needs customer 
               </p>
             </div>
+          </div>
+        </section>
+        <section className="flex h-screen w-full bg-neutral-900 text-white">
+          <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
+            <h1 className="mb-20 text-8xl font-bold uppercase">
+              Our Services!
+            </h1>
+            <ServicesRowExpand className="flex-1" />
           </div>
         </section>
       </main>
