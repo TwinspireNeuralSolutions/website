@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import {
   Heading,
+  Button,
   Navbar,
   ProcessSteps,
   ServicesRowExpand,
@@ -33,12 +34,8 @@ export default function Home() {
               Predicting Performance, Preventing Failures
             </h2>
             <div className="mt-20 flex flex-row gap-4">
-              <button className="text-md cursor-pointer rounded-full bg-white px-6 py-2 font-normal text-black shadow-md transition hover:bg-[#e0e0e0]">
-                Apply as a Team
-              </button>
-              <button className="text-md cursor-pointer rounded-full bg-[#0802A3] px-6 py-2 font-normal text-white shadow-md transition hover:bg-[#001060]">
-                Apply as a Therapist
-              </button>
+              <Button color="white">Apply as a Team</Button>
+              <Button color="blue">Apply as a Therapist</Button>
             </div>
           </div>
         </section>

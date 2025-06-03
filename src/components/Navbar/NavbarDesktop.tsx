@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react'
 
-import { LanguageSelect } from '@/components/atoms'
+import { LanguageSelect, Button } from '@/components'
 
 import Image from 'next/image'
 import logoBlack from '@/public/logo-black.png'
@@ -165,9 +165,7 @@ export default function NavbarDesktop({
         <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} />
 
         {/* Book a call button */}
-        <button className="text-md cursor-pointer rounded-full bg-[#060e96] px-6 py-2 font-normal text-white shadow-md transition hover:bg-[#001060]">
-          Book a call
-        </button>
+        <Button>Book a call</Button>
       </div>
     </div>
   )
