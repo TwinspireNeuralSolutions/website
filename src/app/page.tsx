@@ -9,6 +9,8 @@ import {
   TestimonialSlider,
 } from '@/components'
 
+import { Partners } from '@/components/Sections'
+
 export default function Home() {
   return (
     <>
@@ -40,38 +42,7 @@ export default function Home() {
           </div>
         </section>
         {/* Section 2 - Partners */}
-        <section
-          id="solutions"
-          className="custom-shape-divider-top-1748815566 flex w-full flex-col items-center justify-center bg-[#0802A3] p-10 text-white"
-        >
-          <span className="text-center text-2xl font-bold uppercase">
-            Partners
-          </span>
-          <div className="mt-10 flex flex-row gap-4">
-            <Image
-              src="/partners/dtu.png"
-              alt="DTU"
-              width={500}
-              height={100}
-              style={{ width: 'auto' }}
-            />
-
-            <Image
-              src="/partners/sf.png"
-              alt="SF"
-              width={500}
-              height={100}
-              style={{ width: 'auto' }}
-            />
-            <Image
-              src="/partners/hui.png"
-              alt="HUI"
-              width={500}
-              height={100}
-              style={{ width: 'auto' }}
-            />
-          </div>
-        </section>
+        <Partners />
         <Image
           src="/shapes/partners-shape-bottom.svg"
           alt="Analytics"
