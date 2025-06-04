@@ -10,7 +10,7 @@ const navItems = [
 import NavbarDesktop from './NavbarDesktop'
 import NavbarMobile from './NavbarMobile'
 
-export default function Navbar() {
+export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 

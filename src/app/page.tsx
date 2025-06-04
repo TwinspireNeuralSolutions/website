@@ -9,7 +9,7 @@ import {
   TestimonialSlider,
 } from '@/components'
 
-import { Partners } from '@/components/Sections'
+import { Partners } from '@/components/Modules'
 
 export default function Home() {
   return (
@@ -58,64 +58,6 @@ export default function Home() {
           <h1 className="mb-10 text-center text-4xl font-bold uppercase">
             About Twinpsire
           </h1>
-          <div className="grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
-            {/* Top Left: Image */}
-            <div className="flex flex-col items-center">
-              <Image
-                src="/shapes/shape-1.svg"
-                alt="Analytics"
-                width={400}
-                height={400}
-              />
-            </div>
-            {/* Top Right: Text */}
-            <div className="flex flex-col justify-center">
-              <p className="font-medium">
-                The Twinspire platform enables{' '}
-                <b>dynamic personalization of training programs</b>,
-                continuously adapting to the user's physical performance and
-                objective recovery data. Feedback and recommendations evolve in
-                real time — tailored to each user's needs, progress, and risk
-                profile.
-              </p>
-            </div>
-            {/* Bottom Left: Text */}
-            <div className="flex flex-col justify-center">
-              <p>
-                The <b>voice-based interface</b> allows hands-free coaching and
-                real-time interaction via headset during physical training. This
-                enhances usability in active training environments where manual
-                or visual interfaces are impractical.
-              </p>
-            </div>
-            {/* Bottom Right: Image */}
-            <div className="flex flex-col items-center">
-              <Image
-                src="/shapes/shape-2.svg"
-                alt="Analytics"
-                width={400}
-                height={400}
-              />
-            </div>
-            {/* Bottom Left: Image */}
-            <div className="flex flex-col items-center">
-              <Image
-                src="/shapes/shape-3.svg"
-                alt="Analytics"
-                width={400}
-                height={400}
-              />
-            </div>
-            {/* Bottom Right: Text */}
-            <div className="flex flex-col justify-center">
-              <p>
-                At the foundation of the platform is a uniquely{' '}
-                <b>robust privacy and security architecture</b>, ensuring that
-                all sensitive health data is handled in full compliance with
-                GDPR and leading standards for secure, ethical AI.
-              </p>
-            </div>
-          </div>
         </section>
         {/* Section 4 - Solutions */}
         <section

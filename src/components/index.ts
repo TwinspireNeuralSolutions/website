@@ -1,6 +1,4 @@
-export { default as Navbar } from './Navbar'
+export * from './Modules'
+export * from './Atoms'
 export * from './ProcessSteps'
 export * from './ServicesRowExpand'
-export * from './Footer'
-export * from './Reviews'
-export * from './Atoms'
