@@ -1,15 +1,7 @@
 import Image from 'next/image'
-import {
-  Heading,
-  Button,
-  Navbar,
-  ProcessSteps,
-  ServicesRowExpand,
-  Footer,
-  TestimonialSlider,
-} from '@/components'
+import { Heading, Button, ProcessSteps, ServicesRowExpand } from '@/components'
 
-import { Partners } from '@/components/Modules'
+import { Navbar, Partners, Footer, Reviews, TwinAI } from '@/components/Modules'
 
 export default function Home() {
   return (
@@ -51,14 +43,7 @@ export default function Home() {
           style={{ width: '100%' }}
         />
         {/* Section 3 - About */}
-        <section
-          id="about"
-          className="flex w-full flex-col items-center justify-center p-10"
-        >
-          <h1 className="mb-10 text-center text-4xl font-bold uppercase">
-            About Twinpsire
-          </h1>
-        </section>
+        <TwinAI />
         {/* Section 4 - Solutions */}
         <section
           id="solutions"
@@ -123,15 +108,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex h-screen w-full">
-          <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
-            <h1 className="mb-20 text-8xl font-bold uppercase">
-              WHAT PEOPLE <br /> SAY
-              <span className="text-[#0802A3]">ABOUT US?</span>
-            </h1>
-            <TestimonialSlider />
-          </div>
-        </section>
+        {/* Section 5 - Reviews */}
+        <Reviews />
+
         <Image
           src="/shapes/partners-shape-bottom.svg"
           alt="Analytics"

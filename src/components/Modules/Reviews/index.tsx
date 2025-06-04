@@ -52,7 +52,7 @@ const TestimonialCard = ({ name, quote }: { name: string; quote: string }) => (
   </div>
 )
 
-export const TestimonialSlider = () => {
+export const Reviews = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -82,19 +82,27 @@ export const TestimonialSlider = () => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl">
-      <Slider {...settings}>
-        {testimonials.map((t) => (
-          <TestimonialCard key={t.id} {...t} />
-        ))}
-      </Slider>
+    <section className="flex h-screen w-full">
+      <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
+        <h1 className="mb-20 text-8xl font-bold uppercase">
+          WHAT PEOPLE <br /> SAY
+          <span className="text-[#0802A3]">ABOUT US?</span>
+        </h1>
+        <div className="mx-auto max-w-6xl">
+          <Slider {...settings}>
+            {testimonials.map((t) => (
+              <TestimonialCard key={t.id} {...t} />
+            ))}
+          </Slider>
 
-      {/* Activate black dot for current slide */}
-      <style jsx global>{`
-        .slick-dots li.slick-active div {
-          background: #000;
-        }
-      `}</style>
-    </div>
+          {/* Activate black dot for current slide */}
+          <style jsx global>{`
+            .slick-dots li.slick-active div {
+              background: #000;
+            }
+          `}</style>
+        </div>
+      </div>
+    </section>
   )
 }
