@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Heading, Button, ProcessSteps, ServicesRowExpand } from '@/components'
+import { H1, Button, ProcessSteps, ServicesRowExpand, H3 } from '@/components'
 
 import { Navbar, Partners, Footer, Reviews, TwinAI } from '@/components/Modules'
 
@@ -21,12 +21,10 @@ export default function Home() {
             <source src="/hero-veido.mp4" type="video/mp4" />
           </video>
           <div className="relative flex h-screen w-full flex-col items-center justify-center text-white">
-            <Heading className="mb-4 text-center">
-              TWINPSIRE <br /> Neural Solutions
-            </Heading>
-            <h2 className="mt-6text-center text-2xl">
-              Predicting Performance, Preventing Failures
-            </h2>
+            <H1 className="mb-4 text-center">Sport Reimagined with Twin-AI</H1>
+            <H3>
+              AI-Driven Insights for Stronger, Smarter Recovery and Performance
+            </H3>
             <div className="mt-20 flex flex-row gap-4">
               <Button color="white">Apply as a Team</Button>
               <Button color="blue">Apply as a Therapist</Button>
@@ -90,11 +88,11 @@ export default function Home() {
               <h2 className="text-4xl font-bold">Data Acquisition</h2>
               <p className="max-w-sm text-sm">
                 TNS integrates with a variety of devices and sensor fusion is
-                used to combine the multiple sources, for
-                example: Bio-mechanical data such as pose tracking Physiological
-                data from wearables (HR, HRV, Emg) Tests conducted by therapists
-                Third party devices (Apple, whoop, fitbit...) Fully customizable
-                to match the needs customer 
+                used to combine the multiple sources, for example:Bio-mechanical
+                data such as pose tracking Physiological data from wearables
+                (HR, HRV, Emg) Tests conducted by therapists Third party devices
+                (Apple, whoop, fitbit...) Fully customizable to match the needs
+                customer
               </p>
             </div>
           </div>
@@ -109,7 +107,7 @@ export default function Home() {
         </section>
 
         {/* Section 5 - Reviews */}
-        <Reviews />
+        {/* <Reviews /> */}
 
         <Image
           src="/shapes/partners-shape-bottom.svg"
