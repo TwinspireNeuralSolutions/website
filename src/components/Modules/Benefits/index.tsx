@@ -1,6 +1,6 @@
 'use client'
 
-import { H1 } from '@/components/Atoms/Typography'
+import { H1 } from '@/components'
 import Layout from '@/components/Layout'
 import { physioDefinitions, sportTeamDefinitions } from './definitions'
 import { AnimatePresence } from 'framer-motion'
