@@ -1,14 +1,11 @@
-const Layout = ({
-  children,
-  id,
-  sectionClassName,
-  className,
-}: {
+interface LayoutProps {
   children: React.ReactNode
   id?: string
   sectionClassName?: string
   className?: string
-}) => {
+}
+
+const Layout = ({ children, id, sectionClassName, className }: LayoutProps) => {
   return (
     <section
       id={id}
