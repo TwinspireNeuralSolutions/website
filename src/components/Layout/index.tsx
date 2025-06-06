@@ -14,7 +14,7 @@ const Layout = ({
       id={id}
       className={`px-10 py-15 md:px-20 md:py-30 ${sectionClassName}`}
     >
-      <div className={`mx-auto max-w-[1200px] ${className}`}>{children}</div>
+      <div className={`mx-auto max-w-[1400px] ${className}`}>{children}</div>
     </section>
   )
 }

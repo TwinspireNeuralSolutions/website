@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { H1, Button, ProcessSteps, ServicesRowExpand, H3 } from '@/components'
+import { H1, Button, ServicesRowExpand, H3 } from '@/components'
 
 import {
   Navbar,
@@ -8,6 +8,7 @@ import {
   Reviews,
   TwinAI,
   Benefits,
+  Process,
 } from '@/components/Modules'
 import Layout from '@/components/Layout'
 
@@ -56,27 +57,8 @@ export default function Home() {
         {/* Section 4 - Solutions */}
         <Benefits />
 
-        <section className="m-auto h-screen max-w-[1400px]">
-          <div className="flex h-full items-center justify-between">
-            <h1 className="mb-20 flex-1 text-left text-8xl font-bold uppercase">
-              Who can benefit and how?
-            </h1>
-            <div className="h-[60%]">
-              <ProcessSteps />
-            </div>
-            <div className="flex flex-1 flex-col justify-center gap-4">
-              <h2 className="text-4xl font-bold">Data Acquisition</h2>
-              <p className="max-w-sm text-sm">
-                TNS integrates with a variety of devices and sensor fusion is
-                used to combine the multiple sources, for example:Bio-mechanical
-                data such as pose tracking Physiological data from wearables
-                (HR, HRV, Emg) Tests conducted by therapists Third party devices
-                (Apple, whoop, fitbit...) Fully customizable to match the needs
-                customer
-              </p>
-            </div>
-          </div>
-        </section>
+        <Process />
+
         <section className="flex h-screen w-full bg-neutral-900 text-white">
           <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
             <h1 className="mb-20 text-8xl font-bold uppercase">
