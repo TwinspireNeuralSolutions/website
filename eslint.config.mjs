@@ -2,42 +2,42 @@
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+import reactPlugin from 'eslint-plugin-react'
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
+import nextPlugin from '@next/eslint-plugin-next'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  recommendedConfig: {
-    extends: [
-      'eslint:recommended',
-      'next/core-web-vitals',
-      'plugin:react/recommended',
-      'plugin:jsx-a11y/recommended',
-      'plugin:@typescript-eslint/recommended',
-      'prettier',
-    ],
-  },
 })
+
 const config = [
-  ...compat.extends(
-    'eslint:recommended',
-    'next/core-web-vitals',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier' // must be last to disable conflicting rules
-  ),
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    ignores: ['node_modules/**', '.next/**', 'dist/**'],
+  },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parser: tseslint.parser,
       parserOptions: {
         project: './tsconfig.json',
         sourceType: 'module',
       },
     },
-  },
-  {
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+      react: reactPlugin,
+      'jsx-a11y': jsxA11yPlugin,
+      next: nextPlugin,
+    },
     rules: {
       // Custom rules
       'react/react-in-jsx-scope': 'off', // Not needed in Next.js
@@ -54,6 +54,15 @@ const config = [
       ],
     },
   },
+  // Add recommended configs
+  ...compat.extends(
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'next/core-web-vitals',
+    'prettier' // must be last to disable conflicting rules
+  ),
 ]
 
 export default config
