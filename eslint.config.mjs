@@ -3,7 +3,8 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
 import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import * as parser from '@typescript-eslint/parser'
+import * as plugin from '@typescript-eslint/eslint-plugin'
 import reactPlugin from 'eslint-plugin-react'
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 import nextPlugin from '@next/eslint-plugin-next'
@@ -26,14 +27,14 @@ const config = [
         ...globals.browser,
         ...globals.node,
       },
-      parser: tseslint.parser,
+      parser: parser,
       parserOptions: {
         project: './tsconfig.json',
         sourceType: 'module',
       },
     },
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
+      '@typescript-eslint': plugin,
       react: reactPlugin,
       'jsx-a11y': jsxA11yPlugin,
       next: nextPlugin,

@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { H1, Button, ServicesRowExpand, H3 } from '@/components'
+import { H1, Button, H3 } from '@/components/Atoms'
+import { ServicesRowExpand } from '@/components/ServicesRowExpand'
 
 import {
   Navbar,
