@@ -1,2 +1,2 @@
-export * from './Atoms'
+export * from './Atoms/index'
 export * from './ServicesRowExpand'

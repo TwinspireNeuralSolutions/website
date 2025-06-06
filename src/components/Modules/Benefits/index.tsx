@@ -1,33 +1,92 @@
-import Image from 'next/image'
+'use client'
+
 import { H1 } from '@/components'
 import Layout from '@/components/Layout'
-import { sportTeamDefinitions, physioDefinitions } from './definitions'
+import { physioDefinitions, sportTeamDefinitions } from './definitions'
+import { AnimatePresence } from 'framer-motion'
+import { useRef } from 'react'
+import { useSectionScrollProgress, useSectionMultiStepProgress } from '@/hooks'
+import { AnimatedBenefits } from './AnimatedBenefits'
 
-import InjuryGif from '@/public/illustrations/injury.gif'
+export const Benefits = () => {
+  const sectionRef = useRef<HTMLElement>(null as unknown as HTMLElement)
+  const progress = useSectionScrollProgress(sectionRef, 200)
+  const { step, stepProgress, overallProgress } = useSectionMultiStepProgress(
+    sectionRef,
+    [200, 1500, 1500]
+  )
 
-export const Benefits = () => (
-  <Layout
-    sectionClassName="h-screen bg-neutral-900 overflow-y-auto"
-    className="flex h-full items-start justify-between"
-  >
-    <div className="flex h-full flex-1 flex-col text-white">
-      <H1>Benefits for Teams</H1>
-      <Image src={InjuryGif} alt="Injury" width={350} height={350} />
-      <div className="flex h-full w-full flex-1 flex-row items-end gap-2">
-        <span className={`h-[6px] w-full flex-1 rounded-full bg-white`} />
-        <span className={`h-[6px] w-full flex-1 rounded-full bg-gray-500`} />
-      </div>
-    </div>
-    <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center text-white">
-      {sportTeamDefinitions.map(({ title, benefit }, index) => (
-        <div
-          key={index}
-          className="items-left flex flex-col justify-center text-left"
-        >
-          <h2 className="mt-6 mb-2 text-2xl font-bold">{title}</h2>
-          <p className="max-w-sm text-sm">{benefit}</p>
+  console.log({ step, stepProgress, overallProgress })
+
+  return (
+    <Layout
+      ref={sectionRef}
+      sectionClassName="min-h-screen bg-neutral-900"
+      className="flex min-h-screen gap-30"
+    >
+      {/* Sticky left section */}
+      <div className="sticky top-0 flex h-[90%] max-w-[50%] flex-col items-center justify-between pt-30 text-white">
+        <H1 progress={progress}>
+          Benefits for {step <= 1 ? 'Sports Teams' : 'Physio'}
+        </H1>
+
+        <div className="mt-30 mb-12 flex w-full gap-2">
+          {/* Animated progress bar */}
+          <span
+            className={`h-[6px] flex-1 overflow-hidden rounded-full bg-gray-500 transition-all`}
+            style={{
+              position: 'relative',
+              background: '#9ca3af',
+            }}
+          >
+            <span
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                height: '100%',
+                width: `${step >= 1 ? 100 : 0}%`,
+                background: '#fff',
+                borderRadius: '9999px',
+                transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
+                zIndex: 2,
+                pointerEvents: 'none',
+              }}
+            />
+          </span>
+          {/* Static gray bar */}
+          <span
+            className={`h-[6px] flex-1 overflow-hidden rounded-full bg-gray-500 transition-all`}
+            style={{
+              position: 'relative',
+              background: '#9ca3af',
+            }}
+          >
+            <span
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                height: '100%',
+                width: `${step >= 2 ? 100 : 0}%`,
+                background: '#fff',
+                borderRadius: '9999px',
+                transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
+                zIndex: 2,
+                pointerEvents: 'none',
+              }}
+            />
+          </span>
         </div>
-      ))}
-    </div>
-  </Layout>
-)
+      </div>
+
+      <div className="flex flex-1 flex-col">
+        <AnimatePresence mode="wait">
+          <AnimatedBenefits key="sport" data={sportTeamDefinitions} />
+
+          <AnimatedBenefits key="physio" data={physioDefinitions} />
+        </AnimatePresence>
+      </div>
+    </Layout>
+  )
+}
