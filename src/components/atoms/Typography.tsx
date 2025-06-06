@@ -1,13 +1,47 @@
+import React from 'react'
+
 export const H1 = ({
   children,
-  className,
+  className = '',
+  style = {},
+  progress,
 }: {
   children: React.ReactNode
   className?: string
+  style?: React.CSSProperties
+  progress?: number
 }) => {
+  const hasProgress = typeof progress === 'number'
+
+  const safeProgress = hasProgress
+    ? Math.min(1, Math.max(0, Number(progress)))
+    : undefined
+
+  console.log({ hasProgress, safeProgress, progress })
+
   return (
     <h1
       className={`max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${className}`}
+      style={
+        hasProgress
+          ? {
+              backgroundImage:
+                'linear-gradient(to bottom, #fff 50%, #9ca3af 50%)',
+              backgroundSize: '100% 200%',
+              backgroundPosition: `0 ${100 - safeProgress! * 100}%`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              WebkitTextFillColor: 'transparent',
+              // Make the transition slower and super smooth:
+              transition: 'background-position .3s cubic-bezier(0.4,0,0.2,1)',
+              ...style,
+            }
+          : {
+              color: '#fff',
+              ...style,
+            }
+      }
     >
       {children}
     </h1>
