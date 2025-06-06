@@ -1,7 +1,15 @@
 import Image from 'next/image'
 import { H1, Button, ProcessSteps, ServicesRowExpand, H3 } from '@/components'
 
-import { Navbar, Partners, Footer, Reviews, TwinAI } from '@/components/Modules'
+import {
+  Navbar,
+  Partners,
+  Footer,
+  Reviews,
+  TwinAI,
+  Benefits,
+} from '@/components/Modules'
+import Layout from '@/components/Layout'
 
 export default function Home() {
   return (
@@ -20,7 +28,10 @@ export default function Home() {
           >
             <source src="/hero-veido.mp4" type="video/mp4" />
           </video>
-          <div className="relative flex h-screen w-full flex-col items-center justify-center text-white">
+          <Layout
+            sectionClassName="h-screen flex items-center"
+            className="relative flex flex-col items-center text-white"
+          >
             <H1 className="mb-4 text-center">Sport Reimagined with Twin-AI</H1>
             <H3>
               AI-Driven Insights for Stronger, Smarter Recovery and Performance
@@ -29,7 +40,7 @@ export default function Home() {
               <Button color="white">Apply as a Team</Button>
               <Button color="blue">Apply as a Therapist</Button>
             </div>
-          </div>
+          </Layout>
         </section>
         {/* Section 2 - Partners */}
         <Partners />
@@ -43,39 +54,8 @@ export default function Home() {
         {/* Section 3 - About */}
         <TwinAI />
         {/* Section 4 - Solutions */}
-        <section
-          id="solutions"
-          className="flex h-screen items-center justify-center bg-neutral-900 p-40 text-white"
-        >
-          <div className="flex max-w-[1400px] items-center justify-center">
-            <div className="flex flex-1 flex-col items-start justify-between">
-              <h1 className="mb-20 text-left text-8xl font-bold uppercase">
-                Who can benefit and how?
-              </h1>
-              <div className="flex w-full max-w-[300px] flex-row gap-2">
-                <span className="h-[6px] w-full flex-1 rounded-full bg-white" />
-                <span className="h-[6px] w-full flex-1 rounded-full bg-gray-500" />
-                <span className="h-[6px] w-full flex-1 rounded-full bg-gray-500" />
-              </div>
-            </div>
-            <div className="flex flex-1 flex-row items-center justify-center gap-4 text-center">
-              <div className="flex flex-col items-center justify-center">
-                <Image
-                  src="/illustrations/injury.gif"
-                  alt="Analytics"
-                  width={400}
-                  height={400}
-                />
+        <Benefits />
 
-                <h2 className="mt-6 mb-2 text-2xl font-bold">For Athletes</h2>
-                <p className="max-w-sm text-sm">
-                  We empower athletes to make return-to-play decisions based on
-                  bio-mechanical and physiological data
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
         <section className="m-auto h-screen max-w-[1400px]">
           <div className="flex h-full items-center justify-between">
             <h1 className="mb-20 flex-1 text-left text-8xl font-bold uppercase">
