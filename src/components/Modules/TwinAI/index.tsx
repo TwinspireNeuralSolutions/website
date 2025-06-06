@@ -1,4 +1,4 @@
-import { H1, H2, H3 } from '@/components/Atoms'
+import { H1, H2, H3 } from '@/components'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import { definitions } from './definitions'
