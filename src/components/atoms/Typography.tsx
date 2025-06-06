@@ -6,7 +6,9 @@ export const H1 = ({
   className?: string
 }) => {
   return (
-    <h1 className={`max-w-5xl text-8xl font-bold uppercase ${className}`}>
+    <h1
+      className={`max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${className}`}
+    >
       {children}
     </h1>
   )
