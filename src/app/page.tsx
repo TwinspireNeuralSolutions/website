@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { H1, Button, H3 } from '@/components/Atoms'
+import { H1, Button, H3 } from '@/components/atoms'
 import { ServicesRowExpand } from '@/components/ServicesRowExpand'
 
 import {
@@ -10,8 +10,8 @@ import {
   TwinAI,
   Benefits,
   Process,
-} from '@/components/Modules'
-import Layout from '@/components/Layout'
+} from '@/components/modules'
+import Layout from '@/components/layout'
 
 export default function Home() {
   return (

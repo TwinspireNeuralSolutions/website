@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout'
+import Layout from '@/components/layout'
 import { H2 } from '@/components'
 
 import { processDefinitions } from './definitions'

@@ -1,3 +1,3 @@
-export * from './Atoms'
+export * from './atoms'
 export * from './ServicesRowExpand'
-export * from './Modules'
+export * from './modules'
