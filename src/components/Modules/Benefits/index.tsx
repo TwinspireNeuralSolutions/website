@@ -1,7 +1,7 @@
 'use client'
 
-import { H1 } from '@/components/atoms'
-import Layout from '@/components/layout'
+import { H1 } from '@/components/Atoms'
+import Layout from '@/components/Layout'
 import { physioDefinitions, sportTeamDefinitions } from './definitions'
 import { AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
