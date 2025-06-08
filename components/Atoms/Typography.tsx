@@ -17,8 +17,6 @@ export const H1 = ({
     ? Math.min(1, Math.max(0, Number(progress)))
     : undefined
 
-  console.log({ hasProgress, safeProgress, progress })
-
   return (
     <h1
       className={`max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${className}`}
