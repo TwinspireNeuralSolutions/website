@@ -74,5 +74,3 @@ export const H3 = ({
     </h3>
   )
 }
-
-export default { H1, H2, H3 }
