@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react'
 
-import { LanguageSelect, Button } from '@/components'
+import { LanguageSelect, Button } from 'components'
 
 import Image from 'next/image'
 import logoBlack from '@/public/logo-black.png'

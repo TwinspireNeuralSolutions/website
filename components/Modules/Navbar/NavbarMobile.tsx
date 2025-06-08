@@ -1,4 +1,4 @@
-import { Button, LanguageSelect, MenuToggle } from '@/components'
+import { Button, LanguageSelect, MenuToggle } from 'components'
 
 import Image from 'next/image'
 import logoBlack from '@/public/logo-black.png'

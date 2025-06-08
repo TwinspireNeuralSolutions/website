@@ -1,11 +1,11 @@
 'use client'
 
-import { H1 } from '@/components'
-import Layout from '@/components/Layout'
+import { H1 } from 'components'
+import Layout from 'components/Layout'
 import { physioDefinitions, sportTeamDefinitions } from './definitions'
 import { AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
-import { useSectionScrollProgress, useSectionMultiStepProgress } from '@/hooks'
+import { useSectionScrollProgress, useSectionMultiStepProgress } from 'hooks'
 import { AnimatedBenefits } from './AnimatedBenefits'
 
 export const Benefits = () => {
@@ -15,8 +15,6 @@ export const Benefits = () => {
     sectionRef,
     [200, 1500, 1500]
   )
-
-  console.log({ step, stepProgress, overallProgress })
 
   return (
     <Layout

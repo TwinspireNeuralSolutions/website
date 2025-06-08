@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout'
-import { H2 } from '@/components'
+import Layout from 'components/Layout'
+import { H2 } from 'components'
 
 import { processDefinitions } from './definitions'
 import { ProcessSteps } from './ProcessSteps'
