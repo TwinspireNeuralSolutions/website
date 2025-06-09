@@ -15,7 +15,7 @@ export const TestimonialCard = ({
 }) => {
   return (
     <div
-      className={`relative m-0 flex h-[250px] flex-col items-center justify-center rounded-3xl bg-blue-200 p-4`}
+      className={`relative m-0 flex h-[250px] flex-col items-center justify-center rounded-3xl bg-blue-300 p-4`}
     >
       {image ? (
         <Image

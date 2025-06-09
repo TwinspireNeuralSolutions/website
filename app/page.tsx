@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { H1, Button, H3 } from 'components/Atoms'
+import { H1, Button, H3, AnimatedHeadline } from 'components/Atoms'
 import { ServicesRowExpand } from 'components/ServicesRowExpand'
 import Layout from 'components/Layout'
 import {
@@ -33,7 +33,7 @@ export default function Home() {
             sectionClassName="h-screen flex items-center"
             className="relative flex flex-col items-center text-white"
           >
-            <H1 className="mb-4 text-center">Sport Reimagined with Twin-AI</H1>
+            <AnimatedHeadline />
             <H3>
               AI-Driven Insights for Stronger, Smarter Recovery and Performance
             </H3>

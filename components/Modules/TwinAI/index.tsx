@@ -28,7 +28,7 @@ export const TwinAI = () => {
               <p className="mt-6">{definition.description}</p>
             </div>
             <div className="relative flex h-[340px] w-[340px] items-center justify-center">
-              <div className="absolute h-full w-full rounded-xl bg-indigo-100" />
+              <div className="absolute h-full w-full rounded-xl bg-blue-200" />
               <Image
                 src={definition.image}
                 alt="AI Illustration"
