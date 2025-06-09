@@ -13,22 +13,22 @@ export const Partners = () => {
           alt="DTU"
           width={100}
           height={100}
-          className="h-16 w-auto object-contain"
+          className="h-16 w-auto object-contain brightness-90 contrast-125 grayscale"
         />
 
         <Image
-          src="/partners/fs.png"
+          src="/partners/sf.svg"
           alt="SF"
           width={100}
           height={100}
-          className="h-16 w-auto object-contain"
+          className="h-16 w-auto object-contain brightness-99 contrast-100 grayscale"
         />
         <Image
           src="/partners/hui.png"
           alt="HUI"
           width={100}
           height={100}
-          className="h-16 w-auto object-contain"
+          className="h-16 w-auto object-contain brightness-65 contrast-60 grayscale"
         />
       </div>
     </section>
