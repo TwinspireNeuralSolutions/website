@@ -59,7 +59,10 @@ export default function Home() {
 
         <Process />
 
-        <section className="flex h-screen w-full bg-neutral-900 text-white">
+        <section
+          id="services"
+          className="flex h-screen w-full bg-neutral-900 text-white"
+        >
           <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
             <H1 className="mb-20 text-8xl font-bold uppercase">
               Our Services!

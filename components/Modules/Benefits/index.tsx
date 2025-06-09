@@ -18,6 +18,7 @@ export const Benefits = () => {
 
   return (
     <Layout
+      id="benefits"
       ref={sectionRef}
       sectionClassName="min-h-screen bg-neutral-900"
       className="flex min-h-screen gap-30"

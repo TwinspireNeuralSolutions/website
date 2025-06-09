@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react'
 
 const navItems = [
   { label: 'Home', id: 'home', href: '#home' },
-  { label: 'Solutions', id: 'solutions', href: '#solutions' },
-  { label: 'About Us', id: 'about', href: '#about' },
+  { label: 'Twin-AI', id: 'twin-ai', href: '#twin-ai' },
+  { label: 'Benefits', id: 'benefits', href: '#benefits' },
+  { label: 'Process', id: 'process', href: '#process' },
+  { label: 'Services', id: 'services', href: '#services' },
 ]
 
 import NavbarDesktop from './NavbarDesktop'

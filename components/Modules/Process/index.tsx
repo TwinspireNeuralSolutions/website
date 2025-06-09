@@ -6,7 +6,7 @@ import { ProcessSteps } from './ProcessSteps'
 
 export const Process = () => {
   return (
-    <Layout className="flex h-screen items-center justify-center">
+    <Layout id="process" className="flex h-screen items-center justify-center">
       <h1 className="mb-20 flex-1 text-left text-8xl font-bold uppercase">
         How Twinspire Delivers Actionable Insights
       </h1>

@@ -6,7 +6,7 @@ import { definitions } from './definitions'
 export const TwinAI = () => {
   return (
     <Layout
-      id="about"
+      id="twin-ai"
       className="flex flex-col items-center justify-center"
       // sectionClassName="h-screen overflow-hidden"
     >
