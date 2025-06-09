@@ -1,46 +1,52 @@
-import React from 'react'
+'use client'
+import React, { useRef, useState } from 'react'
+import { useMotionValueEvent } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useScroll } from 'framer-motion'
 
 export const H1 = ({
   children,
   className = '',
   style = {},
-  progress,
   color = 'white',
+  sticky = false,
 }: {
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties
-  progress?: number
   color?: 'white' | 'black'
+  sticky?: boolean
 }) => {
-  const hasProgress = typeof progress === 'number'
+  const sectionRef = useRef<HTMLHeadingElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['end end', 'start start'],
+  })
 
-  const safeProgress = hasProgress
-    ? Math.min(1, Math.max(0, Number(progress)))
-    : undefined
+  // Local state for the scroll progress [0, 1]
+  const [progress, setProgress] = useState(0)
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    setProgress(latest)
+  })
+
+  // Clamp progress to [0, 1]
+  const safeProgress = Math.max(0, Math.min(1, progress))
 
   return (
     <h1
-      className={`max-w-5xl text-8xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
-      style={
-        hasProgress
-          ? {
-              backgroundImage:
-                'linear-gradient(to bottom, #fff 50%, #9ca3af 50%)',
-              backgroundSize: '100% 200%',
-              backgroundPosition: `0 ${100 - safeProgress! * 100}%`,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              WebkitTextFillColor: 'transparent',
-              // Make the transition slower and super smooth:
-              transition: 'background-position .3s cubic-bezier(0.4,0,0.2,1)',
-              ...style,
-            }
-          : {
-              ...style,
-            }
-      }
+      ref={sectionRef}
+      className={`max-w-5xl text-8xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${sticky ? 'sticky top-0 h-[90%] flex-1 pt-30' : ''} ${className}`}
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, #fff 50%, #9ca3af 50%)',
+        backgroundSize: '100% 200%',
+        backgroundPosition: `0 ${100 - safeProgress * 100}%`,
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+        WebkitTextFillColor: 'transparent',
+        transition: 'background-position 0s linear', // <-- strictly linear, no easing, no delay
+        ...style,
+      }}
     >
       {children}
     </h1>
