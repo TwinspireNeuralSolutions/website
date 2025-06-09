@@ -81,9 +81,17 @@ export const Benefits = () => {
 
       <div className="flex flex-1 flex-col">
         <AnimatePresence mode="wait">
-          <AnimatedBenefits key="sport" data={sportTeamDefinitions} />
+          <AnimatedBenefits
+            key="sport"
+            data={sportTeamDefinitions}
+            name="Sports Teams"
+          />
 
-          <AnimatedBenefits key="physio" data={physioDefinitions} />
+          <AnimatedBenefits
+            key="physio"
+            data={physioDefinitions}
+            name="Physiotherapists"
+          />
         </AnimatePresence>
       </div>
     </Layout>
