@@ -71,7 +71,7 @@ export default function Home() {
         {/* Section 5 - Reviews */}
         <Reviews />
 
-        <Image
+        {/* <Image
           src="/shapes/partners-shape-bottom.svg"
           alt="Analytics"
           width={100}
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
             <h1 className="mb-20 text-8xl font-bold uppercase">Reach Out!</h1>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer className="bg-neutral-900" />
     </>
