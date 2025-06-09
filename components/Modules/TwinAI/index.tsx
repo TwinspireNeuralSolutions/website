@@ -10,7 +10,10 @@ export const TwinAI = () => {
       className="flex flex-col items-center justify-center"
       // sectionClassName="h-screen overflow-hidden"
     >
-      <H1 className="mb-10 text-center text-4xl font-bold uppercase">
+      <H1
+        className="mb-10 text-center text-4xl font-bold uppercase"
+        color="black"
+      >
         Digital Twins for Sport & Rehab
       </H1>
       <div className="w-full flex-row border-t border-gray-200">

@@ -61,15 +61,15 @@ export default function Home() {
 
         <section className="flex h-screen w-full bg-neutral-900 text-white">
           <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
-            <h1 className="mb-20 text-8xl font-bold uppercase">
+            <H1 className="mb-20 text-8xl font-bold uppercase">
               Our Services!
-            </h1>
+            </H1>
             <ServicesRowExpand className="flex-1" />
           </div>
         </section>
 
         {/* Section 5 - Reviews */}
-        {/* <Reviews /> */}
+        <Reviews />
 
         <Image
           src="/shapes/partners-shape-bottom.svg"

@@ -5,11 +5,13 @@ export const H1 = ({
   className = '',
   style = {},
   progress,
+  color = 'white',
 }: {
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties
   progress?: number
+  color?: 'white' | 'black'
 }) => {
   const hasProgress = typeof progress === 'number'
 
@@ -17,9 +19,11 @@ export const H1 = ({
     ? Math.min(1, Math.max(0, Number(progress)))
     : undefined
 
+  console.log({ safeProgress, children })
+
   return (
     <h1
-      className={`max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${className}`}
+      className={`max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
       style={
         hasProgress
           ? {
@@ -36,7 +40,6 @@ export const H1 = ({
               ...style,
             }
           : {
-              color: '#fff',
               ...style,
             }
       }

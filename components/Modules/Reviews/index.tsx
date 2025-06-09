@@ -37,7 +37,7 @@ export const Reviews = () => {
   return (
     <section className="flex min-h-[600px] w-[100vw] py-24">
       <div className="m-auto flex w-full flex-col items-center justify-center">
-        <H1 className="mb-20 text-center text-black">
+        <H1 className="mb-20 text-center" color="black">
           WHAT PEOPLE <br /> SAY{' '}
           <span className="text-[#0802A3]">ABOUT US?</span>
         </H1>
