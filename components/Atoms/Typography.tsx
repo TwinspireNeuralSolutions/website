@@ -35,7 +35,7 @@ export const H1 = ({
   return (
     <h1
       ref={sectionRef}
-      className={`z-10 max-w-5xl text-8xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${sticky ? 'sticky top-0 h-[90%] flex-1 pt-30' : ''} ${className}`}
+      className={`z-10 max-w-5xl text-8xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${sticky ? 'sticky top-0 h-[90%] flex-1' : ''} ${className}`}
       style={{
         backgroundImage: `linear-gradient(to bottom, ${color} 50%, #9ca3af 50%)`,
         backgroundSize: '100% 200%',
