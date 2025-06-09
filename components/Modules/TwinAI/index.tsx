@@ -11,13 +11,8 @@ export const TwinAI = () => (
     id="twin-ai"
     className="flex flex-col items-center justify-center pt-0"
   >
-    <div className="sticky top-0 z-10 w-full border-b border-gray-200 bg-white pt-[100px]">
-      <H1
-        className="mx-auto mb-10 text-center text-4xl font-bold uppercase"
-        color="black"
-      >
-        Digital Twins for Sport & Rehab
-      </H1>
+    <div className="flex w-full justify-center border-b border-gray-200 bg-white text-center">
+      <H1 color="black">Digital Twins for Sport & Rehab</H1>
     </div>
     <div className="relative flex w-full flex-col">
       {definitions.map((definition, index) => (
