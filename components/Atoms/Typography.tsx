@@ -65,7 +65,9 @@ export const H2 = ({
   className?: string
 }) => {
   return (
-    <h2 className={`max-w-5xl text-5xl font-bold uppercase ${className}`}>
+    <h2
+      className={`max-w-5xl text-3xl font-bold uppercase md:text-4xl lg:text-5xl ${className}`}
+    >
       {children}
     </h2>
   )
