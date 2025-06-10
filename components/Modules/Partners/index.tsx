@@ -7,7 +7,7 @@ export const Partners = () => {
       className="custom-shape-divider-top-1748815566 flex w-full flex-col items-center justify-center bg-[#0802A3] p-10 text-white"
     >
       <span className="text-center text-2xl font-bold uppercase">Partners</span>
-      <div className="mt-10 flex flex-row gap-4">
+      <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
         <Image
           src="/partners/dtu.png"
           alt="DTU"
