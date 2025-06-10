@@ -59,22 +59,21 @@ export default function Home() {
 
         <Process />
 
-        <section
+        <Layout
           id="services"
           className="flex h-screen w-full bg-neutral-900 text-white"
+          sectionClassName="bg-neutral-900"
         >
-          <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
-            <H1 className="mb-20 text-8xl font-bold uppercase">
-              Our Services!
-            </H1>
-            <ServicesRowExpand className="flex-1" />
+          <div className="m-auto flex h-full w-full max-w-[1400px] flex-col text-center">
+            <H1 className="mb-10 md:mb-20">Our Services!</H1>
+            <ServicesRowExpand />
           </div>
-        </section>
+        </Layout>
 
         {/* Section 5 - Reviews */}
         <Reviews />
 
-        {/* <Image
+        <Image
           src="/shapes/partners-shape-bottom.svg"
           alt="Analytics"
           width={100}
@@ -85,7 +84,7 @@ export default function Home() {
           <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
             <h1 className="mb-20 text-8xl font-bold uppercase">Reach Out!</h1>
           </div>
-        </section> */}
+        </section>
       </main>
       <Footer className="bg-neutral-900" />
     </>
