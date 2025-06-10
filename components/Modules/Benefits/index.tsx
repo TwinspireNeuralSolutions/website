@@ -18,7 +18,7 @@ export const Benefits = () => {
       sectionClassName="min-h-screen  bg-neutral-900 overflow-x-hidden"
       className="flex min-h-screen flex-wrap gap-30"
     >
-      <H1 className="flex-1 text-center lg:text-left" sticky>
+      <H1 sticky className="flex-1 text-center lg:text-left">
         Benefits for {true ? 'Sports Teams' : 'Physio'}
       </H1>
 

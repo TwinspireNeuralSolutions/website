@@ -6,6 +6,8 @@ import Layout from 'components/Layout'
 import { definitions } from './definitions'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+
 export const TwinAI = () => (
   <Layout
     id="twin-ai"
@@ -29,6 +31,7 @@ function AnimatedRow({
   definition: any
   index: number
 }) {
+  const { isMobile } = useMediaQuery()
   const [ref, inView] = useInView({
     threshold: 0.5,
     triggerOnce: false,
@@ -73,13 +76,21 @@ function AnimatedRow({
           }}
           className="flex flex-1 justify-center"
         >
-          <div className="sticky top-[160px] flex h-[340px] w-[340px] items-center justify-center">
-            <div className="absolute h-[340px] w-[340px] rounded-xl bg-blue-200" />
+          <div
+            className={`sticky top-[160px] flex items-center justify-center ${
+              isMobile ? 'h-[240px] w-[240px]' : 'h-[340px] w-[340px]'
+            }`}
+          >
+            <div
+              className={`absolute rounded-xl bg-blue-200 ${
+                isMobile ? 'h-[240px] w-[240px]' : 'h-[340px] w-[340px]'
+              }`}
+            />
             <Image
               src={definition.image}
               alt="AI Illustration"
-              width={340}
-              height={340}
+              width={isMobile ? 240 : 340}
+              height={isMobile ? 240 : 340}
               className="absolute top-8 left-8 h-full w-full rounded-xl object-cover shadow-xl"
             />
           </div>

@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { useMediaQuery } from 'react-responsive'
 
 import Layout from '@/components/Layout'
 import { H1, H2 } from '@/components'
@@ -10,7 +9,6 @@ import { processDefinitions } from './definitions'
 import { ProcessSteps } from './ProcessSteps'
 
 export const Process = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   const textRefs = [useRef(null), useRef(null), useRef(null)]
 
   const inViews = textRefs.map((ref) =>
@@ -28,7 +26,7 @@ export const Process = () => {
       id="process"
       className="flex min-h-screen flex-wrap items-start justify-center"
     >
-      <H1 sticky={!isMobile} color="black" className="md:pt-30">
+      <H1 sticky color="black" className="md:pt-30">
         How Twinspire Delivers Actionable Insights
       </H1>
       <div className="sticky top-20 h-[100px] flex-1 bg-white pt-0 md:top-0 md:h-[60%] md:pt-30">
