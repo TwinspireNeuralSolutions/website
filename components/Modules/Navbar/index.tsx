@@ -27,7 +27,7 @@ export const Navbar = () => {
   return (
     <div className="pointer-events-none fixed top-0 left-0 z-50 flex w-full justify-center">
       <header
-        className={`w-full transition-all duration-500 md:w-[1440px] h-${isMenuOpen ? 'auto' : '70px'} ${scrolled || isMenuOpen ? 'mt-4 mr-4 ml-4 rounded-[35px] bg-white shadow-lg' : 'bg-transparent'} pointer-events-auto mx-auto flex flex-row items-center justify-between px-12`}
+        className={`w-full transition-all duration-500 md:max-w-[1440px] h-${isMenuOpen ? 'auto' : '70px'} ${scrolled || isMenuOpen ? 'mt-4 mr-4 ml-4 rounded-[35px] bg-white shadow-lg' : 'bg-transparent'} pointer-events-auto mx-auto flex flex-row items-center justify-between px-12`}
         style={{
           transition: 'all 0.5s cubic-bezier(0.4,0,0.2,1)',
         }}
