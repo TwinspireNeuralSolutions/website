@@ -8,8 +8,11 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
   const nodeColor = (step: number) =>
     activeStep === step ? '#3b82f6' : '#e5e7eb' // Tailwind blue-500 or gray-200
 
+  const cpuColor = (step: number) =>
+    activeStep === step ? 'text-white' : 'text-black'
+
   return (
-    <div className="relative flex min-h-[60vh] flex-col items-center justify-between py-8">
+    <div className="relative flex h-auto flex-row items-center justify-between py-8 md:h-[60vh] md:flex-col">
       {/* Top Node: pill with 3 CPUs */}
       <motion.div
         animate={{ scale: 1 }}
@@ -17,11 +20,11 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
         className="relative flex items-center justify-center gap-4 rounded-full px-6 py-4"
         style={{ backgroundColor: nodeColor(0) }}
       >
-        <Cpu className="h-5 w-5 text-black" />
-        <Cpu className="h-5 w-5 text-black" />
-        <Cpu className="h-5 w-5 text-black" />
+        <Cpu className={`h-5 w-5 ${cpuColor(0)}`} />
+        <Cpu className={`h-5 w-5 ${cpuColor(0)}`} />
+        <Cpu className={`h-5 w-5 ${cpuColor(0)}`} />
         <div
-          className="absolute bottom-[-8px] left-1/2 -translate-x-1/2"
+          className="md-rotate-0 absolute right-[-13px] rotate-270 md:bottom-[-8px] md:left-1/2 md:-translate-x-1/2 md:rotate-0"
           style={{
             borderTop: `10px solid ${nodeColor(0)}`,
             borderRight: '10px solid transparent',
@@ -33,10 +36,7 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
       </motion.div>
 
       {/* Line */}
-      <motion.div
-        className="w-1 bg-gray-200"
-        style={{ flexGrow: 1, minHeight: 30, borderRadius: 2 }}
-      />
+      <motion.div className="h-1 w-1 flex-grow bg-gray-200 md:h-auto md:w-1" />
 
       {/* Middle Node */}
       <motion.div
@@ -45,9 +45,9 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
         className="relative flex h-16 w-16 items-center justify-center rounded-full"
         style={{ backgroundColor: nodeColor(1) }}
       >
-        <Cpu className="h-6 w-6 text-black" />
+        <Cpu className={`h-6 w-6 ${cpuColor(1)}`} />
         <div
-          className="absolute top-[-8px] left-1/2 -translate-x-1/2"
+          className="md-rotate-0 absolute left-[-13px] rotate-270 md:top-[-8px] md:left-1/2 md:-translate-x-1/2 md:rotate-0"
           style={{
             borderRight: '10px solid transparent',
             borderBottom: `10px solid ${nodeColor(1)}`,
@@ -57,7 +57,7 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
           }}
         />
         <div
-          className="absolute bottom-[-8px] left-1/2 -translate-x-1/2"
+          className="md-rotate-0 absolute right-[-13px] rotate-270 md:bottom-[-8px] md:left-1/2 md:-translate-x-1/2 md:rotate-0"
           style={{
             borderTop: `10px solid ${nodeColor(1)}`,
             borderRight: '10px solid transparent',
@@ -69,10 +69,7 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
       </motion.div>
 
       {/* Line */}
-      <motion.div
-        className="w-1 bg-gray-200"
-        style={{ flexGrow: 1, minHeight: 30, borderRadius: 2 }}
-      />
+      <motion.div className="h-1 w-1 flex-grow bg-gray-200 md:h-auto md:w-1" />
 
       {/* Bottom Node */}
       <motion.div
@@ -81,9 +78,9 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
         className="relative flex h-16 w-16 items-center justify-center rounded-full"
         style={{ backgroundColor: nodeColor(2) }}
       >
-        <Database className="h-6 w-6 text-black" />
+        <Database className={`h-6 w-6 ${cpuColor(2)}`} />
         <div
-          className="absolute top-[-8px] left-1/2 -translate-x-1/2"
+          className="md-rotate-0 absolute left-[-13px] rotate-270 md:top-[-8px] md:left-1/2 md:-translate-x-1/2 md:rotate-0"
           style={{
             borderRight: '10px solid transparent',
             borderBottom: `10px solid ${nodeColor(2)}`,
