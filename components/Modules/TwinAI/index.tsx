@@ -40,7 +40,7 @@ function AnimatedRow({
       ref={ref}
       className={`${
         index === 0 ? 'mt-0' : 'mt-5'
-      } flex flex-row items-center gap-10 py-20 ${
+      } flex flex-row flex-wrap items-center gap-10 py-20 ${
         index === definitions.length - 1
           ? 'sticky top-[200px] z-10 w-full bg-white'
           : ''
