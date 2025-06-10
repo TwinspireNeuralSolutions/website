@@ -59,16 +59,7 @@ export default function Home() {
 
         <Process />
 
-        <Layout
-          id="services"
-          className="flex h-screen w-full bg-neutral-900 text-white"
-          sectionClassName="bg-neutral-900"
-        >
-          <div className="m-auto flex h-full w-full max-w-[1400px] flex-col text-center">
-            <H1 className="mb-10 md:mb-20">Our Services!</H1>
-            <Services />
-          </div>
-        </Layout>
+        <Services />
 
         {/* Section 5 - Reviews */}
         <Reviews />
