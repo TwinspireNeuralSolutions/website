@@ -37,15 +37,19 @@ export const H1 = ({
       ref={sectionRef}
       className={`z-10 max-w-5xl text-6xl font-bold uppercase lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${sticky ? 'sticky top-0 h-[90%] flex-1' : ''} ${className}`}
       style={{
-        backgroundImage: `linear-gradient(to bottom, ${color} 50%, #9ca3af 50%)`,
-        backgroundSize: '100% 200%',
-        backgroundPosition: `0 ${100 - safeProgress * 100}%`,
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        color: 'transparent',
-        WebkitTextFillColor: 'transparent',
-        transition: 'background-position 0s linear', // <-- strictly linear, no easing, no delay
-        ...style,
+        ...(sticky
+          ? {
+              backgroundImage: `linear-gradient(to bottom, ${color} 50%, #9ca3af 50%)`,
+              backgroundSize: '100% 200%',
+              backgroundPosition: `0 ${100 - safeProgress * 100}%`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              WebkitTextFillColor: 'transparent',
+              transition: 'background-position 0s linear',
+              ...style,
+            }
+          : { ...style }),
       }}
     >
       {children}
