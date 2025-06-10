@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { H1, Button, H3, AnimatedHeadline } from 'components/Atoms'
-import { ServicesRowExpand } from 'components/ServicesRowExpand'
 import Layout from 'components/Layout'
 import {
   Navbar,
@@ -10,6 +9,7 @@ import {
   TwinAI,
   Benefits,
   Process,
+  Services,
 } from 'components/Modules'
 
 export default function Home() {
@@ -66,7 +66,7 @@ export default function Home() {
         >
           <div className="m-auto flex h-full w-full max-w-[1400px] flex-col text-center">
             <H1 className="mb-10 md:mb-20">Our Services!</H1>
-            <ServicesRowExpand />
+            <Services />
           </div>
         </Layout>
 
