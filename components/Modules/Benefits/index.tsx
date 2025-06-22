@@ -27,13 +27,13 @@ export const Benefits = () => {
           <AnimatedBenefits
             data={sportTeamDefinitions}
             name="Sports Teams"
-            className="mt-0 lg:mt-250"
+            className="mt-0 lg:mt-200"
           />
 
           <AnimatedBenefits
             data={physioDefinitions}
             name="Physiotherapists"
-            className="mt-40 lg:mt-250"
+            className="mt-40 lg:mt-50"
           />
         </AnimatePresence>
       </div>
