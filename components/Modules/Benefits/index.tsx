@@ -27,7 +27,7 @@ export const Benefits = () => {
           <AnimatedBenefits
             data={sportTeamDefinitions}
             name="Sports Teams"
-            className="mt-0 lg:mt-200"
+            className="mt-0 lg:mt-50"
           />
 
           <AnimatedBenefits
