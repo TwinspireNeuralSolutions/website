@@ -36,9 +36,13 @@ export default function Home() {
             <H3>
               AI-Driven Insights for Stronger, Smarter Recovery and Performance
             </H3>
-            <div className="mt-20 flex flex-row gap-4">
-              <Button color="white">Apply as a Team</Button>
-              <Button color="blue">Apply as a Therapist</Button>
+            <div className="mt-20 flex flex-row flex-wrap justify-center gap-4">
+              <Button color="white" className="white-space-nowrap">
+                Apply as a Team
+              </Button>
+              <Button color="blue" className="white-space-nowrap">
+                Apply as a Therapist
+              </Button>
             </div>
           </Layout>
         </section>
