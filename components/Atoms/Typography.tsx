@@ -74,7 +74,7 @@ export const H2 = ({
 }) => {
   return (
     <h2
-      className={`max-w-5xl text-3xl font-bold uppercase md:text-4xl lg:text-5xl ${className}`}
+      className={`max-w-2xl text-3xl font-bold uppercase md:text-4xl lg:text-5xl ${className}`}
     >
       {children}
     </h2>
