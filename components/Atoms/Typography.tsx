@@ -34,13 +34,7 @@ export const H1 = ({
   // Clamp progress to [0, 1]
   const safeProgress = Math.max(0, Math.min(1, progress))
 
-  return !sticky || isMobile ? (
-    <h1
-      className={`text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
-    >
-      {children}
-    </h1>
-  ) : (
+  return sticky && !isMobile ? (
     <h1
       ref={sectionRef}
       className={`z-10 max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
@@ -59,6 +53,12 @@ export const H1 = ({
         transition: 'background-position 0s linear',
         ...style,
       }}
+    >
+      {children}
+    </h1>
+  ) : (
+    <h1
+      className={`text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
     >
       {children}
     </h1>
