@@ -17,11 +17,11 @@ export const LanguageSelect = ({ textColor }: { textColor?: string }) => {
       onMouseLeave={() => setOpen(false)}
     >
       <button
-        className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition ${textColor ?? 'text-black'}`}
+        className={`flex items-center gap-2 rounded-full px-3 py-1.5 transition ${textColor ?? 'text-black'}`}
       >
-        <Globe className="w-5 h-5" />
+        <Globe className="h-5 w-5" />
         <span>{selected}</span>
-        <ChevronDown className="w-4 h-4" />
+        <ChevronDown className="h-4 w-4" />
       </button>
 
       <AnimatePresence>
@@ -31,13 +31,13 @@ export const LanguageSelect = ({ textColor }: { textColor?: string }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 mt-2 w-full bg-white rounded-md shadow-lg z-10 overflow-hidden"
+            className="absolute left-0 z-10 mt-2 w-full overflow-hidden rounded-md bg-white shadow-lg"
           >
             {languages.map((lang) => (
               <button
                 key={lang}
                 onClick={() => setSelected(lang)}
-                className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${
+                className={`w-full px-4 py-2 text-left hover:bg-gray-100 ${
                   selected === lang ? 'bg-gray-100 font-semibold' : ''
                 }`}
               >
