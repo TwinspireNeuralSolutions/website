@@ -37,11 +37,9 @@ export const Process = () => {
           <motion.div
             key={index}
             ref={textRefs[index]}
-            initial={{ opacity: 0, x: 0 }}
+            initial={{ opacity: 1, x: 0 }}
             animate={
-              activeStep === index
-                ? { opacity: 1, x: 0 }
-                : { opacity: 0.0, x: 0 }
+              activeStep === index ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }
             }
             transition={{ duration: 0.4 }}
             className={`mt-50 md:mt-100 ${index === 0 ? 'md:mt-0' : ''}`}
