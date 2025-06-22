@@ -34,12 +34,15 @@ export const Services = ({ className }: { className?: string }) => {
             const sizingClasses =
               idx === activeIndex
                 ? 'w-full h-80 lg:h-full lg:w-full bg-white'
-                : 'flex-none w-full h-4 lg:h-full lg:w-6 bg-gray-800 hover:bg-gray-700 cursor-pointer'
+                : 'flex-none w-full h-6 lg:h-full lg:w-6 bg-gray-800 hover:bg-gray-700 cursor-pointer'
 
-            const textClasses =
+            const textClassesDesktop =
               idx === activeIndex
-                ? 'rotate-0 mt-[-20px] text-left ml-[20px]'
+                ? 'rotate-0 text-left ml-[20px] text-black'
                 : 'rotate-90 text-center mt-[20px]'
+
+            const textClassesMobile =
+              idx === activeIndex ? 'text-black' : 'text-white'
 
             return (
               <div
@@ -47,7 +50,11 @@ export const Services = ({ className }: { className?: string }) => {
                 onClick={() => setActiveIndex(idx)}
                 className={`rounded-3xl transition-all duration-500 ease-in-out ${sizingClasses}`}
               >
-                <H3 className={`whitespace-nowrap ${textClasses}`}>{title}</H3>
+                <H3
+                  className={`whitespace-nowrap ${isMobile ? textClassesMobile : textClassesDesktop}`}
+                >
+                  {title}
+                </H3>
                 <div className="flex flex-col gap-2 text-black">
                   {idx === activeIndex && <p>{description}</p>}
                 </div>
