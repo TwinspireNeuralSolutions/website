@@ -15,11 +15,10 @@ import {
 export default function Home() {
   return (
     <>
-      <Navbar />
-
       <main>
         {/* Section 1: Hero Section */}
         <section id="home" className="relative h-screen w-full overflow-hidden">
+          <Navbar />
           <video
             autoPlay
             muted
