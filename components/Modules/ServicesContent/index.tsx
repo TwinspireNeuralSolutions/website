@@ -1,13 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Layout from '@/components/Layout'
 import { H1 } from '@/components'
 
 export const Services = ({ className }: { className?: string }) => {
   const { isMobile } = useMediaQuery()
-  const [activeIndex, setActiveIndex] = useState(isMobile ? 0 : 2)
+  const [activeIndex, setActiveIndex] = useState(2) // Default to middle item
+  const hasInitialized = useRef(false)
+
+  // Set initial active index only once
+  useEffect(() => {
+    if (!hasInitialized.current) {
+      setActiveIndex(isMobile ? 0 : 2)
+      hasInitialized.current = true
+    }
+  }, [isMobile])
 
   return (
     <Layout
