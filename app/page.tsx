@@ -27,7 +27,7 @@ export default function Home() {
             playsInline
             className="absolute top-0 left-0 h-full w-full object-cover grayscale"
           >
-            <source src="/hero-veido.mp4" type="video/mp4" />
+            <source src="/hero-video.mp4" type="video/mp4" />
           </video>
           <Layout
             sectionClassName="h-screen flex items-center"
