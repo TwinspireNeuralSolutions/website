@@ -58,7 +58,7 @@ export const H1 = ({
     </h1>
   ) : (
     <h1
-      className={`text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
+      className={`max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
     >
       {children}
     </h1>
