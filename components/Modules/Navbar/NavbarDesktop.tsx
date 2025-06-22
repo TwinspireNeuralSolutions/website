@@ -100,7 +100,7 @@ export default function NavbarDesktop({
   }
 
   return (
-    <div className="hidden w-full items-center justify-between md:flex">
+    <div className="hidden w-full items-center justify-between px-5 md:flex">
       <div className="flex flex-1 justify-start">
         <Image
           src={scrolled ? logoBlack : logoWhite}
