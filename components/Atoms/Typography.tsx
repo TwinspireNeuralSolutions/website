@@ -88,7 +88,7 @@ export const H3 = ({
   className?: string
 }) => {
   return (
-    <h3 className={`text-1xl max-w-5xl font-bold uppercase ${className}`}>
+    <h3 className={`text-1xl max-w-xl font-bold uppercase ${className}`}>
       {children}
     </h3>
   )
