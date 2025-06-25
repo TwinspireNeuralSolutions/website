@@ -39,7 +39,7 @@ export const Services = ({ className }: { className?: string }) => {
             const textClassesDesktop =
               idx === activeIndex
                 ? 'rotate-0 text-left ml-[20px] text-black'
-                : 'rotate-90 text-center mt-[20px]'
+                : 'rotate-90 text-center text-white origin-center'
 
             const textClassesMobile =
               idx === activeIndex ? 'text-black' : 'text-white'
@@ -48,7 +48,7 @@ export const Services = ({ className }: { className?: string }) => {
               <div
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className={`rounded-3xl transition-all duration-500 ease-in-out ${sizingClasses}`}
+                className={`flex items-center justify-center rounded-3xl transition-all duration-500 ease-in-out ${sizingClasses}`}
               >
                 <H3
                   className={`whitespace-nowrap ${isMobile ? textClassesMobile : textClassesDesktop}`}
