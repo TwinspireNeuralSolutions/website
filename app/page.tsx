@@ -1,5 +1,6 @@
+'use client'
 import Image from 'next/image'
-import { H1, Button, H3, AnimatedHeadline } from 'components/Atoms'
+import { Button, H3, AnimatedHeadline } from 'components/Atoms'
 import Layout from 'components/Layout'
 import {
   Navbar,
@@ -10,12 +11,13 @@ import {
   Benefits,
   Process,
   Services,
+  ReachOut,
 } from 'components/Modules'
 
 export default function Home() {
   return (
     <>
-      <main>
+      <main id="root">
         {/* Section 1: Hero Section */}
         <section id="home" className="relative h-screen w-full overflow-hidden">
           <Navbar />
@@ -67,18 +69,7 @@ export default function Home() {
         {/* Section 5 - Reviews */}
         <Reviews />
 
-        <Image
-          src="/shapes/partners-shape-bottom.svg"
-          alt="Analytics"
-          width={100}
-          height={100}
-          style={{ width: '100%', rotate: '180deg' }}
-        />
-        <section className="flex h-200 w-full bg-[#0802A3] text-white">
-          <div className="m-auto flex w-full max-w-[1400px] flex-col text-center">
-            <h1 className="mb-20 text-8xl font-bold uppercase">Reach Out!</h1>
-          </div>
-        </section>
+        <ReachOut />
       </main>
       <Footer className="bg-neutral-900" />
     </>
