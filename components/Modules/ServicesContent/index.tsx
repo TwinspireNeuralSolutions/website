@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Layout from '@/components/Layout'
 import { H1, H3 } from '@/components'
@@ -8,16 +8,7 @@ import definitions from './definitions'
 
 export const Services = ({ className }: { className?: string }) => {
   const { isMobile } = useMediaQuery()
-  const [activeIndex, setActiveIndex] = useState(2) // Default to middle item
-  const hasInitialized = useRef(false)
-
-  // Set initial active index only once
-  useEffect(() => {
-    if (!hasInitialized.current) {
-      setActiveIndex(isMobile ? 0 : 2)
-      hasInitialized.current = true
-    }
-  }, [isMobile])
+  const [activeIndex, setActiveIndex] = useState(0) // Default to middle item
 
   return (
     <Layout
@@ -36,27 +27,17 @@ export const Services = ({ className }: { className?: string }) => {
                 ? 'w-full h-80 lg:h-full lg:w-full bg-white'
                 : 'flex-none w-full h-6 lg:h-full lg:w-6 bg-gray-800 hover:bg-gray-700 cursor-pointer'
 
-            const textClassesDesktop =
-              idx === activeIndex
-                ? 'text-left ml-[20px] text-black'
-                : 'text-center text-white origin-center'
-
-            const rotationClass =
-              idx === activeIndex ? 'rotate-0' : '!rotate-90'
-            const textClassesMobile =
-              idx === activeIndex ? 'text-black' : 'text-white'
-
             return (
               <div
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
                 className={`flex items-center justify-center rounded-3xl transition-all duration-500 ease-in-out ${sizingClasses}`}
               >
-                <H3
-                  className={`whitespace-nowrap ${rotationClass} ${isMobile ? textClassesMobile : textClassesDesktop}`}
-                >
-                  {title}
-                </H3>
+                {idx !== activeIndex && (
+                  <H3 className="origin-center rotate-0 text-center whitespace-nowrap text-white md:rotate-90">
+                    {title}
+                  </H3>
+                )}
                 <div className="flex flex-col gap-2 text-black">
                   {idx === activeIndex && <p>{description}</p>}
                 </div>
