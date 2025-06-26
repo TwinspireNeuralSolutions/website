@@ -1,12 +1,18 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Cpu, Database } from 'lucide-react'
+import {
+  Cpu,
+  Database,
+  LayoutDashboard,
+  HardDrive,
+  FileText,
+} from 'lucide-react'
 
 export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
   // Helper for node color
   const nodeColor = (step: number) =>
-    activeStep === step ? '#3b82f6' : '#e5e7eb' // Tailwind blue-500 or gray-200
+    activeStep === step ? '#0802A3' : '#e5e7eb' // Tailwind blue-500 or gray-200
 
   const cpuColor = (step: number) =>
     activeStep === step ? 'text-white' : 'text-black'
@@ -20,9 +26,9 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
         className="relative flex items-center justify-center gap-4 rounded-full px-6 py-4"
         style={{ backgroundColor: nodeColor(0) }}
       >
-        <Cpu className={`h-5 w-5 ${cpuColor(0)}`} />
-        <Cpu className={`h-5 w-5 ${cpuColor(0)}`} />
-        <Cpu className={`h-5 w-5 ${cpuColor(0)}`} />
+        <HardDrive className={`h-5 w-5 ${cpuColor(0)}`} />
+        <Database className={`h-5 w-5 ${cpuColor(0)}`} />
+        <FileText className={`h-5 w-5 ${cpuColor(0)}`} />
         <div
           className="md-rotate-0 absolute right-[-13px] rotate-270 md:bottom-[-8px] md:left-1/2 md:-translate-x-1/2 md:rotate-0"
           style={{
@@ -78,7 +84,7 @@ export const ProcessSteps = ({ activeStep }: { activeStep: number }) => {
         className="relative flex h-16 w-16 items-center justify-center rounded-full"
         style={{ backgroundColor: nodeColor(2) }}
       >
-        <Database className={`h-6 w-6 ${cpuColor(2)}`} />
+        <LayoutDashboard className={`h-6 w-6 ${cpuColor(2)}`} />
         <div
           className="md-rotate-0 absolute left-[-13px] rotate-270 md:top-[-8px] md:left-1/2 md:-translate-x-1/2 md:rotate-0"
           style={{
