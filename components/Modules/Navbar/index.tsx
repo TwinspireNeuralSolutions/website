@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
-const navItems = [
+export const navItems = [
   { label: 'Home', id: 'home', href: '#home' },
   { label: 'Twin-AI', id: 'twin-ai', href: '#twin-ai' },
   { label: 'Benefits', id: 'benefits', href: '#benefits' },
