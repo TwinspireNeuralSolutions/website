@@ -1,39 +1,31 @@
 'use client'
-import Image from 'next/image'
-import avatar from '@/public/avatar.jpg'
+import { Quote } from 'lucide-react'
 
 export const TestimonialCard = ({
   name,
-  image,
   quote,
-  active,
 }: {
   name: string
-  image: string
   quote: string
-  active: boolean
 }) => {
   return (
-    <div
-      className={`relative m-0 flex h-[250px] flex-col items-center justify-center rounded-3xl bg-blue-300 p-4`}
-    >
-      {image ? (
-        <Image
-          src={avatar}
-          alt={name}
-          className="h-20 w-20 rounded-full object-cover"
-          width={40}
-          height={40}
-        />
-      ) : (
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-2xl font-bold">
-          {name.charAt(0)}
+    <div className="relative flex min-h-[320px] w-full flex-col items-center justify-center rounded-3xl bg-gray-100 p-8">
+      {/* Top shadow */}
+      <div className="pointer-events-none absolute top-0 left-0 z-10 h-4 w-full rounded-t-3xl shadow-[0_-8px_24px_-4px_rgba(8,2,163,0.10)]" />
+      {/* Quote icon */}
+      <div className="mb-6 flex items-center justify-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0802A3] shadow-md">
+          <Quote className="h-8 w-8 text-white" />
         </div>
-      )}
-
-      <div className="flex w-full flex-col pt-10">
-        <h3 className={`text-center text-2xl font-bold uppercase`}>{name}</h3>
-        <p className={`text-center text-sm font-medium`}>{`“${quote}”`}</p>
+      </div>
+      {/* Quote text */}
+      <p className="mb-8 max-w-3xl text-center text-xl leading-relaxed font-medium text-gray-700">
+        "{quote}"
+      </p>
+      {/* Name */}
+      <div className="flex w-full flex-col items-center">
+        <span className="mt-2 text-lg font-semibold text-gray-900">{name}</span>
+        <div className="mt-1 h-1 w-12 rounded-full bg-[#0802A3]" />
       </div>
     </div>
   )
