@@ -31,7 +31,7 @@ export const Services = ({ className }: { className?: string }) => {
               <div
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className={`flex items-center justify-center rounded-3xl transition-all duration-500 ease-in-out ${sizingClasses}`}
+                className={`flex items-center justify-center rounded-3xl p-4 transition-all duration-500 ease-in-out ${sizingClasses}`}
               >
                 {idx !== activeIndex && (
                   <H3 className="origin-center rotate-0 text-center whitespace-nowrap text-white md:rotate-90">
