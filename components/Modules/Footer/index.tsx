@@ -10,7 +10,7 @@ export const Footer = ({ className }: { className: string }) => {
   const navItems = ['HOME', 'SOLUTIONS', 'ABOUT US', 'CONTACT US']
 
   return (
-    <footer className={`w-full ${className} text-white`}>
+    <footer className={`w-full ${className} text-white`} id="footer">
       {/* Main content row: Logo + Icons on left, Nav links on right */}
       <div className="mx-auto flex max-w-7xl flex-col justify-between px-6 py-10 md:flex-row">
         {/* ─── Left Side ─── Logo Placeholder + Social Icons */}
