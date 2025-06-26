@@ -58,20 +58,6 @@ export const Footer = ({ className }: { className: string }) => {
         <div className="text-sm text-gray-300">
           © 2025 TWIN SPIRE NEURAL SOLUTIONS. All rights reserved.
         </div>
-        <div className="flex justify-end gap-4">
-          <a
-            href="#"
-            className="text-sm text-gray-400 transition-colors hover:text-white"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="#"
-            className="text-sm text-gray-400 transition-colors hover:text-white"
-          >
-            Terms of Use
-          </a>
-        </div>
       </div>
     </footer>
   )
