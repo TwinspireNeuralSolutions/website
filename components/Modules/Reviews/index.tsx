@@ -17,10 +17,9 @@ import 'swiper/css/free-mode'
 import 'swiper/css/autoplay'
 
 export const Reviews = () => {
-  const [active, setActive] = useState(1)
   const settings = {
-    slidesPerView: 1.5,
-    spaceBetween: 32,
+    slidesPerView: 1,
+    spaceBetween: 16,
     centeredSlides: true,
     loop: true,
     freeMode: true,
@@ -32,6 +31,11 @@ export const Reviews = () => {
     speed: 20000,
     allowTouchMove: true,
     className: 'mySwiper',
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+    },
   }
 
   return (
@@ -45,7 +49,7 @@ export const Reviews = () => {
           <Swiper {...settings}>
             {testimonials.map((t, idx) => (
               <SwiperSlide key={t.id}>
-                <TestimonialCard key={t.id} active={idx === active} {...t} />
+                <TestimonialCard key={t.id} {...t} />
               </SwiperSlide>
             ))}
           </Swiper>
