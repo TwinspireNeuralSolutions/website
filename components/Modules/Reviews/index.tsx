@@ -48,7 +48,7 @@ export const Reviews = () => {
         <div className="m-0 w-full">
           <Swiper {...settings}>
             {testimonials.map((t, idx) => (
-              <SwiperSlide key={t.id}>
+              <SwiperSlide key={t.id} className="h-auto">
                 <TestimonialCard key={t.id} {...t} />
               </SwiperSlide>
             ))}
@@ -56,6 +56,12 @@ export const Reviews = () => {
           <style jsx global>{`
             .slick-dots li.slick-active div {
               background: #000;
+            }
+            .swiper-slide {
+              height: auto !important;
+            }
+            .swiper-wrapper {
+              align-items: stretch;
             }
           `}</style>
         </div>

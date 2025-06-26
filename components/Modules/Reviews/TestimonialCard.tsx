@@ -9,7 +9,7 @@ export const TestimonialCard = ({
   quote: string
 }) => {
   return (
-    <div className="relative flex min-h-[320px] w-full flex-col items-center justify-center rounded-3xl bg-gray-100 p-8">
+    <div className="relative flex h-full w-full flex-col items-center justify-center rounded-3xl bg-gray-100 p-8">
       {/* Top shadow */}
       <div className="pointer-events-none absolute top-0 left-0 z-10 h-4 w-full rounded-t-3xl shadow-[0_-8px_24px_-4px_rgba(8,2,163,0.10)]" />
       {/* Quote icon */}
