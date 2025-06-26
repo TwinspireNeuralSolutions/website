@@ -15,7 +15,7 @@ export const Benefits = () => {
     <Layout
       id="benefits"
       ref={sectionRef}
-      sectionClassName="min-h-screen  bg-neutral-900 overflow-x-hidden"
+      sectionClassName="min-h-screen bg-neutral-900 overflow-x-hidden"
       className="flex min-h-screen flex-wrap gap-30"
     >
       <H1 sticky className="flex-1 text-center lg:text-left">
