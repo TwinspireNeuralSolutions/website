@@ -165,7 +165,7 @@ export default function NavbarDesktop({
         <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} />
 
         {/* Book a call button */}
-        <Button>Book a call</Button>
+        <Button onClick={() => router.push('/#reach-out')}>Book a call</Button>
       </div>
     </div>
   )

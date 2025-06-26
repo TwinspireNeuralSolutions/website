@@ -3,6 +3,7 @@ import { Button, LanguageSelect, MenuToggle } from 'components'
 import Image from 'next/image'
 import logoBlack from '@/public/logo-black.png'
 import logoWhite from '@/public/logo-white.png'
+import router from 'next/router'
 
 const NavbarMobile = ({
   isMenuOpen,
@@ -53,7 +54,9 @@ const NavbarMobile = ({
           />
 
           {/* Book a call button */}
-          <Button>Book a call</Button>
+          <Button onClick={() => router.push('/#reach-out')}>
+            Book a call
+          </Button>
         </div>
       </div>
     </div>
