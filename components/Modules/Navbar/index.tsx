@@ -16,14 +16,36 @@ import NavbarMobile from './NavbarMobile'
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeId, setActiveId] = useState('home')
   const { isMobile } = useMediaQuery()
 
   useEffect(() => {
-    const onScroll = () => {
+    const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      // Get all sections
+      const sections = navItems.map((item) => document.getElementById(item.id))
+
+      // Find which section is currently in view
+      const scrollPosition = window.scrollY + window.innerHeight / 2
+
+      let currentSection = 'home'
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop
+          const sectionBottom = sectionTop + section.offsetHeight
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentSection = navItems[index].id
+          }
+        }
+      })
+
+      setActiveId(currentSection)
     }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
@@ -39,12 +61,19 @@ export const Navbar = () => {
           transition: 'all 0.5s cubic-bezier(0.4,0,0.2,1)',
         }}
       >
-        <NavbarDesktop navItems={navItems} scrolled={scrolled} />
+        <NavbarDesktop
+          navItems={navItems}
+          scrolled={scrolled}
+          activeId={activeId}
+          setActiveId={setActiveId}
+        />
         <NavbarMobile
           isMenuOpen={isMenuOpen}
           scrolled={scrolled}
           setIsMenuOpen={setIsMenuOpen}
           navItems={navItems}
+          activeId={activeId}
+          setActiveId={setActiveId}
         />
       </header>
     </div>

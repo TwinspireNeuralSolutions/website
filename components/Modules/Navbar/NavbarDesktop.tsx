@@ -11,11 +11,14 @@ import { useRouter } from 'next/navigation'
 export default function NavbarDesktop({
   navItems,
   scrolled,
+  activeId,
+  setActiveId,
 }: {
   navItems: { label: string; id: string; href: string }[]
   scrolled: boolean
+  activeId: string
+  setActiveId: (id: string) => void
 }) {
-  const [activeId, setActiveId] = useState('home')
   const [blueStyle, setBlueStyle] = useState({
     left: 0,
     width: 0,
