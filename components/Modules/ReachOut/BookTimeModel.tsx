@@ -12,7 +12,7 @@ const BookTimeModel = () => {
   return (
     <div>
       <InlineWidget
-        url="https://calendly.com/daryankamalifar/tns-introduction-60-min"
+        url="https://calendly.com/twinspire-info/30min"
         styles={{ height: '700px' }}
       />
     </div>
