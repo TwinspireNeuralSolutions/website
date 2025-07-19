@@ -56,7 +56,7 @@ export const Footer = ({ className }: { className: string }) => {
       <div className="mt-8 flex items-center justify-between border-t border-gray-700 px-6 py-4">
         {/* Copyright text */}
         <div className="text-sm text-gray-300">
-          © 2025 TWIN SPIRE NEURAL SOLUTIONS. All rights reserved.
+          2025 © TWINSPIRE NEURAL SOLUTIONS. All rights reserved
         </div>
       </div>
     </footer>
