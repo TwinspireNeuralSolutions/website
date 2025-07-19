@@ -4,7 +4,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export const navItems = [
   { label: 'Home', id: 'home', href: '#home' },
-  { label: 'Twin-AI', id: 'twin-ai', href: '#twin-ai' },
+  { label: 'Twinspire', id: 'twinspire', href: '#twinspire' },
   { label: 'Benefits', id: 'benefits', href: '#benefits' },
   { label: 'Process', id: 'process', href: '#process' },
   { label: 'Services', id: 'services', href: '#services' },
