@@ -1,13 +1,13 @@
 export const processDefinitions = [
   {
-    title: 'Multi-Source Data Gathering',
+    title: 'Integrated Data Capture',
     description:
-      'We collect movement, muscle, and recovery data from physiotherapists, teams, EMG sensors, wearables, and more—capturing a complete, real-world picture of your performance and rehab.',
+      'Twinspire seamlessly connects with leading wearables, EMG sensors, and clinical systems to gather rich, multi-modal real-world data on movement, muscle activity, and recovery. By uniting input from physiotherapists, sports teams, and advanced sensors, we build a complete picture of each individual’s journey—on and off the field.',
   },
   {
-    title: 'Twin-AI Analysis & Processing',
+    title: 'Twinspire Analysis & Processing',
     description:
-      'Our Twin-AI engine processes your data with advanced neural networks, combining all sources to uncover patterns, risks, and personalized insights tailored to you.',
+      'Twinspire’s intelligent engine fuses multi-source data using advanced AI & ML to identify key patterns, risk factors, and individualized recovery insights. This allows for precise monitoring and decision support—pushing rehabilitation and performance beyond guesswork.',
   },
   {
     title: 'Personalized Dashboard & Recommendations',
