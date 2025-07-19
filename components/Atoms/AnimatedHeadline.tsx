@@ -53,7 +53,7 @@ export const AnimatedHeadline = () => {
         </AnimatePresence>
       </span>
       <br />
-      WITH TWIN-AI
+      WITH TWINSPIRE
     </h1>
   )
 }
