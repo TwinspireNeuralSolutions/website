@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
-export const TwinAI = () => (
+export const Twinspire = () => (
   <Layout
-    id="twin-ai"
+    id="twinspire"
     className="flex flex-col items-center justify-center pt-0"
   >
     <div className="flex w-full justify-center border-b border-gray-200 bg-white text-center">

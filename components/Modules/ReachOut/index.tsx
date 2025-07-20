@@ -6,7 +6,6 @@ import Layout from '@/components/Layout'
 export const ReachOut = () => {
   return (
     <Layout
-      id="reach-out"
       sectionClassName="bg-[#0802A3]"
       className="flex min-h-screen flex-wrap items-start justify-center"
     >
@@ -17,10 +16,7 @@ export const ReachOut = () => {
         height={100}
         style={{ width: '100%', rotate: '180deg', marginBottom: '-25px' }}
       />
-      <section
-        className="flex w-full flex-col items-center justify-center py-20 text-center text-white"
-        id="reach-out"
-      >
+      <section className="flex w-full flex-col items-center justify-center py-20 text-center text-white">
         <H1>Book Your TNS Intro Call</H1>
         <H3>
           Discover how our AI-driven Twin-AI platform helps teams reduce

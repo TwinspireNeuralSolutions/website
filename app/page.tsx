@@ -7,7 +7,7 @@ import {
   Partners,
   Footer,
   Reviews,
-  TwinAI,
+  Twinspire,
   Benefits,
   Process,
   Services,
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </Layout>
         {/* Section About */}
-        <TwinAI />
+        <Twinspire />
 
         {/* Section Solutions */}
         <Benefits />
