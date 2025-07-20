@@ -110,7 +110,7 @@ export default function NavbarDesktop({
           alt="logo"
           width={70}
           height={70}
-          className="rounded-full"
+          className="min-w-[50px] rounded-full"
         />
       </div>
       <nav className="flex flex-1 justify-center">
