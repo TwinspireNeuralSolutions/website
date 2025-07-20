@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { Button, H3, AnimatedHeadline } from 'components/Atoms'
+import { H3, AnimatedHeadline, H1 } from 'components/Atoms'
 import Layout from 'components/Layout'
 import {
   Navbar,
@@ -14,11 +14,13 @@ import {
   ReachOut,
 } from 'components/Modules'
 
+import TNSLogo from '@/public/tns-logo-black.png'
+
 export default function Home() {
   return (
     <>
       <main id="root">
-        {/* Section 1: Hero Section */}
+        {/* Section Hero Section */}
         <section id="home" className="relative h-screen w-full overflow-hidden">
           <Navbar />
           <video
@@ -40,7 +42,7 @@ export default function Home() {
             </H3>
           </Layout>
         </section>
-        {/* Section 2 - Partners */}
+        {/* Section  Partners */}
         <Partners />
         <Image
           src="/shapes/partners-shape-bottom.svg"
@@ -49,16 +51,60 @@ export default function Home() {
           height={100}
           style={{ width: '100%' }}
         />
-        {/* Section 3 - About */}
+
+        {/* Section Our Mission */}
+        <Layout className="flex flex-col items-center justify-center">
+          <div className="flex w-full flex-col flex-wrap items-center justify-center gap-[40px] md:flex-row">
+            <div className="flex w-full max-w-full min-w-[300px] flex-1 justify-center md:justify-end">
+              <Image
+                src={TNSLogo}
+                alt="TNS Logo"
+                width={500}
+                height={500}
+                className="h-auto max-w-full min-w-[200px] object-contain object-right md:object-center"
+              />
+            </div>
+            <div className="w-full max-w-[800px] min-w-[300px] flex-1 text-left">
+              <H1 color="black">Our Mission</H1>
+              <p className="mt-5">
+                Recovery today is reactive. We're changing that.Injury is one of
+                the biggest threats to performance — whether you're a
+                professional athlete or a patient in rehabilitation. Yet,
+                recovery still relies heavily on subjective feedback, incomplete
+                data, and outdated tools.
+                <ul className="list-disc pl-6">
+                  <li>
+                    Over 30% of athletes suffer injuries each year, many of
+                    which are preventable.
+                  </li>
+                  <li>
+                    Reinjury rates remain high due to limited real-time insight
+                    and poor monitoring.
+                  </li>
+                  <li>
+                    Physiotherapists and coaches often lack objective,
+                    personalized data to guide and adjust treatment or training.
+                  </li>
+                </ul>
+                At Twinspire, we believe recovery should be proactive, precise,
+                and tailored to each individual. That's why we're building
+                intelligent digital twins to make performance and rehab
+                measurable, transparent, and adaptive — every step of the way.
+              </p>
+            </div>
+          </div>
+        </Layout>
+        {/* Section About */}
         <TwinAI />
-        {/* Section 4 - Solutions */}
+
+        {/* Section Solutions */}
         <Benefits />
 
         <Process />
 
         <Services />
 
-        {/* Section 5 - Reviews */}
+        {/* Section Reviews */}
         <Reviews />
 
         <ReachOut />
