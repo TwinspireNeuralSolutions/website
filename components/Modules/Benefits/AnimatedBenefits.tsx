@@ -38,7 +38,7 @@ export const AnimatedBenefits = ({
 }) => (
   <div className={`flex flex-col items-center ${className}`}>
     <H2 className="mb-10 text-3xl font-bold text-white">{name}</H2>
-    <div className="flex w-full flex-col justify-center gap-2">
+    <div className="flex w-full flex-col justify-center gap-3">
       {data.map(({ title, benefit }) => (
         <BenefitCard key={title} title={title} benefit={benefit} name={name} />
       ))}
@@ -56,7 +56,7 @@ function BenefitCard({
   name: string
 }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { amount: 0.1 }) // animate in when 10% is visible
+  const inView = useInView(ref, { amount: 0.1 })
 
   return (
     <motion.div
@@ -65,11 +65,27 @@ function BenefitCard({
       initial="hidden"
       animate={inView ? 'show' : 'hidden'}
       exit="hidden"
-      className={`min-h-[120px] w-full flex-1 rounded-xl p-5 text-left shadow-lg ${name === 'Sports Teams' ? 'bg-blue-300' : 'bg-[#0802A3]'}`}
+      className={`min-h-[120px] w-full rounded-lg border ${
+        name === 'Sports Teams'
+          ? 'border-blue-200/20 bg-blue-800/10'
+          : 'border-indigo-500/20 bg-[#0802A3]/10'
+      }`}
     >
-      <CheckIcon className="h-6 w-6 text-white" />
-      <h3 className="mb-2 text-xl font-bold text-white">{title}</h3>
-      <p className="text-sm text-white/80">{benefit}</p>
+      <div className="flex h-full flex-col p-6">
+        <div className="flex items-start gap-4">
+          <div
+            className={`rounded-full p-2 ${
+              name === 'Sports Teams' ? 'bg-blue-300/20' : 'bg-[#0802A3]/20'
+            }`}
+          >
+            <CheckIcon className="h-4 w-4 text-white" />
+          </div>
+          <div className="space-y-2">
+            <h3 className="font-medium text-white">{title}</h3>
+            <p className="text-sm text-white/70">{benefit}</p>
+          </div>
+        </div>
+      </div>
     </motion.div>
   )
 }
