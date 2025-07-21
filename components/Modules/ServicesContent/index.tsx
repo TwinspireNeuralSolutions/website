@@ -4,43 +4,58 @@ import { useState } from 'react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import Layout from '@/components/Layout'
 import { H1, H3 } from '@/components'
+import {
+  Activity,
+  LineChart,
+  Timer,
+  AlertTriangle,
+  Heart,
+  Smartphone,
+} from 'lucide-react'
 import definitions from './definitions'
 
-export const Services = ({ className }: { className?: string }) => {
-  const { isMobile } = useMediaQuery()
-  const [activeIndex, setActiveIndex] = useState(0) // Default to middle item
+export const Services = () => {
+  // Map icons to each service
+  const serviceIcons = [
+    Activity, // Pose Detection
+    LineChart, // Progress Tracking
+    Timer, // Performance Tracking
+    AlertTriangle, // Injury Prediction
+    Heart, // Rehabilitation Tracking
+    Smartphone, // Device Integration
+  ]
 
   return (
     <Layout
       id="services"
-      className="flex h-screen w-full bg-neutral-900 text-white"
+      className="flex min-h-screen w-full bg-neutral-900 text-white"
       sectionClassName="bg-neutral-900"
     >
-      <div className="m-auto flex h-full w-full max-w-[1400px] flex-col text-center">
-        <H1 className="mb-10 md:mb-20">Our Services!</H1>
-        <div
-          className={`flex h-full w-full flex-col items-center gap-3 lg:flex-row ${className}`}
-        >
-          {definitions.map(({ title, description }, idx) => {
-            const sizingClasses =
-              idx === activeIndex
-                ? 'w-full h-80 lg:h-full lg:w-full bg-white'
-                : 'flex-none w-full h-6 lg:h-full lg:w-6 bg-gray-800 hover:bg-gray-700 cursor-pointer'
-
+      <div className="m-auto flex h-full w-full max-w-[1400px] flex-col px-4 py-16">
+        <H1 className="mx-auto mb-16 text-center">Our Services</H1>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {definitions.map(({ title, description }, index) => {
+            const Icon = serviceIcons[index]
             return (
               <div
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className={`flex items-center justify-center rounded-3xl p-4 transition-all duration-500 ease-in-out ${sizingClasses}`}
+                key={index}
+                className="group relative overflow-hidden rounded-2xl bg-[#0802A3]/10 p-8 transition-all duration-300 hover:scale-102 hover:bg-[#0802A3]/15"
               >
-                {idx !== activeIndex && (
-                  <H3 className="origin-center rotate-0 text-center whitespace-nowrap text-white md:rotate-90">
-                    {title}
-                  </H3>
-                )}
-                <div className="flex flex-col gap-2 text-black">
-                  {idx === activeIndex && <p>{description}</p>}
+                <div className="absolute top-0 right-0 -mt-16 -mr-16 h-32 w-32 rounded-full bg-[#0802A3]/5 blur-3xl transition-all duration-300 group-hover:bg-[#0802A3]/10" />
+                <div className="relative z-10">
+                  <div className="mb-6 flex items-center gap-4">
+                    <div className="rounded-xl bg-[#0802A3]/20 p-3 text-[#0802A3] transition-colors duration-300 group-hover:bg-[#0802A3]/30">
+                      <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
+                    </div>
+                    <H3 className="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-[#B5B2FF]">
+                      {title}
+                    </H3>
+                  </div>
+                  <p className="pl-[3.25rem] text-sm leading-relaxed text-gray-300">
+                    {description}
+                  </p>
                 </div>
+                <div className="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 transform bg-gradient-to-r from-[#0802A3] via-[#B5B2FF] to-[#0802A3]/50 transition-transform duration-500 group-hover:scale-x-100" />
               </div>
             )
           })}
