@@ -82,9 +82,9 @@ const NavbarMobile = ({
 
         {/* Bottom section with language select and button */}
         <div className="flex items-center justify-between gap-2">
-          <LanguageSelect
+          {/* <LanguageSelect
             textColor={scrolled || isMenuOpen ? 'text-black' : 'text-white'}
-          />
+          /> */}
 
           {/* Book a call button */}
           <Button onClick={() => router.push('/#reach-out')}>

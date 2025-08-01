@@ -165,7 +165,7 @@ export default function NavbarDesktop({
         </ul>
       </nav>
       <div className="flex flex-1 items-center justify-end gap-6">
-        <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} />
+        {/* <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} /> */}
 
         {/* Book a call button */}
         <Button onClick={() => router.push('/#reach-out')}>Book a call</Button>
