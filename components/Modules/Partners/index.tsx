@@ -1,35 +1,46 @@
 import Image from 'next/image'
+import { H2 } from 'components/Atoms/Typography'
 
 export const Partners = () => {
-  return (
-    <section
-      id="solutions"
-      className="custom-shape-divider-top-1748815566 flex w-full flex-col items-center justify-center bg-[#0802A3] p-10 text-white"
-    >
-      <span className="text-center text-2xl font-bold uppercase">Partners</span>
-      <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
-        <Image
-          src="/partners/dtu.png"
-          alt="DTU"
-          width={100}
-          height={100}
-          className="h-16 w-auto object-contain brightness-90 contrast-125 grayscale"
-        />
+  const partners = [
+    { src: '/partners/dtu.png', alt: 'DTU', name: 'DTU' },
+    { src: '/partners/physio.png', alt: 'SF', name: 'SF' },
+    { src: '/partners/hui.png', alt: 'HUI', name: 'HUI' },
+    { src: '/partners/ai.png', alt: 'AI', name: 'AI' },
+    { src: '/partners/gs.png', alt: 'GS', name: 'GS' },
+    { src: '/partners/myoact.png', alt: 'MyoAct', name: 'MyoAct' },
+    { src: '/partners/wisp.png', alt: 'Wisp', name: 'Wisp' },
+  ]
 
-        <Image
-          src="/partners/sf.svg"
-          alt="SF"
-          width={100}
-          height={100}
-          className="h-16 w-auto object-contain brightness-99 contrast-100 grayscale"
-        />
-        <Image
-          src="/partners/hui.png"
-          alt="HUI"
-          width={100}
-          height={100}
-          className="h-16 w-auto object-contain brightness-65 contrast-60 grayscale"
-        />
+  return (
+    <section className="bg-[#0802A3] py-20">
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="mb-16 text-center">
+          <H2 className="m-auto mb-4 text-center text-4xl font-bold text-white">
+            Our Partners
+          </H2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-200">
+            We collaborate with leading organizations to deliver innovative
+            solutions
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 items-center justify-items-center gap-8 md:grid-cols-3 lg:grid-cols-7">
+          {partners.map((partner, index) => (
+            <div
+              key={index}
+              className="group flex h-16 w-full items-center justify-center transition-all duration-300 hover:scale-110 sm:h-20"
+            >
+              <Image
+                src={partner.src}
+                alt={partner.alt}
+                width={120}
+                height={60}
+                className="h-12 w-auto max-w-full object-contain opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-16"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
