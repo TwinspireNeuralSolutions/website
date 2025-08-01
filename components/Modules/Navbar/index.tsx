@@ -50,7 +50,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`pointer-events-none fixed top-0 left-0 z-50 flex ${
+      className={`pointer-events-none fixed top-0 left-0 z-50 flex max-w-[100vw] ${
         isMobile && isMenuOpen ? 'h-full' : 'h-[70px]'
       } w-full justify-center`}
     >

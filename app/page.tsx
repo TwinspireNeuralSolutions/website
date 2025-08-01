@@ -29,11 +29,11 @@ export default function Home() {
 
   return (
     <>
-      <main id="root">
+      <main id="root" className="max-w-[100vw]">
         {/* Section Hero Section */}
         <section
           id="home"
-          className="relative h-screen w-full overflow-hidden bg-black"
+          className="relative h-screen w-full max-w-[100vw] overflow-hidden bg-black"
         >
           <Navbar />
 
@@ -59,7 +59,7 @@ export default function Home() {
             className="relative flex flex-col items-center text-white"
           >
             <AnimatedHeadline />
-            <H3 className="text-center">
+            <H3 className="mx-auto max-w-4xl px-4 text-center">
               AI-Driven Insights for Stronger, Smarter Recovery and Performance
             </H3>
           </Layout>

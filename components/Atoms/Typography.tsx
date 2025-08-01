@@ -58,7 +58,7 @@ export const H1 = ({
     </h1>
   ) : (
     <h1
-      className={`max-w-5xl text-center text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
+      className={`max-w-5xl text-center text-3xl font-bold uppercase md:text-5xl lg:text-7xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
     >
       {children}
     </h1>
@@ -74,7 +74,7 @@ export const H2 = ({
 }) => {
   return (
     <h2
-      className={`max-w-2xl text-3xl font-bold uppercase md:text-4xl lg:text-5xl ${className}`}
+      className={`max-w-2xl text-2xl font-bold uppercase md:text-4xl lg:text-5xl ${className}`}
     >
       {children}
     </h2>

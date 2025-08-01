@@ -28,7 +28,7 @@ export const AnimatedHeadline = () => {
   }, [updateIndex])
 
   return (
-    <h1 className="text-center text-4xl leading-tight font-bold sm:text-5xl md:text-6xl lg:text-8xl">
+    <h1 className="text-center text-3xl leading-tight font-bold sm:text-5xl md:text-6xl lg:text-8xl">
       REHABILITATION REIMAGINED FOR{' '}
       <span className="relative inline-block h-[1.4em] w-[18ch] overflow-hidden align-middle">
         <AnimatePresence initial={false} mode="wait">

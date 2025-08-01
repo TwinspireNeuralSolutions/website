@@ -16,10 +16,8 @@ export const Partners = () => {
     <section className="bg-[#0802A3] py-20">
       <div className="container mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <H2 className="m-auto mb-4 text-center text-4xl font-bold text-white">
-            Our Partners
-          </H2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-200">
+          <H2 className="m-auto mb-4 text-center text-white">Our Partners</H2>
+          <p className="mx-auto max-w-2xl text-gray-200">
             We collaborate with leading organizations to deliver innovative
             solutions
           </p>

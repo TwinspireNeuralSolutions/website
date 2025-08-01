@@ -17,7 +17,7 @@ const Layout = ({
     <section
       ref={ref}
       id={id}
-      className={`px-10 py-15 md:px-20 md:py-30 ${sectionClassName ?? ''} m-w-[100vw]`}
+      className={`px-[20px] py-[30px] md:px-20 md:py-30 ${sectionClassName ?? ''} m-w-[100vw]`}
     >
       <div className={`mx-auto max-w-[1400px] ${className ?? ''}`}>
         {children}
