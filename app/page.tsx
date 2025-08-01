@@ -44,13 +44,6 @@ export default function Home() {
         </section>
         {/* Section  Partners */}
         <Partners />
-        <Image
-          src="/shapes/partners-shape-bottom.svg"
-          alt="Analytics"
-          width={100}
-          height={100}
-          style={{ width: '100%' }}
-        />
 
         {/* Section Our Mission */}
         <Layout className="flex flex-col items-center justify-center">
@@ -67,8 +60,8 @@ export default function Home() {
             <div className="w-full max-w-[800px] min-w-[300px] flex-1 text-left">
               <H1 color="black">Our Mission</H1>
               <p className="mt-5">
-                Recovery today is reactive. We're changing that.Injury is one of
-                the biggest threats to performance — whether you're a
+                Recovery today is reactive. We're changing that. Injury is one
+                of the biggest threats to performance — whether you're a
                 professional athlete or a patient in rehabilitation. Yet,
                 recovery still relies heavily on subjective feedback, incomplete
                 data, and outdated tools.
