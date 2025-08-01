@@ -13,7 +13,7 @@ export const Twinspire = () => (
     id="twinspire"
     className="flex flex-col items-center justify-center pt-0"
   >
-    <div className="flex w-full justify-center border-b border-gray-200 bg-white text-center">
+    <div className="flex w-full justify-center bg-white text-center">
       <H1 color="black">TWINSPIRE</H1>
     </div>
     <div className="relative flex w-full flex-col">
