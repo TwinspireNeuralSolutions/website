@@ -6,6 +6,7 @@ import Layout from '@/components/Layout'
 export const ReachOut = () => {
   return (
     <Layout
+      id="reach-out"
       sectionClassName="bg-[#0802A3]"
       className="flex min-h-screen flex-wrap items-start justify-center"
     >
