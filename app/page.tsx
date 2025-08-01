@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import { H3, AnimatedHeadline, H1 } from 'components/Atoms'
 import Layout from 'components/Layout'
 import {
@@ -17,21 +18,42 @@ import {
 import TNSLogo from '@/public/tns-logo-black.png'
 
 export default function Home() {
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+
+  useEffect(() => {
+    // Load video after a short delay or when user scrolls
+    const timer = setTimeout(() => setShouldLoadVideo(true), 100)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <>
       <main id="root">
         {/* Section Hero Section */}
-        <section id="home" className="relative h-screen w-full overflow-hidden">
+        <section
+          id="home"
+          className="relative h-screen w-full overflow-hidden bg-black"
+        >
           <Navbar />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute top-0 left-0 h-full w-full object-cover grayscale"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
+
+          {/* Load video conditionally */}
+          {shouldLoadVideo && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={`absolute top-0 left-0 h-full w-full object-cover grayscale transition-opacity duration-500 ${
+                videoLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoadedData={() => setVideoLoaded(true)}
+              preload="metadata"
+            >
+              <source src="/hero-video.mp4" type="video/mp4" />
+            </video>
+          )}
+
           <Layout
             sectionClassName="h-screen flex items-center"
             className="relative flex flex-col items-center text-white"
