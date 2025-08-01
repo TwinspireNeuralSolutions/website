@@ -36,7 +36,7 @@ export const Partners = () => {
                 alt={partner.alt}
                 width={120}
                 height={60}
-                className="h-12 w-auto max-w-full object-contain opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 sm:h-16"
+                className="h-12 w-auto max-w-full object-contain opacity-70 brightness-0 invert transition-all duration-300 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0 sm:h-16"
               />
             </div>
           ))}
