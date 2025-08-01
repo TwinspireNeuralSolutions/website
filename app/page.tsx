@@ -59,7 +59,7 @@ export default function Home() {
             className="relative flex flex-col items-center text-white"
           >
             <AnimatedHeadline />
-            <H3>
+            <H3 className="text-center">
               AI-Driven Insights for Stronger, Smarter Recovery and Performance
             </H3>
           </Layout>
