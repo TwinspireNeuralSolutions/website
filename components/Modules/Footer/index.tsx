@@ -21,7 +21,7 @@ export const Footer = ({ className }: { className: string }) => {
           </div>
 
           {/* Social icons row */}
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300">
               <Twitter size={16} className="text-gray-700" />
             </div>
@@ -31,7 +31,7 @@ export const Footer = ({ className }: { className: string }) => {
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300">
               <Instagram size={16} className="text-gray-700" />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ─── Right Side ─── Navigation Links with “wipe” hover effect */}
