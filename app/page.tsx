@@ -46,7 +46,7 @@ export default function Home() {
               loop
               playsInline
               aria-label="Background hero video showcasing Twinspire platform"
-              className={`absolute top-0 left-0 h-full w-full object-cover grayscale transition-opacity duration-500 ${
+              className={`absolute left-0 top-0 h-full w-full object-cover grayscale transition-opacity duration-500 ${
                 videoLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoadedData={() => setVideoLoaded(true)}
@@ -75,17 +75,17 @@ export default function Home() {
           aria-labelledby="mission-heading"
         >
           <div className="flex w-full flex-col flex-wrap items-center justify-center gap-[40px] md:flex-row">
-            <div className="flex w-full max-w-full min-w-[300px] flex-1 justify-center md:justify-end">
+            <div className="flex w-full min-w-[300px] max-w-full flex-1 justify-center md:justify-end">
               <Image
                 src={TNSLogo}
                 alt="Twinspire logo - AI-powered rehabilitation and injury prevention platform"
                 width={500}
                 height={500}
-                className="h-auto max-w-full min-w-[200px] object-contain object-right md:object-center"
+                className="h-auto min-w-[200px] max-w-full object-contain object-right md:object-center"
                 priority
               />
             </div>
-            <div className="w-full max-w-[800px] min-w-[300px] flex-1 text-left">
+            <div className="w-full min-w-[300px] max-w-[800px] flex-1 text-left">
               <H1 color="black" id="mission-heading">
                 Our Mission
               </H1>
