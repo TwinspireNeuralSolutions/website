@@ -1,0 +1,16 @@
+# Twinspire Robots.txt
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Disallow specific paths (add as needed)
+# Disallow: /api/
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://twinspire.com/sitemap.xml
+

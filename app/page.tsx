@@ -33,6 +33,7 @@ export default function Home() {
         {/* Section Hero Section */}
         <section
           id="home"
+          aria-label="Hero Section"
           className="relative h-screen w-full max-w-[100vw] overflow-hidden bg-black"
         >
           <Navbar />
@@ -44,6 +45,7 @@ export default function Home() {
               muted
               loop
               playsInline
+              aria-label="Background hero video showcasing Twinspire platform"
               className={`absolute top-0 left-0 h-full w-full object-cover grayscale transition-opacity duration-500 ${
                 videoLoaded ? 'opacity-100' : 'opacity-0'
               }`}
@@ -68,39 +70,47 @@ export default function Home() {
         <Partners />
 
         {/* Section Our Mission */}
-        <Layout className="flex flex-col items-center justify-center">
+        <Layout
+          className="flex flex-col items-center justify-center"
+          aria-labelledby="mission-heading"
+        >
           <div className="flex w-full flex-col flex-wrap items-center justify-center gap-[40px] md:flex-row">
             <div className="flex w-full max-w-full min-w-[300px] flex-1 justify-center md:justify-end">
               <Image
                 src={TNSLogo}
-                alt="TNS Logo"
+                alt="Twinspire logo - AI-powered rehabilitation and injury prevention platform"
                 width={500}
                 height={500}
                 className="h-auto max-w-full min-w-[200px] object-contain object-right md:object-center"
+                priority
               />
             </div>
             <div className="w-full max-w-[800px] min-w-[300px] flex-1 text-left">
-              <H1 color="black">Our Mission</H1>
+              <H1 color="black" id="mission-heading">
+                Our Mission
+              </H1>
               <p className="mt-5">
                 Recovery today is reactive. We're changing that. Injury is one
                 of the biggest threats to performance — whether you're a
                 professional athlete or a patient in rehabilitation. Yet,
                 recovery still relies heavily on subjective feedback, incomplete
                 data, and outdated tools.
-                <ul className="list-disc pl-6">
-                  <li>
-                    Over 30% of athletes suffer injuries each year, many of
-                    which are preventable.
-                  </li>
-                  <li>
-                    Reinjury rates remain high due to limited real-time insight
-                    and poor monitoring.
-                  </li>
-                  <li>
-                    Physiotherapists and coaches often lack objective,
-                    personalized data to guide and adjust treatment or training.
-                  </li>
-                </ul>
+              </p>
+              <ul className="mt-4 list-disc pl-6">
+                <li>
+                  Over 30% of athletes suffer injuries each year, many of which
+                  are preventable.
+                </li>
+                <li>
+                  Reinjury rates remain high due to limited real-time insight
+                  and poor monitoring.
+                </li>
+                <li>
+                  Physiotherapists and coaches often lack objective,
+                  personalized data to guide and adjust treatment or training.
+                </li>
+              </ul>
+              <p className="mt-4">
                 At Twinspire, we believe recovery should be proactive, precise,
                 and tailored to each individual. That's why we're building
                 intelligent digital twins to make performance and rehab

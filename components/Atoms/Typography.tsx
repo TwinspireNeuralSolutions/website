@@ -10,12 +10,14 @@ export const H1 = ({
   style = {},
   color = 'white',
   sticky = false,
+  id,
 }: {
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties
   color?: 'white' | 'black'
   sticky?: boolean
+  id?: string
 }) => {
   const { isMobile } = useMediaQuery()
 
@@ -36,6 +38,7 @@ export const H1 = ({
 
   return sticky && !isMobile ? (
     <h1
+      id={id}
       ref={sectionRef}
       className={`z-10 max-w-5xl text-5xl font-bold uppercase md:text-6xl lg:text-8xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
       style={{
@@ -58,6 +61,7 @@ export const H1 = ({
     </h1>
   ) : (
     <h1
+      id={id}
       className={`max-w-5xl text-center text-3xl font-bold uppercase md:text-5xl lg:text-7xl ${color === 'white' ? 'text-white' : 'text-black'} ${className}`}
     >
       {children}
