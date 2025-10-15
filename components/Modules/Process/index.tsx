@@ -84,7 +84,7 @@ export const Process = () => {
               variants={stepVariants}
               initial="hidden"
               animate={isInView ? (isActive ? 'active' : 'inactive') : 'hidden'}
-              className={`mt-50 md:mt-100 ${index === 0 ? 'md:mt-0' : ''}`}
+              className={`mt-50 pl-4 md:mt-100 ${index === 0 ? 'md:mt-0' : ''}`}
             >
               <H2>{title}</H2>
               <div
