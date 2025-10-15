@@ -63,7 +63,7 @@ export default function Home() {
           )}
 
           {/* Glassmorphism overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div>
+          {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div> */}
 
           <Layout
             sectionClassName="h-screen flex items-center"
@@ -195,8 +195,8 @@ export default function Home() {
             <H1 color="black">Data Security & Compliance</H1>
             <div className="mt-8 max-w-4xl space-y-6">
               <p className="text-lg">
-                At Twinspire, data integrity and privacy are not
-                add-ons—they&apos;re part of our foundation.
+                At Twinspire, data integrity and privacy are not add-ons —
+                they&apos;re part of our foundation.
               </p>
               <p>
                 We operate in full compliance with GDPR, ISO data security
@@ -238,7 +238,7 @@ export default function Home() {
                 founder Pouya Tobias Strand Nikoui suffered a muscle injury that
                 sidelined him for most of the season. After months of
                 rehabilitation, the injury returned. Not from physical weakness,
-                but from informational blindness—the absence of objective,
+                but from informational blindness — the absence of objective,
                 physiological insight.
               </p>
               <p>
@@ -278,7 +278,7 @@ export default function Home() {
                 on objective data.
               </p>
               <p className="font-semibold">
-                We believe the future of recovery is predictive—and we&apos;re
+                We believe the future of recovery is predictive — and we&apos;re
                 building it.
               </p>
             </div>

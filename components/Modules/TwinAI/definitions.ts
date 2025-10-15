@@ -9,7 +9,7 @@ export const twinspireDefinitions = [
     description: `
       <strong class="mt-6 text-gray-900">
         Twinspire builds a living digital model of every athlete and
-        patient —a real-time mirror of the body in motion
+        patient — a real-time mirror of the body in motion
       </strong>
       <br /><br />
       By translating complex biosignals into intuitive metrics on 

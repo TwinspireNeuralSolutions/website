@@ -23,7 +23,7 @@ export const Partners = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-items-center gap-8">
+        <div className="flex items-center justify-center justify-items-center gap-8">
           {partners.map((partner, index) => (
             <Image
               key={index}
