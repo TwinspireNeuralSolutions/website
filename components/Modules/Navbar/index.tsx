@@ -3,11 +3,43 @@ import React, { useState, useEffect } from 'react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export const navItems = [
-  { label: 'Home', id: 'home', href: '#home' },
-  { label: 'Twinspire', id: 'twinspire', href: '#twinspire' },
-  { label: 'Benefits', id: 'benefits', href: '#benefits' },
-  { label: 'Process', id: 'process', href: '#process' },
-  { label: 'Services', id: 'services', href: '#services' },
+  {
+    label: 'Home',
+    id: 'home',
+    href: '#home',
+    tagline: 'Revolutionizing recovery through intelligent digital twins.',
+  },
+  {
+    label: 'Platform',
+    id: 'platform',
+    href: '#platform',
+    tagline: 'The Twinspire engine: real-time modeling of human performance.',
+  },
+  {
+    label: 'Science',
+    id: 'science',
+    href: '#science',
+    tagline: 'Built on biomechanics, neuroscience, and AI research from DTU.',
+  },
+  {
+    label: 'Solutions',
+    id: 'solutions',
+    href: '#solutions',
+    tagline:
+      'From prevention to rehabilitation — data that drives performance.',
+  },
+  {
+    label: 'Security',
+    id: 'security',
+    href: '#security',
+    tagline: 'Your data. Encrypted, compliant, and protected by design.',
+  },
+  {
+    label: 'About',
+    id: 'about',
+    href: '#about',
+    tagline: 'Our story, our mission, and the team behind Twinspire.',
+  },
 ]
 
 import NavbarDesktop from './NavbarDesktop'

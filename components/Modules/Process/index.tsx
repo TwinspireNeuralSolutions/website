@@ -45,7 +45,10 @@ export const Process = () => {
             className={`mt-50 md:mt-100 ${index === 0 ? 'md:mt-0' : ''}`}
           >
             <H2>{title}</H2>
-            <p className="max-w-sm text-sm">{description}</p>
+            <div
+              className="max-w-sm text-sm"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           </motion.div>
         ))}
       </div>

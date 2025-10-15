@@ -13,13 +13,13 @@ export const Benefits = () => {
 
   return (
     <Layout
-      id="benefits"
+      id="solutions"
       ref={sectionRef}
-      sectionClassName="bg-neutral-900 "
+      sectionClassName="bg-neutral-900"
       className="flex min-h-screen flex-wrap gap-30"
     >
       <H1 sticky className="md:pt-30">
-        Benefits for {true ? 'Sports Teams' : 'Physio'}
+        Solutions for {true ? 'Sports Teams' : 'Physio'}
       </H1>
 
       <div className="flex w-full flex-1 flex-col">

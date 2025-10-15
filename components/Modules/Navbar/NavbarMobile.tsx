@@ -16,7 +16,7 @@ const NavbarMobile = ({
   isMenuOpen: boolean
   scrolled: boolean
   setIsMenuOpen: (isMenuOpen: boolean) => void
-  navItems: { label: string; id: string; href: string }[]
+  navItems: { label: string; id: string; href: string; tagline: string }[]
   activeId: string
   setActiveId: (id: string) => void
 }) => {

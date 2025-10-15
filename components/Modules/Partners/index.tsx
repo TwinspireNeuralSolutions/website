@@ -23,20 +23,16 @@ export const Partners = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 items-center justify-items-center gap-8 md:grid-cols-3 lg:grid-cols-7">
+        <div className="flex items-center justify-items-center gap-8">
           {partners.map((partner, index) => (
-            <div
+            <Image
               key={index}
-              className="group flex h-16 w-full items-center justify-center transition-all duration-300 hover:scale-110 sm:h-20"
-            >
-              <Image
-                src={partner.src}
-                alt={partner.alt}
-                width={120}
-                height={60}
-                className="h-12 w-auto max-w-full object-contain opacity-70 brightness-0 invert transition-all duration-300 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0 sm:h-16"
-              />
-            </div>
+              src={partner.src}
+              alt={partner.alt}
+              width={120}
+              height={60}
+              className="h-14 object-contain opacity-70 brightness-0 invert"
+            />
           ))}
         </div>
       </div>

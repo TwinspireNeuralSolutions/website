@@ -65,19 +65,11 @@ function BenefitCard({
       initial="hidden"
       animate={inView ? 'show' : 'hidden'}
       exit="hidden"
-      className={`min-h-[120px] w-full rounded-lg border ${
-        name === 'Sports Teams'
-          ? 'border-blue-200/20 bg-blue-800/10'
-          : 'border-indigo-500/20 bg-[#0802A3]/10'
-      }`}
+      className="min-h-[120px] w-full rounded-lg bg-white/5 backdrop-blur-lg"
     >
       <div className="flex h-full flex-col p-6">
         <div className="flex items-start gap-4">
-          <div
-            className={`rounded-full p-2 ${
-              name === 'Sports Teams' ? 'bg-blue-300/20' : 'bg-[#0802A3]/20'
-            }`}
-          >
+          <div className="rounded-full bg-[#0802A3] p-2">
             <CheckIcon className="h-4 w-4 text-white" />
           </div>
           <div className="space-y-2">

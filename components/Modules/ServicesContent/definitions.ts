@@ -1,33 +1,33 @@
 const definitions = [
   {
-    title: 'Pose Detection',
+    title: 'Sensor & Device Integration',
     description:
-      'Our AI-powered system analyzes body posture and joint positions in real time using camera input. It helps capture every movement with precision—laying the foundation for deeper biomechanical insights.',
+      'Twinspire integrates seamlessly with <strong>Polar, Garmin, EMG systems</strong>, and <strong>other wearables</strong>, fusing physiological data (heart rate, HRV, muscle activity) with movement analytics.<br />The result: <strong>a complete, real-time digital twin</strong> of the body — delivering unmatched accuracy and context for every decision.',
   },
   {
-    title: 'Progress Tracking',
+    title: 'Predictive Injury Prevention',
     description:
-      'Track user progress across sessions with visual timelines and metrics. From improvements in flexibility to range of motion and adherence, our system provides measurable outcomes to support long-term goals.',
+      'Our AI continuously learns from each user’s historical and real-time data to detect <strong>micro-patterns of imbalance</strong> and <strong>overuse</strong> before they become injuries.<br />By flagging subtle deviations early, Twinspire turns <strong>reactive rehab</strong> into <strong>proactive prevention</strong>.',
   },
   {
-    title: 'Performance Tracking',
+    title: 'Progress & Rehabilitation Tracking',
     description:
-      'We measure key performance indicators like speed, symmetry, balance, and control to help users and professionals assess functional strength, movement quality, and athletic efficiency over time.',
+      'Track progress across training and rehabilitation sessions with <strong>clear visual timelines</strong> and <strong>objective recovery metrics</strong>.<br />From range of motion to adherence and form quality, Twinspire gives physiotherapists and athletes <strong>data they can trust</strong> to guide recovery and accelerate return to play.',
   },
   {
-    title: 'Injury Prediction',
+    title: 'Performance Intelligence',
     description:
-      'Using historical data and AI motion analysis, we identify early warning signs of imbalance or overuse that may lead to injury—helping prevent setbacks before they occur.',
+      "Twinspire measures key performance indicators like <strong>speed, balance, symmetry, and control</strong> to provide a deep understanding of each athlete's functional strength and movement efficiency.<br />By visualizing <strong>asymmetries</strong> and <strong>fatigue trends</strong>, the system enables smarter training decisions that reduce injury risk and enhance peak performance.",
   },
   {
-    title: 'Rehabilitation Tracking',
+    title: 'Data Security & Compliance',
     description:
-      'Designed for post-injury recovery, our system monitors rehabilitation exercises, tracks compliance, and evaluates movement quality to support both patients and physiotherapists in making data-informed decisions.',
+      'Built in partnership with <strong>The Alexandra Institute and DTU</strong>, Twinspire ensures full <strong>GDPR compliance</strong>, data encryption, and secure cloud processing.<br />All athlete and patient data is handled under <strong>European health-tech standards</strong>, ensuring complete privacy and trust — so teams can innovate without compromising integrity.',
   },
   {
-    title: 'Device Integration',
+    title: 'Pose & Motion Analysis',
     description:
-      'We integrate with smart wearables like Polar, Garmin, and other fitness trackers to combine real-time physiological data—such as heart rate and motion—with movement analytics for a complete picture of the user’s condition.',
+      'Our vision-based AI captures <strong>body posture, joint positions</strong>, and <strong>motion patterns</strong> in real time.<br />This enables biomechanical precision that goes far beyond traditional video review—forming the foundation for <strong>quantitative movement insights</strong> and personalized feedback.',
   },
 ]
 

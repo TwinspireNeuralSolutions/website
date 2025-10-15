@@ -14,7 +14,7 @@ export default function NavbarDesktop({
   activeId,
   setActiveId,
 }: {
-  navItems: { label: string; id: string; href: string }[]
+  navItems: { label: string; id: string; href: string; tagline: string }[]
   scrolled: boolean
   activeId: string
   setActiveId: (id: string) => void
@@ -127,6 +127,7 @@ export default function NavbarDesktop({
               onMouseEnter={() => handleMouseEnter(item.id, idx)}
               onMouseLeave={handleMouseLeave}
               onClick={() => handleClick(item)}
+              title={item.tagline}
             >
               {item.label}
             </li>
