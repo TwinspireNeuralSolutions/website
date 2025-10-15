@@ -57,7 +57,7 @@ function TwinspireSection({
       variants={sectionVariants}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
-      className={`${index === 0 ? 'mt-0' : 'mt-5'} flex flex-row flex-wrap items-center gap-10 py-20`}
+      className={`${index === 0 ? 'mt-0' : 'mt-5'} flex flex-col flex-row flex-wrap items-center gap-10 py-20 md:flex-row`}
     >
       {/* Left: Text */}
       <motion.div

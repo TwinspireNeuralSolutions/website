@@ -62,38 +62,44 @@ export const Process = () => {
   }, [inView0, inView1, inView2, activeStep])
 
   return (
-    <Layout
-      id="process"
-      className="flex min-h-screen flex-wrap items-start justify-center"
-    >
-      <H1 sticky color="black" className="md:pt-30">
-        How Twinspire Delivers Actionable Insights
-      </H1>
-      <div className="sticky top-20 h-[100px] flex-1 bg-white pt-0 md:top-0 md:h-[60%] md:pt-30">
-        <ProcessSteps activeStep={activeStep} />
-      </div>
-      <div className="mb-10 flex flex-1 flex-col justify-center">
-        {processDefinitions.map(({ title, description }, index) => {
-          const isInView = [inView0, inView1, inView2][index]
-          const isActive = activeStep === index
+    <Layout id="process" className="relative min-h-screen">
+      <div className="flex min-h-screen flex-col gap-8 md:flex-row md:items-start md:gap-30">
+        <div className="h-full w-full md:sticky md:top-30 md:flex md:w-1/2">
+          <H1 color="black" className="w-full md:text-left">
+            How Twinspire Delivers Actionable Insights
+          </H1>
+        </div>
 
-          return (
-            <motion.div
-              key={index}
-              ref={textRefs[index]}
-              variants={stepVariants}
-              initial="hidden"
-              animate={isInView ? (isActive ? 'active' : 'inactive') : 'hidden'}
-              className={`mt-50 pl-4 md:mt-100 ${index === 0 ? 'md:mt-0' : ''}`}
-            >
-              <H2>{title}</H2>
-              <div
-                className="max-w-sm text-sm"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </motion.div>
-          )
-        })}
+        <div className="flex w-full flex-col md:min-h-screen md:w-1/2 md:flex-row md:py-20">
+          <div className="sticky top-20 z-10 h-[100px] flex-1 bg-white pt-0 md:top-0 md:h-[60%] md:pt-30">
+            <ProcessSteps activeStep={activeStep} />
+          </div>
+          <div className="mb-10 flex flex-1 flex-col justify-center">
+            {processDefinitions.map(({ title, description }, index) => {
+              const isInView = [inView0, inView1, inView2][index]
+              const isActive = activeStep === index
+
+              return (
+                <motion.div
+                  key={index}
+                  ref={textRefs[index]}
+                  variants={stepVariants}
+                  initial="hidden"
+                  animate={
+                    isInView ? (isActive ? 'active' : 'inactive') : 'hidden'
+                  }
+                  className={`mt-50 pl-4 md:mt-100 ${index === 0 ? 'md:mt-0' : ''}`}
+                >
+                  <H2>{title}</H2>
+                  <div
+                    className="max-w-sm text-sm"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </Layout>
   )

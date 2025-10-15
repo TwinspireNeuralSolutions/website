@@ -45,7 +45,6 @@ export const H1 = ({
         position: 'sticky',
         top: 0,
         height: '90%',
-        flex: 1,
         backgroundImage: `linear-gradient(to bottom, ${color} 50%, #9ca3af 50%)`,
         backgroundSize: '100% 200%',
         backgroundPosition: `0 ${100 - safeProgress * 100}%`,
