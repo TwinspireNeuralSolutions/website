@@ -168,7 +168,7 @@ export default function Home() {
         <section id="science" className="bg-white">
           <Layout className="flex flex-col items-center justify-center">
             <H1 color="black">Science</H1>
-            <div className="mt-8 max-w-4xl space-y-6">
+            <div className="mt-8 max-w-4xl space-y-6 text-center">
               <p className="text-lg">
                 Built on biomechanics, neuroscience, and AI research from DTU.
               </p>
@@ -193,7 +193,7 @@ export default function Home() {
         <section id="security" className="bg-white py-20">
           <Layout className="flex flex-col items-center justify-center">
             <H1 color="black">Data Security & Compliance</H1>
-            <div className="mt-8 max-w-4xl space-y-6">
+            <div className="mt-8 max-w-4xl space-y-6 text-center">
               <p className="text-lg">
                 At Twinspire, data integrity and privacy are not add-ons —
                 they&apos;re part of our foundation.
@@ -229,7 +229,7 @@ export default function Home() {
         <section id="about" className="bg-neutral-900 py-20 text-white">
           <Layout className="flex flex-col items-center justify-center">
             <H1>Our Story</H1>
-            <div className="mt-8 max-w-4xl space-y-6">
+            <div className="mt-8 max-w-4xl space-y-6 text-center">
               <p className="text-lg">
                 Twinspire began with a moment that changed everything.
               </p>
