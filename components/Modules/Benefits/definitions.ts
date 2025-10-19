@@ -35,7 +35,7 @@ export const physioDefinitions = [
   {
     title: 'Detailed Recovery Tracking',
     benefit:
-      'Track rehab objectively with clear, measurable data—no more guesswork or relying only on pain reports.',
+      'Track rehab objectively with clear, measurable data — no more guesswork or relying only on pain reports.',
   },
   {
     title: 'Early Risk Detection',

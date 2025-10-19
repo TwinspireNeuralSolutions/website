@@ -10,8 +10,9 @@ const ANIMATION_CONFIG = {
 }
 
 const words = [
-  { text: 'SPORT TEAMS', color: 'bg-blue-300 text-white' },
-  { text: 'PHYSIOTHERAPY', color: 'bg-[#0802A3] text-white' },
+  { text: 'SPORT TEAMS', color: 'bg-blue-400 text-white' },
+  { text: 'ATHLETES', color: 'bg-[#0802A3] text-white' },
+  { text: 'PHYSIOTHERAPY', color: 'bg-blue-600 text-white' },
 ] as const
 
 export const AnimatedHeadline = () => {

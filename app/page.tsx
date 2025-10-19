@@ -146,10 +146,10 @@ export default function Home() {
                   recovery should be{' '}
                   <strong>proactive, precise, and personal</strong>. <br />{' '}
                   That&apos;s why we&apos;re developing AI-powered{' '}
-                  <strong>digital twins</strong>— intelligent models that mirror
-                  each athlete&apos;s unique physiology, allowing performance
-                  and rehabilitation to be measured, tracked, and optimized with
-                  scientific precision.
+                  <strong>digital twins</strong> — intelligent models that
+                  mirror each athlete&apos;s unique physiology, allowing
+                  performance and rehabilitation to be measured, tracked, and
+                  optimized with scientific precision.
                   <br />
                   <br />
                   <strong>
