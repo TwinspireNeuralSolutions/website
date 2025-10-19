@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import { H2 } from 'components/Atoms/Typography'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export const Partners = () => {
   const partners = [
@@ -12,6 +15,50 @@ export const Partners = () => {
     { src: '/partners/wisp.png', alt: 'Wisp', name: 'Wisp' },
   ]
 
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 4000,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    cssEase: 'linear',
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    draggable: false,
+    swipe: false,
+    touchMove: false,
+    waitForAnimate: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          speed: 5000,
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          speed: 5000,
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          speed: 5000,
+          autoplaySpeed: 5000,
+        },
+      },
+    ],
+  }
+
   return (
     <section className="bg-[#0802A3] py-20">
       <div className="container mx-auto max-w-7xl px-6">
@@ -23,18 +70,19 @@ export const Partners = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-center justify-items-center gap-8">
+        <Slider {...settings}>
           {partners.map((partner, index) => (
-            <Image
-              key={index}
-              src={partner.src}
-              alt={partner.alt}
-              width={120}
-              height={60}
-              className="h-14 object-contain opacity-70 brightness-0 invert"
-            />
+            <div key={index} className="pointer-events-none px-4">
+              <Image
+                src={partner.src}
+                alt={partner.alt}
+                width={140}
+                height={80}
+                className="h-14 object-contain opacity-70 brightness-0 invert"
+              />
+            </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   )
