@@ -6,24 +6,19 @@ import { CheckIcon } from 'lucide-react'
 import { useRef } from 'react'
 
 const itemVariants = {
-  hidden: { opacity: 0, x: 90, y: 32, scale: 0.98 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
-    x: 0,
     y: 0,
-    scale: 1,
     transition: {
-      type: 'spring',
-      stiffness: 350,
-      damping: 23,
+      duration: 0.5,
+      ease: 'easeOut',
     },
   },
   exit: {
     opacity: 0,
-    x: -90,
-    y: -32,
-    scale: 0.98,
-    transition: { duration: 0.35 },
+    y: 20,
+    transition: { duration: 0.3 },
   },
 }
 
@@ -40,21 +35,13 @@ export const AnimatedBenefits = ({
     <H2 className="mb-10 text-3xl font-bold text-white">{name}</H2>
     <div className="flex w-full flex-col justify-center gap-3">
       {data.map(({ title, benefit }) => (
-        <BenefitCard key={title} title={title} benefit={benefit} name={name} />
+        <BenefitCard key={title} title={title} benefit={benefit} />
       ))}
     </div>
   </div>
 )
 
-function BenefitCard({
-  title,
-  benefit,
-  name,
-}: {
-  title: string
-  benefit: string
-  name: string
-}) {
+function BenefitCard({ title, benefit }: { title: string; benefit: string }) {
   const ref = useRef(null)
   const inView = useInView(ref, { amount: 0.1 })
 
