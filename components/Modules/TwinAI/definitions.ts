@@ -60,7 +60,7 @@ export const twinspireDefinitions = [
       Delivered as a <strong>secure, GDPR-compliant SaaS solution</strong>,
       Twinspire unites data, analysis, and user experience in one
       intelligent platform.
-      <br /><br />
+      <br />
       <ul class="mt-6 list-disc space-y-2 pl-6">
         <li>
           <strong>Managers</strong> monitor workloads and recovery timelines in real time.
