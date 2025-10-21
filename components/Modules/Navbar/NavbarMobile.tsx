@@ -88,7 +88,7 @@ const NavbarMobile = ({
 
           {/* Book a call button */}
           <Button onClick={() => router.push('/#reach-out')}>
-            Book a call
+            Book a Demo
           </Button>
         </div>
       </div>

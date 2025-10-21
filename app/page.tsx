@@ -170,13 +170,36 @@ export default function Home() {
             <H1 color="black">Science</H1>
             <div className="mt-8 max-w-4xl space-y-6 text-center">
               <p className="text-lg">
-                Built on biomechanics, neuroscience, and AI research from DTU.
+                Twinspire is built on decades of research in{' '}
+                <strong>biomechanics</strong>, <strong>neuroscience</strong>,
+                and <strong>artificial intelligence</strong> and is developed
+                through close collaboration with the{' '}
+                <strong>Technical University of Denmark (DTU)</strong>, and
+                particularly <strong>DTU Health Tech</strong>. Our foundation
+                merges cutting-edge university research with applied innovation
+                to transform how human performance and injury risk are
+                understood.
               </p>
               <p>
-                In collaboration with leading research clinics and universities,
-                we&apos;re transforming human performance science into
-                actionable insights that empower physiotherapists, coaches, and
-                athletes alike.
+                Our technology originates from proprietary research at DTU,
+                which is currently <strong>undergoing patent protection</strong>
+                , ensuring a strong intellectual foundation for future
+                development.
+              </p>
+              <p>
+                Twinspire’s scientific leadership combines academic depth with
+                proven entrepreneurial success.{' '}
+                <strong>Professor John Paulin Hansen</strong>, co-founder and
+                DTU researcher, brings decades of experience in human-computer
+                interaction and innovation, including successful exits from
+                prior tech ventures acquired by <strong>Facebook/Oculus</strong>{' '}
+                and <strong>GN Audio</strong>.
+              </p>
+              <p>
+                Together, our team is advancing the frontier of{' '}
+                <strong>digital twin technology </strong> and turning the latest
+                scientific discoveries into practical, scalable tools for
+                physiotherapists, coaches, and athletes worldwide.
               </p>
             </div>
           </Layout>
@@ -219,7 +242,7 @@ export default function Home() {
                 only for authorized, transparent purposes.
               </p>
               <p className="font-semibold">
-                Trust is earned through design—and we build for trust.
+                Trust is earned - <strong>Book a Demo</strong> to learn more
               </p>
             </div>
           </Layout>
