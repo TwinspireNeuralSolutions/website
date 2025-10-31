@@ -1,7 +1,3 @@
-import Image1 from '@/public/ai.jpg'
-import Image2 from '@/public/ai2.jpg'
-import Image3 from '@/public/ai3.jpg'
-
 export const twinspireDefinitions = [
   {
     tag: 'WHAT IS TWINSPIRE?',
@@ -24,7 +20,7 @@ export const twinspireDefinitions = [
       <strong>adjust workloads confidently</strong> — preventing injury
       before it happens and optimizing every step of rehabilitation.
     `,
-    image: Image1,
+    image: '/first.jpeg',
     alt: 'What is Twinspire',
   },
   {
@@ -50,7 +46,7 @@ export const twinspireDefinitions = [
       we're transforming human performance science into actionable
       insights that empower physiotherapists, coaches, and athletes alike.
     `,
-    image: Image2,
+    image: '/middle.JPG',
     alt: 'Predictive Injury Prevention',
   },
   {
@@ -80,7 +76,7 @@ export const twinspireDefinitions = [
         each user smarter, each session safer, and each recovery faster.
       </strong>
     `,
-    image: Image3,
+    image: '/last.jpg',
     alt: 'The Twinspire Platform in Action',
   },
 ]

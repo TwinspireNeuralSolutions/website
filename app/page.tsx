@@ -14,8 +14,6 @@ import {
   ReachOut,
 } from 'components/Modules'
 
-import TNSLogo from '@/public/tns-logo-black.png'
-
 export default function Home() {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
   const [videoLoaded, setVideoLoaded] = useState(false)
@@ -95,7 +93,7 @@ export default function Home() {
             {/* Logo */}
             <div className="flex w-full max-w-full min-w-[300px] flex-1 justify-center md:justify-end">
               <Image
-                src={TNSLogo}
+                src="/tns-logo-black.png"
                 alt="Twinspire logo - AI-powered rehabilitation and injury prevention platform"
                 width={400}
                 height={400}

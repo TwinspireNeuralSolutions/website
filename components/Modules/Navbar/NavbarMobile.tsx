@@ -2,8 +2,6 @@
 import { Button, LanguageSelect, MenuToggle } from 'components'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import logoBlack from '@/public/logo-black.png'
-import logoWhite from '@/public/logo-white.png'
 
 const NavbarMobile = ({
   isMenuOpen,
@@ -40,7 +38,7 @@ const NavbarMobile = ({
     <div className="flex h-full w-full flex-col p-4 md:hidden">
       <div className="flex w-full items-center justify-between">
         <Image
-          src={scrolled || isMenuOpen ? logoBlack : logoWhite}
+          src={scrolled || isMenuOpen ? '/logo-black.png' : '/logo-white.png'}
           alt="logo"
           width={70}
           height={70}

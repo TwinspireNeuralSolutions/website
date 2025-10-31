@@ -3,7 +3,6 @@
 import React from 'react'
 import { Twitter, Facebook, Instagram } from 'lucide-react'
 import Image from 'next/image'
-import logoWhite from '@/public/logo-white.png'
 import { navItems } from '../Navbar'
 
 export const Footer = ({ className }: { className: string }) => {
@@ -17,7 +16,7 @@ export const Footer = ({ className }: { className: string }) => {
         <div className="flex flex-col items-start space-y-6">
           {/* Logo placeholder */}
           <div>
-            <Image src={logoWhite} alt="Logo" width={200} height={200} />
+            <Image src="/logo-white.png" alt="Logo" width={200} height={200} />
           </div>
 
           {/* Social icons row */}

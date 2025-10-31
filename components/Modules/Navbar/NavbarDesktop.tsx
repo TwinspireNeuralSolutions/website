@@ -4,8 +4,6 @@ import React, { useRef, useState, useEffect } from 'react'
 import { LanguageSelect, Button } from 'components'
 
 import Image from 'next/image'
-import logoBlack from '@/public/logo-black.png'
-import logoWhite from '@/public/logo-white.png'
 import { useRouter } from 'next/navigation'
 
 export default function NavbarDesktop({
@@ -106,7 +104,7 @@ export default function NavbarDesktop({
     <div className="hidden w-full items-center justify-between px-5 md:flex">
       <div className="flex flex-1 justify-start">
         <Image
-          src={scrolled ? logoBlack : logoWhite}
+          src={scrolled ? '/logo-black.png' : '/logo-white.png'}
           alt="logo"
           width={70}
           height={70}
