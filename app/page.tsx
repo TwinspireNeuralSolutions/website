@@ -128,7 +128,7 @@ export default function Home() {
                 <ul className="list-disc space-y-2 pl-6">
                   <li>
                     Every year, <strong>over 30% of athletes</strong> experience
-                    injuries that could have been prevented.
+                    injuries, some of which could have been prevented.
                   </li>
                   <li>
                     <strong>Reinjury rates remain high</strong>, driven by poor
