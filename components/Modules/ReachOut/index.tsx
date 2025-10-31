@@ -10,13 +10,6 @@ export const ReachOut = () => {
       sectionClassName="bg-[#0802A3]"
       className="flex min-h-screen flex-wrap items-start justify-center"
     >
-      <Image
-        src="/shapes/partners-shape-bottom.svg"
-        alt="Analytics"
-        width={100}
-        height={100}
-        style={{ width: '100%', rotate: '180deg', marginBottom: '-25px' }}
-      />
       <section className="align-center flex w-full flex-col items-center justify-center py-20 text-center text-white">
         <div className="m-0-auto max-w-[800px] text-center">
           <H1>Get Involved</H1>

@@ -89,25 +89,29 @@ export default function Home() {
 
         {/* Section Our Mission */}
         <Layout className="py-24" aria-labelledby="mission-heading">
+          <H1
+            color="black"
+            id="mission-heading"
+            className="mx-auto mb-8 text-center"
+          >
+            Our Mission
+          </H1>
+
           <div className="flex w-full flex-col flex-wrap items-center justify-center gap-12 md:flex-row md:gap-16">
             {/* Logo */}
             <div className="flex w-full max-w-full min-w-[300px] flex-1 justify-center md:justify-end">
               <Image
-                src="/tns-logo-black.png"
+                src="/tns-logo-white.png"
                 alt="Twinspire logo - AI-powered rehabilitation and injury prevention platform"
                 width={400}
                 height={400}
-                className="h-auto max-w-full min-w-[150px] object-contain object-right md:object-center"
+                className="h-auto w-full min-w-[150px] object-contain object-right md:object-center"
                 priority
               />
             </div>
 
             {/* Content */}
             <div className="w-full max-w-[800px] min-w-[300px] flex-1">
-              <H1 color="black" id="mission-heading" className="mb-8 text-left">
-                Our Mission
-              </H1>
-
               <div className="space-y-6 text-gray-700">
                 <p className="text-xl font-bold text-gray-900">
                   Recovery today is reactive — we&apos;re making it intelligent.
