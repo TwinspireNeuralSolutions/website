@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { H1 } from '@/components'
+import { H1 } from '@/components/Atoms/Typography'
 
 import { TestimonialCard } from './TestimonialCard'
 import { testimonials } from './definitions'

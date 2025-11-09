@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 import Layout from '@/components/Layout'
-import { H1, H2 } from '@/components'
+import { H1, H2 } from '@/components/Atoms/Typography'
 import { processDefinitions } from './definitions'
 import { ProcessSteps } from './ProcessSteps'
 

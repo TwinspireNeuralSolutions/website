@@ -1,7 +1,7 @@
 'use client'
 
-import { H1 } from 'components'
-import Layout from 'components/Layout'
+import { H1 } from '@/components/Atoms/Typography'
+import Layout from '@/components/Layout'
 import { physioDefinitions, sportTeamDefinitions } from './definitions'
 import { AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
@@ -23,7 +23,7 @@ export const Benefits = () => {
         </div>
 
         <div className="flex w-full flex-col md:min-h-screen md:w-1/2 md:py-20">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             <AnimatedBenefits
               key="sports-teams"
               data={sportTeamDefinitions}

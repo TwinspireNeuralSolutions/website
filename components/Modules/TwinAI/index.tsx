@@ -2,9 +2,9 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { H1, H2, H3 } from 'components'
+import { H1, H2, H3 } from '@/components/Atoms/Typography'
 import Image from 'next/image'
-import Layout from 'components/Layout'
+import Layout from '@/components/Layout'
 import { twinspireDefinitions } from './definitions'
 
 const sectionVariants = {

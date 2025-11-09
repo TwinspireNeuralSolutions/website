@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Layout from '@/components/Layout'
-import { H1, H3 } from '@/components'
+import { H1, H3 } from '@/components/Atoms/Typography'
 import {
   Activity,
   LineChart,

@@ -1,6 +1,6 @@
 'use client'
 
-import { H2 } from 'components'
+import { H2 } from '@/components/Atoms/Typography'
 import { motion, useInView } from 'framer-motion'
 import { CheckIcon } from 'lucide-react'
 import { useRef } from 'react'

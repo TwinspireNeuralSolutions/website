@@ -1,5 +1,6 @@
 'use client'
-import { Button, LanguageSelect, MenuToggle } from 'components'
+import { Button } from '@/components/Atoms/Button'
+import { MenuToggle } from '@/components/Atoms/MenuToggle'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 

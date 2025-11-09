@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { H2 } from 'components/Atoms/Typography'
+import { H2 } from '@/components/Atoms/Typography'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'

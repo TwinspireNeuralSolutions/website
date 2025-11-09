@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { H3, AnimatedHeadline, H1 } from 'components/Atoms'
-import Layout from 'components/Layout'
+import { H3, AnimatedHeadline, H1 } from '@/components/Atoms'
+import Layout from '@/components/Layout'
 import {
   Navbar,
   Partners,
@@ -12,7 +12,7 @@ import {
   Benefits,
   Services,
   ReachOut,
-} from 'components/Modules'
+} from '@/components/Modules'
 
 export default function Home() {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false)

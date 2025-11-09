@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react'
 
-import { LanguageSelect, Button } from 'components'
+import { Button } from '@/components/Atoms/Button'
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
