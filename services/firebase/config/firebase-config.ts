@@ -1,10 +1,6 @@
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app'
 import { getAuth, Auth } from 'firebase/auth'
 
-/**
- * Firebase configuration object
- * All values are pulled from environment variables
- */
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || '',
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || '',
@@ -63,10 +59,8 @@ export function initializeFirebase() {
   return { app, auth }
 }
 
-// Initialize on module load (client-side only)
 if (typeof window !== 'undefined') {
   initializeFirebase()
 }
 
 export { app, auth }
-
