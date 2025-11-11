@@ -50,19 +50,16 @@ function DashboardContent() {
     const validTypes = [
       'application/vnd.ms-excel',
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      'text/csv',
-      'application/vnd.google-apps.spreadsheet',
     ]
     const isValidType =
       validTypes.includes(file.type) ||
       file.name.endsWith('.xlsx') ||
-      file.name.endsWith('.xls') ||
-      file.name.endsWith('.csv')
+      file.name.endsWith('.xls')
 
     if (!isValidType) {
       setUploadStatus('error')
       setUploadMessage(
-        'Invalid file type. Please upload Excel (.xlsx, .xls) or CSV files.'
+        'Invalid file type. Please upload Excel files (.xlsx, .xls) only.'
       )
       return false
     }
@@ -129,28 +126,50 @@ function DashboardContent() {
       return
     }
 
+    if (!user) {
+      setUploadStatus('error')
+      setUploadMessage('You must be logged in to upload files')
+      return
+    }
+
     setUploadStatus('uploading')
     setUploadMessage('Uploading file...')
 
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const formData = new FormData()
+      formData.append('file', selectedFile)
+      formData.append('userId', user.uid)
 
-    // TODO: Replace with actual upload API
-    // const formData = new FormData()
-    // formData.append('file', selectedFile)
-    // const response = await fetch('/api/upload', {
-    //   method: 'POST',
-    //   body: formData,
-    // })
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
 
-    setUploadedFile({
-      name: selectedFile.name,
-      size: formatFileSize(selectedFile.size),
-    })
+      const data = await response.json()
 
-    setUploadStatus('success')
-    setSelectedFile(null)
-    if (fileInputRef.current) {
-      fileInputRef.current.value = ''
+      if (!response.ok) {
+        throw new Error(data.error || 'Upload failed')
+      }
+
+      setUploadedFile({
+        name: selectedFile.name,
+        size: formatFileSize(selectedFile.size),
+      })
+
+      setUploadStatus('success')
+      setUploadMessage(`File uploaded successfully: ${data.fileName}`)
+      setSelectedFile(null)
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    } catch (error) {
+      setUploadStatus('error')
+      setUploadMessage(
+        error instanceof Error
+          ? error.message
+          : 'Upload failed. Please try again.'
+      )
+      console.error('Upload error:', error)
     }
   }
 
@@ -220,7 +239,7 @@ function DashboardContent() {
             <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
               <CardTitle className="text-2xl">Upload Files</CardTitle>
               <CardDescription className="text-base">
-                Drag and drop your Excel or CSV files, or click to browse
+                Drag and drop your Excel files, or click to browse
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6">
@@ -250,7 +269,7 @@ function DashboardContent() {
                 <input
                   ref={fileInputRef}
                   type="file"
-                  accept=".xlsx,.xls,.csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv"
+                  accept=".xlsx,.xls,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                   onChange={handleFileChange}
                   className="hidden"
                 />
@@ -321,7 +340,7 @@ function DashboardContent() {
                         <div className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 shadow-sm">
                           <FileSpreadsheet className="h-5 w-5 text-gray-400" />
                           <span className="text-sm text-gray-600">
-                            Supports: .xlsx, .xls, .csv
+                            Supports: .xlsx, .xls
                           </span>
                         </div>
                       </div>
