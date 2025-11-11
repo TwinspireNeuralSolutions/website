@@ -1,0 +1,99 @@
+'use client'
+
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { useAuth } from '@/hooks/useAuth'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { ArrowLeft } from 'lucide-react'
+import { LoadingScreen } from './components/LoadingScreen'
+import { EmailPasswordForm } from './components/EmailPasswordForm'
+import { OAuthButtons } from './components/OAuthButtons'
+import { ErrorAlert } from './components/ErrorAlert'
+import { useAdminLogin } from './hooks/useAdminLogin'
+
+export default function AdminLogin() {
+  const router = useRouter()
+  const { isAuthenticated, isLoading: isAuthLoading } = useAuth()
+  const {
+    email,
+    password,
+    error,
+    isRateLimited,
+    isLoading,
+    emailSignIn,
+    googleSignIn,
+    appleSignIn,
+    setEmail,
+    setPassword,
+    handleEmailLogin,
+    handleGoogleLogin,
+    handleAppleLogin,
+  } = useAdminLogin()
+
+  useEffect(() => {
+    if (!isAuthLoading && isAuthenticated) {
+      router.push('/admin/dashboard')
+    }
+  }, [isAuthenticated, isAuthLoading, router])
+
+  if (isAuthLoading) return <LoadingScreen />
+  if (isAuthenticated) return null
+
+  const isDisabled = isLoading || isRateLimited
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0a0a2e] via-[#16213e] to-[#0f3460] p-4">
+      <div className="w-full max-w-md space-y-4">
+        <Link href="/">
+          <Button
+            variant="ghost"
+            className="text-white hover:bg-white/10 hover:text-white"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
+        </Link>
+
+        <Card className="w-full">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
+            <CardDescription>
+              Sign in with your credentials to access the admin panel
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            <EmailPasswordForm
+              email={email}
+              password={password}
+              isLoading={emailSignIn.isLoading}
+              isDisabled={isDisabled}
+              hasError={!!error}
+              onEmailChange={setEmail}
+              onPasswordChange={setPassword}
+              onSubmit={handleEmailLogin}
+            />
+
+            <ErrorAlert message={error} />
+
+            <OAuthButtons
+              isGoogleLoading={googleSignIn.isLoading}
+              isAppleLoading={appleSignIn.isLoading}
+              isDisabled={isDisabled}
+              onGoogleClick={handleGoogleLogin}
+              onAppleClick={handleAppleLogin}
+            />
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
