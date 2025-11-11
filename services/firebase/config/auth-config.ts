@@ -36,7 +36,7 @@ export const AUTH_CONFIG = {
   },
   errorMessages: {
     'auth/user-not-found':
-      'No account found with this email. Please contact support.',
+      "We couldn't find a team account with this email. Please contact us at support@yourcompany.com to set up your team account.",
     'auth/wrong-password': 'Incorrect password. Please try again.',
     'auth/invalid-email': 'Invalid email address format.',
     'auth/user-disabled':
@@ -55,6 +55,8 @@ export const AUTH_CONFIG = {
       'Invalid credentials. Please check your email and password.',
     'auth/operation-not-allowed':
       'This sign-in method is not enabled. Please contact support.',
+    'auth/no-team-account':
+      "You don't have a team account yet. Please reach out to us at support@yourcompany.com to get your team set up and gain access to the admin portal.",
     default: 'An error occurred during sign-in. Please try again.',
   },
 } as const

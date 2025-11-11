@@ -7,6 +7,7 @@ import {
   setPersistence,
   browserLocalPersistence,
   UserCredential,
+  AuthProvider,
 } from 'firebase/auth'
 import { auth } from './config/firebase-config'
 import {
@@ -57,21 +58,40 @@ class AuthService {
   }
 
   /**
-   * Sign in with Google
-   * Opens popup for Google authentication
+   * Generic OAuth sign-in handler
+   * Handles popup authentication and enforces login-only (no signup)
+   * @private
    */
-  async signInWithGoogle(): Promise<SignInResponse> {
+  private async signInWithOAuth(
+    provider: AuthProvider,
+    providerId: string
+  ): Promise<SignInResponse> {
     if (!auth) {
       throw new Error('Firebase auth not initialized')
     }
 
     try {
-      const provider = getGoogleProvider()
       const userCredential = await signInWithPopup(auth, provider)
+
+      // Check if this is a new user (OAuth providers auto-create accounts)
+      const isNewUser =
+        userCredential.user.metadata.creationTime ===
+        userCredential.user.metadata.lastSignInTime
+
+      if (isNewUser) {
+        // Delete the newly created account
+        await userCredential.user.delete()
+        // Throw custom error for no team account
+        const error = new Error(
+          AUTH_CONFIG.errorMessages['auth/no-team-account']
+        )
+        error.name = 'auth/no-team-account'
+        throw error
+      }
 
       return {
         user: mapFirebaseUser(userCredential.user),
-        providerId: userCredential.providerId || 'google.com',
+        providerId: userCredential.providerId || providerId,
       }
     } catch (error: any) {
       throw this.handleAuthError(error)
@@ -79,25 +99,23 @@ class AuthService {
   }
 
   /**
+   * Sign in with Google
+   * Opens popup for Google authentication
+   * Only allows existing users - new users are rejected
+   */
+  async signInWithGoogle(): Promise<SignInResponse> {
+    const provider = getGoogleProvider()
+    return this.signInWithOAuth(provider, 'google.com')
+  }
+
+  /**
    * Sign in with Apple
    * Opens popup for Apple authentication
+   * Only allows existing users - new users are rejected
    */
   async signInWithApple(): Promise<SignInResponse> {
-    if (!auth) {
-      throw new Error('Firebase auth not initialized')
-    }
-
-    try {
-      const provider = getAppleProvider()
-      const userCredential = await signInWithPopup(auth, provider)
-
-      return {
-        user: mapFirebaseUser(userCredential.user),
-        providerId: userCredential.providerId || 'apple.com',
-      }
-    } catch (error: any) {
-      throw this.handleAuthError(error)
-    }
+    const provider = getAppleProvider()
+    return this.signInWithOAuth(provider, 'apple.com')
   }
 
   /**
