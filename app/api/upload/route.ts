@@ -30,15 +30,32 @@ export async function POST(request: NextRequest) {
 
     const formData = await request.formData()
     const file = formData.get('file') as File
-    const userId = formData.get('userId') as string
+    const teamId = formData.get('teamId') as string
+    const measureDate = formData.get('measureDate') as string
 
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 })
     }
 
-    if (!userId) {
+    if (!teamId) {
       return NextResponse.json(
-        { error: 'User ID is required' },
+        { error: 'Team ID is required' },
+        { status: 400 }
+      )
+    }
+
+    if (!measureDate) {
+      return NextResponse.json(
+        { error: 'Measure date is required' },
+        { status: 400 }
+      )
+    }
+
+    // Validate date format (YYYY-MM-DD)
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/
+    if (!dateRegex.test(measureDate)) {
+      return NextResponse.json(
+        { error: 'Invalid date format. Please use YYYY-MM-DD format.' },
         { status: 400 }
       )
     }
@@ -76,11 +93,16 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
-    // Create a unique filename with timestamp
-    // Structure: excel/{userId}/{timestamp}-{sanitizedFileName}
+    // Create unique file identifier (using hash or UUID-like string)
     const timestamp = Date.now()
+    const randomStr = Math.random().toString(36).substring(2, 15)
+    const fileId = `${timestamp}-${randomStr}`
+
+    // Sanitize original filename
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
-    const fileName = `excel/${userId}/${timestamp}-${sanitizedFileName}`
+
+    // Create partitioned folder structure: source=excel/team_id={teamId}/measure_date={date}/file={filename}
+    const fileName = `source=excel/team_id=${teamId}/measure_date=${measureDate}/file=${fileId}-${sanitizedFileName}`
 
     // Upload to GCP Storage
     const bucket = storage.bucket(bucketName)

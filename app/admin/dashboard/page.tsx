@@ -41,6 +41,15 @@ function DashboardContent() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropZoneRef = useRef<HTMLDivElement>(null)
 
+  // Get current date in YYYY-MM-DD format
+  const getCurrentDate = () => {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = String(now.getMonth() + 1).padStart(2, '0')
+    const day = String(now.getDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
+  }
+
   const handleLogout = async () => {
     await signOut()
     router.push('/admin')
@@ -138,7 +147,8 @@ function DashboardContent() {
     try {
       const formData = new FormData()
       formData.append('file', selectedFile)
-      formData.append('userId', user.uid)
+      formData.append('teamId', process.env.NEXT_PUBLIC_TEAM_ID || '')
+      formData.append('measureDate', getCurrentDate())
 
       const response = await fetch('/api/upload', {
         method: 'POST',
