@@ -27,10 +27,17 @@ function validateFirebaseConfig() {
     (field) => !firebaseConfig[field as keyof typeof firebaseConfig]
   )
 
-  if (missingFields.length > 0 && process.env.NODE_ENV === 'development') {
-    console.warn(
-      `Missing Firebase configuration fields: ${missingFields.join(', ')}`
-    )
+  if (missingFields.length > 0) {
+    const errorMessage = `Missing Firebase configuration fields: ${missingFields.join(', ')}`
+
+    // Always log in production to help debug configuration issues
+    if (typeof window !== 'undefined') {
+      console.error('Firebase Configuration Error:', errorMessage)
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(errorMessage)
+    }
   }
 }
 

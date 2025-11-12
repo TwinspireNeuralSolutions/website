@@ -94,6 +94,20 @@ class AuthService {
         providerId: userCredential.providerId || providerId,
       }
     } catch (error: any) {
+      // Enhanced error logging for production debugging
+      const errorCode = error?.code || error?.name || 'unknown'
+      const errorMessage = error?.message || 'Unknown error'
+
+      // Log error details for debugging (sanitized for production)
+      if (typeof window !== 'undefined') {
+        console.error(`OAuth sign-in error [${providerId}]:`, {
+          code: errorCode,
+          message: errorMessage,
+          // Only log full error in development
+          ...(process.env.NODE_ENV === 'development' && { fullError: error }),
+        })
+      }
+
       throw this.handleAuthError(error)
     }
   }
@@ -104,8 +118,25 @@ class AuthService {
    * Only allows existing users - new users are rejected
    */
   async signInWithGoogle(): Promise<SignInResponse> {
-    const provider = getGoogleProvider()
-    return this.signInWithOAuth(provider, 'google.com')
+    if (!auth) {
+      const error = new Error(
+        'Firebase authentication is not initialized. Please refresh the page and try again.'
+      )
+      error.name = 'auth/not-initialized'
+      throw error
+    }
+
+    try {
+      const provider = getGoogleProvider()
+      return await this.signInWithOAuth(provider, 'google.com')
+    } catch (error: any) {
+      // Re-throw if it's already been handled
+      if (error.name && error.name.startsWith('auth/')) {
+        throw error
+      }
+      // Otherwise, handle it
+      throw this.handleAuthError(error)
+    }
   }
 
   /**
@@ -160,18 +191,33 @@ class AuthService {
    * Handle authentication errors with user-friendly messages
    */
   private handleAuthError(error: any): Error {
-    const errorCode = error.code || 'unknown'
+    // Extract error code from various possible locations
+    const errorCode =
+      error?.code || error?.name || error?.errorCode || 'unknown'
+
+    // Check for nested error objects (common in Firebase)
+    const nestedCode = error?.error?.code || error?.error?.message
+    const finalErrorCode = nestedCode || errorCode
+
     const errorMessage =
       AUTH_CONFIG.errorMessages[
-        errorCode as keyof typeof AUTH_CONFIG.errorMessages
+        finalErrorCode as keyof typeof AUTH_CONFIG.errorMessages
       ] || AUTH_CONFIG.errorMessages.default
 
     const customError = new Error(errorMessage)
-    customError.name = errorCode
+    customError.name = finalErrorCode
 
-    // Only log in development to avoid exposing sensitive info
-    if (process.env.NODE_ENV === 'development') {
-      console.error('Auth error:', errorCode)
+    // Log error details for debugging (sanitized for production)
+    if (typeof window !== 'undefined') {
+      console.error('Auth error:', {
+        code: finalErrorCode,
+        message: errorMessage,
+        // Only log full error details in development
+        ...(process.env.NODE_ENV === 'development' && {
+          originalError: error,
+          stack: error?.stack,
+        }),
+      })
     }
 
     return customError

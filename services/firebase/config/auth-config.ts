@@ -44,7 +44,7 @@ export const AUTH_CONFIG = {
     'auth/too-many-requests':
       'Too many failed attempts. Please try again later.',
     'auth/network-request-failed':
-      'Network error. Please check your connection.',
+      'Network error. Please check your connection and try again.',
     'auth/popup-closed-by-user': 'Sign-in cancelled. Please try again.',
     'auth/cancelled-popup-request': 'Sign-in cancelled. Please try again.',
     'auth/popup-blocked':
@@ -54,7 +54,19 @@ export const AUTH_CONFIG = {
     'auth/invalid-credential':
       'Invalid credentials. Please check your email and password.',
     'auth/operation-not-allowed':
-      'This sign-in method is not enabled. Please contact support.',
+      'Google sign-in is not enabled. Please contact support.',
+    'auth/unauthorized-domain':
+      'This domain is not authorized for sign-in. Please contact support.',
+    'auth/invalid-api-key':
+      'Authentication configuration error. Please contact support.',
+    'auth/app-not-authorized':
+      'This app is not authorized. Please contact support.',
+    'auth/configuration-not-found':
+      'Authentication configuration error. Please contact support.',
+    'auth/domain-config-required':
+      'Domain configuration required. Please contact support.',
+    'auth/not-initialized':
+      'Authentication service is not ready. Please refresh the page and try again.',
     'auth/no-team-account':
       "You don't have a team account yet. Please reach out to us at support@yourcompany.com to get your team set up and gain access to the admin portal.",
     default: 'An error occurred during sign-in. Please try again.',
