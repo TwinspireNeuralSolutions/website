@@ -145,8 +145,25 @@ class AuthService {
    * Only allows existing users - new users are rejected
    */
   async signInWithApple(): Promise<SignInResponse> {
-    const provider = getAppleProvider()
-    return this.signInWithOAuth(provider, 'apple.com')
+    if (!auth) {
+      const error = new Error(
+        'Firebase authentication is not initialized. Please refresh the page and try again.'
+      )
+      error.name = 'auth/not-initialized'
+      throw error
+    }
+
+    try {
+      const provider = getAppleProvider()
+      return await this.signInWithOAuth(provider, 'apple.com')
+    } catch (error: any) {
+      // Re-throw if it's already been handled
+      if (error.name && error.name.startsWith('auth/')) {
+        throw error
+      }
+      // Otherwise, handle it
+      throw this.handleAuthError(error)
+    }
   }
 
   /**

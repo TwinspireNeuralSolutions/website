@@ -67,9 +67,28 @@ export function useAuth() {
       const result = await signInAppleMutation.mutateAsync()
       return { success: true, data: result }
     } catch (error) {
+      // Extract error message with better error handling
+      let errorMessage = 'Apple sign in failed'
+
+      if (error instanceof Error) {
+        errorMessage = error.message || error.name || errorMessage
+      } else if (typeof error === 'object' && error !== null) {
+        const err = error as any
+        errorMessage =
+          err?.message || err?.code || err?.error?.message || errorMessage
+      }
+
+      // Log error for debugging
+      if (typeof window !== 'undefined') {
+        console.error('Apple sign-in error:', {
+          error,
+          message: errorMessage,
+        })
+      }
+
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Apple sign in failed',
+        error: errorMessage,
       }
     }
   }

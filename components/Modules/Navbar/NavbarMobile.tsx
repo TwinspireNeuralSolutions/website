@@ -80,10 +80,17 @@ const NavbarMobile = ({
         </ul>
 
         {/* Bottom section with language select and button */}
-        <div className="flex items-center justify-between gap-2">
-          {/* <LanguageSelect
-            textColor={scrolled || isMenuOpen ? 'text-black' : 'text-white'}
-          /> */}
+        <div className="flex flex-col gap-2">
+          {/* Team Manager Login button */}
+          <Button
+            onClick={() => {
+              router.push('/admin')
+              setIsMenuOpen(false)
+            }}
+            className="w-full"
+          >
+            Login as Team Manager
+          </Button>
 
           {/* Book a call button */}
           <Button onClick={() => router.push('/#reach-out')}>

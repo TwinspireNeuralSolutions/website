@@ -54,7 +54,7 @@ export const AUTH_CONFIG = {
     'auth/invalid-credential':
       'Invalid credentials. Please check your email and password.',
     'auth/operation-not-allowed':
-      'Google sign-in is not enabled. Please contact support.',
+      'OAuth sign-in (Google/Apple) is not enabled. Please contact support.',
     'auth/unauthorized-domain':
       'This domain is not authorized for sign-in. Please contact support.',
     'auth/invalid-api-key':

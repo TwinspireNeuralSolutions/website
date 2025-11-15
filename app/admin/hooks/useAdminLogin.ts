@@ -75,16 +75,21 @@ export function useAdminLogin() {
         return
       }
 
-      const result = await auth.signInWithEmail({
-        email: sanitizedEmail,
-        password: sanitizedPassword,
-      })
+      try {
+        const result = await auth.signInWithEmail({
+          email: sanitizedEmail,
+          password: sanitizedPassword,
+        })
 
-      if (result.success) {
-        authRateLimiter.reset(sanitizedEmail)
-        router.push('/admin/dashboard')
-      } else {
-        setError(result.error || 'Sign-in failed')
+        if (result.success) {
+          authRateLimiter.reset(sanitizedEmail)
+          router.push('/admin/dashboard')
+        } else {
+          setError(result.error || 'Sign-in failed')
+          checkRateLimit()
+        }
+      } catch (error) {
+        setError('Sign-in failed. Please try again.')
         checkRateLimit()
       }
     },
@@ -102,14 +107,18 @@ export function useAdminLogin() {
         return
       }
 
-      const signIn =
-        provider === 'google' ? auth.signInWithGoogle : auth.signInWithApple
-      const result = await signIn()
+      try {
+        const signIn =
+          provider === 'google' ? auth.signInWithGoogle : auth.signInWithApple
+        const result = await signIn()
 
-      if (result.success) {
-        router.push('/admin/dashboard')
-      } else {
-        setError(result.error || `${provider} sign-in failed`)
+        if (result.success) {
+          router.push('/admin/dashboard')
+        } else {
+          setError(result.error || `${provider} sign-in failed`)
+        }
+      } catch (error) {
+        setError(`${provider} sign-in failed. Please try again.`)
       }
     },
     [isRateLimited, rateLimitTime, auth, router]

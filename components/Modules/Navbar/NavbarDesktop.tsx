@@ -166,6 +166,14 @@ export default function NavbarDesktop({
       <div className="flex flex-1 items-center justify-end gap-6">
         {/* <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} /> */}
 
+        {/* Team Manager Login button */}
+        <Button
+          onClick={() => router.push('/admin')}
+          color={scrolled ? 'blue' : 'white'}
+        >
+          Login as Team Manager
+        </Button>
+
         {/* Book a call button */}
         <Button onClick={() => router.push('/#reach-out')}>Book a Demo</Button>
       </div>
