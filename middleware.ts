@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 const SECURITY_HEADERS = {
-  'X-Frame-Options': 'DENY',
+  'X-Frame-Options': 'SAMEORIGIN',
   'X-Content-Type-Options': 'nosniff',
   'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -10,12 +10,12 @@ const SECURITY_HEADERS = {
 
 const CONTENT_SECURITY_POLICY = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://*.calendly.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.calendly.com;
   img-src 'self' data: https: blob:;
   font-src 'self' data: https://fonts.gstatic.com;
-  connect-src 'self' https://*.firebaseapp.com https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com;
-  frame-src 'self' https://*.firebaseapp.com https://accounts.google.com;
+  connect-src 'self' https://*.firebaseapp.com https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.calendly.com;
+  frame-src 'self' https://*.firebaseapp.com https://accounts.google.com https://*.calendly.com https://calendly.com;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
