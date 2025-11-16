@@ -87,14 +87,17 @@ const NavbarMobile = ({
               router.push('/admin')
               setIsMenuOpen(false)
             }}
-            className="w-full"
+            className="w-full px-4 py-1.5 text-sm"
           >
-            Login as Team Manager
+            Team Login
           </Button>
 
           {/* Book a call button */}
-          <Button onClick={() => router.push('/#reach-out')}>
-            Book a Demo
+          <Button
+            onClick={() => router.push('/#reach-out')}
+            className="px-4 py-1.5 text-sm"
+          >
+            Book Demo
           </Button>
         </div>
       </div>

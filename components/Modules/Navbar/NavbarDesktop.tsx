@@ -163,19 +163,23 @@ export default function NavbarDesktop({
           />
         </ul>
       </nav>
-      <div className="flex flex-1 items-center justify-end gap-6">
+      <div className="flex flex-1 items-center justify-end gap-3">
         {/* <LanguageSelect textColor={scrolled ? 'text-black' : 'text-white'} /> */}
-
+        {/* Book a call button */}
+        <Button
+          onClick={() => router.push('/#reach-out')}
+          className="px-4 py-1.5 text-sm"
+        >
+          Book Demo
+        </Button>
         {/* Team Manager Login button */}
         <Button
           onClick={() => router.push('/admin')}
           color={scrolled ? 'blue' : 'white'}
+          className="px-4 py-1.5 text-sm"
         >
-          Login as Team Manager
+          Team Login
         </Button>
-
-        {/* Book a call button */}
-        <Button onClick={() => router.push('/#reach-out')}>Book a Demo</Button>
       </div>
     </div>
   )
