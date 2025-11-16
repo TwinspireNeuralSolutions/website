@@ -1,7 +1,12 @@
 'use client'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { H3, AnimatedHeadline, H1 } from '@/components/Atoms'
+import {
+  H3,
+  AnimatedHeadline,
+  H1,
+  AnimatedParticles,
+  BackgroundVideo,
+} from '@/components/Atoms'
 import Layout from '@/components/Layout'
 import {
   Navbar,
@@ -15,15 +20,6 @@ import {
 } from '@/components/Modules'
 
 export default function Home() {
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
-  const [videoLoaded, setVideoLoaded] = useState(false)
-
-  useEffect(() => {
-    // Load video after a short delay or when user scrolls
-    const timer = setTimeout(() => setShouldLoadVideo(true), 100)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <>
       <main id="root" className="max-w-[100vw]">
@@ -35,30 +31,8 @@ export default function Home() {
         >
           <Navbar />
 
-          {/* Animated background particles effect */}
-          <div className="absolute inset-0 overflow-hidden opacity-20">
-            <div className="absolute top-1/4 left-1/4 h-96 w-96 animate-pulse rounded-full bg-purple-500 blur-3xl"></div>
-            <div className="animation-delay-2000 absolute top-1/3 right-1/4 h-96 w-96 animate-pulse rounded-full bg-blue-500 blur-3xl"></div>
-            <div className="animation-delay-4000 absolute bottom-1/4 left-1/3 h-96 w-96 animate-pulse rounded-full bg-indigo-500 blur-3xl"></div>
-          </div>
-
-          {/* Load video conditionally */}
-          {shouldLoadVideo && (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-label="Background hero video showcasing Twinspire platform"
-              className={`absolute top-0 left-0 h-full w-full object-cover opacity-30 mix-blend-overlay transition-opacity duration-500 ${
-                videoLoaded ? 'opacity-30' : 'opacity-0'
-              }`}
-              onLoadedData={() => setVideoLoaded(true)}
-              preload="metadata"
-            >
-              <source src="/hero-video.mp4" type="video/mp4" />
-            </video>
-          )}
+          <AnimatedParticles opacity={20} />
+          <BackgroundVideo />
 
           {/* Glassmorphism overlay */}
           {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div> */}
