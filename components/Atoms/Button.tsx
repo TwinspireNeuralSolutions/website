@@ -21,7 +21,7 @@ export const Button = ({
         color === 'blue'
           ? 'bg-[#0802A3] text-white hover:bg-[#001060]'
           : 'bg-white text-black hover:bg-[#e0e0e0]'
-      } ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
+      } ${disabled ? 'cursor-not-allowed opacity-50' : ''} ${className}`}
     >
       {children}
     </button>
