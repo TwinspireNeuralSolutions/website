@@ -2,7 +2,9 @@
 
 import { useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/hooks/useAuth'
+import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
 import { ProtectedRoute } from '@/components/auth'
 import { Button } from '@/components/ui/button'
 import {
@@ -33,6 +35,11 @@ interface UploadedFile {
 function DashboardContent() {
   const router = useRouter()
   const { user, signOut } = useAuth()
+  const { data: profile } = useGetProfile(user?.uid)
+
+  const displayName = profile?.name
+
+  const avatarUrl = profile?.avatarUrl
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>('idle')
   const [uploadMessage, setUploadMessage] = useState('')
@@ -218,13 +225,31 @@ function DashboardContent() {
               </Button>
             </Link>
             <div className="h-8 border-l border-white/20" />
-            <div>
-              <h1 className="text-xl font-bold text-white md:text-2xl">
-                Admin Dashboard
-              </h1>
-              <p className="text-xs text-gray-300 md:text-sm">
-                {user?.email || user?.displayName}
-              </p>
+            <div className="flex items-center gap-3">
+              {avatarUrl && (
+                <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white/20 md:h-12 md:w-12">
+                  <Image
+                    src={avatarUrl}
+                    alt={displayName}
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                </div>
+              )}
+              {!avatarUrl && (
+                <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-white/20 bg-white/10 text-lg font-semibold text-white md:h-12 md:w-12">
+                  {displayName.charAt(0).toUpperCase()}
+                </div>
+              )}
+              <div>
+                <h1 className="text-xl font-bold text-white md:text-2xl">
+                  {displayName}
+                </h1>
+                <p className="text-xs text-gray-300 md:text-sm">
+                  {user?.email}
+                </p>
+              </div>
             </div>
           </div>
           <Button
