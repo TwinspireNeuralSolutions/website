@@ -51,6 +51,23 @@ export interface SignInResponse {
 }
 
 /**
+ * User profile from twinspire collection
+ */
+export interface TwinspireProfile {
+  uid: string
+  role?: string
+  [key: string]: any // Allow for flexible profile structure
+}
+
+/**
+ * User with profile data
+ */
+export interface UserWithProfile {
+  user: AuthUser
+  profile: TwinspireProfile | null
+}
+
+/**
  * Convert Firebase User to AuthUser
  */
 export function mapFirebaseUser(firebaseUser: FirebaseUser): AuthUser {
@@ -84,4 +101,3 @@ export function mapFirebaseUser(firebaseUser: FirebaseUser): AuthUser {
     },
   }
 }
-
