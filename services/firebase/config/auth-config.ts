@@ -36,39 +36,47 @@ export const AUTH_CONFIG = {
   },
   errorMessages: {
     'auth/user-not-found':
-      "We couldn't find a team account with this email. Please contact us at support@yourcompany.com to set up your team account.",
-    'auth/wrong-password': 'Incorrect password. Please try again.',
-    'auth/invalid-email': 'Invalid email address format.',
+      "We couldn't find a team account with this email. If you're a team manager and need access, please contact us at info@twinspire.ai to set up your team account.",
+    'auth/wrong-password':
+      'Incorrect password. Please check your password and try again.',
+    'auth/invalid-email': 'Please enter a valid email address.',
     'auth/user-disabled':
-      'This account has been disabled. Please contact support.',
+      'This account has been disabled. Please contact us at info@twinspire.ai for assistance.',
     'auth/too-many-requests':
-      'Too many failed attempts. Please try again later.',
+      'Too many sign-in attempts. Please wait a few minutes and try again.',
     'auth/network-request-failed':
-      'Network error. Please check your connection and try again.',
-    'auth/popup-closed-by-user': 'Sign-in cancelled. Please try again.',
-    'auth/cancelled-popup-request': 'Sign-in cancelled. Please try again.',
+      'Unable to connect. Please check your internet connection and try again.',
+    'auth/popup-closed-by-user':
+      'Sign-in was cancelled. Please try again when ready.',
+    'auth/cancelled-popup-request':
+      'Sign-in was cancelled. Please try again when ready.',
     'auth/popup-blocked':
-      'Popup blocked by browser. Please allow popups and try again.',
+      'Your browser blocked the sign-in window. Please allow popups for this site and try again.',
     'auth/account-exists-with-different-credential':
-      'An account already exists with this email using a different sign-in method.',
+      'An account with this email already exists using a different sign-in method. Please use the original sign-in method you used to create your account.',
     'auth/invalid-credential':
-      'Invalid credentials. Please check your email and password.',
+      'The email or password you entered is incorrect. Please check your credentials and try again.',
     'auth/operation-not-allowed':
-      'OAuth sign-in (Google/Apple) is not enabled. Please contact support.',
+      'Sign-in with Google or Apple is currently unavailable. Please contact us at info@twinspire.ai for assistance.',
     'auth/unauthorized-domain':
-      'This domain is not authorized for sign-in. Please contact support.',
+      'Sign-in is not available from this location. Please contact us at info@twinspire.ai for assistance.',
     'auth/invalid-api-key':
-      'Authentication configuration error. Please contact support.',
+      "We're experiencing a technical issue. Please refresh the page and try again. If the problem persists, contact us at info@twinspire.ai.",
     'auth/app-not-authorized':
-      'This app is not authorized. Please contact support.',
+      "We're experiencing a technical issue. Please refresh the page and try again. If the problem persists, contact us at info@twinspire.ai.",
     'auth/configuration-not-found':
-      'Authentication configuration error. Please contact support.',
+      "We're experiencing a technical issue. Please refresh the page and try again. If the problem persists, contact us at info@twinspire.ai.",
     'auth/domain-config-required':
-      'Domain configuration required. Please contact support.',
+      "We're experiencing a technical issue. Please refresh the page and try again. If the problem persists, contact us at info@twinspire.ai.",
     'auth/not-initialized':
-      'Authentication service is not ready. Please refresh the page and try again.',
+      'Sign-in service is not ready. Please refresh the page and try again.',
     'auth/no-team-account':
-      "You don't have a team account yet. Please reach out to us at support@yourcompany.com to get your team set up and gain access to the admin portal.",
-    default: 'An error occurred during sign-in. Please try again.',
+      'This account is not authorized for team manager access. Only team managers can sign in. If you are a team manager and cannot sign in, please contact us at info@twinspire.ai for assistance.',
+    default:
+      'Something went wrong during sign-in. Please try again. If the problem continues, contact us at info@twinspire.ai.',
+  },
+  profileErrors: {
+    unauthorized:
+      'This account is not authorized for team manager access. Only team managers can sign in. If you are a team manager and cannot sign in, please contact us at info@twinspire.ai for assistance.',
   },
 } as const

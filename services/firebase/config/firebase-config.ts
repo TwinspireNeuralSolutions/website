@@ -1,5 +1,6 @@
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app'
 import { getAuth, Auth } from 'firebase/auth'
+import { getFirestore, Firestore } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || '',
@@ -47,10 +48,11 @@ function validateFirebaseConfig() {
  */
 let app: FirebaseApp | undefined
 let auth: Auth | undefined
+let db: Firestore | undefined
 
 export function initializeFirebase() {
   if (typeof window === 'undefined') {
-    return { app: undefined, auth: undefined }
+    return { app: undefined, auth: undefined, db: undefined }
   }
 
   validateFirebaseConfig()
@@ -58,16 +60,18 @@ export function initializeFirebase() {
   if (!getApps().length) {
     app = initializeApp(firebaseConfig)
     auth = getAuth(app)
+    db = getFirestore(app, process.env.NEXT_PUBLIC_FIREBASE_DB_NAME || '')
   } else {
     app = getApps()[0]
     auth = getAuth(app)
+    db = getFirestore(app, process.env.NEXT_PUBLIC_FIREBASE_DB_NAME || '')
   }
 
-  return { app, auth }
+  return { app, auth, db }
 }
 
 if (typeof window !== 'undefined') {
   initializeFirebase()
 }
 
-export { app, auth }
+export { app, auth, db }
