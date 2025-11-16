@@ -274,10 +274,11 @@ function DashboardContent() {
             <Card className="overflow-hidden border-white/20 bg-white/10 backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-r from-white/10 to-white/5">
                 <CardTitle className="text-2xl text-white">
-                  Upload Files
+                  Upload Team Data
                 </CardTitle>
                 <CardDescription className="text-base text-gray-200">
-                  Drag and drop your Excel files, or click to browse
+                  Upload your team&apos;s Excel files to get started with
+                  analysis
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">

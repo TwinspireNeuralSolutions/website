@@ -92,9 +92,9 @@ export default function AdminLogin() {
 
         <Card className="w-full bg-white/10 backdrop-blur-sm border-white/20">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-white">Admin Login</CardTitle>
+            <CardTitle className="text-2xl font-bold text-white">Team Manager Login</CardTitle>
             <CardDescription className="text-gray-200">
-              Sign in with your credentials to access the admin panel
+              Sign in to upload and manage your team's data
             </CardDescription>
           </CardHeader>
 
