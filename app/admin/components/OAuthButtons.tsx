@@ -18,22 +18,18 @@ export function OAuthButtons({
 }: OAuthButtonsProps) {
   return (
     <>
-      <div className="relative my-6">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300" />
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-2 text-gray-500">Or continue with</span>
-        </div>
+      <div className="my-6 flex items-center">
+        <div className="flex-1 border-t border-white/20" />
+        <span className="px-2 text-sm text-gray-300">Or continue with</span>
+        <div className="flex-1 border-t border-white/20" />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <Button
           type="button"
-          variant="outline"
           onClick={onGoogleClick}
           disabled={isDisabled}
-          className="w-full"
+          className="w-full rounded-full bg-white text-black shadow-md hover:bg-[#e0e0e0]"
           aria-label="Sign in with Google"
         >
           {isGoogleLoading ? (
@@ -46,10 +42,9 @@ export function OAuthButtons({
 
         <Button
           type="button"
-          variant="outline"
           onClick={onAppleClick}
           disabled={isDisabled}
-          className="w-full"
+          className="w-full rounded-full bg-white text-black shadow-md hover:bg-[#e0e0e0]"
           aria-label="Sign in with Apple"
         >
           {isAppleLoading ? (
@@ -107,4 +102,3 @@ function AppleIcon() {
     </svg>
   )
 }
-

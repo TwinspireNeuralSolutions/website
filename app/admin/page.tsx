@@ -7,6 +7,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
 import { useIsTeamManager } from '@/hooks/useIsTeamManager'
 import { Button } from '@/components/ui/button'
+import { HeroBackground } from '@/components/Atoms'
 import {
   Card,
   CardContent,
@@ -76,22 +77,23 @@ export default function AdminLogin() {
   const isDisabled = isLoading || isRateLimited
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0a0a2e] via-[#16213e] to-[#0f3460] p-4">
-      <div className="w-full max-w-md space-y-4">
+    <HeroBackground>
+      <div className="relative z-10 flex min-h-screen items-center justify-center p-4">
+        <div className="w-full max-w-md space-y-4">
         <Link href="/">
           <Button
             variant="ghost"
-            className="text-white hover:bg-white/10 hover:text-white"
+            className="group text-white hover:bg-transparent hover:text-white"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
             Back to Home
           </Button>
         </Link>
 
-        <Card className="w-full">
+        <Card className="w-full bg-white/10 backdrop-blur-sm border-white/20">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-bold text-white">Admin Login</CardTitle>
+            <CardDescription className="text-gray-200">
               Sign in with your credentials to access the admin panel
             </CardDescription>
           </CardHeader>
@@ -119,7 +121,8 @@ export default function AdminLogin() {
             />
           </CardContent>
         </Card>
+        </div>
       </div>
-    </div>
+    </HeroBackground>
   )
 }

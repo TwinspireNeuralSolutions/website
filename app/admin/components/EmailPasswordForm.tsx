@@ -28,7 +28,7 @@ export function EmailPasswordForm({
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" className="text-white">Email</Label>
         <Input
           id="email"
           type="email"
@@ -41,11 +41,12 @@ export function EmailPasswordForm({
           maxLength={255}
           aria-label="Email address"
           aria-invalid={hasError}
+          className="bg-white/90 border-white/20 text-gray-900 placeholder:text-gray-500"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password" className="text-white">Password</Label>
         <Input
           id="password"
           type="password"
@@ -58,12 +59,13 @@ export function EmailPasswordForm({
           maxLength={255}
           aria-label="Password"
           aria-invalid={hasError}
+          className="bg-white/90 border-white/20 text-gray-900 placeholder:text-gray-500"
         />
       </div>
 
       <Button
         type="submit"
-        className="w-full"
+        className="w-full rounded-full bg-[#0802A3] text-white shadow-md hover:bg-[#001060]"
         disabled={isDisabled}
         aria-label="Sign in with email"
       >
