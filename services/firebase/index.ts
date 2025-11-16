@@ -1,4 +1,3 @@
-export { authService } from './auth.service'
 export { app, auth } from './config/firebase-config'
 export {
   getGoogleProvider,
@@ -11,19 +10,19 @@ export type {
   EmailPasswordCredentials,
   SignInResponse,
   AuthState,
+  TwinspireProfile,
+  UserWithProfile,
 } from './types/auth.types'
 export { AuthProvider, mapFirebaseUser } from './types/auth.types'
 
-export {
-  useCurrentUser,
-  useAuthStateSync,
-  useIsAuthenticated,
-} from './queries/auth-queries'
+export { useGetCurrentUser } from './queries/useGetCurrentUser'
+export { useGetIsAuthenticated } from './queries/useGetIsAuthenticated'
+export { useAuthStateSync } from './queries/useAuthStateSync'
+export { useGetProfile } from './queries/useGetProfile'
 
-export {
-  useSignInWithEmailPassword,
-  useSignInWithGoogle,
-  useSignInWithApple,
-  useSignOut,
-  AUTH_KEYS,
-} from './mutations/auth-mutations'
+export { useSignInEmailPassword } from './mutations/useSignInEmailPassword'
+export { useSignInGoogle } from './mutations/useSignInGoogle'
+export { useSignInApple } from './mutations/useSignInApple'
+export { useSignOut } from './mutations/useSignOut'
+
+export { AUTH_KEYS, PROFILE_KEYS } from './constants/query-keys'
