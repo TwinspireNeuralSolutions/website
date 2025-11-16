@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/useAuth'
+import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
+import { useIsTeamManager } from '@/hooks/useIsTeamManager'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -21,7 +23,12 @@ import { useAdminLogin } from './hooks/useAdminLogin'
 
 export default function AdminLogin() {
   const router = useRouter()
-  const { isAuthenticated, isLoading: isAuthLoading } = useAuth()
+  const { user, isAuthenticated, isLoading: isAuthLoading } = useAuth()
+  const { data: profile, isLoading: isProfileLoading } = useGetProfile(
+    user?.uid
+  )
+  const isTeamManager = useIsTeamManager(profile)
+
   const {
     email,
     password,
@@ -39,13 +46,32 @@ export default function AdminLogin() {
   } = useAdminLogin()
 
   useEffect(() => {
-    if (!isAuthLoading && isAuthenticated) {
-      router.push('/admin/dashboard')
+    // Only redirect when auth is loaded and we have a user
+    if (!isAuthLoading && isAuthenticated && user?.uid) {
+      // If profile data is available (even if null), proceed with redirect
+      // profile !== undefined means the query has returned a value
+      if (profile !== undefined && isTeamManager) {
+        router.push('/admin/dashboard')
+      }
+      // If profile is still loading (profile === undefined), wait for it
     }
-  }, [isAuthenticated, isAuthLoading, router])
+  }, [
+    isAuthenticated,
+    isAuthLoading,
+    isProfileLoading,
+    user,
+    profile,
+    isTeamManager,
+    router,
+  ])
 
-  if (isAuthLoading) return <LoadingScreen />
-  if (isAuthenticated) return null
+  // Show loading if auth is loading OR if profile is loading (but only if we don't have cached data)
+  const shouldShowLoading =
+    isAuthLoading || (isProfileLoading && profile === undefined)
+
+  if (shouldShowLoading) return <LoadingScreen />
+  if (isAuthenticated && profile === undefined && !isProfileLoading)
+    return <LoadingScreen />
 
   const isDisabled = isLoading || isRateLimited
 

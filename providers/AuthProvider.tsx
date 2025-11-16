@@ -3,7 +3,7 @@
 import { ReactNode } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { useAuthStateSync } from '@/services/firebase/queries/auth-queries'
+import { useAuthStateSync } from '@/services/firebase/queries/useAuthStateSync'
 import { useState } from 'react'
 
 /**

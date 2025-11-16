@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 import { useAuth } from '@/hooks/useAuth'
 import {
   isValidEmail,
@@ -10,7 +9,6 @@ import {
 } from '@/lib/security'
 
 export function useAdminLogin() {
-  const router = useRouter()
   const auth = useAuth()
 
   const [email, setEmail] = useState('')
@@ -37,27 +35,24 @@ export function useAdminLogin() {
     return true
   }, [email])
 
-  const validateInputs = useCallback(
-    (email: string, password: string) => {
-      if (!email || !password) {
-        setError('Please enter both email and password')
-        return false
-      }
+  const validateInputs = useCallback((email: string, password: string) => {
+    if (!email || !password) {
+      setError('Please enter both email and password')
+      return false
+    }
 
-      if (!isValidEmail(email)) {
-        setError('Please enter a valid email address')
-        return false
-      }
+    if (!isValidEmail(email)) {
+      setError('Please enter a valid email address')
+      return false
+    }
 
-      if (!isValidPassword(password)) {
-        setError('Password must be at least 6 characters')
-        return false
-      }
+    if (!isValidPassword(password)) {
+      setError('Password must be at least 6 characters')
+      return false
+    }
 
-      return true
-    },
-    []
-  )
+    return true
+  }, [])
 
   const handleEmailLogin = useCallback(
     async (e: React.FormEvent) => {
@@ -83,29 +78,41 @@ export function useAdminLogin() {
 
         if (result.success) {
           authRateLimiter.reset(sanitizedEmail)
-          router.push('/admin/dashboard')
+          // Redirect will be handled by the page component based on profile role
         } else {
           setError(result.error || 'Sign-in failed')
           checkRateLimit()
         }
       } catch (error) {
-        setError('Sign-in failed. Please try again.')
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : 'Sign-in failed. Please try again.'
+        setError(errorMessage)
         checkRateLimit()
       }
     },
-    [email, password, validateInputs, checkRateLimit, auth, router]
+    [email, password, validateInputs, checkRateLimit, auth]
   )
 
   const handleOAuthLogin = useCallback(
     async (provider: 'google' | 'apple') => {
-      setError('')
+      // Prevent multiple simultaneous attempts
+      const isProviderLoading =
+        provider === 'google'
+          ? auth.googleSignIn.isLoading
+          : auth.appleSignIn.isLoading
 
-      if (isRateLimited) {
-        setError(
-          `Too many attempts. Please try again in ${formatTimeRemaining(rateLimitTime)}.`
-        )
+      if (isProviderLoading || isRateLimited) {
+        if (isRateLimited) {
+          setError(
+            `Too many attempts. Please try again in ${formatTimeRemaining(rateLimitTime)}.`
+          )
+        }
         return
       }
+
+      setError('')
 
       try {
         const signIn =
@@ -113,15 +120,19 @@ export function useAdminLogin() {
         const result = await signIn()
 
         if (result.success) {
-          router.push('/admin/dashboard')
+          // Redirect will be handled by the page component based on profile role
         } else {
           setError(result.error || `${provider} sign-in failed`)
         }
       } catch (error) {
-        setError(`${provider} sign-in failed. Please try again.`)
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : `${provider} sign-in failed. Please try again.`
+        setError(errorMessage)
       }
     },
-    [isRateLimited, rateLimitTime, auth, router]
+    [isRateLimited, rateLimitTime, auth]
   )
 
   return {
@@ -140,4 +151,3 @@ export function useAdminLogin() {
     handleAppleLogin: () => handleOAuthLogin('apple'),
   }
 }
-

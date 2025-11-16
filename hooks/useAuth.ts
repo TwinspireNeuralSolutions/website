@@ -1,122 +1,90 @@
-import {
-  useCurrentUser,
-  useIsAuthenticated,
-} from '@/services/firebase/queries/auth-queries'
-import {
-  useSignInWithEmailPassword,
-  useSignInWithGoogle,
-  useSignInWithApple,
-  useSignOut,
-} from '@/services/firebase/mutations/auth-mutations'
-import { EmailPasswordCredentials } from '@/services/firebase/types/auth.types'
+import { useGetCurrentUser } from '@/services/firebase/queries/useGetCurrentUser'
+import { useSignInEmailPassword } from '@/services/firebase/mutations/useSignInEmailPassword'
+import { useSignInGoogle } from '@/services/firebase/mutations/useSignInGoogle'
+import { useSignInApple } from '@/services/firebase/mutations/useSignInApple'
+import { useSignOut } from '@/services/firebase/mutations/useSignOut'
+
+/**
+ * Extracts error message from various error types
+ */
+function extractErrorMessage(error: unknown, defaultMessage: string): string {
+  if (error instanceof Error) {
+    return error.message || error.name || defaultMessage
+  }
+  if (typeof error === 'object' && error !== null) {
+    const err = error as any
+    return err?.message || err?.code || err?.error?.message || defaultMessage
+  }
+  return defaultMessage
+}
+
+/**
+ * Creates a wrapper function for sign-in mutations that returns a consistent result format
+ */
+function createSignInHandler<T extends any[]>(
+  mutation: { mutateAsync: (...args: T) => Promise<{ signInResult: any }> },
+  defaultErrorMessage: string
+) {
+  return async (...args: T) => {
+    try {
+      const result = await mutation.mutateAsync(...args)
+      return { success: true as const, data: result.signInResult }
+    } catch (error) {
+      return {
+        success: false as const,
+        error: extractErrorMessage(error, defaultErrorMessage),
+      }
+    }
+  }
+}
 
 export function useAuth() {
-  const { data: user, isLoading: isLoadingUser } = useCurrentUser()
-  const { isAuthenticated, isLoading: isCheckingAuth } = useIsAuthenticated()
+  const { data: user, isLoading } = useGetCurrentUser()
 
-  const signInEmailMutation = useSignInWithEmailPassword()
-  const signInGoogleMutation = useSignInWithGoogle()
-  const signInAppleMutation = useSignInWithApple()
+  const signInEmailMutation = useSignInEmailPassword()
+  const signInGoogleMutation = useSignInGoogle()
+  const signInAppleMutation = useSignInApple()
   const signOutMutation = useSignOut()
 
-  const signInWithEmail = async (credentials: EmailPasswordCredentials) => {
-    try {
-      const result = await signInEmailMutation.mutateAsync(credentials)
-      return { success: true, data: result }
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Sign in failed',
-      }
-    }
-  }
-
-  const signInWithGoogle = async () => {
-    try {
-      const result = await signInGoogleMutation.mutateAsync()
-      return { success: true, data: result }
-    } catch (error) {
-      // Extract error message with better error handling
-      let errorMessage = 'Google sign in failed'
-
-      if (error instanceof Error) {
-        errorMessage = error.message || error.name || errorMessage
-      } else if (typeof error === 'object' && error !== null) {
-        const err = error as any
-        errorMessage =
-          err?.message || err?.code || err?.error?.message || errorMessage
-      }
-
-      // Log error for debugging
-      if (typeof window !== 'undefined') {
-        console.error('Google sign-in error:', {
-          error,
-          message: errorMessage,
-        })
-      }
-
-      return {
-        success: false,
-        error: errorMessage,
-      }
-    }
-  }
-
-  const signInWithApple = async () => {
-    try {
-      const result = await signInAppleMutation.mutateAsync()
-      return { success: true, data: result }
-    } catch (error) {
-      // Extract error message with better error handling
-      let errorMessage = 'Apple sign in failed'
-
-      if (error instanceof Error) {
-        errorMessage = error.message || error.name || errorMessage
-      } else if (typeof error === 'object' && error !== null) {
-        const err = error as any
-        errorMessage =
-          err?.message || err?.code || err?.error?.message || errorMessage
-      }
-
-      // Log error for debugging
-      if (typeof window !== 'undefined') {
-        console.error('Apple sign-in error:', {
-          error,
-          message: errorMessage,
-        })
-      }
-
-      return {
-        success: false,
-        error: errorMessage,
-      }
-    }
-  }
+  const signInWithEmail = createSignInHandler(
+    signInEmailMutation,
+    'Sign in failed'
+  )
+  const signInWithGoogle = createSignInHandler(
+    signInGoogleMutation,
+    'Google sign in failed'
+  )
+  const signInWithApple = createSignInHandler(
+    signInAppleMutation,
+    'Apple sign in failed'
+  )
 
   const signOut = async () => {
     try {
       await signOutMutation.mutateAsync()
-      return { success: true }
+      return { success: true as const }
     } catch (error) {
       return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Sign out failed',
+        success: false as const,
+        error: extractErrorMessage(error, 'Sign out failed'),
       }
     }
   }
 
+  const isSigningIn =
+    signInEmailMutation.isPending ||
+    signInGoogleMutation.isPending ||
+    signInAppleMutation.isPending
+
   return {
     user,
-    isAuthenticated,
-    isLoading: isLoadingUser || isCheckingAuth,
+    isAuthenticated: !!user,
+    isLoading,
     signInWithEmail,
     signInWithGoogle,
     signInWithApple,
     signOut,
-    isSigningIn:
-      signInEmailMutation.isPending ||
-      signInGoogleMutation.isPending ||
-      signInAppleMutation.isPending,
+    isSigningIn,
     isSigningOut: signOutMutation.isPending,
     emailSignIn: {
       isLoading: signInEmailMutation.isPending,
