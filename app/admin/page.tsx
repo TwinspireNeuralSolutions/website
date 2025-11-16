@@ -80,47 +80,49 @@ export default function AdminLogin() {
     <HeroBackground>
       <div className="relative z-10 flex min-h-screen items-center justify-center p-4">
         <div className="w-full max-w-md space-y-4">
-        <Link href="/">
-          <Button
-            variant="ghost"
-            className="group text-white hover:bg-transparent hover:text-white"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
-            Back to Home
-          </Button>
-        </Link>
+          <Link href="/">
+            <Button
+              variant="ghost"
+              className="group text-white hover:bg-transparent hover:text-white"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
+              Back to Home
+            </Button>
+          </Link>
 
-        <Card className="w-full bg-white/10 backdrop-blur-sm border-white/20">
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-white">Team Manager Login</CardTitle>
-            <CardDescription className="text-gray-200">
-              Sign in to upload and manage your team's data
-            </CardDescription>
-          </CardHeader>
+          <Card className="w-full border-white/20 bg-white/10 backdrop-blur-sm">
+            <CardHeader className="space-y-1">
+              <CardTitle className="text-2xl font-bold text-white">
+                Team Manager Login
+              </CardTitle>
+              <CardDescription className="text-gray-200">
+                Sign in to upload and manage your team's data
+              </CardDescription>
+            </CardHeader>
 
-          <CardContent>
-            <EmailPasswordForm
-              email={email}
-              password={password}
-              isLoading={emailSignIn.isLoading}
-              isDisabled={isDisabled}
-              hasError={!!error}
-              onEmailChange={setEmail}
-              onPasswordChange={setPassword}
-              onSubmit={handleEmailLogin}
-            />
+            <CardContent>
+              <EmailPasswordForm
+                email={email}
+                password={password}
+                isLoading={emailSignIn.isLoading}
+                isDisabled={isDisabled}
+                hasError={!!error}
+                onEmailChange={setEmail}
+                onPasswordChange={setPassword}
+                onSubmit={handleEmailLogin}
+              />
 
-            <ErrorAlert message={error} />
+              <ErrorAlert message={error} />
 
-            <OAuthButtons
-              isGoogleLoading={googleSignIn.isLoading}
-              isAppleLoading={appleSignIn.isLoading}
-              isDisabled={isDisabled}
-              onGoogleClick={handleGoogleLogin}
-              onAppleClick={handleAppleLogin}
-            />
-          </CardContent>
-        </Card>
+              <OAuthButtons
+                isGoogleLoading={googleSignIn.isLoading}
+                isAppleLoading={appleSignIn.isLoading}
+                isDisabled={isDisabled}
+                onGoogleClick={handleGoogleLogin}
+                onAppleClick={handleAppleLogin}
+              />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </HeroBackground>
