@@ -5,6 +5,9 @@ import { Button } from '@/components/Atoms/Button'
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/hooks/useAuth'
+import { useIsTeamManager } from '@/hooks/useIsTeamManager'
+import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
 
 export default function NavbarDesktop({
   navItems,
@@ -30,6 +33,9 @@ export default function NavbarDesktop({
   })
   const navRefs = useRef<(HTMLLIElement | null)[]>([])
   const router = useRouter()
+  const { user, isAuthenticated } = useAuth()
+  const { data: profile } = useGetProfile(user?.uid)
+  const isTeamManager = useIsTeamManager(profile)
 
   // Set blue underline on initial load and when activeId changes
   useEffect(() => {
@@ -98,6 +104,14 @@ export default function NavbarDesktop({
 
     // Optionally update the URL hash (without jumping)
     window.history.replaceState(null, '', `${item.href}`)
+  }
+
+  const handleTeamLoginClick = () => {
+    if (isAuthenticated && isTeamManager) {
+      router.push('/admin/dashboard')
+    } else {
+      router.push('/admin')
+    }
   }
 
   return (
@@ -174,7 +188,7 @@ export default function NavbarDesktop({
         </Button>
         {/* Team Manager Login button */}
         <Button
-          onClick={() => router.push('/admin')}
+          onClick={handleTeamLoginClick}
           color={scrolled ? 'blue' : 'white'}
           className="px-4 py-1.5 text-sm"
         >

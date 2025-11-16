@@ -3,6 +3,9 @@ import { Button } from '@/components/Atoms/Button'
 import { MenuToggle } from '@/components/Atoms/MenuToggle'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { useAuth } from '@/hooks/useAuth'
+import { useIsTeamManager } from '@/hooks/useIsTeamManager'
+import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
 
 const NavbarMobile = ({
   isMenuOpen,
@@ -20,6 +23,9 @@ const NavbarMobile = ({
   setActiveId: (id: string) => void
 }) => {
   const router = useRouter()
+  const { user, isAuthenticated } = useAuth()
+  const { data: profile } = useGetProfile(user?.uid)
+  const isTeamManager = useIsTeamManager(profile)
 
   const handleClick = (item: { id: string; href: string }) => {
     setActiveId(item.id)
@@ -33,6 +39,15 @@ const NavbarMobile = ({
 
     // Update the URL hash (without jumping)
     window.history.replaceState(null, '', `${item.href}`)
+  }
+
+  const handleTeamLoginClick = () => {
+    setIsMenuOpen(false)
+    if (isAuthenticated && isTeamManager) {
+      router.push('/admin/dashboard')
+    } else {
+      router.push('/admin')
+    }
   }
 
   return (
@@ -83,10 +98,7 @@ const NavbarMobile = ({
         <div className="flex flex-col gap-2">
           {/* Team Manager Login button */}
           <Button
-            onClick={() => {
-              router.push('/admin')
-              setIsMenuOpen(false)
-            }}
+            onClick={handleTeamLoginClick}
             className="w-full px-4 py-1.5 text-sm"
           >
             Team Login
