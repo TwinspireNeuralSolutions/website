@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
 
     // Create partitioned folder structure: source=excel/team_id={teamId}/measure_date={date}/file={filename}
-    const fileName = `source=excel/team_id=${teamId}/measure_date=${measureDate}/file=${fileId}-${sanitizedFileName}`
+    const fileName = `source=statssport/measure_date=${measureDate}/team_id=${teamId}/file=${fileId}-${sanitizedFileName}`
 
     // Upload to GCP Storage
     const bucket = storage.bucket(bucketName)
