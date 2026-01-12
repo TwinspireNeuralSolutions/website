@@ -25,6 +25,7 @@ import {
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { UploadSuccess } from '../components/UploadSuccess'
+import { ChipSelect } from '@/components/ui/select'
 
 type UploadStatus = 'idle' | 'uploading' | 'success' | 'error'
 
@@ -48,6 +49,12 @@ function DashboardContent() {
   const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropZoneRef = useRef<HTMLDivElement>(null)
+  const [deviceName, setDeviceName] = useState('')
+  const [selectedDevice, setSelectedDevice] = useState(false)
+  const deviceOptions = [
+    { value: 'vald', label: 'Vald' },
+    { value: 'statssports', label: 'Statssports' },
+  ]
 
   // Get current date in YYYY-MM-DD format
   const getCurrentDate = () => {
@@ -143,6 +150,13 @@ function DashboardContent() {
       return
     }
 
+    if (!selectedDevice) {
+      setUploadStatus('error')
+      setUploadMessage('Please select a device before uploading')
+      setSelectedDevice(false)
+      return
+    }
+
     if (!user) {
       setUploadStatus('error')
       setUploadMessage('You must be logged in to upload files')
@@ -157,6 +171,7 @@ function DashboardContent() {
       formData.append('file', selectedFile)
       formData.append('teamId', process.env.NEXT_PUBLIC_TEAM_ID || '')
       formData.append('measureDate', getCurrentDate())
+      formData.append('deviceName', deviceName)
 
       const response = await fetch('/api/upload', {
         method: 'POST',
@@ -205,6 +220,8 @@ function DashboardContent() {
     setUploadMessage('')
     setUploadedFile(null)
     setSelectedFile(null)
+    setSelectedDevice(false)
+    setDeviceName('')
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
@@ -270,7 +287,7 @@ function DashboardContent() {
               fileSize={uploadedFile.size}
               onUploadAnother={handleUploadAnother}
             />
-          ) : (
+          ) : selectedDevice ? (
             <Card className="overflow-hidden border-white/20 bg-white/10 backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-r from-white/10 to-white/5">
                 <CardTitle className="text-2xl text-white">
@@ -432,6 +449,37 @@ function DashboardContent() {
                     </span>
                   )}
                 </Button>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card className="overflow-hidden border-white/20 bg-white/10 backdrop-blur-sm">
+              <CardHeader className="bg-gradient-to-r from-white/10 to-white/5">
+                <CardTitle className="text-2xl text-white">
+                  Select Device
+                </CardTitle>
+                <CardDescription className="text-base text-gray-200">
+                  Please select a device to proceed with data upload
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-4">
+                  <ChipSelect
+                    value={deviceName}
+                    onValueChange={setDeviceName}
+                    options={deviceOptions}
+                  />
+
+                  <Button
+                    onClick={() => {
+                      setSelectedDevice(true)
+                      console.log('Selected Device:', deviceName)
+                    }}
+                    disabled={!deviceName}
+                    className="mt-2 w-full"
+                  >
+                    Continue
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           )}

@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
     const file = formData.get('file') as File
     const teamId = formData.get('teamId') as string
     const measureDate = formData.get('measureDate') as string
+    const deviceName = formData.get('deviceName') as string
 
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 })
@@ -102,7 +103,7 @@ export async function POST(request: NextRequest) {
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
 
     // Create partitioned folder structure: source=excel/team_id={teamId}/measure_date={date}/file={filename}
-    const fileName = `source=statssport/measure_date=${measureDate}/team_id=${teamId}/file=${fileId}-${sanitizedFileName}`
+    const fileName = `source=${deviceName}/measure_date=${measureDate}/team_id=${teamId}/file=${fileId}-${sanitizedFileName}`
 
     // Upload to GCP Storage
     const bucket = storage.bucket(bucketName)
