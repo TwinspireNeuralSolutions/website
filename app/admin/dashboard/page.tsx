@@ -25,7 +25,7 @@ import {
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { UploadSuccess } from '../components/UploadSuccess'
-import { ChipSelect } from '@/components/ui/select'
+import { ChipSelect } from '@/components/ui/chipSelect'
 
 type UploadStatus = 'idle' | 'uploading' | 'success' | 'error'
 
