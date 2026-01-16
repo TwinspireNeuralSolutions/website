@@ -56,6 +56,9 @@ function DashboardContent() {
     { value: 'statssports', label: 'Statssports' },
   ]
 
+  const selectedDeviceLabel =
+    deviceOptions.find((opt) => opt.value === deviceName)?.label || ''
+
   // Get current date in YYYY-MM-DD format
   const getCurrentDate = () => {
     const now = new Date()
@@ -290,11 +293,27 @@ function DashboardContent() {
           ) : selectedDevice ? (
             <Card className="overflow-hidden border-white/20 bg-white/10 backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-r from-white/10 to-white/5">
+                <ShadcnButton
+                  variant="ghost"
+                  size="sm"
+                  className="absolute left-4 top-4 text-white hover:bg-transparent hover:text-white"
+                  onClick={() => {
+                    setSelectedDevice(false)
+                    setDeviceName('')
+                    setSelectedFile(null)
+                    setUploadStatus('idle')
+                    setUploadMessage('')
+                  }}
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
+                  Back
+                </ShadcnButton>
+                <div className="h-8" />
                 <CardTitle className="text-2xl text-white">
-                  Upload Team Data
+                  Upload {selectedDeviceLabel} Team Data
                 </CardTitle>
                 <CardDescription className="text-base text-gray-200">
-                  Upload your team&apos;s Excel files to get started with
+                  Upload your team&apos;s {selectedDeviceLabel} Excel files to get started with
                   analysis
                 </CardDescription>
               </CardHeader>
@@ -387,8 +406,8 @@ function DashboardContent() {
                         <div className="text-center">
                           <p className="mb-2 text-xl font-semibold text-white">
                             {isDragging
-                              ? 'Drop your file here'
-                              : 'Drag & drop your file here'}
+                              ? `Drop your ${selectedDeviceLabel} file here`
+                              : `Drag & drop your ${selectedDeviceLabel} file here`}
                           </p>
                           <p className="mb-6 text-base text-gray-300">
                             or click to browse from your computer
