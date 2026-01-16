@@ -465,20 +465,12 @@ function DashboardContent() {
                 <div className="space-y-4">
                   <ChipSelect
                     value={deviceName}
-                    onValueChange={setDeviceName}
+                    onValueChange={(value) => {
+                      setDeviceName(value)
+                      setSelectedDevice(true)
+                    }}
                     options={deviceOptions}
                   />
-
-                  <Button
-                    onClick={() => {
-                      setSelectedDevice(true)
-                      console.log('Selected Device:', deviceName)
-                    }}
-                    disabled={!deviceName}
-                    className="mt-2 w-full"
-                  >
-                    Continue
-                  </Button>
                 </div>
               </CardContent>
             </Card>
