@@ -65,11 +65,14 @@ export async function POST(request: NextRequest) {
     const validTypes = [
       'application/vnd.ms-excel',
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'text/csv',
+      'application/csv',
     ]
     const isValidType =
       validTypes.includes(file.type) ||
       file.name.endsWith('.xlsx') ||
-      file.name.endsWith('.xls')
+      file.name.endsWith('.xls') ||
+      file.name.endsWith('.csv')
 
     if (!isValidType) {
       return NextResponse.json(

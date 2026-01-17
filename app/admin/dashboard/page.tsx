@@ -77,16 +77,19 @@ function DashboardContent() {
     const validTypes = [
       'application/vnd.ms-excel',
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'text/csv',
+      'application/csv',
     ]
     const isValidType =
       validTypes.includes(file.type) ||
       file.name.endsWith('.xlsx') ||
-      file.name.endsWith('.xls')
+      file.name.endsWith('.xls') ||
+      file.name.endsWith('.csv')
 
     if (!isValidType) {
       setUploadStatus('error')
       setUploadMessage(
-        'Invalid file type. Please upload Excel files (.xlsx, .xls) only.'
+        'Invalid file type. Please upload Excel or CSV files (.xlsx, .xls, .csv) only.'
       )
       return false
     }
@@ -296,7 +299,7 @@ function DashboardContent() {
                 <ShadcnButton
                   variant="ghost"
                   size="sm"
-                  className="absolute left-4 top-4 text-white hover:bg-transparent hover:text-white"
+                  className="absolute top-4 left-4 text-white hover:bg-transparent hover:text-white"
                   onClick={() => {
                     setSelectedDevice(false)
                     setDeviceName('')
@@ -313,8 +316,8 @@ function DashboardContent() {
                   Upload {selectedDeviceLabel} Team Data
                 </CardTitle>
                 <CardDescription className="text-base text-gray-200">
-                  Upload your team&apos;s {selectedDeviceLabel} Excel files to get started with
-                  analysis
+                  Upload your team&apos;s {selectedDeviceLabel} Excel files to
+                  get started with analysis
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
@@ -344,7 +347,7 @@ function DashboardContent() {
                   <input
                     ref={fileInputRef}
                     type="file"
-                    accept=".xlsx,.xls,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                    accept=".xlsx,.xls,.csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,application/csv"
                     onChange={handleFileChange}
                     className="hidden"
                   />
@@ -415,7 +418,7 @@ function DashboardContent() {
                           <div className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-4 py-2 shadow-sm">
                             <FileSpreadsheet className="h-5 w-5 text-white/60" />
                             <span className="text-sm text-gray-200">
-                              Supports: .xlsx, .xls
+                              Supports: .xlsx, .xls, .csv
                             </span>
                           </div>
                         </div>
