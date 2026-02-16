@@ -1,3 +1,4 @@
+import { HeroBackground } from '@/components/Atoms'
 import { ReactNode } from 'react'
 
 /**
@@ -5,5 +6,5 @@ import { ReactNode } from 'react'
  * Minimal layout for admin pages
  */
 export default function AdminLayout({ children }: { children: ReactNode }) {
-  return <>{children}</>
+  return <HeroBackground>{children}</HeroBackground>
 }
