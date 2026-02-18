@@ -264,7 +264,7 @@ function DashboardContent() {
                 )}
                 {!avatarUrl && (
                   <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-2 border-white/20 bg-white/10 text-xl font-semibold text-white md:h-16 md:w-16 md:text-2xl">
-                    {displayName.charAt(0).toUpperCase()}
+                    {displayName?.charAt(0).toUpperCase()}
                   </div>
                 )}
                 <div>
