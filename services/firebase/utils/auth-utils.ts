@@ -148,7 +148,8 @@ export async function validateUserProfile(
   try {
     const profile = await getUserProfile(uid)
 
-    if (!profile || profile.role !== 'team-manager') {
+    const allowedRoles = ['team-manager', 'team', 'manager']
+    if (!profile || !allowedRoles.includes(profile.role)) {
       const error = createAuthError(
         AUTH_CONFIG.profileErrors.unauthorized,
         'auth/no-team-account'

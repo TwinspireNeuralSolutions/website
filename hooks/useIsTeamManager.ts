@@ -15,5 +15,6 @@ export function useIsTeamManager(profile?: TwinspireProfile | null): boolean {
 
   const profileToCheck = profile !== undefined ? profile : fetchedProfile
 
-  return profileToCheck?.role === 'team-manager'
+  const allowedRoles = ['team-manager', 'team', 'manager']
+  return !!profileToCheck?.role && allowedRoles.includes(profileToCheck.role)
 }
