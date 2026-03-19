@@ -36,10 +36,12 @@ const bucketName = process.env.GCP_BUCKET_NAME!
 const pseudoUnmappedTopic =
   process.env.PSEUDO_UNMAPPED_TOPIC ||
   `projects/${process.env.GCP_PROJECT_ID}/topics/pseudoanonymization-unmapped`
-const refPlayerTable =
-  process.env.REF_PLAYER_TABLE || 'twinspire-neural-solutions.ref.ref_player'
-const refTeamTable =
-  process.env.REF_TEAM_TABLE || 'twinspire-neural-solutions.ref.ref_team'
+const refPlayerLookup =
+  process.env.REF_PLAYER_COLLECTION ||
+  process.env.REF_PLAYER_TABLE ||
+  'ref.ref_player'
+const refTeamLookup =
+  process.env.REF_TEAM_COLLECTION || process.env.REF_TEAM_TABLE || 'ref.ref_team'
 const pseudoVersion = process.env.PSEUDO_VERSION || 'v1'
 
 function logUpload(event: string, fields: Record<string, unknown>): void {
@@ -156,6 +158,7 @@ export async function POST(request: NextRequest) {
     const timestamp = Date.now()
     const randomStr = Math.random().toString(36).substring(2, 15)
     const fileId = `${timestamp}-${randomStr}`
+    const uploadTraceId = `${timestamp}-${Math.random().toString(36).slice(2, 10)}`
 
     // Sanitize original filename
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
@@ -169,52 +172,93 @@ export async function POST(request: NextRequest) {
       clientEmail: process.env.GCP_CLIENT_EMAIL!,
       privateKey: normalizedPrivateKey!,
     }
-    let teamFolderKey = teamId
+    let resolvedTnsTeamId: string | null = null
+    let teamResolved = false
+    let resolvedFromUuid = false
     let pseudoLookupTeamId = teamId
+    let teamLookupStatus: 'resolved' | 'unresolved' | 'ambiguous' = 'unresolved'
+    let teamLookupMatchedBy: string | null = null
+    let teamLookupNormalizedInput = ''
+    let teamLookupCandidates: string[] = []
+    let teamLookupCheckedAliases = 0
+    let teamLookupCollection = refTeamLookup
 
     try {
       const teamResolution = await resolveTeamFolderKey({
         teamId,
+        traceId: uploadTraceId,
         gcp: gcpRuntime,
-        refTeamTable,
+        refTeamTable: refTeamLookup,
       })
 
-      teamFolderKey = teamResolution.teamFolderKey || teamId
-      pseudoLookupTeamId = teamResolution.tnsTeamId || teamId
+      resolvedTnsTeamId = teamResolution.tnsTeamId || null
+      teamResolved = Boolean(teamResolution.resolved)
+      resolvedFromUuid = Boolean(teamResolution.resolvedFromUuid)
+      pseudoLookupTeamId = resolvedTnsTeamId || teamId
+      teamLookupStatus = teamResolution.status
+      teamLookupMatchedBy = teamResolution.matchedBy
+      teamLookupNormalizedInput = teamResolution.normalizedInput
+      teamLookupCandidates = teamResolution.candidateTnsTeamIds
+      teamLookupCheckedAliases = teamResolution.checkedAliases
+      teamLookupCollection = teamResolution.teamCollection
 
-      logUpload('team_folder_resolved', {
+      logUpload('team_resolution_completed', {
+        traceId: uploadTraceId,
         inputTeamId: teamId,
-        teamFolderKey,
-        tnsTeamId: teamResolution.tnsTeamId,
-        resolvedFromUuid: teamResolution.resolvedFromUuid,
+        tnsTeamId: resolvedTnsTeamId,
+        resolved: teamResolved,
+        resolvedFromUuid,
+        status: teamLookupStatus,
+        matchedBy: teamLookupMatchedBy,
+        normalizedInput: teamLookupNormalizedInput,
+        candidateTnsTeamIds: teamLookupCandidates,
+        checkedAliases: teamLookupCheckedAliases,
+        teamCollection: teamLookupCollection,
+        pathTeamId: resolvedTnsTeamId || teamId,
       })
     } catch (teamResolutionError) {
-      teamFolderKey = teamId
+      resolvedTnsTeamId = null
+      teamResolved = false
+      resolvedFromUuid = false
       pseudoLookupTeamId = teamId
-      logUpload('team_folder_resolution_fallback', {
+      teamLookupStatus = 'unresolved'
+      logUpload('team_resolution_error', {
+        traceId: uploadTraceId,
         inputTeamId: teamId,
+        tnsTeamId: null,
+        resolved: false,
+        resolvedFromUuid: false,
+        pathTeamId: teamId,
         reason: truncateError(teamResolutionError),
       })
     }
 
-    // Create partitioned folder structure: source=excel/team_id={teamKey}/measure_date={date}/file={filename}
-    const fileName = `source=${deviceName}/measure_date=${measureDate}/team_id=${teamFolderKey}/file=${fileId}-${sanitizedFileName}`
+    const pathTeamId = resolvedTnsTeamId || teamId
+    // Create partitioned folder structure: source=<device>/measure_date=<date>/team_id=<tns_team_id|input>/file=<filename>
+    const fileName = `source=${deviceName}/measure_date=${measureDate}/team_id=${pathTeamId}/file=${fileId}-${sanitizedFileName}`
 
     let uploadBuffer: Buffer = buffer
     let uploadContentType = file.type || 'application/octet-stream'
     let pseudoMetadata: Record<string, string> = {}
     let pseudoStats: PseudoStats | null = null
-    let tnsTeamId: string | null = null
+    let tnsTeamId: string | null = resolvedTnsTeamId
     let technicalFallbackError: string | null = null
 
     logUpload('request_received', {
+      traceId: uploadTraceId,
       deviceName: normalizedDevice,
       originalFileName: file.name,
       fileSizeBytes: file.size,
       fileMimeType: file.type || 'application/octet-stream',
-      teamId,
-      teamFolderKey,
+      inputTeamId: teamId,
+      tnsTeamId: resolvedTnsTeamId,
+      resolved: teamResolved,
+      resolvedFromUuid,
+      pathTeamId,
       pseudoLookupTeamId,
+      teamLookupStatus,
+      teamLookupMatchedBy,
+      teamLookupCandidates,
       measureDate,
       storagePath: fileName,
       canPrePseudo,
@@ -229,9 +273,10 @@ export async function POST(request: NextRequest) {
           contentType: file.type,
           raw: buffer,
           teamId: pseudoLookupTeamId,
+          traceId: uploadTraceId,
           gcp: gcpRuntime,
-          refPlayerTable,
-          refTeamTable,
+          refPlayerTable: refPlayerLookup,
+          refTeamTable: refTeamLookup,
           pseudoVersion,
         })
 
@@ -242,6 +287,7 @@ export async function POST(request: NextRequest) {
         tnsTeamId = pseudoResult.tnsTeamId
 
         logUpload('preupload_pseudo_success', {
+          traceId: uploadTraceId,
           source: normalizedDevice,
           storagePath: fileName,
           tnsTeamId,
@@ -249,6 +295,8 @@ export async function POST(request: NextRequest) {
           rowsTotal: pseudoResult.stats.rowsTotal,
           rowsMapped: pseudoResult.stats.rowsMapped,
           rowsUnmapped: pseudoResult.stats.rowsUnmapped,
+          teamColumnDetected: pseudoResult.stats.teamColumnDetected,
+          teamCellsUpdated: pseudoResult.stats.teamCellsUpdated,
           unmappedSamplesTop2: (pseudoResult.stats.unmappedSamples || []).slice(
             0,
             2
@@ -258,6 +306,7 @@ export async function POST(request: NextRequest) {
       } catch (error) {
         technicalFallbackError = truncateError(error)
         logUpload('preupload_pseudo_fallback', {
+          traceId: uploadTraceId,
           source: normalizedDevice,
           storagePath: fileName,
           reason: technicalFallbackError,
@@ -269,6 +318,7 @@ export async function POST(request: NextRequest) {
       }
     } else {
       logUpload('preupload_pseudo_skipped', {
+        traceId: uploadTraceId,
         source: normalizedDevice,
         storagePath: fileName,
       })
@@ -293,6 +343,7 @@ export async function POST(request: NextRequest) {
     const savedGeneration = toGenerationNumber(blobMeta.generation)
 
     logUpload('gcs_upload_complete', {
+      traceId: uploadTraceId,
       bucket: bucketName,
       storagePath: fileName,
       generation: savedGeneration,
@@ -300,6 +351,89 @@ export async function POST(request: NextRequest) {
       uploadedBytes: uploadBuffer.length,
       hasPseudoMarker: Boolean(pseudoMetadata.pseudoanonymized_version),
     })
+
+    if (!resolvedTnsTeamId) {
+      const unresolvedReason =
+        teamLookupStatus === 'ambiguous'
+          ? 'team_lookup_ambiguous'
+          : 'team_lookup_unresolved'
+      const unresolvedTeamAlertPayload = {
+        eventType: 'pseudoanonymization.unmapped',
+        source: normalizedDevice,
+        bucket: bucketName,
+        name: fileName,
+        generation: savedGeneration,
+        traceId: uploadTraceId,
+        teamId,
+        tnsTeamId: null,
+        teamLookupStatus,
+        teamLookupMatchedBy,
+        teamLookupCandidates,
+        teamLookupCheckedAliases,
+        teamLookupCollection,
+        normalizedTeamInput: teamLookupNormalizedInput,
+        rowsTotal: Number(pseudoStats?.rowsTotal || 0),
+        rowsMapped: Number(pseudoStats?.rowsMapped || 0),
+        rowsUnmapped: Number(pseudoStats?.rowsUnmapped || 0),
+        teamColumnDetected: Boolean(pseudoStats?.teamColumnDetected || false),
+        teamCellsUpdated: Number(pseudoStats?.teamCellsUpdated || 0),
+        technicalFallback: false,
+        unmappedSamples: [
+          {
+            rowNumber: 0,
+            reason: unresolvedReason,
+            identifiers: {
+              source: normalizedDevice,
+              inputTeamId: teamId,
+              normalizedInput: teamLookupNormalizedInput,
+            },
+            rowPreview: {
+              inputTeamId: teamId,
+              fallbackPathTeamId: pathTeamId,
+              candidateTnsTeamIds: teamLookupCandidates.join(','),
+            },
+          },
+        ],
+        completedAt: new Date().toISOString(),
+      }
+
+      logUpload('notifier_publish_attempt', {
+        traceId: uploadTraceId,
+        reason: unresolvedReason,
+        topic: pseudoUnmappedTopic,
+        source: normalizedDevice,
+        storagePath: fileName,
+        payloadPreview: {
+          eventType: unresolvedTeamAlertPayload.eventType,
+          generation: unresolvedTeamAlertPayload.generation,
+          fallbackPathTeamId: pathTeamId,
+        },
+      })
+
+      try {
+        const messageId = await publishPseudoUnmappedAlert({
+          gcp: gcpRuntime,
+          topicName: pseudoUnmappedTopic,
+          payload: unresolvedTeamAlertPayload,
+        })
+        logUpload('notifier_publish_success', {
+          traceId: uploadTraceId,
+          reason: unresolvedReason,
+          topic: pseudoUnmappedTopic,
+          messageId,
+          storagePath: fileName,
+        })
+      } catch (alertError) {
+        logUpload('notifier_publish_failed', {
+          traceId: uploadTraceId,
+          reason: unresolvedReason,
+          topic: pseudoUnmappedTopic,
+          storagePath: fileName,
+          error: truncateError(alertError),
+        })
+        console.error('Failed to publish unresolved team alert', alertError)
+      }
+    }
 
     if (canPrePseudo && technicalFallbackError) {
       const fallbackAlertPayload = {
@@ -331,6 +465,7 @@ export async function POST(request: NextRequest) {
       }
 
       logUpload('notifier_publish_attempt', {
+        traceId: uploadTraceId,
         reason: 'technical_fallback',
         topic: pseudoUnmappedTopic,
         source: normalizedDevice,
@@ -351,6 +486,7 @@ export async function POST(request: NextRequest) {
           payload: fallbackAlertPayload,
         })
         logUpload('notifier_publish_success', {
+          traceId: uploadTraceId,
           reason: 'technical_fallback',
           topic: pseudoUnmappedTopic,
           messageId,
@@ -358,6 +494,7 @@ export async function POST(request: NextRequest) {
         })
       } catch (alertError) {
         logUpload('notifier_publish_failed', {
+          traceId: uploadTraceId,
           reason: 'technical_fallback',
           topic: pseudoUnmappedTopic,
           storagePath: fileName,
@@ -383,11 +520,14 @@ export async function POST(request: NextRequest) {
         rowsTotal: Number(pseudoStats.rowsTotal || 0),
         rowsMapped: Number(pseudoStats.rowsMapped || 0),
         rowsUnmapped: Number(pseudoStats.rowsUnmapped || 0),
+        teamColumnDetected: Boolean(pseudoStats.teamColumnDetected || false),
+        teamCellsUpdated: Number(pseudoStats.teamCellsUpdated || 0),
         unmappedSamples: (pseudoStats.unmappedSamples || []).slice(0, 5),
         completedAt: new Date().toISOString(),
       }
 
       logUpload('notifier_publish_attempt', {
+        traceId: uploadTraceId,
         reason: 'rows_unmapped',
         topic: pseudoUnmappedTopic,
         source: normalizedDevice,
@@ -410,6 +550,7 @@ export async function POST(request: NextRequest) {
           payload: unmappedAlertPayload,
         })
         logUpload('notifier_publish_success', {
+          traceId: uploadTraceId,
           reason: 'rows_unmapped',
           topic: pseudoUnmappedTopic,
           messageId,
@@ -418,6 +559,7 @@ export async function POST(request: NextRequest) {
         })
       } catch (alertError) {
         logUpload('notifier_publish_failed', {
+          traceId: uploadTraceId,
           reason: 'rows_unmapped',
           topic: pseudoUnmappedTopic,
           storagePath: fileName,
@@ -441,10 +583,13 @@ export async function POST(request: NextRequest) {
 
     console.log(`File uploaded successfully: ${fileName}`)
     logUpload('request_completed', {
+      traceId: uploadTraceId,
       storagePath: fileName,
       responseFileName: file.name,
       rowsMapped: pseudoStats?.rowsMapped ?? null,
       rowsUnmapped: pseudoStats?.rowsUnmapped ?? null,
+      teamColumnDetected: pseudoStats?.teamColumnDetected ?? null,
+      teamCellsUpdated: pseudoStats?.teamCellsUpdated ?? null,
       technicalFallback: Boolean(technicalFallbackError),
     })
 

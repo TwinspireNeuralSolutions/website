@@ -1,4 +1,4 @@
-import { BigQuery } from '@google-cloud/bigquery'
+import { Firestore } from '@google-cloud/firestore'
 import { PubSub } from '@google-cloud/pubsub'
 import * as XLSX from 'xlsx'
 
@@ -8,6 +8,7 @@ const SUPPORTED_SOURCES = new Set(['statssports', 'vald'])
 const MAX_UNMAPPED_SAMPLES = 5
 
 type SourceDevice = 'statssports' | 'vald'
+type TeamLookupStatus = 'resolved' | 'unresolved' | 'ambiguous'
 
 export interface GcpRuntimeConfig {
   projectId: string
@@ -26,6 +27,8 @@ export interface PseudoStats {
   rowsTotal: number
   rowsMapped: number
   rowsUnmapped: number
+  teamColumnDetected: boolean
+  teamCellsUpdated: number
   unmappedSamples: UnmappedSample[]
 }
 
@@ -35,9 +38,10 @@ export interface PreUploadPseudoInput {
   contentType?: string
   raw: Buffer
   teamId: string
+  traceId?: string
   gcp: GcpRuntimeConfig
-  refPlayerTable: string
-  refTeamTable: string
+  refPlayerTable?: string
+  refTeamTable?: string
   pseudoVersion: string
 }
 
@@ -57,15 +61,23 @@ export interface PublishPseudoAlertInput {
 
 export interface ResolveTeamFolderKeyInput {
   teamId: string
+  traceId?: string
   gcp: GcpRuntimeConfig
-  refTeamTable: string
+  refTeamTable?: string
 }
 
 export interface ResolveTeamFolderKeyResult {
   inputTeamId: string
-  teamFolderKey: string
   tnsTeamId: string | null
   resolvedFromUuid: boolean
+  resolved: boolean
+  status: TeamLookupStatus
+  matchedBy: string | null
+  normalizedInput: string
+  candidateTnsTeamIds: string[]
+  checkedAliases: number
+  teamCollection: string
+  firestoreDatabase: string
 }
 
 interface PlayerMaps {
@@ -83,14 +95,26 @@ interface TransformResult {
   stats: PseudoStats
 }
 
-interface ParsedTableFqn {
-  projectId: string
-  datasetId: string
-  tableId: string
+interface FirestoreClients {
+  pubsub: PubSub
+  firestore: Firestore
 }
 
-const tableColumnsCache = new Map<string, Set<string>>()
-const clientsCache = new Map<string, { bigquery: BigQuery; pubsub: PubSub }>()
+interface TeamAliasDoc {
+  docId: string
+  tnsTeamId: string
+  teamKey: string | null
+  teamDisplayName: string | null
+  appProfileId: string | null
+}
+
+const clientsCache = new Map<string, FirestoreClients>()
+console.info(
+  `[pseudo][startup] ${JSON.stringify({
+    backend: 'firestore',
+    bigqueryFallbackDisabled: true,
+  })}`
+)
 
 function nowIso(): string {
   return new Date().toISOString()
@@ -124,10 +148,19 @@ function asSource(source: string): SourceDevice | null {
   return normalized as SourceDevice
 }
 
-function firstExisting(columns: Set<string>, candidates: string[]): string | null {
+function asNonEmptyString(value: unknown): string | null {
+  const text = String(value ?? '').trim()
+  return text || null
+}
+
+function firstStringField(
+  row: Record<string, unknown>,
+  candidates: string[]
+): string | null {
   for (const candidate of candidates) {
-    if (columns.has(candidate)) {
-      return candidate
+    const value = asNonEmptyString(row[candidate])
+    if (value) {
+      return value
     }
   }
   return null
@@ -143,21 +176,60 @@ function firstIndex(headers: string[], candidates: string[]): number | null {
   return null
 }
 
-function parseTableFqn(
-  tableFqn: string,
-  defaultProjectId: string
-): ParsedTableFqn {
-  const parts = tableFqn.trim().split('.').filter(Boolean)
-  if (parts.length === 3) {
-    return { projectId: parts[0], datasetId: parts[1], tableId: parts[2] }
-  }
-  if (parts.length === 2) {
-    return { projectId: defaultProjectId, datasetId: parts[0], tableId: parts[1] }
-  }
-  throw new Error(`Invalid table reference: ${tableFqn}`)
+function normalizeTeamAlias(value: unknown): string {
+  return normalizeText(value).replace(/[^a-z0-9]+/g, '')
 }
 
-function getClients(gcp: GcpRuntimeConfig): { bigquery: BigQuery; pubsub: PubSub } {
+function normalizeCollectionRef(value: string | undefined, fallback: string): string {
+  const raw = String(value ?? '').trim()
+  if (!raw) {
+    return fallback
+  }
+  const parts = raw.split('.').filter(Boolean)
+  if (parts.length >= 2) {
+    return `${parts[parts.length - 2]}.${parts[parts.length - 1]}`
+  }
+  return raw
+}
+
+function resolveFirestoreDbFromEnv(): string {
+  return (
+    process.env.PSEUDO_FIRESTORE_DB?.trim() ||
+    process.env.FIRESTORE_DATABASE?.trim() ||
+    process.env.NEXT_PUBLIC_FIREBASE_DB_NAME?.trim() ||
+    'twinspire'
+  )
+}
+
+function resolveRefCollections(
+  input: Pick<PreUploadPseudoInput, 'refPlayerTable' | 'refTeamTable'>
+): { playerCollection: string; teamCollection: string } {
+  return {
+    playerCollection: normalizeCollectionRef(
+      input.refPlayerTable ||
+        process.env.REF_PLAYER_COLLECTION ||
+        process.env.REF_PLAYER_TABLE,
+      'ref.ref_player'
+    ),
+    teamCollection: normalizeCollectionRef(
+      input.refTeamTable ||
+        process.env.REF_TEAM_COLLECTION ||
+        process.env.REF_TEAM_TABLE,
+      'ref.ref_team'
+    ),
+  }
+}
+
+function logPseudo(event: string, fields: Record<string, unknown>): void {
+  console.info(
+    `[pseudo][${event}] ${JSON.stringify({
+      backend: 'firestore',
+      ...fields,
+    })}`
+  )
+}
+
+function getClients(gcp: GcpRuntimeConfig): FirestoreClients {
   const cacheKey = `${gcp.projectId}|${gcp.clientEmail}`
   const cached = clientsCache.get(cacheKey)
   if (cached) {
@@ -170,54 +242,19 @@ function getClients(gcp: GcpRuntimeConfig): { bigquery: BigQuery; pubsub: PubSub
   }
 
   const clients = {
-    bigquery: new BigQuery({
-      projectId: gcp.projectId,
-      credentials,
-    }),
     pubsub: new PubSub({
       projectId: gcp.projectId,
       credentials,
+    }),
+    firestore: new Firestore({
+      projectId: gcp.projectId,
+      credentials,
+      databaseId: resolveFirestoreDbFromEnv(),
     }),
   }
 
   clientsCache.set(cacheKey, clients)
   return clients
-}
-
-async function getTableColumns(
-  bigquery: BigQuery,
-  tableFqn: string,
-  defaultProjectId: string
-): Promise<Set<string>> {
-  const normalizedFqn = tableFqn.trim()
-  const cached = tableColumnsCache.get(normalizedFqn)
-  if (cached) {
-    return cached
-  }
-
-  const parsed = parseTableFqn(normalizedFqn, defaultProjectId)
-  const sql = `
-    SELECT column_name
-    FROM \`${parsed.projectId}.${parsed.datasetId}.INFORMATION_SCHEMA.COLUMNS\`
-    WHERE table_name = @table_name
-  `
-
-  const [rows] = await bigquery.query({
-    query: sql,
-    params: { table_name: parsed.tableId },
-    useLegacySql: false,
-  })
-
-  const columns = new Set<string>()
-  for (const row of rows as Array<Record<string, unknown>>) {
-    const name = String(row.column_name ?? '').trim()
-    if (name) {
-      columns.add(name)
-    }
-  }
-
-  tableColumnsCache.set(normalizedFqn, columns)
-  return columns
 }
 
 function emptyPlayerMaps(): PlayerMaps {
@@ -231,131 +268,43 @@ function emptyPlayerMaps(): PlayerMaps {
   }
 }
 
-async function resolveTnsTeamId(
-  bigquery: BigQuery,
-  refTeamTable: string,
-  teamId: string,
-  defaultProjectId: string
-): Promise<string | null> {
-  const teamKey = teamId.trim()
-  if (!teamKey) {
-    return null
-  }
-
-  if (UUID_RE.test(teamKey)) {
-    return teamKey
-  }
-
-  const columns = await getTableColumns(bigquery, refTeamTable, defaultProjectId)
-  if (!columns.has('tns_team_id')) {
-    return null
-  }
-
-  const lookupColumn = firstExisting(columns, [
-    'team_key',
-    'teamId',
-    'team_id',
-    'external_team_id',
-    'source_team_id',
-  ])
-
-  if (!lookupColumn) {
-    return null
-  }
-
-  const sql = `
-    SELECT CAST(\`tns_team_id\` AS STRING) AS tns_team_id
-    FROM \`${refTeamTable}\`
-    WHERE CAST(\`${lookupColumn}\` AS STRING) = @team_key
-    LIMIT 2
-  `
-
-  const [rows] = await bigquery.query({
-    query: sql,
-    params: { team_key: teamKey },
-    useLegacySql: false,
-  })
-
-  if (!Array.isArray(rows) || rows.length === 0) {
-    return null
-  }
-
-  const first = rows[0] as Record<string, unknown>
-  const resolved = String(first.tns_team_id ?? '').trim()
-  return resolved || null
-}
-
-async function buildPlayerMaps(
-  bigquery: BigQuery,
-  refPlayerTable: string,
-  tnsTeamId: string | null,
-  defaultProjectId: string
+async function buildPlayerMapsFromFirestore(
+  firestore: Firestore,
+  refPlayerCollection: string,
+  tnsTeamId: string | null
 ): Promise<PlayerMaps> {
   if (!tnsTeamId) {
     return emptyPlayerMaps()
   }
 
-  const columns = await getTableColumns(bigquery, refPlayerTable, defaultProjectId)
-  if (!columns.has('tns_player_id') || !columns.has('tns_team_id')) {
-    return emptyPlayerMaps()
-  }
-
-  const displayCol = firstExisting(columns, [
-    'player_display_name',
-    'player_name',
-    'name',
-  ])
-  const whoopCol = firstExisting(columns, ['whoop_player_id'])
-  const valdIdCol = firstExisting(columns, ['vald_player_id'])
-  const statsExtCol = firstExisting(columns, [
-    'statssports_playerExtId',
-    'statssports_player_ext_id',
-  ])
-  const valdExtCol = firstExisting(columns, ['vald_playerExtId', 'vald_player_ext_id'])
-
-  const selectParts = ['CAST(`tns_player_id` AS STRING) AS tns_player_id']
-  if (displayCol) {
-    selectParts.push(`CAST(\`${displayCol}\` AS STRING) AS display_name`)
-  }
-  if (whoopCol) {
-    selectParts.push(`CAST(\`${whoopCol}\` AS STRING) AS whoop_id`)
-  }
-  if (valdIdCol) {
-    selectParts.push(`CAST(\`${valdIdCol}\` AS STRING) AS vald_id`)
-  }
-  if (statsExtCol) {
-    selectParts.push(`CAST(\`${statsExtCol}\` AS STRING) AS stats_ext_id`)
-  }
-  if (valdExtCol) {
-    selectParts.push(`CAST(\`${valdExtCol}\` AS STRING) AS vald_ext_id`)
-  }
-
-  const sql = `
-    SELECT ${selectParts.join(', ')}
-    FROM \`${refPlayerTable}\`
-    WHERE CAST(\`tns_team_id\` AS STRING) = @tns_team_id
-  `
-
-  const [rows] = await bigquery.query({
-    query: sql,
-    params: { tns_team_id: tnsTeamId },
-    useLegacySql: false,
-  })
-
   const maps = emptyPlayerMaps()
+  const snapshot = await firestore
+    .collection(refPlayerCollection)
+    .where('tns_team_id', '==', tnsTeamId)
+    .get()
 
-  for (const row of rows as Array<Record<string, unknown>>) {
-    const tnsPlayerId = String(row.tns_player_id ?? '').trim()
+  for (const doc of snapshot.docs) {
+    const row = doc.data() as Record<string, unknown>
+    const tnsPlayerId =
+      firstStringField(row, ['tns_player_id']) ||
+      (UUID_RE.test(doc.id) ? doc.id : null)
     if (!tnsPlayerId) {
       continue
     }
     maps.tnsIds.add(tnsPlayerId)
 
-    const displayName = normalizeText(row.display_name ?? '')
-    const whoopId = String(row.whoop_id ?? '').trim()
-    const valdId = String(row.vald_id ?? '').trim()
-    const statsExtId = String(row.stats_ext_id ?? '').trim()
-    const valdExtId = String(row.vald_ext_id ?? '').trim()
+    const displayName = normalizeText(
+      firstStringField(row, ['player_display_name', 'player_name', 'name']) || ''
+    )
+    const whoopId = firstStringField(row, ['whoop_player_id']) || ''
+    const valdId = firstStringField(row, ['vald_player_id']) || ''
+    const statsExtId =
+      firstStringField(row, [
+        'statssports_playerExtId',
+        'statssports_player_ext_id',
+      ]) || ''
+    const valdExtId =
+      firstStringField(row, ['vald_playerExtId', 'vald_player_ext_id']) || ''
 
     if (displayName && !maps.nameMap.has(displayName)) {
       maps.nameMap.set(displayName, tnsPlayerId)
@@ -374,6 +323,282 @@ async function buildPlayerMaps(
     }
   }
 
+  return maps
+}
+
+function normalizeTeamDoc(
+  docId: string,
+  row: Record<string, unknown>
+): TeamAliasDoc | null {
+  const tnsTeamId = firstStringField(row, ['tns_team_id'])
+  if (!tnsTeamId) {
+    return null
+  }
+  return {
+    docId,
+    tnsTeamId,
+    teamKey: firstStringField(row, ['team_key', 'teamId', 'team_id']),
+    teamDisplayName: firstStringField(row, ['team_display_name']),
+    appProfileId: firstStringField(row, ['app_profile_id']),
+  }
+}
+
+function collectUniqueTeamIds(values: string[]): string[] {
+  return [...new Set(values.filter(Boolean))]
+}
+
+async function resolveTeamLookup(
+  clients: FirestoreClients,
+  teamCollection: string,
+  inputTeamId: string,
+  traceId: string | undefined
+): Promise<ResolveTeamFolderKeyResult> {
+  const raw = inputTeamId.trim()
+  if (!raw) {
+    throw new Error('teamId is required')
+  }
+
+  const normalizedInput = normalizeTeamAlias(raw)
+  const firestoreDatabase = resolveFirestoreDbFromEnv()
+  const lookupStart = Date.now()
+  logPseudo('team_lookup_start', {
+    traceId,
+    teamCollection,
+    firestoreDatabase,
+    inputTeamId: raw,
+    normalizedInput,
+  })
+
+  const snapshot = await clients.firestore.collection(teamCollection).get()
+  const teamDocs: TeamAliasDoc[] = []
+  for (const doc of snapshot.docs) {
+    if (doc.id === '_bootstrap') {
+      continue
+    }
+    const normalized = normalizeTeamDoc(
+      doc.id,
+      doc.data() as Record<string, unknown>
+    )
+    if (normalized) {
+      teamDocs.push(normalized)
+    }
+  }
+
+  const checkedAliases = teamDocs.length * 5
+
+  const docOrTnsMatches = collectUniqueTeamIds(
+    teamDocs
+      .filter((doc) => doc.docId === raw || doc.tnsTeamId === raw)
+      .map((doc) => doc.tnsTeamId)
+  )
+  if (docOrTnsMatches.length === 1) {
+    const result: ResolveTeamFolderKeyResult = {
+      inputTeamId: raw,
+      tnsTeamId: docOrTnsMatches[0],
+      resolvedFromUuid: UUID_RE.test(raw),
+      resolved: true,
+      status: 'resolved',
+      matchedBy: 'doc_id_or_tns_team_id_exact',
+      normalizedInput,
+      candidateTnsTeamIds: docOrTnsMatches,
+      checkedAliases,
+      teamCollection,
+      firestoreDatabase,
+    }
+    logPseudo('team_lookup_result', {
+      traceId,
+      status: result.status,
+      matchedBy: result.matchedBy,
+      tnsTeamId: result.tnsTeamId,
+      checkedAliases: result.checkedAliases,
+      durationMs: Date.now() - lookupStart,
+    })
+    return result
+  }
+  if (docOrTnsMatches.length > 1) {
+    const result: ResolveTeamFolderKeyResult = {
+      inputTeamId: raw,
+      tnsTeamId: null,
+      resolvedFromUuid: false,
+      resolved: false,
+      status: 'ambiguous',
+      matchedBy: 'doc_id_or_tns_team_id_exact',
+      normalizedInput,
+      candidateTnsTeamIds: docOrTnsMatches,
+      checkedAliases,
+      teamCollection,
+      firestoreDatabase,
+    }
+    logPseudo('team_lookup_result', {
+      traceId,
+      status: result.status,
+      matchedBy: result.matchedBy,
+      candidateTnsTeamIds: result.candidateTnsTeamIds,
+      checkedAliases: result.checkedAliases,
+      durationMs: Date.now() - lookupStart,
+    })
+    return result
+  }
+
+  const keyOrProfileMatches = collectUniqueTeamIds(
+    teamDocs
+      .filter((doc) => doc.teamKey === raw || doc.appProfileId === raw)
+      .map((doc) => doc.tnsTeamId)
+  )
+  if (keyOrProfileMatches.length === 1) {
+    const result: ResolveTeamFolderKeyResult = {
+      inputTeamId: raw,
+      tnsTeamId: keyOrProfileMatches[0],
+      resolvedFromUuid: false,
+      resolved: true,
+      status: 'resolved',
+      matchedBy: 'team_key_or_app_profile_id_exact',
+      normalizedInput,
+      candidateTnsTeamIds: keyOrProfileMatches,
+      checkedAliases,
+      teamCollection,
+      firestoreDatabase,
+    }
+    logPseudo('team_lookup_result', {
+      traceId,
+      status: result.status,
+      matchedBy: result.matchedBy,
+      tnsTeamId: result.tnsTeamId,
+      checkedAliases: result.checkedAliases,
+      durationMs: Date.now() - lookupStart,
+    })
+    return result
+  }
+  if (keyOrProfileMatches.length > 1) {
+    const result: ResolveTeamFolderKeyResult = {
+      inputTeamId: raw,
+      tnsTeamId: null,
+      resolvedFromUuid: false,
+      resolved: false,
+      status: 'ambiguous',
+      matchedBy: 'team_key_or_app_profile_id_exact',
+      normalizedInput,
+      candidateTnsTeamIds: keyOrProfileMatches,
+      checkedAliases,
+      teamCollection,
+      firestoreDatabase,
+    }
+    logPseudo('team_lookup_result', {
+      traceId,
+      status: result.status,
+      matchedBy: result.matchedBy,
+      candidateTnsTeamIds: result.candidateTnsTeamIds,
+      checkedAliases: result.checkedAliases,
+      durationMs: Date.now() - lookupStart,
+    })
+    return result
+  }
+
+  const normalizedMatches = collectUniqueTeamIds(
+    teamDocs
+      .filter((doc) =>
+        [doc.docId, doc.tnsTeamId, doc.teamKey, doc.teamDisplayName, doc.appProfileId]
+          .filter(Boolean)
+          .map((value) => normalizeTeamAlias(value))
+          .includes(normalizedInput)
+      )
+      .map((doc) => doc.tnsTeamId)
+  )
+  if (normalizedMatches.length === 1) {
+    const result: ResolveTeamFolderKeyResult = {
+      inputTeamId: raw,
+      tnsTeamId: normalizedMatches[0],
+      resolvedFromUuid: false,
+      resolved: true,
+      status: 'resolved',
+      matchedBy: 'normalized_alias_exact',
+      normalizedInput,
+      candidateTnsTeamIds: normalizedMatches,
+      checkedAliases,
+      teamCollection,
+      firestoreDatabase,
+    }
+    logPseudo('team_lookup_result', {
+      traceId,
+      status: result.status,
+      matchedBy: result.matchedBy,
+      tnsTeamId: result.tnsTeamId,
+      checkedAliases: result.checkedAliases,
+      durationMs: Date.now() - lookupStart,
+    })
+    return result
+  }
+  if (normalizedMatches.length > 1) {
+    const result: ResolveTeamFolderKeyResult = {
+      inputTeamId: raw,
+      tnsTeamId: null,
+      resolvedFromUuid: false,
+      resolved: false,
+      status: 'ambiguous',
+      matchedBy: 'normalized_alias_exact',
+      normalizedInput,
+      candidateTnsTeamIds: normalizedMatches,
+      checkedAliases,
+      teamCollection,
+      firestoreDatabase,
+    }
+    logPseudo('team_lookup_result', {
+      traceId,
+      status: result.status,
+      matchedBy: result.matchedBy,
+      candidateTnsTeamIds: result.candidateTnsTeamIds,
+      checkedAliases: result.checkedAliases,
+      durationMs: Date.now() - lookupStart,
+    })
+    return result
+  }
+
+  const unresolved: ResolveTeamFolderKeyResult = {
+    inputTeamId: raw,
+    tnsTeamId: null,
+    resolvedFromUuid: false,
+    resolved: false,
+    status: 'unresolved',
+    matchedBy: null,
+    normalizedInput,
+    candidateTnsTeamIds: [],
+    checkedAliases,
+    teamCollection,
+    firestoreDatabase,
+  }
+  logPseudo('team_lookup_result', {
+    traceId,
+    status: unresolved.status,
+    checkedAliases: unresolved.checkedAliases,
+    durationMs: Date.now() - lookupStart,
+  })
+  return unresolved
+}
+
+async function buildPlayerMaps(
+  clients: FirestoreClients,
+  refPlayerCollection: string,
+  tnsTeamId: string | null,
+  traceId: string | undefined
+): Promise<PlayerMaps> {
+  const lookupStart = Date.now()
+  const maps = await buildPlayerMapsFromFirestore(
+    clients.firestore,
+    refPlayerCollection,
+    tnsTeamId
+  )
+  logPseudo('player_map_load_result', {
+    traceId,
+    tnsTeamId,
+    refPlayerCollection,
+    tnsIds: maps.tnsIds.size,
+    nameMap: maps.nameMap.size,
+    whoopMap: maps.whoopMap.size,
+    valdIdMap: maps.valdIdMap.size,
+    statsExtMap: maps.statsExtMap.size,
+    valdExtMap: maps.valdExtMap.size,
+    durationMs: Date.now() - lookupStart,
+  })
   return maps
 }
 
@@ -527,6 +752,12 @@ function rowValue(row: string[], index: number | null): string | null {
   return value || null
 }
 
+function ensureRowWidth(row: string[], index: number): void {
+  while (row.length <= index) {
+    row.push('')
+  }
+}
+
 function buildRowPreview(
   headers: string[],
   row: string[],
@@ -599,7 +830,20 @@ function extractIdentityColumns(
   }
 }
 
-function pseudoanonymizeCsv(raw: Buffer, maps: PlayerMaps): TransformResult {
+function extractTeamColumnIndex(normalizedHeaders: string[]): number | null {
+  return firstIndex(normalizedHeaders, [
+    'teamid',
+    'externalteamid',
+    'sourceteamid',
+  ])
+}
+
+function pseudoanonymizeCsv(
+  raw: Buffer,
+  source: SourceDevice,
+  maps: PlayerMaps,
+  tnsTeamId: string | null
+): TransformResult {
   const text = raw.toString('utf-8').replace(/^\ufeff/, '')
   const delimiter = detectCsvDelimiter(text.slice(0, 4096))
   const rows = parseCsv(text, delimiter)
@@ -612,6 +856,8 @@ function pseudoanonymizeCsv(raw: Buffer, maps: PlayerMaps): TransformResult {
         rowsTotal: 0,
         rowsMapped: 0,
         rowsUnmapped: 0,
+        teamColumnDetected: false,
+        teamCellsUpdated: 0,
         unmappedSamples: [],
       },
     }
@@ -626,16 +872,29 @@ function pseudoanonymizeCsv(raw: Buffer, maps: PlayerMaps): TransformResult {
     statsExtIndex,
     valdExtIndex,
   } = extractIdentityColumns(normalizedHeaders)
+  const teamIndex =
+    source === 'statssports' ? extractTeamColumnIndex(normalizedHeaders) : null
+  const teamColumnDetected = teamIndex !== null
 
   let rowsTotal = 0
   let rowsMapped = 0
   let rowsUnmapped = 0
+  let teamCellsUpdated = 0
   const unmappedSamples: UnmappedSample[] = []
 
   for (let rowIdx = 1; rowIdx < rows.length; rowIdx += 1) {
     const row = rows[rowIdx]
     if (!row.some((value) => String(value ?? '').trim())) {
       continue
+    }
+
+    if (teamIndex !== null && tnsTeamId) {
+      ensureRowWidth(row, teamIndex)
+      const existingTeam = String(row[teamIndex] ?? '').trim()
+      if (existingTeam !== tnsTeamId) {
+        row[teamIndex] = tnsTeamId
+        teamCellsUpdated += 1
+      }
     }
 
     rowsTotal += 1
@@ -678,6 +937,8 @@ function pseudoanonymizeCsv(raw: Buffer, maps: PlayerMaps): TransformResult {
       rowsTotal,
       rowsMapped,
       rowsUnmapped,
+      teamColumnDetected,
+      teamCellsUpdated,
       unmappedSamples,
     },
   }
@@ -746,7 +1007,8 @@ function pseudoanonymizeWorkbook(
   raw: Buffer,
   fileName: string,
   source: SourceDevice,
-  maps: PlayerMaps
+  maps: PlayerMaps,
+  tnsTeamId: string | null
 ): TransformResult {
   const workbook = XLSX.read(raw, {
     type: 'buffer',
@@ -763,6 +1025,8 @@ function pseudoanonymizeWorkbook(
         rowsTotal: 0,
         rowsMapped: 0,
         rowsUnmapped: 0,
+        teamColumnDetected: false,
+        teamCellsUpdated: 0,
         unmappedSamples: [],
       },
     }
@@ -783,6 +1047,8 @@ function pseudoanonymizeWorkbook(
         rowsTotal: 0,
         rowsMapped: 0,
         rowsUnmapped: 0,
+        teamColumnDetected: false,
+        teamCellsUpdated: 0,
         unmappedSamples: [],
       },
     }
@@ -798,14 +1064,29 @@ function pseudoanonymizeWorkbook(
     statsExtIndex,
     valdExtIndex,
   } = extractIdentityColumns(normalizedHeaders)
+  const teamIndex =
+    source === 'statssports' ? extractTeamColumnIndex(normalizedHeaders) : null
+  const teamColumnDetected = teamIndex !== null
 
   let rowsTotal = 0
   let rowsMapped = 0
   let rowsUnmapped = 0
+  let teamCellsUpdated = 0
   const unmappedSamples: UnmappedSample[] = []
 
   for (let rowIdx = headerRowIndex + 1; rowIdx < matrix.length; rowIdx += 1) {
     const row = (matrix[rowIdx] ?? []).map((value) => String(value ?? ''))
+    if (!row.some((value) => String(value ?? '').trim())) {
+      continue
+    }
+
+    if (teamIndex !== null && tnsTeamId) {
+      const existingTeam = String(row[teamIndex] ?? '').trim()
+      if (existingTeam !== tnsTeamId) {
+        setSheetCellValue(sheet, rowIdx, teamIndex, tnsTeamId)
+        teamCellsUpdated += 1
+      }
+    }
 
     const ids = {
       displayName: rowValue(row, nameIndex),
@@ -855,6 +1136,8 @@ function pseudoanonymizeWorkbook(
       rowsTotal,
       rowsMapped,
       rowsUnmapped,
+      teamColumnDetected,
+      teamCellsUpdated,
       unmappedSamples,
     },
   }
@@ -892,59 +1175,78 @@ export async function preUploadPseudoanonymize(
     throw new Error(`Unsupported pre-upload source: ${input.source}`)
   }
 
-  const { bigquery } = getClients(input.gcp)
-  console.info(
-    `[pseudo][start] ${JSON.stringify({
+  const traceId = input.traceId || `pseudo-${Date.now()}`
+  const firestoreDatabase = resolveFirestoreDbFromEnv()
+  const refs = resolveRefCollections(input)
+  const clients = getClients(input.gcp)
+  logPseudo('lookup_config_resolved', {
+    traceId,
+    firestoreDatabase,
+    playerCollection: refs.playerCollection,
+    teamCollection: refs.teamCollection,
+    bigqueryFallbackDisabled: true,
+  })
+  logPseudo('start', {
+    traceId,
+    source: input.source,
+    fileName: input.fileName,
+    fileBytes: input.raw.length,
+    teamId: input.teamId,
+  })
+
+  let teamLookup: ResolveTeamFolderKeyResult
+  try {
+    teamLookup = await resolveTeamLookup(
+      clients,
+      refs.teamCollection,
+      input.teamId,
+      traceId
+    )
+  } catch (error) {
+    logPseudo('lookup_error', {
+      traceId,
+      stage: 'team_lookup',
+      source,
+      fileName: input.fileName,
+      teamId: input.teamId,
+      error: error instanceof Error ? error.message : String(error),
+    })
+    throw error
+  }
+
+  const tnsTeamId = teamLookup.tnsTeamId
+  let maps: PlayerMaps
+  try {
+    maps = await buildPlayerMaps(
+      clients,
+      refs.playerCollection,
+      tnsTeamId,
+      traceId
+    )
+  } catch (error) {
+    logPseudo('lookup_error', {
+      traceId,
+      stage: 'player_map_load',
       source: input.source,
       fileName: input.fileName,
-      fileBytes: input.raw.length,
       teamId: input.teamId,
-      refPlayerTable: input.refPlayerTable,
-      refTeamTable: input.refTeamTable,
-    })}`
-  )
-
-  const tnsTeamId = await resolveTnsTeamId(
-    bigquery,
-    input.refTeamTable,
-    input.teamId,
-    input.gcp.projectId
-  )
-  console.info(
-    `[pseudo][team_resolved] ${JSON.stringify({
-      inputTeamId: input.teamId,
       tnsTeamId,
-    })}`
-  )
-
-  const maps = await buildPlayerMaps(
-    bigquery,
-    input.refPlayerTable,
-    tnsTeamId,
-    input.gcp.projectId
-  )
-  console.info(
-    `[pseudo][player_maps_ready] ${JSON.stringify({
-      tnsTeamId,
-      tnsIds: maps.tnsIds.size,
-      nameMap: maps.nameMap.size,
-      whoopMap: maps.whoopMap.size,
-      valdIdMap: maps.valdIdMap.size,
-      statsExtMap: maps.statsExtMap.size,
-      valdExtMap: maps.valdExtMap.size,
-    })}`
-  )
+      error: error instanceof Error ? error.message : String(error),
+    })
+    throw error
+  }
 
   let transformResult: TransformResult
   const lowered = input.fileName.toLowerCase()
   if (lowered.endsWith('.csv')) {
-    transformResult = pseudoanonymizeCsv(input.raw, maps)
+    transformResult = pseudoanonymizeCsv(input.raw, source, maps, tnsTeamId)
   } else if (lowered.endsWith('.xls') || lowered.endsWith('.xlsx')) {
     transformResult = pseudoanonymizeWorkbook(
       input.raw,
       input.fileName,
       source,
-      maps
+      maps,
+      tnsTeamId
     )
   } else {
     throw new Error(
@@ -958,16 +1260,18 @@ export async function preUploadPseudoanonymize(
     pseudo_source: source,
     pseudo_mode: 'preupload',
   }
-  console.info(
-    `[pseudo][transform_complete] ${JSON.stringify({
-      source,
-      fileName: input.fileName,
-      rowsTotal: transformResult.stats.rowsTotal,
-      rowsMapped: transformResult.stats.rowsMapped,
-      rowsUnmapped: transformResult.stats.rowsUnmapped,
-      unmappedSamplesTop2: transformResult.stats.unmappedSamples.slice(0, 2),
-    })}`
-  )
+  logPseudo('transform_summary', {
+    traceId,
+    source,
+    fileName: input.fileName,
+    tnsTeamId,
+    rowsTotal: transformResult.stats.rowsTotal,
+    rowsMapped: transformResult.stats.rowsMapped,
+    rowsUnmapped: transformResult.stats.rowsUnmapped,
+    teamColumnDetected: transformResult.stats.teamColumnDetected,
+    teamCellsUpdated: transformResult.stats.teamCellsUpdated,
+    unmappedSamplesTop2: transformResult.stats.unmappedSamples.slice(0, 2),
+  })
 
   return {
     transformed: transformResult.transformed,
@@ -1007,92 +1311,36 @@ export async function publishPseudoUnmappedAlert(
 export async function resolveTeamFolderKey(
   input: ResolveTeamFolderKeyInput
 ): Promise<ResolveTeamFolderKeyResult> {
-  const rawTeamId = input.teamId.trim()
-  if (!rawTeamId) {
-    throw new Error('teamId is required')
-  }
+  const traceId = input.traceId || `team-${Date.now()}`
+  const refs = resolveRefCollections({
+    refPlayerTable: undefined,
+    refTeamTable: input.refTeamTable,
+  })
+  const clients = getClients(input.gcp)
 
-  const { bigquery } = getClients(input.gcp)
-  const columns = await getTableColumns(
-    bigquery,
-    input.refTeamTable,
-    input.gcp.projectId
-  )
+  logPseudo('lookup_config_resolved', {
+    traceId,
+    firestoreDatabase: resolveFirestoreDbFromEnv(),
+    playerCollection: refs.playerCollection,
+    teamCollection: refs.teamCollection,
+    bigqueryFallbackDisabled: true,
+  })
 
-  if (!columns.has('tns_team_id')) {
-    return {
-      inputTeamId: rawTeamId,
-      teamFolderKey: rawTeamId,
-      tnsTeamId: UUID_RE.test(rawTeamId) ? rawTeamId : null,
-      resolvedFromUuid: false,
-    }
-  }
-
-  const teamKeyColumn = firstExisting(columns, [
-    'team_key',
-    'teamId',
-    'team_id',
-    'external_team_id',
-    'source_team_id',
-  ])
-
-  if (!teamKeyColumn) {
-    return {
-      inputTeamId: rawTeamId,
-      teamFolderKey: rawTeamId,
-      tnsTeamId: UUID_RE.test(rawTeamId) ? rawTeamId : null,
-      resolvedFromUuid: false,
-    }
-  }
-
-  if (UUID_RE.test(rawTeamId)) {
-    const [rows] = await bigquery.query({
-      query: `
-        SELECT
-          CAST(\`tns_team_id\` AS STRING) AS tns_team_id,
-          CAST(\`${teamKeyColumn}\` AS STRING) AS team_key
-        FROM \`${input.refTeamTable}\`
-        WHERE CAST(\`tns_team_id\` AS STRING) = @tns_team_id
-        LIMIT 2
-      `,
-      params: { tns_team_id: rawTeamId },
-      useLegacySql: false,
+  try {
+    return await resolveTeamLookup(
+      clients,
+      refs.teamCollection,
+      input.teamId,
+      traceId
+    )
+  } catch (error) {
+    logPseudo('lookup_error', {
+      traceId,
+      stage: 'team_lookup',
+      inputTeamId: input.teamId,
+      teamCollection: refs.teamCollection,
+      error: error instanceof Error ? error.message : String(error),
     })
-
-    const first = (Array.isArray(rows) && rows.length > 0
-      ? (rows[0] as Record<string, unknown>)
-      : null) as Record<string, unknown> | null
-    const resolvedKey = String(first?.team_key ?? '').trim()
-    const resolvedTnsTeamId = String(first?.tns_team_id ?? rawTeamId).trim()
-
-    if (resolvedKey) {
-      return {
-        inputTeamId: rawTeamId,
-        teamFolderKey: resolvedKey,
-        tnsTeamId: resolvedTnsTeamId || rawTeamId,
-        resolvedFromUuid: true,
-      }
-    }
-
-    return {
-      inputTeamId: rawTeamId,
-      teamFolderKey: rawTeamId,
-      tnsTeamId: rawTeamId,
-      resolvedFromUuid: false,
-    }
-  }
-
-  const resolvedTnsTeamId = await resolveTnsTeamId(
-    bigquery,
-    input.refTeamTable,
-    rawTeamId,
-    input.gcp.projectId
-  )
-
-  return {
-    inputTeamId: rawTeamId,
-    teamFolderKey: rawTeamId,
-    tnsTeamId: resolvedTnsTeamId,
-    resolvedFromUuid: false,
+    throw error
   }
 }
