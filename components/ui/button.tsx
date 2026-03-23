@@ -1,33 +1,54 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
+import { ArrowRight } from 'lucide-react'
 
+/**
+ * Button component — Primary design system button.
+ *
+ * Variants:
+ * - `primary`: #0802A3 background, white text
+ * - `white`: White background, dark text
+ * - `ghost`: Transparent background
+ * - `outline`: Border only
+ * - `destructive`: Red for destructive actions
+ * - `link`: Underlined text link
+ *
+ * Features:
+ * - Optional trailing icon with rotation animation on hover
+ * - Icon rotates from slightly upward (-45deg) to straight right (0deg) on hover
+ * - Fully accessible with focus-visible styles
+ * - Uses shadcn/ui CVA pattern
+ */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
   {
     variants: {
       variant: {
-        default:
-          "bg-neutral-900 text-neutral-50 shadow hover:bg-neutral-900/90",
-        destructive:
-          "bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90",
+        primary:
+          'bg-primary text-white shadow-md hover:bg-primary-hover active:bg-primary-active',
+        white:
+          'bg-white text-neutral-900 shadow-md hover:bg-neutral-100 active:bg-neutral-200 dark:text-neutral-900',
+        ghost:
+          'hover:bg-neutral-100 hover:text-foreground dark:hover:bg-neutral-800',
         outline:
-          "border border-neutral-200 bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-900",
+          'border border-neutral-200 bg-transparent shadow-sm hover:bg-neutral-100 hover:text-foreground dark:border-neutral-700',
+        destructive:
+          'bg-red-500 text-white shadow-sm hover:bg-red-600 active:bg-red-700',
+        link: 'text-primary underline-offset-4 hover:underline',
         secondary:
-          "bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-100/80",
-        ghost: "hover:bg-neutral-100 hover:text-neutral-900",
-        link: "text-neutral-900 underline-offset-4 hover:underline",
+          'bg-neutral-100 text-foreground shadow-sm hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700',
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        default: 'h-10 px-6 py-2',
+        sm: 'h-8 px-4 text-xs',
+        lg: 'h-12 px-8 text-base',
+        icon: 'h-10 w-10',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'primary',
+      size: 'default',
     },
   }
 )
@@ -35,24 +56,33 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /** Show trailing arrow icon with hover animation */
+  showIcon?: boolean
+  /** Use as child (for Link composition) */
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, showIcon = false, children, ...props }, ref) => {
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          showIcon && 'pr-1.5'
+        )}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+        {showIcon && (
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 transition-colors duration-200 group-hover:bg-white/30">
+            <ArrowRight className="h-4 w-4 -rotate-45 transition-transform duration-200 group-hover:rotate-0" />
+          </span>
+        )}
+      </button>
     )
   }
 )
-Button.displayName = "Button"
+Button.displayName = 'Button'
 
 export { Button, buttonVariants }
-
-
-
-

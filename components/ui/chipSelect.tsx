@@ -42,8 +42,8 @@ const ChipSelect = ({
             className={cn(
               'px-4 py-1',
               selected
-                ? 'bg-neutral-900 text-neutral-50 shadow hover:bg-neutral-900'
-                : 'bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-200',
+                ? 'bg-primary hover:bg-primary-hover text-white shadow'
+                : 'bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-200 dark:bg-white/15 dark:text-white dark:hover:bg-white/25',
               isDisabled && 'cursor-not-allowed opacity-50'
             )}
             key={opt.value}
