@@ -1,10 +1,9 @@
-﻿import { FooterSection } from '@/components/Modules/FooterSection'
+﻿import { PartnersSection } from '@/components/Modules/PartnersSection'
 
 export default function Home() {
   return (
-    <main className="bg-[#E8E5F0]">
-      <FooterSection />
+    <main className="bg-white">
+      <PartnersSection />
     </main>
   )
 }
-
