@@ -88,6 +88,12 @@
         "audienceCoaches": "Trænere",
         "audiencePhysio": "Fysioterapeuter"
     },
+    "team": {
+        "heading": "Bygget af folk, der selv har ligget på behandlingsbordet",
+        "founders": "Grundlæggere",
+        "advisers": "Rådgivere",
+        "team": "Holdet"
+    },
     "contact": {
         "title": "Bliv en del af vores pilotprogram.",
         "name": "Navn",

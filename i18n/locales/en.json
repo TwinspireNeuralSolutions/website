@@ -88,6 +88,12 @@
         "audienceCoaches": "Coaches",
         "audiencePhysio": "Physiotherapists"
     },
+    "team": {
+        "heading": "Built by People Who've Been on the Treatment Table",
+        "founders": "Founders",
+        "advisers": "Advisers",
+        "team": "Team"
+    },
     "contact": {
         "title": "Join Our Founding Pilot Cohort.",
         "name": "Name",

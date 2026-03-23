@@ -251,12 +251,45 @@ return <Typography variant="title">Hello World</Typography>
 - Button icon animation: ArrowRight rotates from −45° to 0° on hover (`transition-transform duration-200`)
 - No instant state changes — use transitions to communicate state
 
-### Responsive Design
+### Responsive Design — MANDATORY FOR EVERY SECTION
+
+> **Every section, component, and layout change MUST be responsive. This is non-negotiable.**
 
 - **Mobile-first** — design for 375px, progressively enhance for wider viewports
-- Touch targets minimum **44×44px**
-- Test breakpoints: 320px, 375px, 768px, 1024px, 1440px
-- Use `sm:`, `md:`, `lg:`, `xl:` Tailwind prefixes — never fixed pixel widths for layout
+- Every section must look correct at: **320px, 375px, 768px, 1024px, 1440px**
+- Use `sm:`, `md:`, `lg:`, `xl:` Tailwind prefixes — **never** fixed pixel widths for layout
+- Touch targets minimum **44×44px** on all interactive elements
+- Grid/flex layouts must collapse gracefully: e.g. `grid-cols-2 sm:grid-cols-3 lg:grid-cols-4`
+- Font sizes must scale: use responsive variants like `text-[28px] sm:text-[40px] lg:text-[52px]`
+- Padding/margin must be responsive: e.g. `px-4 sm:px-6 lg:px-8`, `py-10 lg:py-16`
+- Images must use `sizes` prop on Next.js `<Image>` so browsers load appropriately-sized assets
+- Never use `overflow-hidden` on a container without confirming it doesn't clip content on mobile
+- Horizontal scrollbars are **never acceptable** — always test with `overflow-x: hidden` on `<body>`
+
+### Theme & Design Tokens — MANDATORY
+
+> **Never hardcode colors. Never bypass the design system. Always use tokens.**
+
+- All colors via design tokens: `bg-primary`, `text-foreground`, `bg-background`, `border-border`, etc.
+- **Never** use raw hex (`#0802A3`), `text-black`, `text-white` for semantics, or `bg-gray-*` for structure
+- Typography always via `<Typography variant="...">` — never raw `<h1>`, `<p>` with manual sizing
+- Spacing via Tailwind's 4/8px grid: `p-2`, `p-4`, `gap-4`, `gap-6`, `gap-8` etc.
+- Shadows: `shadow-sm` cards → `shadow-md` elevated → `shadow-lg` overlays
+- Border radius: match the project's `rounded-xl` convention for cards
+
+### Component Library — MANDATORY
+
+> **Always reach for `components/ui/` first. Never reinvent primitives.**
+
+- **Button** → `@/components/ui/button` (variants: `primary`, `white`, `ghost`, `outline`, etc.)
+- **Typography** → `@/components/ui/typography` (variants: `title`, `subtitle`, `heading`, `paragraph`)
+- **Card** → `@/components/ui/card` (with `CardHeader`, `CardContent`, `CardFooter`)
+- **Input / Textarea / Label** → `@/components/ui/input`, `textarea`, `label`
+- **Alert** → `@/components/ui/alert`
+- If a primitive doesn't exist in `components/ui/`, create it there using CVA + `React.forwardRef`
+- Sections live in `components/sections/<SectionName>/index.tsx`
+- Complex multi-part components get their own subfolder with `index.tsx` as the entry point
+- Register every new `components/ui/` component in the living style guide at `/[locale]/component-library`
 
 ### Forms UX
 
