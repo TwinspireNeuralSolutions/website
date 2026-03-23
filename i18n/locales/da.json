@@ -66,5 +66,14 @@
         "inputPlaceholder": "Skriv noget...",
         "textareaLabel": "Tekstområde label",
         "textareaPlaceholder": "Skriv din besked..."
+    },
+    "hero": {
+        "headlineLine1": "Europas AI-rehabiliteringsplatform",
+        "headlineLine2": "for fodbold.",
+        "subtitle": "Én ud af fem fodboldspillere overriver den samme muskel igen. Twinspire fortæller dig hvorfor — før det sker.",
+        "cta": "Bliv en del af pilotprogrammet",
+        "audienceAthletes": "Atleter",
+        "audienceCoaches": "Trænere",
+        "audiencePhysio": "Fysioterapeuter"
     }
 }

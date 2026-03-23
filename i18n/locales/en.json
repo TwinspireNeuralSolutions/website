@@ -66,5 +66,14 @@
         "inputPlaceholder": "Type something...",
         "textareaLabel": "Textarea Label",
         "textareaPlaceholder": "Write your message..."
+    },
+    "hero": {
+        "headlineLine1": "Europe's AI Rehabilitation",
+        "headlineLine2": "Platform for Football.",
+        "subtitle": "One in five footballers re-tears the same muscle. Twinspire reads what's happening inside — before it happens.",
+        "cta": "Join the Founding Pilot Cohort",
+        "audienceAthletes": "Athletes",
+        "audienceCoaches": "Coaches",
+        "audiencePhysio": "Physiotherapists"
     }
 }

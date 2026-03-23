@@ -64,6 +64,12 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, showIcon = false, children, ...props }, ref) => {
+    // Icon circle adapts to the button background so it's always visible
+    const iconCircleClass =
+      variant === 'white'
+        ? 'bg-neutral-900/10 group-hover:bg-neutral-900/20'
+        : 'bg-white/20 group-hover:bg-white/30'
+
     return (
       <button
         className={cn(
@@ -75,7 +81,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
         {showIcon && (
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 transition-colors duration-200 group-hover:bg-white/30">
+          <span
+            className={cn(
+              'inline-flex h-8 w-8 items-center justify-center rounded-full backdrop-blur-sm transition-colors duration-200',
+              iconCircleClass
+            )}
+          >
             <ArrowRight className="h-4 w-4 -rotate-45 transition-transform duration-200 group-hover:rotate-0" />
           </span>
         )}
