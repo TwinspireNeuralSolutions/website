@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Link2 } from 'lucide-react'
 
 interface TeamMemberProps {
   name: string
@@ -8,25 +9,32 @@ interface TeamMemberProps {
 
 export const TeamMember = ({ name, role, image }: TeamMemberProps) => {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-      <div className="relative h-[240px] w-full overflow-hidden">
+    <article className="relative overflow-hidden rounded-lg bg-black">
+      <div className="relative h-[360px] w-full overflow-hidden">
         <Image
           src={image}
           alt={name}
           fill
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1600px) 50vw, 25vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute right-0 bottom-0 left-0 p-4">
-          <h3 className="text-center text-base font-semibold text-white drop-shadow-lg">
-            {name}
-          </h3>
-          {role && (
-            <p className="text-center text-xs text-gray-100 opacity-90">
-              {role}
-            </p>
-          )}
+
+        <div className="absolute inset-0 bg-black/30" />
+
+        <div className="absolute right-0 bottom-0 left-0 p-5">
+          <div>
+            <h3 className="text-xl leading-tight font-bold text-white">
+              {name}
+            </h3>
+            {role && (
+              <p className="text-sm tracking-wider text-[#f2fff8] uppercase">
+                {role}
+              </p>
+            )}
+            <div className="mt-3 inline-flex items-center justify-center rounded-full border border-white/70 bg-black/20 p-2 text-white shadow-sm">
+              <Link2 size={16} strokeWidth={2} />
+            </div>
+          </div>
         </div>
       </div>
     </article>
