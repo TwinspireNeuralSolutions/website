@@ -12,12 +12,12 @@ export const Team = () => {
       className="max-w-[1650px] py-10 sm:py-12 lg:py-14"
     >
       <div className="mx-auto w-full max-w-[1320px]">
-        <h2 className="mb-8 max-w-[920px] text-left text-[30px] leading-[1] font-medium tracking-[-0.03em] text-slate-900 sm:mb-9 sm:text-[40px] lg:text-[52px]">
-          Built by People Who've Been on the Treatment Table
+        <h2 className="mb-8 max-w-[920px] text-left text-[28px] leading-[1] font-medium tracking-[-0.03em] text-slate-900 sm:mb-9 sm:text-[40px] lg:text-[52px]">
+          Built by People Who&apos;ve Been on the Treatment Table
         </h2>
 
-        <div className="mx-auto max-w-[1080px]">
-          <div className="grid gap-4 sm:grid-cols-2 lg:gap-5 xl:grid-cols-4">
+        <div className="mx-auto max-w-[1120px]">
+          <div className="grid justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-5 xl:grid-cols-4">
             {teamData.map((member, index) => (
               <TeamMember
                 key={index}
