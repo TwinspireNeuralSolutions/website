@@ -101,6 +101,21 @@
         "advisers": "Rådgivere",
         "team": "Holdet"
     },
+    "builtFor": {
+        "heading": "Bygget til dem, der holder fodboldspillere på banen.",
+        "footballers": {
+            "title": "Fodboldspillere",
+            "description": "Din krop genererer data ved hver træning, men meget af det går tabt, når du skifter klub. Twinspire giver dig dine data tilbage. Dit Athletic Passport registrerer din fulde historik — sessions, restitution og skader — og en AI-coach hjælper dig med at fortolke det, forstå din parathed og identificere forbedringsområder. Du bestemmer, hvad din klub har adgang til."
+        },
+        "coaches": {
+            "title": "Trænere og Performance Staff",
+            "description": "Få adgang til neuromuskulær belastning, restitutionssignaler og afvigelsesadvarsler for hele holdet, inklusiv data fra atleternes egne wearables. Planlæg træning ud fra reelle fysiologiske indsigter, så dine bedste spillere er klar, når det gælder mest."
+        },
+        "physio": {
+            "title": "Fysioterapeuter",
+            "description": "Modtag objektiv beslutningsstøtte med tilpassede grænseværdier og metrikker på hvert trin. Overvåg afvigelser fra personlige basislinjer, restitutionstrends og kapacitetssignaler på tværs af datakilder, med klare forklaringer og anbefalede handlinger."
+        }
+    },
     "cta": {
         "title": "Klar til at se, hvad dit holds data faktisk fortæller dig?",
         "subtitle": "Vi optager grundlæggende partnere i Norden dette kvartal. Klubber der tilmelder sig nu er med til at forme produktet, får prioriteret adgang og fordelagtige priser.",

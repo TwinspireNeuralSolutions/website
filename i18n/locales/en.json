@@ -101,6 +101,21 @@
         "advisers": "Advisers",
         "team": "Team"
     },
+    "builtFor": {
+        "heading": "Built for the People Who Keep Footballers on the Pitch.",
+        "footballers": {
+            "title": "Footballers",
+            "description": "Your body generates data every session, much of which is lost when you change clubs. Twinspire returns this data to you. Your Athletic Passport records your complete history — sessions, recovery, injuries — and an AI coach helps you interpret it, understand your readiness, and identify areas for improvement. You control what your club can access."
+        },
+        "coaches": {
+            "title": "Coaches and Performance Staff",
+            "description": "Access neuromuscular load, recovery signals, and deviation alerts for your entire squad, including athlete-owned wearable data. Plan training based on real physiological insights to keep your best players available when it matters most."
+        },
+        "physio": {
+            "title": "Physiotherapists",
+            "description": "Receive objective decision support with customisable thresholds and metrics at every stage. Monitor deviations from personal baselines, recovery trends, and capacity signals across data sources, with clear explanations and recommended actions."
+        }
+    },
     "cta": {
         "title": "Ready to See What Your Squad's Data Is Actually Telling You?",
         "subtitle": "We are onboarding founding partners across the Nordics this quarter. Clubs that join now shape the product, get priority access, and preferred pricing.",

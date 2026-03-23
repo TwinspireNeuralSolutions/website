@@ -1,0 +1,68 @@
+'use client'
+
+import { Typography } from '@/components/ui/typography'
+import { useTranslation } from '@/i18n'
+import { BuiltForCard } from './BuiltForCard'
+
+/**
+ * BuiltForSection — "Built for the People Who Keep Footballers on the Pitch."
+ *
+ * Three full-bleed portrait image cards (same pattern as TeamMember) each
+ * representing a core audience: Footballers, Coaches & Performance Staff,
+ * and Physiotherapists.
+ *
+ * Grid collapses to single column on mobile, 3 columns on md+.
+ */
+export function BuiltForSection() {
+  const { t } = useTranslation()
+
+  const cards = [
+    {
+      image: '/fotballers.jpg',
+      overlayOpacity: 0.35,
+      title: t('builtFor.footballers.title'),
+      description: t('builtFor.footballers.description'),
+    },
+    {
+      image: '/coaches.jpg',
+      overlayOpacity: 0.65,
+      title: t('builtFor.coaches.title'),
+      description: t('builtFor.coaches.description'),
+    },
+    {
+      image: '/physio.png',
+      overlayOpacity: 0.6,
+      title: t('builtFor.physio.title'),
+      description: t('builtFor.physio.description'),
+    },
+  ]
+
+  return (
+    <section id="built-for" className="w-full bg-white">
+      <div className="section-x section-y section-inner mx-auto">
+        {/* Heading */}
+        <Typography
+          variant="title"
+          as="h2"
+          textColor="default"
+          className="mb-10 max-w-[680px] text-left text-[28px] leading-[1.05] tracking-[-0.03em] sm:text-[40px] lg:mb-14 lg:text-[52px]"
+        >
+          {t('builtFor.heading')}
+        </Typography>
+
+        {/* Cards grid: 1 col mobile → 3 col md+ */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+          {cards.map((card) => (
+            <BuiltForCard
+              key={card.title}
+              title={card.title}
+              description={card.description}
+              image={card.image}
+              overlayOpacity={card.overlayOpacity}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
