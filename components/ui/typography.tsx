@@ -23,13 +23,33 @@ const typographyVariants = cva('font-sans', {
       paragraph: 'text-[12px] font-normal leading-relaxed',
     },
     textColor: {
-      default: 'text-foreground',
+      default: '', // resolved per-variant via compoundVariants below
       muted: 'text-muted-foreground',
       primary: 'text-primary',
       white: 'text-white',
       inherit: 'text-inherit',
     },
   },
+  compoundVariants: [
+    // title: full opacity (100%)
+    { variant: 'title', textColor: 'default', className: 'text-foreground' },
+    // all other variants: 70% opacity
+    {
+      variant: 'subtitle',
+      textColor: 'default',
+      className: 'text-foreground/70',
+    },
+    {
+      variant: 'heading',
+      textColor: 'default',
+      className: 'text-foreground/70',
+    },
+    {
+      variant: 'paragraph',
+      textColor: 'default',
+      className: 'text-foreground/70',
+    },
+  ],
   defaultVariants: {
     variant: 'paragraph',
     textColor: 'default',

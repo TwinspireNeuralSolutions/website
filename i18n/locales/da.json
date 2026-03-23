@@ -74,6 +74,11 @@
         "gdpr": "GDPR",
         "teamLogin": "Team Login"
     },
+    "footer": {
+        "copyright": "© Alle rettigheder forbeholdes.",
+        "tagline": "NEURAL  ·  NETWORK  ·  SOLUTION",
+        "linkedinLabel": "LinkedIn"
+    },
     "hero": {
         "headlineLine1": "Europas AI-rehabiliteringsplatform",
         "headlineLine2": "for fodbold.",

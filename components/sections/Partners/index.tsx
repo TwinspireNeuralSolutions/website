@@ -8,8 +8,6 @@ const partners = [
   { src: '/partners/ai.png', alt: 'Alexandra Institute' },
   { src: '/partners/dtu.png', alt: 'DTU' },
   { src: '/partners/myoact.png', alt: 'Myoact' },
-  { src: '/partners/physio.png', alt: 'Physio' },
-  { src: '/partners/wisp.png', alt: 'Wisp' },
   { src: '/partners/beyond-beta.png', alt: 'Beyond Beta' },
   { src: '/partners/dif.png', alt: 'DIF Innovation Lab' },
   { src: '/partners/skylab.png', alt: 'DTU Skylab' },
@@ -21,7 +19,7 @@ const sliderSettings = {
   autoplaySpeed: 0,
   speed: 6000,
   cssEase: 'linear',
-  slidesToShow: 7,
+  slidesToShow: 6,
   slidesToScroll: 1,
   arrows: false,
   dots: false,
@@ -60,12 +58,13 @@ export function PartnersSection() {
             <div key={p.alt}>
               {/* Fixed-size box — object-contain ensures every logo, wide or tall,
                   fills the same space without distortion */}
-              <div className="flex items-center justify-center px-4">
-                <div className="relative h-10 w-full">
+              <div className="flex items-center justify-center px-2">
+                <div className="relative h-8 w-full">
                   <Image
                     src={p.src}
                     alt={p.alt}
                     fill
+                    sizes="160px"
                     className="object-contain opacity-[0.45] brightness-0 invert"
                   />
                 </div>

@@ -25,6 +25,11 @@
   /* Partners strip */
   --partners-bg: rgba(9, 7, 133, 0.50);
 
+  /* Footer */
+  --footer-bg: #E8E5F0;
+  --footer-watermark: #D5D2DE;
+  --footer-muted: #6A6A6A;
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #0802A3 0%, #3b35d6 100%);
   --gradient-secondary: linear-gradient(135deg, #0802a3 0%, #b5b2ff 100%);
@@ -87,6 +92,9 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-partners-bg: var(--partners-bg);
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-watermark: var(--footer-watermark);
+  --color-footer-muted: var(--footer-muted);
   --font-sans: var(--font-sans);
 }
 

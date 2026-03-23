@@ -74,6 +74,11 @@
         "gdpr": "GDPR",
         "teamLogin": "Team Login"
     },
+    "footer": {
+        "copyright": "© All rights reserved.",
+        "tagline": "NEURAL  ·  NETWORK  ·  SOLUTION",
+        "linkedinLabel": "LinkedIn"
+    },
     "hero": {
         "headlineLine1": "Europe's AI Rehabilitation",
         "headlineLine2": "Platform for Football.",
