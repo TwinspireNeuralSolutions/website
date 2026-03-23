@@ -1,28 +1,25 @@
-import React from 'react'
+import { ButtonHTMLAttributes } from 'react'
+import { cn } from '@/lib/utils'
 
-export const Button = ({
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline'
+}
+
+export function Button({
   children,
+  variant = 'primary',
   className,
-  onClick,
-  color = 'blue',
-  disabled = false,
-}: {
-  children: React.ReactNode
-  className?: string
-  onClick?: () => void
-  color?: 'blue' | 'white'
-  disabled?: boolean
-}) => {
+  ...props
+}: ButtonProps) {
+  const baseStyles = 'px-6 py-3 rounded-lg font-semibold transition-colors'
+  const variants = {
+    primary: 'bg-blue-600 text-white hover:bg-blue-700',
+    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300',
+    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
+  }
+
   return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`text-md cursor-pointer rounded-full px-6 py-2 font-normal whitespace-nowrap shadow-md transition ${
-        color === 'blue'
-          ? 'bg-[#0802A3] text-white hover:bg-[#001060]'
-          : 'bg-white text-black hover:bg-[#e0e0e0]'
-      } ${disabled ? 'cursor-not-allowed opacity-50' : ''} ${className}`}
-    >
+    <button className={cn(baseStyles, variants[variant], className)} {...props}>
       {children}
     </button>
   )

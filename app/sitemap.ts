@@ -9,20 +9,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'monthly' as const,
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/#home`,
+      url: `${baseUrl}/admin`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#twinspire`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      priority: 0.5,
     },
   ]
 
