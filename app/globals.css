@@ -22,6 +22,9 @@
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
+  /* Partners strip */
+  --partners-bg: rgba(9, 7, 133, 0.50);
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #0802A3 0%, #3b35d6 100%);
   --gradient-secondary: linear-gradient(135deg, #0802a3 0%, #b5b2ff 100%);
@@ -83,6 +86,7 @@
   --color-ring: var(--ring);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-partners-bg: var(--partners-bg);
   --font-sans: var(--font-sans);
 }
 
