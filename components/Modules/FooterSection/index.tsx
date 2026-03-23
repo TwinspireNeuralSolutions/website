@@ -42,12 +42,12 @@ export const FooterSection = () => {
               <div key={link} className="flex items-center gap-2">
                 <a
                   href={`#${link.toLowerCase().replace(/\s/g, '-')}`}
-                  className="text-sm font-medium text-slate-700 transition-colors hover:text-slate-900 sm:text-base md:text-lg"
+                  className="text-sm font-semibold text-[#6A6A6A] transition-colors hover:text-[#6A6A6A] sm:text-base md:text-lg"
                 >
                   {link}
                 </a>
                 {i < navLinks.length - 1 && (
-                  <span className="text-slate-400">•</span>
+                  <span className="text-[#6A6A6A]">•</span>
                 )}
               </div>
             ))}
@@ -62,7 +62,7 @@ export const FooterSection = () => {
 
           {/* Spaced subtitle */}
           <div className="mb-6 text-center select-none sm:mb-8 md:mb-10">
-            <p className="text-[8px] font-medium tracking-[0.5em] whitespace-nowrap text-black sm:text-[10px] sm:tracking-[0.7em] md:text-xs md:tracking-[0.9em] lg:text-sm lg:tracking-[1em]">
+            <p className="text-[8px] font-bold tracking-[0.5em] whitespace-nowrap text-[#6A6A6A] sm:text-[10px] sm:tracking-[0.7em] md:text-xs md:tracking-[0.9em] lg:text-sm lg:tracking-[1em]">
               NEURAL &nbsp;&nbsp;&nbsp;&nbsp; NETWORK &nbsp;&nbsp;&nbsp;&nbsp;
               SOLUTION
             </p>
