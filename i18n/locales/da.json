@@ -94,6 +94,12 @@
         "advisers": "Rådgivere",
         "team": "Holdet"
     },
+    "cta": {
+        "title": "Klar til at se, hvad dit holds data faktisk fortæller dig?",
+        "subtitle": "Vi optager grundlæggende partnere i Norden dette kvartal. Klubber der tilmelder sig nu er med til at forme produktet, får prioriteret adgang og fordelagtige priser.",
+        "stats": "71 atleter. 2 aktive klubber. 18 måneders reelle data.",
+        "button": "Ansøg om pilotprogrammet"
+    },
     "contact": {
         "title": "Bliv en del af vores pilotprogram.",
         "name": "Navn",

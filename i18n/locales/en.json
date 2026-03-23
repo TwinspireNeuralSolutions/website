@@ -94,6 +94,12 @@
         "advisers": "Advisers",
         "team": "Team"
     },
+    "cta": {
+        "title": "Ready to See What Your Squad's Data Is Actually Telling You?",
+        "subtitle": "We are onboarding founding partners across the Nordics this quarter. Clubs that join now shape the product, get priority access, and preferred pricing.",
+        "stats": "71 athletes. 2 active clubs. 18 months of real data.",
+        "button": "Apply for the Founding Cohort"
+    },
     "contact": {
         "title": "Join Our Founding Pilot Cohort.",
         "name": "Name",
