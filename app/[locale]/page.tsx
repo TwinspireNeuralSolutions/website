@@ -1,3 +1,4 @@
+import { AboutSection } from '@/components/sections/About'
 import { ContactSection } from '@/components/sections/Contact'
 import { CTASection } from '@/components/sections/CTA'
 import { FooterSection } from '@/components/sections/Footer'
@@ -20,6 +21,7 @@ export default function Home() {
         {/* Placeholder — replace with real section components as they are built. */}
         <div className="bg-background min-h-screen" />
         <CTASection />
+        <AboutSection />
         <TeamSection />
         <ContactSection />
         <PartnersSection />

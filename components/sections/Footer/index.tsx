@@ -19,7 +19,7 @@ export function FooterSection() {
   return (
     <footer className="bg-footer-bg w-full overflow-hidden">
       {/* Nav links */}
-      <div className="mx-auto max-w-[1400px] px-5 pt-10 sm:px-10 sm:pt-12 md:px-14 md:pt-14">
+      <div className="section-x section-inner mx-auto pt-10 sm:pt-12 md:pt-14">
         <nav className="mb-10 flex flex-wrap items-center justify-center gap-6 sm:mb-12 sm:gap-8 md:mb-14 md:gap-10">
           {navLinks.map((link, i) => (
             <div
@@ -51,7 +51,7 @@ export function FooterSection() {
       </div>
 
       {/* Tagline + bottom bar */}
-      <div className="mx-auto max-w-[1400px] px-5 pb-6 sm:px-10 sm:pb-8 md:px-14 md:pb-10">
+      <div className="section-x section-inner mx-auto pb-6 sm:pb-8 md:pb-10">
         <div className="mb-8 text-center select-none sm:mb-10">
           <p className="text-[8px] font-bold tracking-[0.6em] text-black/70 sm:text-[10px] sm:tracking-[0.8em] md:text-xs md:tracking-[1em]">
             {t('footer.tagline')}

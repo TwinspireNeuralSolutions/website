@@ -20,7 +20,7 @@ export function CTASection() {
       aria-labelledby="cta-heading"
       className="bg-footer-bg w-full"
     >
-      <div className="section-x section-inner mx-auto py-20 text-center md:py-28 lg:py-32">
+      <div className="section-x section-y section-inner mx-auto text-center">
         {/* Headline */}
         <Typography
           id="cta-heading"

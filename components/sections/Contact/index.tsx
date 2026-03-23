@@ -65,7 +65,7 @@ export function ContactSection() {
       aria-labelledby="contact-heading"
       className="bg-footer-bg w-full"
     >
-      <div className="mx-auto max-w-[1400px] px-5 py-14 sm:px-10 sm:py-16 md:px-14 md:py-20 lg:py-24">
+      <div className="section-x section-y section-inner mx-auto">
         <Typography
           id="contact-heading"
           variant="title"

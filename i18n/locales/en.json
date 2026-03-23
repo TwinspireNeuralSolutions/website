@@ -88,6 +88,13 @@
         "audienceCoaches": "Coaches",
         "audiencePhysio": "Physiotherapists"
     },
+    "about": {
+        "headline": "This Started With One Injury. Then a Second.",
+        "p1": "Pouya was a professional football player. He tore his hamstring and went through the full rehabilitation process: GPS monitoring, clinical assessment, and gradual return to training. He was cleared to play.",
+        "p2": "Eight weeks later he tore it again.",
+        "p3": "The second injury was not due to bad luck; the warning signs were present, but the process lacked the tools to detect them. He left professional football and returned to DTU to address this gap. His injury became the research question, and the research led to Twinspire.",
+        "imageAlt": "Pouya on the football pitch wearing an orange training bib"
+    },
     "team": {
         "heading": "Built by People Who've Been on the Treatment Table",
         "founders": "Founders",

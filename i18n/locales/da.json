@@ -88,6 +88,13 @@
         "audienceCoaches": "Trænere",
         "audiencePhysio": "Fysioterapeuter"
     },
+    "about": {
+        "headline": "Det startede med én skade. Så en til.",
+        "p1": "Pouya var professionel fodboldspiller. Han rev sin hasemuskel over og gennemgik hele rehabiliteringsprocessen: GPS-overvågning, klinisk vurdering og gradvis genoptræning. Han fik grønt lys til at spille.",
+        "p2": "Otte uger senere rev han den over igen.",
+        "p3": "Den anden skade skyldtes ikke uheld; advarselstegnene var der, men processen manglede værktøjerne til at opdage dem. Han forlod professionel fodbold og vendte tilbage til DTU for at løse dette problem. Hans skade blev forskningsspørgsmålet, og forskningen førte til Twinspire.",
+        "imageAlt": "Pouya på fodboldbanen iført en orange træningsvest"
+    },
     "team": {
         "heading": "Bygget af folk, der selv har ligget på behandlingsbordet",
         "founders": "Grundlæggere",

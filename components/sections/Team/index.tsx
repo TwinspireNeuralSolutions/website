@@ -72,8 +72,8 @@ export function TeamSection() {
   const { t } = useTranslation()
 
   return (
-    <section id="team" className="w-full bg-white px-6 py-14 lg:px-8 lg:py-20">
-      <div className="mx-auto w-full max-w-[1320px]">
+    <section id="team" className="w-full bg-white">
+      <div className="section-x section-y section-inner mx-auto">
         {/* Heading */}
         <Typography
           variant="title"
