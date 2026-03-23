@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Typography } from '@/components/ui/typography'
+import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -22,40 +23,48 @@ export function CTASection() {
     >
       <div className="section-x section-y section-inner mx-auto text-center">
         {/* Headline */}
-        <Typography
-          id="cta-heading"
-          variant="title"
-          as="h2"
-          className="mx-auto max-w-[820px] text-[28px] leading-[1.1] sm:text-[36px] md:text-[44px] lg:text-[52px]"
-        >
-          {t('cta.title')}
-        </Typography>
+        <AnimateIn variant="fadeUp">
+          <Typography
+            id="cta-heading"
+            variant="title"
+            as="h2"
+            className="mx-auto max-w-[820px] text-[28px] leading-[1.1] sm:text-[36px] md:text-[44px] lg:text-[52px]"
+          >
+            {t('cta.title')}
+          </Typography>
+        </AnimateIn>
 
         {/* Supporting paragraph */}
-        <p className="text-foreground/60 mx-auto mt-6 max-w-[580px] text-sm leading-relaxed sm:text-base md:mt-8">
-          {t('cta.subtitle')}
-        </p>
+        <AnimateIn variant="fadeUp" delay={0.1}>
+          <p className="text-foreground/60 mx-auto mt-6 max-w-[580px] text-sm leading-relaxed sm:text-base md:mt-8">
+            {t('cta.subtitle')}
+          </p>
+        </AnimateIn>
 
         {/* Stats line */}
-        <p className="text-foreground/50 mx-auto mt-3 max-w-[580px] text-sm sm:text-base">
-          {t('cta.stats')}
-        </p>
+        <AnimateIn variant="fadeUp" delay={0.18}>
+          <p className="text-foreground/50 mx-auto mt-3 max-w-[580px] text-sm sm:text-base">
+            {t('cta.stats')}
+          </p>
+        </AnimateIn>
 
         {/* CTA button */}
-        <div className="mt-10 md:mt-12">
-          <Button
-            variant="primary"
-            size="lg"
-            showIcon
-            onClick={() =>
-              document
-                .getElementById('contact')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            {t('cta.button')}
-          </Button>
-        </div>
+        <AnimateIn variant="fadeUp" delay={0.28}>
+          <div className="mt-10 md:mt-12">
+            <Button
+              variant="primary"
+              size="lg"
+              showIcon
+              onClick={() =>
+                document
+                  .getElementById('contact')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              {t('cta.button')}
+            </Button>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   )

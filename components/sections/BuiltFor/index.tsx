@@ -1,6 +1,11 @@
 'use client'
 
 import { Typography } from '@/components/ui/typography'
+import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 import { BuiltForCard } from './BuiltForCard'
 
@@ -41,27 +46,33 @@ export function BuiltForSection() {
     <section id="built-for" className="w-full bg-white">
       <div className="section-x section-y section-inner mx-auto">
         {/* Heading */}
-        <Typography
-          variant="title"
-          as="h2"
-          textColor="default"
-          className="mb-10 max-w-[680px] text-left text-[28px] leading-[1.05] tracking-[-0.03em] sm:text-[40px] lg:mb-14 lg:text-[52px]"
-        >
-          {t('builtFor.heading')}
-        </Typography>
+        <AnimateIn variant="fadeUp">
+          <Typography
+            variant="title"
+            as="h2"
+            textColor="default"
+            className="mb-10 max-w-[680px] text-left text-[28px] leading-[1.05] tracking-[-0.03em] sm:text-[40px] lg:mb-14 lg:text-[52px]"
+          >
+            {t('builtFor.heading')}
+          </Typography>
+        </AnimateIn>
 
         {/* Cards grid: 1 col mobile → 3 col md+ */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+        <StaggerContainer
+          className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8"
+          stagger={0.12}
+        >
           {cards.map((card) => (
-            <BuiltForCard
-              key={card.title}
-              title={card.title}
-              description={card.description}
-              image={card.image}
-              overlayOpacity={card.overlayOpacity}
-            />
+            <StaggerItem key={card.title}>
+              <BuiltForCard
+                title={card.title}
+                description={card.description}
+                image={card.image}
+                overlayOpacity={card.overlayOpacity}
+              />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

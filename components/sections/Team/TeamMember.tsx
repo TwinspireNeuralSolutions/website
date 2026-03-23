@@ -28,13 +28,13 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
       <Card
         ref={ref}
         className={cn(
-          'group border-border relative w-full max-w-[200px] overflow-hidden p-0',
+          'group border-border relative w-full overflow-hidden p-0',
           'shadow-sm transition-shadow duration-200 hover:shadow-md',
           className
         )}
       >
         {/* Full-bleed photo */}
-        <div className="relative aspect-[4/5] w-full bg-neutral-200">
+        <div className="relative aspect-[3/4] w-full bg-neutral-200">
           <Image
             src={image}
             alt={name}
@@ -46,20 +46,20 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
           {/* Dark gradient scrim at bottom for text readability */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%]"
             style={{
               background:
-                'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+                'linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.45) 50%, transparent 100%)',
             }}
           />
 
           {/* Overlay content */}
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 px-4 pt-2 pb-4">
+          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-0 px-3 pt-2 pb-3">
             <Typography
               variant="heading"
               as="p"
               textColor="white"
-              className="truncate leading-tight"
+              className="truncate text-[13px] leading-snug"
             >
               {name}
             </Typography>
@@ -67,7 +67,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
               variant="paragraph"
               as="p"
               textColor="white"
-              className="truncate opacity-75"
+              className="truncate text-[11px] opacity-70"
             >
               {role}
             </Typography>
@@ -79,13 +79,13 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${name} on LinkedIn`}
-                className="mt-2 inline-flex w-fit items-center justify-center rounded-full p-1 text-white/80 transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                className="mt-1.5 inline-flex w-fit items-center justify-center rounded-full p-0.5 text-white/75 transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               >
                 {/* LinkedIn icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
+                  width="15"
+                  height="15"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   aria-hidden="true"
@@ -95,7 +95,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
               </Link>
             ) : (
               // Placeholder spacer so cards without LinkedIn stay the same height
-              <div className="mt-2 h-[34px]" aria-hidden />
+              <div className="mt-1.5 h-[28px]" aria-hidden />
             )}
           </div>
         </div>

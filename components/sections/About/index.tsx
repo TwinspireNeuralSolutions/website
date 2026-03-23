@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Typography } from '@/components/ui/typography'
+import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -25,7 +26,10 @@ export function AboutSection() {
       <div className="section-x section-y section-inner mx-auto">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-16 lg:gap-20">
           {/* ── Left: text ── */}
-          <div className="flex flex-col gap-6 md:flex-1">
+          <AnimateIn
+            variant="slideLeft"
+            className="flex flex-col gap-6 md:flex-1"
+          >
             <Typography
               id="about-heading"
               variant="title"
@@ -46,10 +50,14 @@ export function AboutSection() {
                 {t('about.p3')}
               </p>
             </div>
-          </div>
+          </AnimateIn>
 
           {/* ── Right: image ── */}
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-md md:w-[42%] md:shrink-0 lg:w-[40%]">
+          <AnimateIn
+            variant="slideRight"
+            delay={0.15}
+            className="relative w-full overflow-hidden rounded-2xl shadow-md md:w-[42%] md:shrink-0 lg:w-[40%]"
+          >
             <Image
               src="/middle.jpg"
               alt={t('about.imageAlt')}
@@ -58,7 +66,7 @@ export function AboutSection() {
               className="h-auto w-full object-cover"
               sizes="(max-width: 768px) 100vw, 42vw"
             />
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
+import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -109,41 +110,49 @@ export function HeroSection() {
             fits in exactly 2 lines without hard breakpoint jumps.
           */}
           <div className="w-full max-w-[85vw] sm:max-w-[80vw] md:max-w-[52vw] lg:max-w-[50vw] xl:max-w-[48vw]">
-            <h1
-              className="mb-4 font-sans font-bold tracking-tight text-white"
-              style={{
-                fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
-                lineHeight: 1.05,
-              }}
-            >
-              <span className="block">{t('hero.headlineLine1')}</span>
-              <span className="block">{t('hero.headlineLine2')}</span>
-            </h1>
-            <p className="mb-8 max-w-[280px] font-sans text-sm leading-relaxed text-white/70 sm:max-w-[320px] sm:text-base md:max-w-[340px] md:text-base lg:max-w-[400px] lg:text-lg">
-              {t('hero.subtitle')}
-            </p>
-            <Link href={`/${locale}/admin`}>
-              <Button variant="white" size="lg" showIcon>
-                {t('hero.cta')}
-              </Button>
-            </Link>
+            <AnimateIn variant="fadeUp" immediate>
+              <h1
+                className="mb-4 font-sans font-bold tracking-tight text-white"
+                style={{
+                  fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
+                  lineHeight: 1.05,
+                }}
+              >
+                <span className="block">{t('hero.headlineLine1')}</span>
+                <span className="block">{t('hero.headlineLine2')}</span>
+              </h1>
+            </AnimateIn>
+            <AnimateIn variant="fadeUp" delay={0.15} immediate>
+              <p className="mb-8 max-w-[280px] font-sans text-sm leading-relaxed text-white/70 sm:max-w-[320px] sm:text-base md:max-w-[340px] md:text-base lg:max-w-[400px] lg:text-lg">
+                {t('hero.subtitle')}
+              </p>
+            </AnimateIn>
+            <AnimateIn variant="fadeUp" delay={0.3} immediate>
+              <Link href={`/${locale}/admin`}>
+                <Button variant="white" size="lg" showIcon>
+                  {t('hero.cta')}
+                </Button>
+              </Link>
+            </AnimateIn>
           </div>
         </div>
 
         {/* ── Audience tags ── */}
-        <div className="flex items-center gap-2 text-xs sm:gap-3 sm:text-sm">
-          <span className="font-medium text-white/90">
-            {t('hero.audienceAthletes')}
-          </span>
-          <span className="text-white/30">•</span>
-          <span className="font-medium text-white/90">
-            {t('hero.audienceCoaches')}
-          </span>
-          <span className="text-white/30">•</span>
-          <span className="font-medium text-white/90">
-            {t('hero.audiencePhysio')}
-          </span>
-        </div>
+        <AnimateIn variant="fadeIn" delay={0.5} immediate>
+          <div className="flex items-center gap-2 text-xs sm:gap-3 sm:text-sm">
+            <span className="font-medium text-white/90">
+              {t('hero.audienceAthletes')}
+            </span>
+            <span className="text-white/30">•</span>
+            <span className="font-medium text-white/90">
+              {t('hero.audienceCoaches')}
+            </span>
+            <span className="text-white/30">•</span>
+            <span className="font-medium text-white/90">
+              {t('hero.audiencePhysio')}
+            </span>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   )

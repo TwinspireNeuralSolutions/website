@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslation } from '@/i18n'
+import { AnimateIn } from '@/components/ui/animate-in'
 
 const navLinks = [
   { key: 'nav.problem', href: '#problem' },
@@ -20,35 +21,39 @@ export function FooterSection() {
     <footer className="bg-footer-bg w-full overflow-hidden">
       {/* Nav links */}
       <div className="section-x section-inner mx-auto pt-10 sm:pt-12 md:pt-14">
-        <nav className="mb-10 flex flex-wrap items-center justify-center gap-6 sm:mb-12 sm:gap-8 md:mb-14 md:gap-10">
-          {navLinks.map((link, i) => (
-            <div
-              key={link.key}
-              className="flex items-center gap-6 sm:gap-8 md:gap-10"
-            >
-              <a
-                href={link.href}
-                className="hover:text-primary text-sm font-semibold text-black/70 transition-colors sm:text-base"
+        <AnimateIn variant="fadeIn">
+          <nav className="mb-10 flex flex-wrap items-center justify-center gap-6 sm:mb-12 sm:gap-8 md:mb-14 md:gap-10">
+            {navLinks.map((link, i) => (
+              <div
+                key={link.key}
+                className="flex items-center gap-6 sm:gap-8 md:gap-10"
               >
-                {t(link.key)}
-              </a>
-              {i < navLinks.length - 1 && (
-                <span className="text-black/70 select-none">•</span>
-              )}
-            </div>
-          ))}
-        </nav>
+                <a
+                  href={link.href}
+                  className="hover:text-primary text-sm font-semibold text-black/70 transition-colors sm:text-base"
+                >
+                  {t(link.key)}
+                </a>
+                {i < navLinks.length - 1 && (
+                  <span className="text-black/70 select-none">•</span>
+                )}
+              </div>
+            ))}
+          </nav>
+        </AnimateIn>
       </div>
 
       {/* TWINSPIRE — full viewport width, black at 10% */}
-      <div className="mb-1 overflow-hidden text-center select-none">
-        <h2
-          className="w-full leading-none font-black tracking-tight text-black/10"
-          style={{ fontSize: 'clamp(48px, 13vw, 220px)' }}
-        >
-          TWINSPIRE
-        </h2>
-      </div>
+      <AnimateIn variant="fadeIn" delay={0.1}>
+        <div className="mb-1 overflow-hidden text-center select-none">
+          <h2
+            className="w-full leading-none font-black tracking-tight text-black/10"
+            style={{ fontSize: 'clamp(48px, 13vw, 220px)' }}
+          >
+            TWINSPIRE
+          </h2>
+        </div>
+      </AnimateIn>
 
       {/* Tagline + bottom bar */}
       <div className="section-x section-inner mx-auto pb-6 sm:pb-8 md:pb-10">

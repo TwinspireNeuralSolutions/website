@@ -68,7 +68,7 @@ export const BuiltForCard = React.forwardRef<HTMLDivElement, BuiltForCardProps>(
           />
 
           {/* Overlay content */}
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2.5 px-5 pb-7 pt-2">
+          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2.5 px-5 pt-2 pb-7">
             <Typography
               variant="heading"
               as="h3"

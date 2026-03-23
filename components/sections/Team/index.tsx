@@ -1,6 +1,11 @@
 'use client'
 
 import { Typography } from '@/components/ui/typography'
+import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 import { TeamMember } from './TeamMember'
 import {
@@ -25,7 +30,7 @@ function TeamGroup({ label, members, gridClassName }: TeamGroupProps) {
   return (
     <div className="w-full">
       {/* Group label row */}
-      <div className="mb-5 flex items-center gap-4">
+      <AnimateIn variant="fadeIn" className="mb-5 flex items-center gap-4">
         <Typography
           variant="heading"
           as="p"
@@ -35,25 +40,27 @@ function TeamGroup({ label, members, gridClassName }: TeamGroupProps) {
           {label}
         </Typography>
         <div className="bg-border h-px flex-1" />
-      </div>
+      </AnimateIn>
 
       {/* Member grid */}
-      <div
+      <StaggerContainer
         className={
           gridClassName ??
           'grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5'
         }
+        stagger={0.07}
       >
         {members.map((member, index) => (
-          <TeamMember
-            key={`${member.name}-${index}`}
-            name={member.name}
-            role={member.role}
-            image={member.image}
-            linkedin={member.linkedin}
-          />
+          <StaggerItem key={`${member.name}-${index}`}>
+            <TeamMember
+              name={member.name}
+              role={member.role}
+              image={member.image}
+              linkedin={member.linkedin}
+            />
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   )
 }
@@ -75,14 +82,16 @@ export function TeamSection() {
     <section id="team" className="w-full bg-white">
       <div className="section-x section-y section-inner mx-auto">
         {/* Heading */}
-        <Typography
-          variant="title"
-          as="h2"
-          textColor="default"
-          className="mb-10 max-w-[820px] text-left text-[28px] leading-[1.05] tracking-[-0.03em] sm:text-[40px] lg:mb-14 lg:text-[52px]"
-        >
-          {t('team.heading')}
-        </Typography>
+        <AnimateIn variant="fadeUp">
+          <Typography
+            variant="title"
+            as="h2"
+            textColor="default"
+            className="mb-10 max-w-[820px] text-left text-[28px] leading-[1.05] tracking-[-0.03em] sm:text-[40px] lg:mb-14 lg:text-[52px]"
+          >
+            {t('team.heading')}
+          </Typography>
+        </AnimateIn>
 
         {/* Groups */}
         <div className="flex flex-col gap-12 lg:gap-16">

@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
+import { AnimateIn } from '@/components/ui/animate-in'
 
 const partners = [
   { src: '/partners/ai.png', alt: 'Alexandra Institute' },
@@ -45,34 +46,36 @@ export function PartnersSection() {
       aria-label="Our partners"
       className="bg-partners-bg w-full overflow-hidden py-5 md:py-6"
     >
-      <div
-        style={{
-          maskImage:
-            'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-          WebkitMaskImage:
-            'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-        }}
-      >
-        <Slider {...sliderSettings}>
-          {partners.map((p) => (
-            <div key={p.alt}>
-              {/* Fixed-size box — object-contain ensures every logo, wide or tall,
-                  fills the same space without distortion */}
-              <div className="flex items-center justify-center px-2">
-                <div className="relative h-8 w-full">
-                  <Image
-                    src={p.src}
-                    alt={p.alt}
-                    fill
-                    sizes="160px"
-                    className="object-contain opacity-[0.45] brightness-0 invert"
-                  />
+      <AnimateIn variant="fadeIn">
+        <div
+          style={{
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
+        >
+          <Slider {...sliderSettings}>
+            {partners.map((p) => (
+              <div key={p.alt}>
+                {/* Fixed-size box — object-contain ensures every logo, wide or tall,
+                    fills the same space without distortion */}
+                <div className="flex items-center justify-center px-2">
+                  <div className="relative h-8 w-full">
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      fill
+                      sizes="160px"
+                      className="object-contain opacity-[0.45] brightness-0 invert"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
+            ))}
+          </Slider>
+        </div>
+      </AnimateIn>
     </section>
   )
 }
