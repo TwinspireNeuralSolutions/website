@@ -87,5 +87,24 @@
         "audienceAthletes": "Athletes",
         "audienceCoaches": "Coaches",
         "audiencePhysio": "Physiotherapists"
+    },
+    "contact": {
+        "title": "Join Our Founding Pilot Cohort.",
+        "name": "Name",
+        "namePlaceholder": "Jane Smith",
+        "email": "Email",
+        "emailPlaceholder": "jane@frame.com",
+        "role": "Role",
+        "rolePlaceholder": "Role",
+        "clubOrClinic": "Club or Clinic",
+        "clubOrClinicPlaceholder": "Club or Clinic",
+        "message": "Message",
+        "messagePlaceholder": "Message",
+        "submit": "Submit",
+        "address": "Address",
+        "addressValue": "Copenhagen, Denmark",
+        "contactInfo": "Contact Information",
+        "phone": "+45 2020 4040",
+        "emailContact": "info@twinspire.ai"
     }
 }

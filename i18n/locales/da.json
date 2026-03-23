@@ -87,5 +87,24 @@
         "audienceAthletes": "Atleter",
         "audienceCoaches": "Trænere",
         "audiencePhysio": "Fysioterapeuter"
+    },
+    "contact": {
+        "title": "Bliv en del af vores pilotprogram.",
+        "name": "Navn",
+        "namePlaceholder": "Jane Smith",
+        "email": "E-mail",
+        "emailPlaceholder": "jane@frame.com",
+        "role": "Rolle",
+        "rolePlaceholder": "Rolle",
+        "clubOrClinic": "Klub eller klinik",
+        "clubOrClinicPlaceholder": "Klub eller klinik",
+        "message": "Besked",
+        "messagePlaceholder": "Besked",
+        "submit": "Indsend",
+        "address": "Adresse",
+        "addressValue": "København, Danmark",
+        "contactInfo": "Kontaktoplysninger",
+        "phone": "+45 2020 4040",
+        "emailContact": "info@twinspire.ai"
     }
 }
