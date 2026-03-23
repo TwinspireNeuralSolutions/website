@@ -55,18 +55,16 @@ export const FooterSection = () => {
 
           {/* TWINSPIRE watermark */}
           <div className="mb-2 text-center select-none sm:mb-3 md:mb-4">
-            <h2 className="text-[48px] leading-none font-black tracking-tight text-[#D5D2DE] sm:text-[72px] md:text-[100px] lg:text-[140px] xl:text-[170px]">
+            <h2 className="text-[36px] leading-none font-black tracking-normal text-[#D5D2DE] sm:text-[50px] md:text-[70px] lg:text-[100px] xl:text-[120px]">
               TWINSPIRE
             </h2>
           </div>
 
           {/* Spaced subtitle */}
           <div className="mb-6 text-center select-none sm:mb-8 md:mb-10">
-            <p className="text-[10px] font-medium tracking-[0.3em] text-slate-500 sm:text-xs sm:tracking-[0.4em] md:text-sm md:tracking-[0.5em] lg:text-base lg:tracking-[0.6em]">
-              N &nbsp;W &nbsp;U &nbsp;R &nbsp;A &nbsp;L &nbsp;&nbsp;&nbsp;&nbsp;
-              N &nbsp;W &nbsp;T &nbsp;W &nbsp;O &nbsp;R &nbsp;K
-              &nbsp;&nbsp;&nbsp;&nbsp; S &nbsp;O &nbsp;L &nbsp;U &nbsp;T &nbsp;I
-              &nbsp;O &nbsp;N
+            <p className="text-[8px] font-medium tracking-[0.5em] whitespace-nowrap text-black sm:text-[10px] sm:tracking-[0.7em] md:text-xs md:tracking-[0.9em] lg:text-sm lg:tracking-[1em]">
+              NEURAL &nbsp;&nbsp;&nbsp;&nbsp; NETWORK &nbsp;&nbsp;&nbsp;&nbsp;
+              SOLUTION
             </p>
           </div>
 
