@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
-import { LanguageSelector } from '@/components/ui/language-selector'
-import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -52,11 +50,11 @@ export function HeroSection() {
           quality={90}
         />
         {/* Low-opacity primary wash — image stays fully visible */}
-        <div className="bg-primary/40 absolute inset-0" />
+        <div className="bg-primary/25 absolute inset-0" />
         {/* Subtle video texture over the image */}
         <BackgroundVideo
           src="/hero-video.mp4"
-          opacity={0.07}
+          opacity={0.15}
           className="z-[3]"
         />
       </div>
@@ -92,31 +90,6 @@ export function HeroSection() {
 
       {/* ── Layer 5: UI content ── */}
       <div className="absolute inset-0 z-10 flex flex-col px-5 py-5 sm:px-10 sm:py-8 md:px-14 md:py-10 lg:px-20 lg:py-12">
-        {/* ── Navbar ── */}
-        <nav className="flex items-center justify-between">
-          <Image
-            src="/tns-logo-white.png"
-            alt="Twinspire"
-            width={148}
-            height={38}
-            className="h-7 w-auto object-contain sm:h-8"
-            priority
-          />
-          <div className="flex items-center gap-1 sm:gap-2">
-            <LanguageSelector />
-            <ThemeToggle />
-            <Link href={`/${locale}/admin`}>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-white/80 hover:bg-white/10 hover:text-white"
-              >
-                {t('common.login')}
-              </Button>
-            </Link>
-          </div>
-        </nav>
-
         {/* ── Hero text + CTA — vertically centred ── */}
         <div className="flex flex-1 flex-col justify-center">
           {/*

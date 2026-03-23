@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/sections/Hero'
+import { Navbar } from '@/components/ui/navbar'
 
 /**
  * Home Page
@@ -6,8 +7,14 @@ import { HeroSection } from '@/components/sections/Hero'
  */
 export default function Home() {
   return (
-    <main>
-      <HeroSection />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        {/* Placeholder — gives the page scroll depth so the glass navbar triggers.
+            Replace with real section components as they are built. */}
+        <div className="bg-background min-h-screen" />
+      </main>
+    </>
   )
 }

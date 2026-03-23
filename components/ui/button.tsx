@@ -70,11 +70,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ? 'bg-neutral-900/10 group-hover:bg-neutral-900/20'
         : 'bg-white/20 group-hover:bg-white/30'
 
+    /**
+     * Icon circle + arrow scale with the button size so the gap between the
+     * circle edge and the button edge is always equal on top, bottom, and right.
+     *
+     * Button heights:  sm = h-8 (32px)  |  default = h-10 (40px)  |  lg = h-12 (48px)
+     * Circle sizes:        h-6 (24px)   |           h-8  (32px)   |      h-10 (40px)
+     * Inset (each side):  (32-24)/2=4px |          (40-32)/2=4px  |     (48-40)/2=4px
+     * Button pr:          pr-1  (4px)   |          pr-1   (4px)   |     pr-1   (4px)
+     */
+    const iconConfig = {
+      sm: { circle: 'h-6 w-6', arrow: 'h-3 w-3', pr: 'pr-1' },
+      default: { circle: 'h-8 w-8', arrow: 'h-4 w-4', pr: 'pr-1' },
+      lg: { circle: 'h-10 w-10', arrow: 'h-5 w-5', pr: 'pr-1' },
+      icon: { circle: 'h-8 w-8', arrow: 'h-4 w-4', pr: 'pr-1' },
+    } as const
+
+    const { circle, arrow, pr } = iconConfig[size ?? 'default']
+
     return (
       <button
         className={cn(
           buttonVariants({ variant, size, className }),
-          showIcon && 'pr-1.5'
+          showIcon && pr
         )}
         ref={ref}
         {...props}
@@ -83,11 +101,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {showIcon && (
           <span
             className={cn(
-              'inline-flex h-8 w-8 items-center justify-center rounded-full backdrop-blur-sm transition-colors duration-200',
+              'inline-flex shrink-0 items-center justify-center rounded-full backdrop-blur-sm transition-colors duration-200',
+              circle,
               iconCircleClass
             )}
           >
-            <ArrowRight className="h-4 w-4 -rotate-45 transition-transform duration-200 group-hover:rotate-0" />
+            <ArrowRight
+              className={cn(
+                arrow,
+                '-rotate-45 transition-transform duration-200 group-hover:rotate-0'
+              )}
+            />
           </span>
         )}
       </button>

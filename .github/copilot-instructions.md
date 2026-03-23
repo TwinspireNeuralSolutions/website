@@ -168,10 +168,13 @@ return <Typography variant="title">Hello World</Typography>
 
 ## 🌓 Dark / Light Theme
 
-- Always add `dark:` Tailwind variants for every color class
-- Use semantic tokens (`bg-background`, `text-foreground`) — never hardcode light/dark hex
-- `useTheme()` hook for programmatic theme access
-- Anti-FOUC theme script runs in `app/layout.tsx` before hydration
+> **Status: Light mode only — dark mode is deferred to a future sprint.**
+
+- All components are built for **light mode only** right now
+- Do NOT add `dark:` Tailwind variants to new or edited components until dark mode is explicitly implemented
+- Do NOT use `text-black` or `text-neutral-950` for text — use `text-foreground` which resolves from `--color-foreground` declared in `@theme inline`
+- `ThemeProvider` is locked to `'light'` default — do not change this until dark mode work begins
+- When dark mode sprint starts: add `dark:` variants systematically across all components at once
 
 ---
 

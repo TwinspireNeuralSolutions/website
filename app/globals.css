@@ -28,6 +28,17 @@
 
   /* Font */
   --font-sans: 'Satoshi', system-ui, -apple-system, sans-serif;
+
+  /* Navbar glass — light mode */
+  --navbar-glass-bg: rgba(255, 255, 255, 0.90);
+  --navbar-glass-border: rgba(0, 0, 0, 0.08);
+  --navbar-glass-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  /* Dropdown glass — higher opacity so list text is crisp */
+  --dropdown-glass-bg: rgba(255, 255, 255, 0.94);
 }
 
 .dark {
@@ -41,6 +52,17 @@
   --ring: #6366f1;
   --destructive: #dc2626;
   --destructive-foreground: #fafafa;
+
+  /* Navbar glass — dark mode */
+  --navbar-glass-bg: rgba(14, 14, 16, 0.80);
+  --navbar-glass-border: rgba(255, 255, 255, 0.09);
+  --navbar-glass-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.20),
+    0 8px 24px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* Dropdown glass — dark */
+  --dropdown-glass-bg: rgba(15, 15, 17, 0.95);
 }
 
 /* =========================
@@ -119,3 +141,54 @@ strong {
   font-weight: 700;
   color: inherit;
 }
+
+/* =========================
+ * Section Layout
+ * =========================
+ *
+ * Use .section-x on any wrapper that needs horizontal padding matching
+ * the navbar and hero: px-5 → sm:px-10 → md:px-14 → lg:px-20
+ *
+ * Use .section-y for consistent vertical spacing between page sections.
+ *
+ * Use .section-inner to constrain content width to max-w-7xl.
+ *
+ * Typical section pattern:
+ *   <section class="section-x section-y">
+ *     <div class="section-inner">...</div>
+ *   </section>
+ * ========================= */
+
+.section-x {
+  padding-left: 1.25rem;   /* px-5 */
+  padding-right: 1.25rem;
+}
+@media (min-width: 640px)  { .section-x { padding-left: 2.5rem;  padding-right: 2.5rem;  } }
+@media (min-width: 768px)  { .section-x { padding-left: 3.5rem;  padding-right: 3.5rem;  } }
+@media (min-width: 1024px) { .section-x { padding-left: 5rem;    padding-right: 5rem;    } }
+
+.section-y {
+  padding-top: 5rem;       /* py-20 */
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px)  { .section-y { padding-top: 7rem; padding-bottom: 7rem; } }
+
+.section-inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;        /* max-w-7xl */
+  width: 100%;
+}
+
+/* Smooth entrance for dropdowns */
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+

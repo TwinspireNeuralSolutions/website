@@ -67,6 +67,13 @@
         "textareaLabel": "Tekstområde label",
         "textareaPlaceholder": "Skriv din besked..."
     },
+    "nav": {
+        "problem": "Problem",
+        "product": "Produkt",
+        "forTeam": "Til holdet",
+        "gdpr": "GDPR",
+        "teamLogin": "Team Login"
+    },
     "hero": {
         "headlineLine1": "Europas AI-rehabiliteringsplatform",
         "headlineLine2": "for fodbold.",

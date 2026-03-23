@@ -67,6 +67,13 @@
         "textareaLabel": "Textarea Label",
         "textareaPlaceholder": "Write your message..."
     },
+    "nav": {
+        "problem": "Problem",
+        "product": "Product",
+        "forTeam": "For Team",
+        "gdpr": "GDPR",
+        "teamLogin": "Team Login"
+    },
     "hero": {
         "headlineLine1": "Europe's AI Rehabilitation",
         "headlineLine2": "Platform for Football.",

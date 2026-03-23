@@ -32,7 +32,7 @@ function getSystemTheme(): 'light' | 'dark' {
  * Uses CSS class strategy on `<html>` element for Tailwind `dark:` variants.
  */
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('system')
+  const [theme, setThemeState] = useState<Theme>('light')
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light')
 
   const applyTheme = useCallback((resolved: 'light' | 'dark') => {
