@@ -19,7 +19,7 @@ export function CTASection() {
     <section
       id="cta"
       aria-labelledby="cta-heading"
-      className="bg-footer-bg w-full"
+      className="bg-footer-bg relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto text-center">
         {/* Headline */}

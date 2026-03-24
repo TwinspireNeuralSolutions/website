@@ -44,7 +44,7 @@ export function PartnersSection() {
   return (
     <section
       aria-label="Our partners"
-      className="bg-partners-bg w-full overflow-hidden py-5 md:py-6"
+      className="bg-partners-bg relative z-10 w-full overflow-hidden py-5 shadow-[0_-12px_48px_rgba(0,0,0,0.15)] backdrop-blur-md md:py-6"
     >
       <AnimateIn variant="fadeIn">
         <div

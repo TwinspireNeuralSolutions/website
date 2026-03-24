@@ -5,7 +5,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion'
 
 // ── Shared timing ──────────────────────────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1]
-const DEFAULT_DURATION = 0.55
+const DEFAULT_DURATION = 0.75
 
 // ── Variants ───────────────────────────────────────────────────────────────────
 /**

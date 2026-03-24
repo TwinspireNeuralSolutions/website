@@ -64,7 +64,7 @@ export function ContactSection() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-footer-bg w-full"
+      className="bg-footer-bg relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto">
         <AnimateIn variant="fadeUp">

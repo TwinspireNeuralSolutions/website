@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
@@ -9,107 +10,68 @@ import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /**
- * HeroSection — Full-viewport split hero.
+ * HeroSection — Full-viewport sticky hero with parallax text.
  *
- * Desktop layout (5 layers, bottom → top):
- *   1. Solid primary-blue base fills entire viewport
- *   2. Full-viewport ambient video (z-1) — visible on BOTH sides
- *   3. Football player image clipped to the right ~42% via diagonal polygon
- *      with a short gradient at its left edge blending into blue
- *   4. Bottom vignette for audience-tag readability
- *   5. UI chrome — navbar + headline + CTA + audience tags
- *
- * Mobile layout:
- *   Full-bleed image + light left→right overlay (shows the image)
- *   + a second ambient video at lower opacity layered over the image
+ * The section is sticky (z-0). As the user scrolls, sections below
+ * rise up and cover the hero from the bottom. The text content
+ * drifts upward at ~35% of scroll speed — so it's the last thing
+ * to disappear, staying readable for longer.
  */
 export function HeroSection() {
   const { t } = useTranslation()
   const { locale } = useParams<{ locale: string }>()
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    let raf: number
+    const onScroll = () => {
+      raf = requestAnimationFrame(() => {
+        if (!contentRef.current) return
+        const y = window.scrollY
+        // Text drifts up at 35% of scroll speed — last to be covered
+        contentRef.current.style.transform = `translateY(${-y * 0.35}px)`
+        // Subtle fade as it exits
+        contentRef.current.style.opacity = String(
+          Math.max(0, 1 - y / (window.innerHeight * 0.85))
+        )
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
 
   return (
-    <section className="relative h-svh min-h-[600px] w-full overflow-hidden">
-      {/* ── Layer 1: Primary blue base ── */}
-      <div className="bg-primary absolute inset-0" />
+    <section className="sticky top-0 z-0 h-svh min-h-[600px] w-full overflow-hidden">
+      {/* ── Layer 1: Full-bleed player image ── */}
+      <Image
+        src="/hero-image.jpg"
+        alt="Football player kicking ball in stadium"
+        fill
+        className="absolute inset-0 object-cover object-[55%_0%]"
+        priority
+        quality={95}
+      />
 
-      {/* ── Layer 2: Ambient video — full-viewport ──
-           Visible on the solid blue left AND the image right side.
-           Desktop: 0.20 opacity for clear motion effect.            */}
-      <BackgroundVideo src="/hero-video.mp4" opacity={0.4} className="z-[1]" />
+      {/* ── Layer 2: Primary blue wash ── */}
+      <div className="bg-primary/55 absolute inset-0 z-[1]" />
 
-      {/* ══════════ MOBILE ══════════
-           Full-bleed image behind a light gradient overlay so the
-           player stays visible. A secondary video adds texture.    */}
-      <div className="absolute inset-0 z-[2] md:hidden">
-        {/* Full-bleed player image — centered slightly right and from top */}
-        <Image
-          src="/hero-image.jpg"
-          alt="Football player kicking ball in stadium"
-          fill
-          className="object-cover object-[55%_0%]"
-          priority
-          quality={90}
-        />
-        {/* Low-opacity primary wash — image stays fully visible */}
-        <div className="bg-primary/45 absolute inset-0" />
-        {/* Subtle video texture over the image */}
-        <BackgroundVideo
-          src="/hero-video.mp4"
-          opacity={0.3}
-          className="z-[3]"
-        />
-      </div>
-
-      {/* ══════════ DESKTOP ══════════
-           Image is 70% wide, pinned to the right.
-           Diagonal clip keeps the angled split line.
-           Edge gradient blends left into the primary blue panel.    */}
-      <div
-        className="absolute top-0 right-0 bottom-0 z-[2] hidden w-[70%] md:block"
-        style={{ clipPath: 'polygon(35% 0%, 100% 0%, 100% 100%, 20% 100%)' }}
-      >
-        <Image
-          src="/hero-image.jpg"
-          alt="Football player kicking ball in stadium"
-          fill
-          className="object-cover object-[36%_0%]"
-          priority
-          quality={100}
-        />
-        {/* Edge blend — solid blue → transparent in ~22% */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(106deg, #0802A3 0%, rgba(8,2,163,0.55) 8%, rgba(8,2,163,0.08) 16%, transparent 22%)',
-          }}
-        />
-      </div>
+      {/* ── Layer 3: Ambient video texture ── */}
+      <BackgroundVideo src="/hero-video.mp4" opacity={0.25} className="z-[2]" />
 
       {/* ── Layer 4: Bottom vignette ── */}
       <div className="from-primary/45 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
 
-      {/* ── Layer 5: UI content ── */}
-      <div className="absolute inset-0 z-10 flex flex-col px-5 py-5 sm:px-10 sm:py-8 md:px-14 md:py-10 lg:px-20 lg:py-12">
+      {/* ── Layer 5: UI content — parallax drift on scroll ── */}
+      <div
+        ref={contentRef}
+        className="absolute inset-0 z-10 flex flex-col px-5 py-5 will-change-transform sm:px-10 sm:py-8 md:px-14 md:py-10 lg:px-20 lg:py-12"
+      >
         {/* ── Hero text + CTA — vertically centred ── */}
         <div className="flex flex-1 flex-col justify-center">
-          {/*
-            Max-width keeps text well within the blue panel on all breakpoints:
-              - xs/sm  (<640px): full bleed (image behind, gradient overlay)
-              - md     (768px):  max 380px  — comfortably left of the diagonal
-              - lg     (1024px): max 460px
-              - xl+    (1280px+): max 560px
-          */}
-          {/*
-            Container tracks the blue panel at every breakpoint:
-              mobile/sm : up to 85vw  — full bleed, text over image
-              md (768px): 52vw ≈ 399px — just inside diagonal
-              lg (1024px): 50vw ≈ 512px
-              xl (1280px): 48vw ≈ 614px
-            h1 uses CSS clamp so it scales continuously and always
-            fits in exactly 2 lines without hard breakpoint jumps.
-          */}
-          <div className="w-full max-w-[85vw] sm:max-w-[80vw] md:max-w-[52vw] lg:max-w-[50vw] xl:max-w-[48vw]">
+          <div className="w-full max-w-[85vw] sm:max-w-[540px] md:max-w-[600px] lg:max-w-[680px] xl:max-w-[760px]">
             <AnimateIn variant="fadeUp" immediate>
               <h1
                 className="mb-4 font-sans font-bold tracking-tight text-white"

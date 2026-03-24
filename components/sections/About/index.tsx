@@ -21,7 +21,7 @@ export function AboutSection() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="bg-background w-full"
+      className="bg-background relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-16 lg:gap-20">

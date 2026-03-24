@@ -79,7 +79,7 @@ export function TeamSection() {
   const { t } = useTranslation()
 
   return (
-    <section id="team" className="w-full bg-white">
+    <section id="team" className="relative z-10 w-full bg-white">
       <div className="section-x section-y section-inner mx-auto">
         {/* Heading */}
         <AnimateIn variant="fadeUp">

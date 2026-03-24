@@ -23,7 +23,7 @@ export function FooterSection() {
   const { t } = useTranslation()
 
   return (
-    <footer className="bg-footer-bg w-full overflow-hidden">
+    <footer className="bg-footer-bg relative z-10 w-full overflow-hidden">
       {/* Nav links — single inline row with dot separators */}
       <div className="section-x section-inner mx-auto pt-10 sm:pt-12 md:pt-14">
         <AnimateIn variant="fadeIn">
@@ -87,13 +87,6 @@ export function FooterSection() {
                 className="text-footer-muted hover:text-primary text-xs transition-colors"
               >
                 {t('footer.termsOfUse')}
-              </Link>
-              <span className="text-xs text-black/20 select-none">·</span>
-              <Link
-                href="/dpa"
-                className="text-footer-muted hover:text-primary text-xs transition-colors"
-              >
-                {t('footer.dataProcessingAgreement')}
               </Link>
             </div>
           </div>
