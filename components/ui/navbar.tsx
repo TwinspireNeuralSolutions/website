@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { useScrolled } from '@/hooks/useScrolled'
@@ -30,11 +30,24 @@ export function Navbar() {
   const { locale } = useParams<{ locale: string }>()
   const scrolled = useScrolled(20)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
 
   // Close mobile menu when user starts scrolling
   useEffect(() => {
     if (scrolled) setMobileOpen(false)
   }, [scrolled])
+
+  // Close mobile menu when clicking outside the navbar
+  useEffect(() => {
+    if (!mobileOpen) return
+    function handleClickOutside(e: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setMobileOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [mobileOpen])
 
   // Lock body scroll while mobile menu is open
   useEffect(() => {
@@ -48,7 +61,10 @@ export function Navbar() {
   const glass = scrolled || mobileOpen
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
+    <header
+      ref={navRef}
+      className="pointer-events-none fixed inset-x-0 top-0 z-50"
+    >
       {/* Bar — glass only when scrolled */}
       <div
         className={cn(
@@ -74,7 +90,11 @@ export function Navbar() {
               fill
               priority
               className="object-contain object-left transition-[filter] duration-300"
-              style={{ filter: glass ? 'brightness(1) invert(0)' : 'brightness(0) invert(1)' }}
+              style={{
+                filter: glass
+                  ? 'brightness(1) invert(0)'
+                  : 'brightness(0) invert(1)',
+              }}
             />
           </Link>
 
@@ -88,7 +108,7 @@ export function Navbar() {
                     'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
                     glass
                       ? 'text-foreground hover:bg-foreground/[0.06]'
-                      : 'text-white hover:bg-white/[0.12]',
+                      : 'text-white hover:bg-white/[0.12]'
                   )}
                 >
                   {t(key)}
@@ -122,7 +142,7 @@ export function Navbar() {
                 'relative flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200',
                 glass
                   ? 'text-foreground hover:bg-foreground/[0.06]'
-                  : 'text-white hover:bg-white/[0.12]',
+                  : 'text-white hover:bg-white/[0.12]'
               )}
             >
               <Menu
@@ -162,7 +182,7 @@ export function Navbar() {
                   <a
                     href={href}
                     onClick={() => setMobileOpen(false)}
-                    className="block rounded-full px-4 py-3 text-base font-medium transition-colors duration-150 text-foreground hover:bg-foreground/[0.06]"
+                    className="text-foreground hover:bg-foreground/[0.06] block rounded-full px-4 py-3 text-base font-medium transition-colors duration-150"
                   >
                     {t(key)}
                   </a>

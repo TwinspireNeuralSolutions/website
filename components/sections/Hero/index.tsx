@@ -35,7 +35,7 @@ export function HeroSection() {
       {/* ── Layer 2: Ambient video — full-viewport ──
            Visible on the solid blue left AND the image right side.
            Desktop: 0.20 opacity for clear motion effect.            */}
-      <BackgroundVideo src="/hero-video.mp4" opacity={0.2} className="z-[1]" />
+      <BackgroundVideo src="/hero-video.mp4" opacity={0.4} className="z-[1]" />
 
       {/* ══════════ MOBILE ══════════
            Full-bleed image behind a light gradient overlay so the
@@ -51,22 +51,22 @@ export function HeroSection() {
           quality={90}
         />
         {/* Low-opacity primary wash — image stays fully visible */}
-        <div className="bg-primary/25 absolute inset-0" />
+        <div className="bg-primary/45 absolute inset-0" />
         {/* Subtle video texture over the image */}
         <BackgroundVideo
           src="/hero-video.mp4"
-          opacity={0.15}
+          opacity={0.3}
           className="z-[3]"
         />
       </div>
 
       {/* ══════════ DESKTOP ══════════
-           Diagonal split: top-left 55%, bottom-left 46% → only 9%
-           horizontal offset = nearly vertical, subtle lean.
-           Image object-position pulls player into the visible zone.  */}
+           Image is 70% wide, pinned to the right.
+           Diagonal clip keeps the angled split line.
+           Edge gradient blends left into the primary blue panel.    */}
       <div
-        className="absolute inset-0 z-[2] hidden md:block"
-        style={{ clipPath: 'polygon(55% 0%, 100% 0%, 100% 100%, 46% 100%)' }}
+        className="absolute top-0 right-0 bottom-0 z-[2] hidden w-[70%] md:block"
+        style={{ clipPath: 'polygon(35% 0%, 100% 0%, 100% 100%, 20% 100%)' }}
       >
         <Image
           src="/hero-image.jpg"
