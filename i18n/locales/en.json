@@ -75,9 +75,20 @@
         "teamLogin": "Team Login"
     },
     "footer": {
-        "copyright": "© All rights reserved.",
+        "copyright": "© 2026 Twinspire Neural Solutions · All rights reserved",
         "tagline": "NEURAL  ·  NETWORK  ·  SOLUTION",
-        "linkedinLabel": "LinkedIn"
+        "linkedinLabel": "LinkedIn",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use",
+        "dataProcessingAgreement": "Data Processing Agreement",
+        "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions.",
+        "navProblem": "The Problem",
+        "navSolution": "The Solution",
+        "navScience": "The Science",
+        "navForWhom": "For Whom",
+        "navTeam": "The Team",
+        "navJoin": "Join the Pilot Cohort",
+        "navData": "Data & Trust"
     },
     "hero": {
         "headlineLine1": "Europe's AI Rehabilitation",

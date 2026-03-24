@@ -1,43 +1,45 @@
 'use client'
 
+import React from 'react'
+import Link from 'next/link'
 import { useTranslation } from '@/i18n'
 import { AnimateIn } from '@/components/ui/animate-in'
 
-const navLinks = [
-  { key: 'nav.problem', href: '#problem' },
-  { key: 'nav.product', href: '#solution' },
-  { key: 'nav.forTeam', href: '#who-for' },
-  { key: 'nav.gdpr', href: '#gdpr' },
+const NAV_LINKS = [
+  { key: 'footer.navProblem' as const, href: '#problem' },
+  { key: 'footer.navSolution' as const, href: '#solution' },
+  { key: 'footer.navScience' as const, href: '#science' },
+  { key: 'footer.navForWhom' as const, href: '#who-for' },
+  { key: 'footer.navTeam' as const, href: '#team' },
+  { key: 'footer.navJoin' as const, href: '#contact' },
+  { key: 'footer.navData' as const, href: '#gdpr' },
 ] as const
 
 /**
  * FooterSection — Site footer with nav links, full-width TWINSPIRE watermark,
- * tagline, copyright, and LinkedIn link.
+ * tagline, copyright, legal links, and medical disclaimer.
  */
 export function FooterSection() {
   const { t } = useTranslation()
 
   return (
     <footer className="bg-footer-bg w-full overflow-hidden">
-      {/* Nav links */}
+      {/* Nav links — single inline row with dot separators */}
       <div className="section-x section-inner mx-auto pt-10 sm:pt-12 md:pt-14">
         <AnimateIn variant="fadeIn">
-          <nav className="mb-10 flex flex-wrap items-center justify-center gap-6 sm:mb-12 sm:gap-8 md:mb-14 md:gap-10">
-            {navLinks.map((link, i) => (
-              <div
-                key={link.key}
-                className="flex items-center gap-6 sm:gap-8 md:gap-10"
-              >
+          <nav className="mb-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:mb-12 sm:gap-x-5 md:mb-14">
+            {NAV_LINKS.map((link, i) => (
+              <React.Fragment key={link.key}>
                 <a
                   href={link.href}
-                  className="hover:text-primary text-sm font-semibold text-black/70 transition-colors sm:text-base"
+                  className="hover:text-primary text-xs font-medium text-black/50 transition-colors"
                 >
                   {t(link.key)}
                 </a>
-                {i < navLinks.length - 1 && (
-                  <span className="text-black/70 select-none">•</span>
+                {i < NAV_LINKS.length - 1 && (
+                  <span className="text-xs text-black/20 select-none">·</span>
                 )}
-              </div>
+              </React.Fragment>
             ))}
           </nav>
         </AnimateIn>
@@ -64,30 +66,42 @@ export function FooterSection() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-border flex items-center justify-between border-t pt-4">
-          <p className="text-footer-muted text-xs sm:text-sm">
-            {t('footer.copyright')}
-          </p>
+        <div className="border-border border-t pt-4">
+          {/* Copyright + legal links row */}
+          <div className="flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-2">
+            <p className="text-footer-muted text-xs sm:text-sm">
+              {t('footer.copyright')}
+            </p>
 
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/company/107427569"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-footer-muted hover:text-foreground flex h-7 w-7 items-center justify-center rounded transition-colors"
-            aria-label={t('footer.linkedinLabel')}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-          </a>
+            {/* Legal links */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+              <Link
+                href="/privacy"
+                className="text-footer-muted hover:text-primary text-xs transition-colors"
+              >
+                {t('footer.privacyPolicy')}
+              </Link>
+              <span className="text-xs text-black/20 select-none">·</span>
+              <Link
+                href="/terms"
+                className="text-footer-muted hover:text-primary text-xs transition-colors"
+              >
+                {t('footer.termsOfUse')}
+              </Link>
+              <span className="text-xs text-black/20 select-none">·</span>
+              <Link
+                href="/dpa"
+                className="text-footer-muted hover:text-primary text-xs transition-colors"
+              >
+                {t('footer.dataProcessingAgreement')}
+              </Link>
+            </div>
+          </div>
+
+          {/* Medical disclaimer */}
+          <p className="text-footer-muted mt-4 text-center text-[10px] leading-relaxed opacity-60 sm:text-xs">
+            {t('footer.disclaimer')}
+          </p>
         </div>
       </div>
     </footer>

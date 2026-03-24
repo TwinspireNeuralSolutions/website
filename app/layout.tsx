@@ -3,11 +3,12 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Twinspire | AI-Powered Rehabilitation & Injury Prevention',
+    default:
+      'Twinspire - AI Decision Support for Football Rehab & Return to Play | Built on DTU Research | Europe',
     template: '%s | Twinspire',
   },
   description:
-    'AI-powered digital twins for injury prevention, rehabilitation tracking, and performance optimization.',
+    'Twinspire builds a personalised neuromuscular model for every footballer - unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data. Join the founding pilot cohort.',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
