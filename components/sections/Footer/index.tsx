@@ -8,7 +8,7 @@ const navLinks = [
   { key: 'nav.product', href: '#solution' },
   { key: 'nav.forTeam', href: '#who-for' },
   { key: 'nav.gdpr', href: '#gdpr' },
-]
+] as const
 
 /**
  * FooterSection — Site footer with nav links, full-width TWINSPIRE watermark,
