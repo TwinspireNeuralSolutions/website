@@ -8,72 +8,18 @@ import {
 } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 import { TeamMember } from './TeamMember'
-import {
-  founders,
-  advisers,
-  teamMembers,
-  type TeamMemberData,
-} from './teamData'
+import { founders, advisers, teamMembers } from './teamData'
 
-interface TeamGroupProps {
-  label: string
-  members: TeamMemberData[]
-  /** Grid columns class — founders use fewer cols since there are only 2 */
-  gridClassName?: string
-}
+// All non-adviser members in a single combined list
+const allTeamMembers = [...founders, ...teamMembers]
 
 /**
- * TeamGroup — Labelled sub-section of the team grid.
- * Renders a thin divider row with the group name, then a responsive card grid.
- */
-function TeamGroup({ label, members, gridClassName }: TeamGroupProps) {
-  return (
-    <div className="w-full">
-      {/* Group label row */}
-      <AnimateIn variant="fadeIn" className="mb-5 flex items-center gap-4">
-        <Typography
-          variant="heading"
-          as="p"
-          textColor="default"
-          className="text-foreground/50 shrink-0 text-[11px] tracking-widest uppercase"
-        >
-          {label}
-        </Typography>
-        <div className="bg-border h-px flex-1" />
-      </AnimateIn>
-
-      {/* Member grid */}
-      <StaggerContainer
-        className={
-          gridClassName ??
-          'grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5'
-        }
-        stagger={0.07}
-      >
-        {members.map((member, index) => (
-          <StaggerItem key={`${member.name}-${index}`}>
-            <TeamMember
-              name={member.name}
-              role={member.role}
-              image={member.image}
-              linkedin={member.linkedin}
-            />
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-    </div>
-  )
-}
-
-/**
- * TeamSection — "Built by People Who've Been on the Treatment Table"
+ * TeamSection — Unified team grid + separate advisers subsection.
  *
- * Three labelled groups:
- *  - Founders   (Co-Founders)
- *  - Advisers
- *  - Team       (the rest)
- *
- * Adapts responsively: 2 cols on mobile → up to 5 on wide screens.
+ * Layout:
+ *  - Section heading
+ *  - One combined responsive grid for all team members (founders + team)
+ *  - A visually separated "Advisers" subsection below
  */
 export function TeamSection() {
   const { t } = useTranslation()
@@ -93,28 +39,53 @@ export function TeamSection() {
           </Typography>
         </AnimateIn>
 
-        {/* Groups */}
-        <div className="flex flex-col gap-12 lg:gap-16">
-          {/* ── Founders ── */}
-          <TeamGroup
-            label={t('team.founders')}
-            members={founders}
-            gridClassName="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:gap-4 xl:grid-cols-6"
-          />
+        {/* ── Combined team grid ─────────────────────────────────────────── */}
+        <StaggerContainer
+          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
+          stagger={0.07}
+        >
+          {allTeamMembers.map((member, index) => (
+            <StaggerItem key={`${member.name}-${index}`}>
+              <TeamMember
+                name={member.name}
+                role={member.role}
+                image={member.image}
+                linkedin={member.linkedin}
+              />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-          {/* ── Advisers ── */}
-          <TeamGroup
-            label={t('team.advisers')}
-            members={advisers}
-            gridClassName="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:gap-4 xl:grid-cols-6"
-          />
+        {/* ── Advisers ──────────────────────────────────────────────────── */}
+        <div className="mt-16 w-full lg:mt-20">
+          {/* Divider row with label */}
+          <AnimateIn variant="fadeIn" className="mb-6 flex items-center gap-4">
+            <Typography
+              variant="heading"
+              as="p"
+              textColor="default"
+              className="text-foreground/50 shrink-0 text-[11px] tracking-widest uppercase"
+            >
+              {t('team.advisers')}
+            </Typography>
+            <div className="bg-border h-px flex-1" />
+          </AnimateIn>
 
-          {/* ── Team ── */}
-          <TeamGroup
-            label={t('team.team')}
-            members={teamMembers}
-            gridClassName="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:gap-4 xl:grid-cols-6"
-          />
+          <StaggerContainer
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
+            stagger={0.07}
+          >
+            {advisers.map((member, index) => (
+              <StaggerItem key={`adviser-${member.name}-${index}`}>
+                <TeamMember
+                  name={member.name}
+                  role={member.role}
+                  image={member.image}
+                  linkedin={member.linkedin}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </div>
     </section>
