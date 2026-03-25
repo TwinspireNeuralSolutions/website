@@ -90,14 +90,14 @@ export function ProductSection() {
       </div>
 
       {/* ── Desktop only: image absolutely spanning both rows on the right ── */}
-      <div className="absolute inset-y-0 right-0 hidden w-[40%] lg:block">
+      <div className="absolute inset-y-0 right-0 hidden w-[48%] lg:block">
         <div className="relative h-full w-full">
           <Image
             src="/product/product-mockup.png"
             alt={t('product.mockupAlt')}
             fill
-            className="object-contain object-center p-16 drop-shadow-2xl"
-            sizes="55vw"
+            className="object-contain object-center p-8 drop-shadow-2xl"
+            sizes="65vw"
             priority
           />
         </div>
