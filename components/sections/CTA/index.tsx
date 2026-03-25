@@ -41,13 +41,6 @@ export function CTASection() {
           </p>
         </AnimateIn>
 
-        {/* Fields hint */}
-        <AnimateIn variant="fadeUp" delay={0.18}>
-          <p className="text-foreground/40 mx-auto mt-3 max-w-[580px] text-sm tracking-wide sm:text-base">
-            {t('cta.fields')}
-          </p>
-        </AnimateIn>
-
         {/* CTA button */}
         <AnimateIn variant="fadeUp" delay={0.28}>
           <div className="mt-10 md:mt-12">
