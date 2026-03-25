@@ -18,7 +18,6 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <HeroSection />
         <PartnersSection />
         <ProductSection />
         <BuiltForSection />

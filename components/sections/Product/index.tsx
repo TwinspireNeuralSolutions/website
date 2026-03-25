@@ -30,7 +30,7 @@ export function ProductSection() {
               >
                 {t('product.headline1')}
               </Typography>
-              <p className="text-foreground/65 text-[14px] leading-[1.8] sm:text-[15px]">
+              <p className="text-foreground/65 pb-8 text-[14px] leading-[1.8] sm:text-[15px]">
                 {t('product.p1')}
               </p>
             </AnimateIn>
@@ -38,9 +38,21 @@ export function ProductSection() {
         </div>
       </div>
 
-      {/* ── Mobile only: floating image between the two rows ──────────────── */}
-      <div className="relative z-20 flex w-full justify-center lg:hidden">
-        <div className="-mt-8 mb-[-32px] w-[90vw] max-w-[420px] rounded-2xl border-8 border-white bg-white shadow-xl">
+      {/* ── Mobile only: floating image with split background, half on each section ──────────────── */}
+      <div
+        className="z-20 flex w-full justify-center lg:hidden"
+        style={{
+          marginTop: '-60px',
+          marginBottom: '-60px',
+          position: 'relative',
+        }}
+      >
+        <div
+          className="flex w-[90vw] max-w-[420px] items-center justify-center rounded-2xl shadow-xl"
+          style={{
+            background: 'linear-gradient(to bottom, #fff 50%, #e6e6f3 50%)',
+          }}
+        >
           <Image
             src="/product/product-mockup.png"
             alt={t('product.mockupAlt')}
@@ -62,13 +74,13 @@ export function ProductSection() {
                 <Typography
                   variant="title"
                   as="h3"
-                  className="text-foreground text-[28px] leading-[1.1] tracking-[-0.03em] sm:text-[36px] lg:text-[44px]"
+                  className="text-foreground pt-8 text-[28px] leading-[1.1] tracking-[-0.03em] sm:text-[36px] lg:text-[44px]"
                 >
                   {t('product.headline2')}
                 </Typography>
               </AnimateIn>
               <AnimateIn variant="fadeUp" delay={0.12}>
-                <p className="text-foreground/65 text-[14px] leading-[1.8] sm:text-[15px]">
+                <p className="text-foreground/65 m-0 text-[14px] leading-[1.8] sm:text-[15px]">
                   {t('product.p2')}
                 </p>
               </AnimateIn>
