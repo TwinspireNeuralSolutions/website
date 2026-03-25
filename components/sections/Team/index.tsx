@@ -22,7 +22,7 @@ export function TeamSection() {
   const { t } = useTranslation()
 
   return (
-    <section id="team" className="relative z-10 w-full bg-white">
+    <section id="team" className="bg-background relative z-10 w-full">
       <div className="section-x section-y section-inner mx-auto">
         {/* Heading */}
         <AnimateIn variant="fadeUp">
@@ -45,7 +45,7 @@ export function TeamSection() {
             <StaggerItem key={`${member.name}-${index}`}>
               <TeamMember
                 name={member.name}
-                role={member.role}
+                role={t(member.role as Parameters<typeof t>[0])}
                 image={member.image}
                 linkedin={member.linkedin}
               />
@@ -76,7 +76,7 @@ export function TeamSection() {
               <StaggerItem key={`adviser-${member.name}-${index}`}>
                 <TeamMember
                   name={member.name}
-                  role={member.role}
+                  role={t(member.role as Parameters<typeof t>[0])}
                   image={member.image}
                   linkedin={member.linkedin}
                 />
