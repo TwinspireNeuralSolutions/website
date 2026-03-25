@@ -47,7 +47,7 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     name: 'Hajar El Mhassani',
-    role: 'team.roles.researchTeam',
+    role: 'team.roles.internFullStackDev',
     image: '/team/hajar.png',
     linkedin: 'https://www.linkedin.com/in/hajar-el-mhassani-54202b120/',
   },

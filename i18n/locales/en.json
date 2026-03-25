@@ -122,6 +122,7 @@
             "coFounderCoo": "Co-Founder & COO",
             "researchTeam": "Research Team",
             "fullStackDev": "Full Stack Developer",
+            "internFullStackDev": "Intern Full Stack Developer",
             "aiEngineer": "Generative AI Engineer",
             "advisor": "Advisor",
             "strategicAdvisor": "Strategic Advisor"
@@ -179,7 +180,7 @@
         "cta": "Get in touch"
     },
     "contact": {
-        "title": "The Reinjury Rate Hasn't Moved in a Decade. Let's Change That.",
+        "title": "The Reinjury Rate Hasn't Moved in a Decade.\nLet's Change That.",
         "name": "Name",
         "namePlaceholder": "Jane Smith",
         "email": "Email",

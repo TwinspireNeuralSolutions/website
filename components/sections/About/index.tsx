@@ -40,13 +40,13 @@ export function AboutSection() {
             </Typography>
 
             <div className="flex flex-col gap-5">
-              <p className="text-foreground/65 text-[15px] leading-[1.75] italic sm:text-base">
+              <p className="text-foreground/65 text-[15px] leading-[1.75] sm:text-base">
                 {t('about.p1')}
               </p>
-              <p className="text-foreground/65 text-[15px] leading-[1.75] italic sm:text-base">
+              <p className="text-foreground/65 text-[15px] leading-[1.75] sm:text-base">
                 {t('about.p2')}
               </p>
-              <p className="text-foreground/65 text-[15px] leading-[1.75] italic sm:text-base">
+              <p className="text-foreground/65 text-[15px] leading-[1.75] sm:text-base">
                 {t('about.p3')}
               </p>
             </div>

@@ -92,7 +92,7 @@ export function ContactSection() {
             id="contact-heading"
             variant="title"
             as="h2"
-            className="mb-12 sm:mb-14 lg:mb-16"
+            className="mb-12 whitespace-pre-line sm:mb-14 lg:mb-16"
           >
             {t('contact.title')}
           </Typography>
