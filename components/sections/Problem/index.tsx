@@ -31,7 +31,7 @@ export function ProblemSection() {
               variant="title"
               as="h2"
               textColor="default"
-              className="text-left text-[22px] leading-[1.1] tracking-[-0.03em] sm:text-[28px] lg:text-[34px] xl:text-[40px]"
+              className="text-center text-[22px] leading-[1.1] tracking-[-0.03em] sm:text-[28px] lg:text-[34px] xl:text-[40px]"
             >
               {t('problem.headline')}
             </Typography>
@@ -41,19 +41,16 @@ export function ProblemSection() {
           <AnimateIn
             variant="fadeUp"
             delay={0.12}
-            className="flex flex-col gap-0"
+            className="flex flex-col gap-4"
           >
-            <p className="text-foreground/70 text-justify text-[13px] leading-[1.8] sm:text-sm">
+            <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
               {t('problem.p1')}
             </p>
-            <p className="text-foreground/70 text-justify text-[13px] leading-[1.8] sm:text-sm">
+            <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
               {t('problem.p2')}
             </p>
-            <p className="text-foreground/70 text-justify text-[13px] leading-[1.8] sm:text-sm">
+            <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
               {t('problem.p3')}
-            </p>
-            <p className="text-foreground/70 text-justify text-[13px] leading-[1.8] sm:text-sm">
-              {t('problem.p4')}
             </p>
           </AnimateIn>
         </div>
