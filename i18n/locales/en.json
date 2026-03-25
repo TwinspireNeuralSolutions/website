@@ -109,8 +109,19 @@
   "team": {
     "heading": "Built by People Who've Been on the Treatment Table",
     "founders": "Founders",
-    "advisers": "Advisers",
-    "team": "Team"
+    "researchTeam": "Research Team",
+    "advisers": "Advisory Board",
+    "team": "Team",
+    "roles": {
+      "founderCeo": "Founder & CEO",
+      "academicCoFounder": "Academic Co-Founder & Head of Research",
+      "coFounderDev": "Co-Founder & Lead Developer",
+      "researchTeam": "Research Team",
+      "fullStackDev": "Full Stack Developer",
+      "aiEngineer": "Generative AI Engineer",
+      "advisor": "Advisor",
+      "strategicAdvisor": "Strategic Advisor"
+    }
   },
   "builtFor": {
     "heading": "Built for the People Who Keep Footballers on the Pitch.",

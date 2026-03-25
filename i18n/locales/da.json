@@ -109,8 +109,19 @@
   "team": {
     "heading": "Bygget af folk, der selv har ligget på behandlingsbordet",
     "founders": "Grundlæggere",
-    "advisers": "Rådgivere",
-    "team": "Holdet"
+    "researchTeam": "Forskerhold",
+    "advisers": "Bestyrelse",
+    "team": "Holdet",
+    "roles": {
+      "founderCeo": "Grundlægger & CEO",
+      "academicCoFounder": "Akademisk Medstifter & Forskningschef",
+      "coFounderDev": "Medstifter & Lead Udvikler",
+      "researchTeam": "Forskerhold",
+      "fullStackDev": "Full Stack Udvikler",
+      "aiEngineer": "Generativ AI Ingeniør",
+      "advisor": "Rådgiver",
+      "strategicAdvisor": "Strategisk Rådgiver"
+    }
   },
   "builtFor": {
     "heading": "Bygget til dem, der holder fodboldspillere på banen.",

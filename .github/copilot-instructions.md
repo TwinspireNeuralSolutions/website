@@ -322,6 +322,19 @@ When reviewing code changes, Copilot checks these and reports:
 
 ---
 
+## ✅ Mandatory Final Step — Type Check
+
+**After every coding task, always run `npx tsc --noEmit` and fix all reported errors before finishing.**
+
+```bash
+npx tsc --noEmit
+```
+
+- Zero TypeScript errors is a hard requirement before considering any task done.
+- Do not report a task as complete if `tsc` still reports errors.
+
+---
+
 ## 🔧 Quick Reference
 
 ```tsx
