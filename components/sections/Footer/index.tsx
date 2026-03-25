@@ -20,7 +20,7 @@ const NAV_LINKS = [
  * tagline, copyright, legal links, and medical disclaimer.
  */
 export function FooterSection() {
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
 
   return (
     <footer className="bg-footer-bg relative z-10 w-full overflow-hidden">
@@ -76,17 +76,10 @@ export function FooterSection() {
             {/* Legal links */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <Link
-                href="/privacy"
+                href={`/${locale}/privacy`}
                 className="text-footer-muted hover:text-primary text-xs transition-colors"
               >
                 {t('footer.privacyPolicy')}
-              </Link>
-              <span className="text-xs text-black/20 select-none">·</span>
-              <Link
-                href="/terms"
-                className="text-footer-muted hover:text-primary text-xs transition-colors"
-              >
-                {t('footer.termsOfUse')}
               </Link>
             </div>
           </div>
