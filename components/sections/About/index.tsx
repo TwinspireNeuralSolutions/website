@@ -59,7 +59,7 @@ export function AboutSection() {
             className="relative w-full overflow-hidden rounded-2xl shadow-md md:w-[42%] md:shrink-0 lg:w-[40%]"
           >
             <Image
-              src="/middle.jpg"
+              src="/founder.jpg"
               alt={t('about.imageAlt')}
               width={700}
               height={933}
