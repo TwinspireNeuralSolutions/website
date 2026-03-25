@@ -114,7 +114,7 @@
         "team": "Team",
         "roles": {
             "founderCeo": "Founder & CEO",
-            "academicCoFounder": "Academic Co-Founder & Head of Research",
+            "academicCoFounder": "Co-Founder & Head of Research",
             "coFounderDev": "Co-Founder & Lead Developer",
             "coFounderCoo": "Co-Founder & COO",
             "researchTeam": "Research Team",
@@ -149,7 +149,8 @@
             "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
             "bullet1": "GDPR compliance and DPAs",
             "bullet2": "EU-based hosting and processing",
-            "bullet3": "Built with Danish research partners"
+            "bullet3": "Built with Danish research partners",
+            "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions."
         },
         "headline1": "Every Athlete Has a Pattern. We Find It.",
         "p1": "Twinspire builds a continuously updated model of each player by drawing on GPS, strength output, physio notes, neuromuscular sensor data, and the athlete's own wearables, including data from away from the training ground. It learns what normal looks like for that body. Then it tells you when something shifts.",
