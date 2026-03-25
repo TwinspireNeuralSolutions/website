@@ -34,7 +34,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
         )}
       >
         {/* Full-bleed photo */}
-        <div className="relative aspect-[3/4] w-full bg-neutral-200">
+        <div className="bg-muted relative aspect-[3/4] w-full">
           <Image
             src={image}
             alt={name}
