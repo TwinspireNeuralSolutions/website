@@ -10,9 +10,6 @@ import { useTranslation } from '@/i18n'
 import { TeamMember } from './TeamMember'
 import { founders, advisers, teamMembers } from './teamData'
 
-// All non-adviser members in a single combined list
-const allTeamMembers = [...founders, ...teamMembers]
-
 /**
  * TeamSection — Unified team grid + separate advisers subsection.
  *
@@ -39,13 +36,13 @@ export function TeamSection() {
           </Typography>
         </AnimateIn>
 
-        {/* ── Combined team grid ─────────────────────────────────────────── */}
+        {/* ── Founders grid ──────────────────────────────────────────────── */}
         <StaggerContainer
           className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
           stagger={0.07}
         >
-          {allTeamMembers.map((member, index) => (
-            <StaggerItem key={`${member.name}-${index}`}>
+          {founders.map((member, index) => (
+            <StaggerItem key={`founder-${member.name}-${index}`}>
               <TeamMember
                 name={member.name}
                 role={member.role}
@@ -55,6 +52,37 @@ export function TeamSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* ── Research Team ─────────────────────────────────────────────── */}
+        <div className="mt-16 w-full lg:mt-20">
+          <AnimateIn variant="fadeIn" className="mb-6 flex items-center gap-4">
+            <Typography
+              variant="heading"
+              as="p"
+              textColor="default"
+              className="text-foreground/50 shrink-0 text-[11px] tracking-widest uppercase"
+            >
+              {t('team.researchTeam')}
+            </Typography>
+            <div className="bg-border h-px flex-1" />
+          </AnimateIn>
+
+          <StaggerContainer
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
+            stagger={0.07}
+          >
+            {teamMembers.map((member, index) => (
+              <StaggerItem key={`research-${member.name}-${index}`}>
+                <TeamMember
+                  name={member.name}
+                  role={member.role}
+                  image={member.image}
+                  linkedin={member.linkedin}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
 
         {/* ── Advisers ──────────────────────────────────────────────────── */}
         <div className="mt-16 w-full lg:mt-20">
