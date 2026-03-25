@@ -30,6 +30,12 @@ export const founders: TeamMemberData[] = [
     image: '/team/daryan.jpg',
     linkedin: 'https://www.linkedin.com/in/daryan-kf/',
   },
+  {
+    name: 'Roxane Maar',
+    role: 'team.roles.coFounderCoo',
+    image: '/team/roxane.png',
+    linkedin: 'https://www.linkedin.com/in/roxanemaar/',
+  },
 ]
 
 export const teamMembers: TeamMemberData[] = [
@@ -41,7 +47,7 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     name: 'Hajar El Mhassani',
-    role: 'team.roles.fullStackDev',
+    role: 'team.roles.researchTeam',
     image: '/team/hajar.png',
     linkedin: 'https://www.linkedin.com/in/hajar-el-mhassani-54202b120/',
   },
@@ -53,7 +59,7 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     name: 'Christos Andreas Ntemkas',
-    role: 'team.roles.aiEngineer',
+    role: 'team.roles.researchTeam',
     image: '/team/christos.png',
     linkedin: 'https://www.linkedin.com/in/christos-andreas-ntemkas-25a27815a/',
   },
@@ -68,16 +74,10 @@ export const teamMembers: TeamMemberData[] = [
 
 export const advisers: TeamMemberData[] = [
   {
-    name: 'Thomas Dederenroth Miller',
+    name: 'Thomas Dedenroth Miller',
     role: 'team.roles.advisor',
     image: '/team/thomas.png',
     linkedin: 'https://www.linkedin.com/in/thomas-d-miller-6940879/',
-  },
-  {
-    name: 'Roxane Maar',
-    role: 'team.roles.strategicAdvisor',
-    image: '/team/roxane.png',
-    linkedin: 'https://www.linkedin.com/in/roxanemaar/',
   },
   {
     name: 'Kim Kragbæk Larsen',

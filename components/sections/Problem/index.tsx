@@ -49,9 +49,6 @@ export function ProblemSection() {
             <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
               {t('problem.p2')}
             </p>
-            <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
-              {t('problem.p3')}
-            </p>
           </AnimateIn>
         </div>
       </div>

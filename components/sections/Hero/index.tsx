@@ -1,9 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import { useParams } from 'next/navigation'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
@@ -19,7 +17,6 @@ import { useTranslation } from '@/i18n'
  */
 export function HeroSection() {
   const { t } = useTranslation()
-  const { locale } = useParams<{ locale: string }>()
   const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -91,11 +88,18 @@ export function HeroSection() {
                 </p>
               </AnimateIn>
               <AnimateIn variant="fadeUp" delay={0.3} immediate>
-                <Link href={`/${locale}/admin`}>
-                  <Button variant="white" size="lg" showIcon>
-                    {t('hero.cta')}
-                  </Button>
-                </Link>
+                <Button
+                  variant="white"
+                  size="lg"
+                  showIcon
+                  onClick={() =>
+                    document
+                      .getElementById('contact')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  {t('hero.cta')}
+                </Button>
               </AnimateIn>
             </div>
           </div>

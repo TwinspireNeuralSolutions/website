@@ -93,7 +93,7 @@
     "hero": {
         "headlineLine1": "The Body Knows",
         "headlineLine2": "Before You Do.",
-        "subtitle": "One in five footballers tears the same muscle twice, most within eight weeks of returning. Twinspire connects the full picture and explains what is changing — before it becomes a setback.",
+        "subtitle": "One in five footballers tears the same muscle twice. Not from bad luck, but from missed signals. Twinspire reads every one of them.",
         "cta": "Join the Founding Pilot Cohort",
         "audienceAthletes": "Athletes",
         "audienceCoaches": "Coaches",
@@ -101,9 +101,9 @@
     },
     "about": {
         "headline": "This Started With One Injury. Then a Second.",
-        "p1": "Pouya was a professional football player. He tore his hamstring and went through the full rehabilitation process: GPS monitoring, clinical assessment, and gradual return to training. He was cleared to play.",
-        "p2": "Eight weeks later he tore it again.",
-        "p3": "The second injury was not due to bad luck; the warning signs were present, but the process lacked the tools to detect them. He left professional football and returned to DTU to address this gap. His injury became the research question, and the research led to Twinspire.",
+        "p1": "Pouya was a professional footballer. He did everything right. Full rehab, clinical clearance, gradual return.",
+        "p2": "Eight weeks later, he tore the same hamstring again.",
+        "p3": "The warning signs were there. The process couldn't see them. He went back to DTU to build what didn't exist. Twinspire is the result.",
         "imageAlt": "Pouya on the football pitch wearing an orange training bib"
     },
     "team": {
@@ -116,6 +116,7 @@
             "founderCeo": "Founder & CEO",
             "academicCoFounder": "Academic Co-Founder & Head of Research",
             "coFounderDev": "Co-Founder & Lead Developer",
+            "coFounderCoo": "Co-Founder & COO",
             "researchTeam": "Research Team",
             "fullStackDev": "Full Stack Developer",
             "aiEngineer": "Generative AI Engineer",
@@ -124,72 +125,56 @@
         }
     },
     "builtFor": {
-        "heading": "Built for the People Who Keep Footballers on the Pitch.",
+        "heading": "For Everyone Who Refuses to Lose a Player to a Preventable Injury.",
         "footballers": {
             "title": "Footballers",
-            "description": "Your body generates data every session, much of which is lost when you change clubs. Twinspire returns this data to you. Your Athletic Passport records your complete history — sessions, recovery, injuries — and an AI coach helps you interpret it, understand your readiness, and identify areas for improvement. You control what your club can access."
+            "description": "Your body has been generating data your whole career. Most of it has disappeared. Twinspire gives it back and makes sure it follows you wherever you go."
         },
         "coaches": {
-            "title": "Coaches and Performance Staff",
-            "description": "Access neuromuscular load, recovery signals, and deviation alerts for your entire squad, including athlete-owned wearable data. Plan training based on real physiological insights to keep your best players available when it matters most."
+            "title": "Coaches & Performance Staff",
+            "description": "Know your squad's true readiness before you set the lineup. Neuromuscular load and recovery signals, including data your athletes generate on their own time."
         },
         "physio": {
             "title": "Physiotherapists",
-            "description": "Receive objective decision support with customisable thresholds and metrics at every stage. Monitor deviations from personal baselines, recovery trends, and capacity signals across data sources, with clear explanations and recommended actions."
+            "description": "Get unified objective deviation alerts, recovery signals, and recommended actions from every data source."
         }
     },
     "product": {
         "science": {
-            "heading": "Many Platforms Measure Load. We Connect It to Individual Responses.",
-            "body": "Based on DTU research in digital twins and sequential learning for physiological time series, Twinspire integrates multimodal signals and translates them into clear, actionable decision support outputs."
+            "heading": "This Is Not a Dashboard. It Is a Model.",
+            "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
         },
         "trust": {
             "heading": "The Data Belongs to the Athlete. Full Stop.",
-            "body": "GDPR-compliant from day one. EU servers. Never sold. Never shared. The Athletic Passport belongs to the athlete. The squad data belongs to the club. We host it — we do not own it.",
-            "bullet1": "Designed for GDPR compliance and DPAs",
+            "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
+            "bullet1": "GDPR compliance and DPAs",
             "bullet2": "EU-based hosting and processing",
-            "bullet3": "Built with Danish research and innovation partners"
-        }
+            "bullet3": "Built with Danish research partners"
+        },
+        "headline1": "Every Athlete Has a Pattern. We Find It.",
+        "p1": "Twinspire builds a continuously updated model of each player by drawing on GPS, strength output, physio notes, neuromuscular sensor data, and the athlete's own wearables, including data from away from the training ground. It learns what normal looks like for that body. Then it tells you when something shifts.",
+        "headline2": "Athletic Passport",
+        "p2": "Every session, every load, every injury is logged, structured, and portable. When a player moves clubs, their full history moves with them.",
+        "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
     },
     "problem": {
         "headline": "You're Making Sunday's Decision with Tuesday's Data.",
-        "p1": "One in four elite injuries is a hamstring injury. Nearly one in five players tears it again, most within eight weeks of returning. The reinjury rate has not moved in a decade.",
-        "p2": "The overall injury rate has.",
-        "p3": "The tools have not kept up with either."
+        "p1": "GPS in one system. Strength tests in another. Gym sessions, extra runs, wearable data that never leaves the player's phone. The full picture has never been in one place. Not because of how the staff works, but because of how the tools are built.",
+        "p2": "30% of injuries are rehab-related. The reinjury rate hasn't moved in a decade. The tools haven't caught up."
     },
     "cta": {
-        "title": "Ready to See What Your Squad's Data Is Actually Telling You?",
-        "subtitle": "We are onboarding founding partners across the Nordics this quarter. Clubs that join now shape the product, get priority access, and preferred pricing.",
+        "title": "Your Squad Is Telling You Something. Are You Hearing It?",
+        "subtitle": "We are onboarding founding partners across the Nordics this quarter. The clubs that join now shape the product, get priority access, and lock in preferred pricing.",
         "stats": "71 athletes. 2 active clubs. 18 months of real data.",
         "button": "Apply for the Founding Cohort"
     },
-    "problem": {
-        "headline": "You're Making Sunday's Decision with Tuesday's Data.",
-        "p1": "A midfielder pulls his hamstring on a Tuesday. By Friday, you decide whether he starts on Sunday. You check the GPS. You talk to him. You trust your gut.",
-        "p2": "Your expertise is not the gap, but the data is. GPS in one system. Strength tests in another. Recovery notes in a third, and much of the athlete's real load is missing: gym sessions, extra runs, private physio, wearable data that stays on the player's phone — never reaches you at all. Nothing connects them. Nothing tells you whether the tissue is ready, or whether returning him now means losing him for six weeks in March.",
-        "p3": "One in four elite injuries is a hamstring injury. Nearly one in five players tears it again, most within eight weeks of returning. The reinjury rate has not moved in a decade. The overall injury rate has.",
-        "p4": "The tools have not kept up with either."
-    },
-    "product": {
-        "science": {
-            "heading": "Many Platforms Measure Load. We Connect It to Individual Responses.",
-            "body": "Based on DTU research in digital twins and sequential learning for physiological time series, Twinspire integrates multimodal signals and translates them into clear, actionable decision support outputs."
-        },
-        "trust": {
-            "heading": "The Data Belongs to the Athlete. Full Stop.",
-            "body": "GDPR-compliant from day one. EU servers. Never sold. Never shared. The Athletic Passport belongs to the athlete. The squad data belongs to the club. We host it — we do not own it.",
-            "bullet1": "Designed for GDPR compliance and DPAs",
-            "bullet2": "EU-based hosting and processing",
-            "bullet3": "Built with Danish research and innovation partners"
-        },
-        "headline1": "A Living Model of Every Athlete's Body.",
-        "p1": "Twinspire integrates data your staff already collects — GPS, strength output, sensor cameras, and muscle tone — with objective measurements drawn from our sensor partners and the player's own wearables, creating a digital twin with real insights linked to baseline signals. This is the missing context for decisions about return-to-play, off and deep cuts, position, and more. It's all information, information you are able to physically interrogate, to now access through Twinspire.",
-        "headline2": "Every Footballer Deserves a Record of Their Own Body.",
-        "p2": "Every session, every recovery, every injury. Captured, structured, and stored. The Athletic Passport travels with the footballer across clubs, careers, and borders. It belongs to them. And it means every future physio and coach walks into day one already informed.",
-        "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
+    "partners": {
+        "heading": "Build the Future of Football Health With Us.",
+        "body": "We work with sensor providers, clinics, and research institutions pushing the boundaries of performance and rehabilitation. If your work belongs in the stack — let's talk.",
+        "cta": "Get in touch"
     },
     "contact": {
-        "title": "Join Our Founding Pilot Cohort.",
+        "title": "The Reinjury Rate Hasn't Moved in a Decade. Let's Change That.",
         "name": "Name",
         "namePlaceholder": "Jane Smith",
         "email": "Email",
@@ -200,7 +185,7 @@
         "clubOrClinicPlaceholder": "Club or Clinic",
         "message": "Message",
         "messagePlaceholder": "Message",
-        "submit": "Submit",
+        "submit": "Apply Now",
         "successTitle": "You're on our list!",
         "successMessage": "Thanks for reaching out. We'll be in touch soon.",
         "errorMessage": "Something went wrong. Please try again.",
