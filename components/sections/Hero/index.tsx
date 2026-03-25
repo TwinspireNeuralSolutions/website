@@ -67,54 +67,56 @@ export function HeroSection() {
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex flex-col px-5 py-5 will-change-transform sm:px-10 sm:py-8 md:px-14 md:py-10 lg:px-20 lg:py-12"
+        className="absolute inset-0 z-10 flex flex-col py-5 will-change-transform sm:py-8 md:py-10 lg:py-12"
       >
-        {/* ── Hero text + CTA — vertically centred ── */}
-        <div className="flex flex-1 flex-col justify-center">
-          <div className="w-full max-w-[85vw] sm:max-w-[540px] md:max-w-[600px] lg:max-w-[680px] xl:max-w-[760px]">
-            <AnimateIn variant="fadeUp" immediate>
-              <h1
-                className="mb-4 font-sans font-bold tracking-tight text-white"
-                style={{
-                  fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
-                  lineHeight: 1.05,
-                }}
-              >
-                <span className="block">{t('hero.headlineLine1')}</span>
-                <span className="block">{t('hero.headlineLine2')}</span>
-              </h1>
-            </AnimateIn>
-            <AnimateIn variant="fadeUp" delay={0.15} immediate>
-              <p className="mb-8 max-w-[280px] font-sans text-sm leading-relaxed text-white/70 sm:max-w-[320px] sm:text-base md:max-w-[340px] md:text-base lg:max-w-[400px] lg:text-lg">
-                {t('hero.subtitle')}
-              </p>
-            </AnimateIn>
-            <AnimateIn variant="fadeUp" delay={0.3} immediate>
-              <Link href={`/${locale}/admin`}>
-                <Button variant="white" size="lg" showIcon>
-                  {t('hero.cta')}
-                </Button>
-              </Link>
-            </AnimateIn>
+        <div className="section-x section-inner mx-auto flex flex-1 flex-col">
+          {/* ── Hero text + CTA — vertically centred ── */}
+          <div className="flex flex-1 flex-col justify-center">
+            <div className="w-full max-w-[85vw] sm:max-w-[540px] md:max-w-[600px] lg:max-w-[680px] xl:max-w-[760px]">
+              <AnimateIn variant="fadeUp" immediate>
+                <h1
+                  className="mb-4 font-sans font-bold tracking-tight text-white"
+                  style={{
+                    fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
+                    lineHeight: 1.05,
+                  }}
+                >
+                  <span className="block">{t('hero.headlineLine1')}</span>
+                  <span className="block">{t('hero.headlineLine2')}</span>
+                </h1>
+              </AnimateIn>
+              <AnimateIn variant="fadeUp" delay={0.15} immediate>
+                <p className="mb-8 max-w-[280px] font-sans text-sm leading-relaxed text-white/70 sm:max-w-[320px] sm:text-base md:max-w-[340px] md:text-base lg:max-w-[400px] lg:text-lg">
+                  {t('hero.subtitle')}
+                </p>
+              </AnimateIn>
+              <AnimateIn variant="fadeUp" delay={0.3} immediate>
+                <Link href={`/${locale}/admin`}>
+                  <Button variant="white" size="lg" showIcon>
+                    {t('hero.cta')}
+                  </Button>
+                </Link>
+              </AnimateIn>
+            </div>
           </div>
-        </div>
 
-        {/* ── Audience tags ── */}
-        <AnimateIn variant="fadeIn" delay={0.5} immediate>
-          <div className="flex items-center gap-2 text-xs sm:gap-3 sm:text-sm">
-            <span className="font-medium text-white/90">
-              {t('hero.audienceAthletes')}
-            </span>
-            <span className="text-white/30">•</span>
-            <span className="font-medium text-white/90">
-              {t('hero.audienceCoaches')}
-            </span>
-            <span className="text-white/30">•</span>
-            <span className="font-medium text-white/90">
-              {t('hero.audiencePhysio')}
-            </span>
-          </div>
-        </AnimateIn>
+          {/* ── Audience tags ── */}
+          <AnimateIn variant="fadeIn" delay={0.5} immediate>
+            <div className="flex items-center gap-2 text-xs sm:gap-3 sm:text-sm">
+              <span className="font-medium text-white/90">
+                {t('hero.audienceAthletes')}
+              </span>
+              <span className="text-white/30">•</span>
+              <span className="font-medium text-white/90">
+                {t('hero.audienceCoaches')}
+              </span>
+              <span className="text-white/30">•</span>
+              <span className="font-medium text-white/90">
+                {t('hero.audiencePhysio')}
+              </span>
+            </div>
+          </AnimateIn>
+        </div>
       </div>
     </section>
   )

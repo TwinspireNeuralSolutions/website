@@ -36,6 +36,8 @@ export function ContactSection() {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -46,9 +48,27 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // TODO: wire up to backend / email service
-    console.log(form)
-    setIsSubmitting(false)
+    setSubmitError('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      if (!res.ok) {
+        const data = (await res.json()) as { error?: string }
+        setSubmitError(data.error ?? t('contact.errorMessage'))
+        return
+      }
+
+      setSubmitted(true)
+    } catch {
+      setSubmitError(t('contact.errorMessage'))
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   /**
@@ -81,124 +101,167 @@ export function ContactSection() {
         <div className="flex flex-col gap-12 md:flex-row md:gap-0">
           {/* ── Form ── */}
           <AnimateIn variant="slideLeft" delay={0.1} className="flex-1">
-            <form
-              onSubmit={handleSubmit}
-              noValidate
-              className="flex flex-col gap-6"
-            >
-              {/* Name + Email */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="flex flex-col gap-1.5">
-                  <Label
-                    htmlFor="contact-name"
-                    className="text-foreground/50 text-xs font-medium"
-                  >
-                    {t('contact.name')}
-                  </Label>
-                  <Input
-                    id="contact-name"
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder={t('contact.namePlaceholder')}
-                    required
-                    autoComplete="name"
-                    className={glassField}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <Label
-                    htmlFor="contact-email"
-                    className="text-foreground/50 text-xs font-medium"
-                  >
-                    {t('contact.email')}
-                  </Label>
-                  <Input
-                    id="contact-email"
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder={t('contact.emailPlaceholder')}
-                    required
-                    autoComplete="email"
-                    className={glassField}
-                  />
-                </div>
-              </div>
-
-              {/* Role + Club or Clinic */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="flex flex-col gap-1.5">
-                  <Label
-                    htmlFor="contact-role"
-                    className="text-foreground/50 text-xs font-medium"
-                  >
-                    {t('contact.role')}
-                  </Label>
-                  <Input
-                    id="contact-role"
-                    type="text"
-                    name="role"
-                    value={form.role}
-                    onChange={handleChange}
-                    placeholder={t('contact.rolePlaceholder')}
-                    required
-                    className={glassField}
-                  />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <Label
-                    htmlFor="contact-clubOrClinic"
-                    className="text-foreground/50 text-xs font-medium"
-                  >
-                    {t('contact.clubOrClinic')}
-                  </Label>
-                  <Input
-                    id="contact-clubOrClinic"
-                    type="text"
-                    name="clubOrClinic"
-                    value={form.clubOrClinic}
-                    onChange={handleChange}
-                    placeholder={t('contact.clubOrClinicPlaceholder')}
-                    autoComplete="organization"
-                    className={glassField}
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="flex flex-col gap-1.5">
-                <Label
-                  htmlFor="contact-message"
-                  className="text-foreground/50 text-xs font-medium"
+            {submitted ? (
+              <div className="flex h-full min-h-[280px] flex-col items-start justify-center gap-4">
+                {/* Checkmark */}
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-full"
+                  style={{ backgroundColor: '#0802A3' }}
+                  aria-hidden="true"
                 >
-                  {t('contact.message')}
-                </Label>
-                <Textarea
-                  id="contact-message"
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  rows={5}
-                  placeholder={t('contact.messagePlaceholder')}
-                  className="placeholder:text-foreground/30 resize-none rounded-xl border-0 bg-white/60 px-4 py-3 shadow-none backdrop-blur-md transition-all duration-200 focus-visible:bg-white/80 focus-visible:ring-0 focus-visible:ring-offset-0"
-                />
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.5 11.5L9 16L17.5 7"
+                      stroke="white"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <Typography
+                  variant="heading"
+                  as="h3"
+                  className="text-[18px] font-bold"
+                >
+                  {t('contact.successTitle')}
+                </Typography>
+                <p className="text-foreground/60 text-[14px] leading-relaxed">
+                  {t('contact.successMessage')}
+                </p>
               </div>
-
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                disabled={isSubmitting}
-                className="mt-2 w-full"
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                className="flex flex-col gap-6"
               >
-                {isSubmitting ? t('common.loading') : t('contact.submit')}
-              </Button>
-            </form>
+                {/* Name + Email */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="flex flex-col gap-1.5">
+                    <Label
+                      htmlFor="contact-name"
+                      className="text-foreground/50 text-xs font-medium"
+                    >
+                      {t('contact.name')}
+                    </Label>
+                    <Input
+                      id="contact-name"
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder={t('contact.namePlaceholder')}
+                      required
+                      autoComplete="name"
+                      className={glassField}
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <Label
+                      htmlFor="contact-email"
+                      className="text-foreground/50 text-xs font-medium"
+                    >
+                      {t('contact.email')}
+                    </Label>
+                    <Input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder={t('contact.emailPlaceholder')}
+                      required
+                      autoComplete="email"
+                      className={glassField}
+                    />
+                  </div>
+                </div>
+
+                {/* Role + Club or Clinic */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="flex flex-col gap-1.5">
+                    <Label
+                      htmlFor="contact-role"
+                      className="text-foreground/50 text-xs font-medium"
+                    >
+                      {t('contact.role')}
+                    </Label>
+                    <Input
+                      id="contact-role"
+                      type="text"
+                      name="role"
+                      value={form.role}
+                      onChange={handleChange}
+                      placeholder={t('contact.rolePlaceholder')}
+                      required
+                      className={glassField}
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <Label
+                      htmlFor="contact-clubOrClinic"
+                      className="text-foreground/50 text-xs font-medium"
+                    >
+                      {t('contact.clubOrClinic')}
+                    </Label>
+                    <Input
+                      id="contact-clubOrClinic"
+                      type="text"
+                      name="clubOrClinic"
+                      value={form.clubOrClinic}
+                      onChange={handleChange}
+                      placeholder={t('contact.clubOrClinicPlaceholder')}
+                      autoComplete="organization"
+                      className={glassField}
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col gap-1.5">
+                  <Label
+                    htmlFor="contact-message"
+                    className="text-foreground/50 text-xs font-medium"
+                  >
+                    {t('contact.message')}
+                  </Label>
+                  <Textarea
+                    id="contact-message"
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    rows={5}
+                    placeholder={t('contact.messagePlaceholder')}
+                    className="placeholder:text-foreground/30 resize-none rounded-xl border-0 bg-white/60 px-4 py-3 shadow-none backdrop-blur-md transition-all duration-200 focus-visible:bg-white/80 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  />
+                </div>
+
+                {submitError && (
+                  <p className="text-[13px] text-red-600" role="alert">
+                    {submitError}
+                  </p>
+                )}
+
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="mt-2 w-full"
+                >
+                  {isSubmitting ? t('common.loading') : t('contact.submit')}
+                </Button>
+              </form>
+            )}
           </AnimateIn>
 
           {/* ── Contact info ── */}

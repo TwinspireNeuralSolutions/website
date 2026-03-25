@@ -91,9 +91,9 @@
         "navData": "Data & Tillid"
     },
     "hero": {
-        "headlineLine1": "Europas AI-rehabiliteringsplatform",
-        "headlineLine2": "for fodbold.",
-        "subtitle": "Én ud af fem fodboldspillere overriver den samme muskel igen. Twinspire fortæller dig hvorfor — før det sker.",
+        "headlineLine1": "Kroppen ved det",
+        "headlineLine2": "Før du gør.",
+        "subtitle": "Én ud af fem fodboldspillere overriver den samme muskel to gange, de fleste inden for otte uger efter retur. Twinspire forbinder det fulde billede og forklarer, hvad der ændrer sig — før det bliver et tilbagefald.",
         "cta": "Bliv en del af pilotprogrammet",
         "audienceAthletes": "Atleter",
         "audienceCoaches": "Trænere",
@@ -163,6 +163,31 @@
         "stats": "71 atleter. 2 aktive klubber. 18 måneders reelle data.",
         "button": "Ansøg om pilotprogrammet"
     },
+    "problem": {
+        "headline": "Du træffer søndagens beslutning med tirsdagens data.",
+        "p1": "En midtbanespiller trækker sin hasemuskel over på en tirsdag. Fredag skal du beslutte, om han starter på søndag. Du tjekker GPS'en. Du taler med ham. Du stoler på din mavefornæmmelse.",
+        "p2": "Din ekspertise er ikke problemet — men dataen er det. GPS i ét system. Styrketests i et andet. Restitutionsnoter i et tredje, og meget af atletens reelle belastning mangler: træningssessioner, ekstrarunder, privat fysioterapi, wearable-data der forbliver på spillerens telefon — og aldrig når frem til dig. Intet forbinder dem. Intet fortæller dig, om musklen er klar, eller om det at sende ham på banen nu betyder, at du mister ham i seks uger i marts.",
+        "p3": "Én ud af fire eliteskader er en haseskade. Næsten én ud af fem spillere river den over igen, de fleste inden for otte uger efter comeback. Genskadeshyppigheden har ikke rykket sig i et årti. Den samlede skadeshyppighed har.",
+        "p4": "Værktøjerne har ikke fulgt med — hverken det ene eller det andet."
+    },
+    "product": {
+        "science": {
+            "heading": "Mange platforme måler belastning. Vi forbinder den med individuelle responser.",
+            "body": "Baseret på DTU-forskning i digitale tvillinger og sekventiel læring for fysiologiske tidsserier integrerer Twinspire multimodale signaler og omsætter dem til klare, handlingsrettede beslutningsstøtteoutput."
+        },
+        "trust": {
+            "heading": "Dataen tilhører atleten. Punktum.",
+            "body": "GDPR-kompatibel fra dag ét. EU-servere. Aldrig solgt. Aldrig delt. Athletic Passport tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
+            "bullet1": "Designet til GDPR-overholdelse og DPA'er",
+            "bullet2": "EU-baseret hosting og behandling",
+            "bullet3": "Bygget med danske forsknings- og innovationspartnere"
+        },
+        "headline1": "En levende model af enhver atlets krop.",
+        "p1": "Twinspire integrerer data, som dit personale allerede indsamler — GPS, styrkeoutput, sensorkameraer og muskeltonus — med objektive målinger fra vores sensorpartnere og spillerens egne wearables, og skaber dermed en digital tvilling med reelle indsigter koblet til baselinemålinger. Det er den manglende kontekst til beslutninger om returnering til spil, fratagelse og dyb opskæring, position og meget mere. Det er al information, information du er i stand til at undersøge fysisk, som nu er tilgængelig via Twinspire.",
+        "headline2": "Enhver fodboldspiller fortjener et register over sin egen krop.",
+        "p2": "Skader sker. Athletic Passport følger spilleren på tværs af klubber, karrierer og landegrænser — det tilhører ham. Enhver fremtidig fysioterapeut ved præcis, hvad du ved.",
+        "mockupAlt": "Twinspires personale-dashboard og spiller-mobilapp med simuleringsparametre og parathedsmålinger"
+    },
     "contact": {
         "title": "Bliv en del af vores pilotprogram.",
         "name": "Navn",
@@ -176,6 +201,9 @@
         "message": "Besked",
         "messagePlaceholder": "Besked",
         "submit": "Indsend",
+        "successTitle": "Du er på vores liste!",
+        "successMessage": "Tak for din henvendelse. Vi vender snart tilbage.",
+        "errorMessage": "Noget gik galt. Prøv venligst igen.",
         "address": "Adresse",
         "addressValue": "København, Danmark",
         "contactInfo": "Kontaktoplysninger",
