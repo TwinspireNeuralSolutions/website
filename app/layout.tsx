@@ -1,33 +1,38 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { seoConfig } from '@/lib/seo.config'
-import { AuthProvider } from '@/providers/AuthProvider'
-import { Analytics } from '@vercel/analytics/next'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap',
-})
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://twinspire.ai'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(seoConfig.site.url),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: seoConfig.pages.home.title,
-    template: `%s | ${seoConfig.site.name}`,
+    default:
+      'Twinspire — AI Decision Support for Football Rehab & Return to Play | DTU Research | Europe',
+    template: '%s | Twinspire',
   },
-  description: seoConfig.pages.home.description,
-  keywords: seoConfig.site.keywords,
-  authors: [{ name: seoConfig.site.name }],
-  creator: seoConfig.site.name,
-  publisher: seoConfig.site.name,
+  description:
+    'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data. Join the founding pilot cohort.',
+  keywords: [
+    'football injury prevention',
+    'return to play AI',
+    'sports rehabilitation software',
+    'neuromuscular model football',
+    'hamstring reinjury prevention',
+    'physio decision support tool',
+    'athlete injury data platform',
+    'football rehab technology',
+    'DTU health tech',
+    'GDPR compliant sports analytics',
+    'EU sports AI',
+    'personalised athlete model',
+    'injury risk monitoring football',
+    'club athlete data integration',
+    'return to play decision support',
+  ],
+  authors: [{ name: 'Twinspire Neural Solutions', url: SITE_URL }],
+  creator: 'Twinspire Neural Solutions',
+  publisher: 'Twinspire Neural Solutions',
+  category: 'Sports Technology',
   robots: {
     index: true,
     follow: true,
@@ -39,70 +44,79 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      en: `${SITE_URL}/en`,
+      da: `${SITE_URL}/da`,
+    },
+  },
   openGraph: {
     type: 'website',
-    locale: seoConfig.openGraph.locale,
-    url: seoConfig.site.url,
-    title: seoConfig.pages.home.title,
-    description: seoConfig.pages.home.description,
-    siteName: seoConfig.openGraph.siteName,
+    locale: 'en_GB',
+    alternateLocale: 'da_DK',
+    url: SITE_URL,
+    siteName: 'Twinspire',
+    title:
+      'Twinspire — AI Decision Support for Football Rehab & Return to Play',
+    description:
+      'One in five footballers tears the same muscle twice. Twinspire builds a personalised neuromuscular model for every footballer so physios can see the earliest signals of overload before they become reinjuries. Built with DTU Health Tech. GDPR compliant.',
     images: [
       {
-        url: seoConfig.site.ogImage,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: `${seoConfig.site.name} - AI-Powered Rehabilitation Platform`,
+        alt: 'Twinspire — AI Return-to-Play Platform for Football',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: seoConfig.pages.home.title,
-    description: seoConfig.pages.home.description,
-    creator: seoConfig.site.twitterHandle,
-    images: [seoConfig.site.ogImage],
-  },
-  verification: {
-    // google: 'your-google-verification-code', // Add when you have it
-    // yandex: 'your-yandex-verification-code',
-    // bing: 'your-bing-verification-code',
-  },
-  alternates: {
-    canonical: seoConfig.site.url,
+    title:
+      'Twinspire — AI Decision Support for Football Rehab & Return to Play',
+    description:
+      'One in five footballers tears the same muscle twice. Twinspire connects the full picture and explains what is changing — before it becomes a setback.',
+    images: [`${SITE_URL}/og-image.png`],
+    creator: '@twinspireai',
   },
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
+  verification: {},
 }
 
+/**
+ * Root Layout — minimal shell.
+ * Providers (Theme, I18n, Auth) live in app/[locale]/layout.tsx
+ * so they have access to the locale URL segment.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(seoConfig.structuredData.organization),
-          }}
+        {/* Satoshi font — FontShare CDN */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
         />
+        {/* Inline script: prevents flash of wrong theme before hydration */}
         <script
-          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              seoConfig.structuredData.softwareApplication
-            ),
+            __html: `
+              try {
+                const t = localStorage.getItem('tns-theme');
+                const r = t === 'dark' ? 'dark' : t === 'light' ? 'light' : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.add(r);
+              } catch(e) {}
+            `,
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <AuthProvider>{children}</AuthProvider>
-        <Analytics />
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   )
 }

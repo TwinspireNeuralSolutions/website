@@ -1,0 +1,198 @@
+{
+    "common": {
+        "backToHome": "Tilbage til forsiden",
+        "loading": "Indlæser...",
+        "submit": "Indsend",
+        "cancel": "Annuller",
+        "save": "Gem",
+        "delete": "Slet",
+        "edit": "Rediger",
+        "close": "Luk",
+        "confirm": "Bekræft",
+        "yes": "Ja",
+        "no": "Nej",
+        "error": "Fejl",
+        "success": "Succes",
+        "logout": "Log ud",
+        "login": "Log ind",
+        "signIn": "Log ind",
+        "signUp": "Opret konto"
+    },
+    "auth": {
+        "teamManagerLogin": "Team Manager Login",
+        "signInDescription": "Log ind for at uploade og administrere dit holds data",
+        "email": "E-mail",
+        "password": "Adgangskode",
+        "emailPlaceholder": "email@eksempel.dk",
+        "passwordPlaceholder": "Indtast din adgangskode",
+        "signInWithEmail": "Log ind med e-mail",
+        "signingIn": "Logger ind...",
+        "orContinueWith": "Eller fortsæt med",
+        "google": "Google",
+        "apple": "Apple"
+    },
+    "dashboard": {
+        "selectDevice": "Vælg enhed",
+        "selectDeviceDescription": "Vælg venligst en enhed for at fortsætte med dataupload",
+        "uploadTeamData": "Upload {device} holddata",
+        "uploadDescription": "Upload dit holds {device} Excel-filer for at komme i gang med analysen",
+        "dragAndDrop": "Træk og slip din {device} fil her",
+        "dropHere": "Slip din {device} fil her",
+        "orClickToBrowse": "eller klik for at gennemse fra din computer",
+        "supports": "Understøtter: .xlsx, .xls, .csv",
+        "fileReady": "Fil klar til upload",
+        "removeFile": "Fjern fil",
+        "uploadFile": "Upload fil",
+        "uploading": "Uploader...",
+        "uploadSuccessful": "Upload gennemført!",
+        "processingFile": "Vi behandler din fil nu",
+        "uploadAnother": "Upload en anden fil",
+        "home": "Hjem",
+        "back": "Tilbage"
+    },
+    "componentLibrary": {
+        "title": "Komponentbibliotek",
+        "subtitle": "Genanvendelige UI-komponenter bygget med shadcn/ui og Tailwind CSS",
+        "buttons": "Knapper",
+        "typography": "Typografi",
+        "inputs": "Inputfelter",
+        "primaryButton": "Primær knap",
+        "whiteButton": "Hvid knap",
+        "title40": "Titel (40px Fed)",
+        "subtitle16": "Undertitel (16px)",
+        "heading16": "Overskrift (16px Fed)",
+        "paragraph12": "Paragraf (12px)",
+        "inputLabel": "Inputfelt label",
+        "inputPlaceholder": "Skriv noget...",
+        "textareaLabel": "Tekstområde label",
+        "textareaPlaceholder": "Skriv din besked..."
+    },
+    "nav": {
+        "problem": "Problem",
+        "product": "Produkt",
+        "forTeam": "Til holdet",
+        "gdpr": "GDPR",
+        "teamLogin": "Team Login"
+    },
+    "footer": {
+        "copyright": "© 2026 Twinspire Neural Solutions · Alle rettigheder forbeholdes",
+        "tagline": "NEURAL  ·  NETWORK  ·  SOLUTION",
+        "linkedinLabel": "LinkedIn",
+        "privacyPolicy": "Privatlivspolitik",
+        "termsOfUse": "Vilkår for brug",
+        "dataProcessingAgreement": "Databehandleraftale",
+        "disclaimer": "Twinspire er en beslutningsstøtteplatform og er ikke beregnet til at diagnosticere eller behandle medicinske tilstande.",
+        "navProblem": "Problemet",
+        "navSolution": "Løsningen",
+        "navScience": "Videnskaben",
+        "navForWhom": "For hvem",
+        "navTeam": "Holdet",
+        "navJoin": "Bliv en del af pilotprogrammet",
+        "navData": "Data & Tillid"
+    },
+    "hero": {
+        "headlineLine1": "Kroppen ved det",
+        "headlineLine2": "Før du gør.",
+        "subtitle": "Én ud af fem fodboldspillere river den samme muskel over to gange. Ikke på grund af dårlig held, men på grund af oversete signaler. Twinspire læser dem alle.",
+        "cta": "Bliv en del af pilotprogrammet",
+        "audienceAthletes": "Atleter",
+        "audienceCoaches": "Trænere",
+        "audiencePhysio": "Fysioterapeuter"
+    },
+    "about": {
+        "headline": "Det startede med én skade. Så en til.",
+        "p1": "Pouya var professionel fodboldspiller. Han gjorde alt rigtigt. Fuld genoptræning, klinisk godkendelse, gradvis comeback.",
+        "p2": "Otte uger senere rev han den samme hasemuskel over igen.",
+        "p3": "Advarselstegnene var der. Processen kunne ikke se dem. Han vendte tilbage til DTU for at bygge det, der ikke fandtes. Twinspire er resultatet.",
+        "imageAlt": "Pouya på fodboldbanen iført en orange træningsvest"
+    },
+    "team": {
+        "heading": "Bygget af folk, der selv har ligget på behandlingsbordet",
+        "founders": "Grundlæggere",
+        "researchTeam": "Forskerhold",
+        "advisers": "Bestyrelse",
+        "team": "Holdet",
+        "roles": {
+            "founderCeo": "Grundlægger & CEO",
+            "academicCoFounder": "Akademisk Medstifter & Forskningschef",
+            "coFounderDev": "Medstifter & Lead Udvikler",
+            "coFounderCoo": "Medstifter & COO",
+            "researchTeam": "Forskerhold",
+            "fullStackDev": "Full Stack Udvikler",
+            "aiEngineer": "Generativ AI Ingeniør",
+            "advisor": "Rådgiver",
+            "strategicAdvisor": "Strategisk Rådgiver"
+        }
+    },
+    "builtFor": {
+        "heading": "For alle, der nægter at miste en spiller til en forebyggelig skade.",
+        "footballers": {
+            "title": "Fodboldspillere",
+            "description": "Din krop har genereret data hele din karriere. Det meste er forsvundet. Twinspire giver det tilbage og sørger for, at det følger dig uanset hvor du går."
+        },
+        "coaches": {
+            "title": "Trænere og Performance Staff",
+            "description": "Kend dit holds sande parathed, inden du sætter startopstillingen. Neuromuskulær belastning og restitutionssignaler, inklusive data dine atleter genererer på egen hånd."
+        },
+        "physio": {
+            "title": "Fysioterapeuter",
+            "description": "Få samlet objektive afvigelsesadvarsler, restitutionssignaler og anbefalede handlinger fra alle datakilder."
+        }
+    },
+    "product": {
+        "science": {
+            "heading": "Dette er ikke et dashboard. Det er en model.",
+            "body": "De fleste platforme tæller belastning. Twinspire forstår respons. Metoden fusionerer wearables, EMG og biomekanik til en levende fysiologisk model, unik for hver atlet. Patentansøgt. Valideret på reelle data. Bygget til at have ret, inden det tages i brug."
+        },
+        "trust": {
+            "heading": "Dataen tilhører atleten. Punktum.",
+            "body": "GDPR-kompatibel. EU-servere. Aldrig solgt. Aldrig delt. Passet tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
+            "bullet1": "GDPR-overholdelse og DPA’er",
+            "bullet2": "EU-baseret hosting og behandling",
+            "bullet3": "Bygget med danske forskningspartnere"
+        },
+        "headline1": "Hver atlet har et mønster. Vi finder det.",
+        "p1": "Twinspire bygger en løbende opdateret model af hver spiller baseret på GPS, styrkeoutput, fysinoter, neuromuskulære sensordata og atletens egne wearables, inklusive data fra uden for træningsanlægget. Den lærer, hvad normalt ser ud for den krop. Så fortæller den dig, når noget ændrer sig.",
+        "headline2": "Athletic Passport",
+        "p2": "Hver session, hver belastning, hver skade er logget, struktureret og transportabel. Når en spiller skifter klub, følger hele historikken med.",
+        "mockupAlt": "Twinspires personale-dashboard og spiller-mobilapp med simuleringsparametre og parathedsmålinger"
+    },
+    "problem": {
+        "headline": "Du træffer søndagens beslutning med tirsdagens data.",
+        "p1": "GPS i ét system. Styrketests i et andet. Træningssessioner, ekstrarunder, wearable-data der aldrig forlader spillerens telefon. Det fulde billede har aldrig befundet sig på ét sted. Ikke fordi personalet arbejder forkert, men fordi værktøjerne er bygget forkert.",
+        "p2": "30 % af skader er genoptræningsrelaterede. Genskadeshyppigheden har ikke rykket sig i et årti. Værktøjerne har ikke fulgt med."
+    },
+    "cta": {
+        "title": "Dit hold fortæller dig noget. Hører du det?",
+        "subtitle": "Vi optager grundlæggende partnere i Norden dette kvartal. De klubber, der tilmelder sig nu, er med til at forme produktet, får prioriteret adgang og låser fordelagtige priser fast.",
+        "stats": "71 atleter. 2 aktive klubber. 18 måneders reelle data.",
+        "button": "Ansøg om pilotprogrammet"
+    },
+    "partners": {
+        "heading": "Byg fremtidens fodboldssundhed med os.",
+        "body": "Vi arbejder med sensorleverandører, klinikker og forskningsinstitutioner, der udfordrer grænser inden for præstations- og rehabiliteringsforskning. Hvis dit arbejde hører til i løsningen — lad os tale.",
+        "cta": "Kontakt os"
+    },
+    "contact": {
+        "title": "Genskadeshyppigheden har ikke rykket sig i et årti. Lad os ændre det.",
+        "name": "Navn",
+        "namePlaceholder": "Jane Smith",
+        "email": "E-mail",
+        "emailPlaceholder": "jane@frame.com",
+        "role": "Rolle",
+        "rolePlaceholder": "Rolle",
+        "clubOrClinic": "Klub eller klinik",
+        "clubOrClinicPlaceholder": "Klub eller klinik",
+        "message": "Besked",
+        "messagePlaceholder": "Besked",
+        "submit": "Ansøg nu",
+        "successTitle": "Du er på vores liste!",
+        "successMessage": "Tak for din henvendelse. Vi vender snart tilbage.",
+        "errorMessage": "Noget gik galt. Prøv venligst igen.",
+        "address": "Adresse",
+        "addressValue": "København, Danmark",
+        "contactInfo": "Kontaktoplysninger",
+        "phone": "+45 2020 4040",
+        "emailContact": "info@twinspire.ai"
+    }
+}
