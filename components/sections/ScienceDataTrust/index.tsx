@@ -660,15 +660,10 @@ export function ScienceDataTrustSection() {
             <div className="flex flex-1 flex-col gap-8 md:flex-row md:items-start md:gap-10">
               {/* Text — left on desktop */}
               <div className="flex flex-col gap-4 md:w-[44%] md:shrink-0">
-                <Typography
-                  variant="title"
-                  as="h2"
-                  textColor="default"
-                  className="text-[22px] leading-[1.1] tracking-[-0.025em] sm:text-[28px] lg:text-[32px]"
-                >
+                <Typography variant="title" as="h2" textColor="default">
                   {t('product.science.heading')}
                 </Typography>
-                <p className="text-foreground/65 text-[14px] leading-[1.75] sm:text-[15px]">
+                <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                   {t('product.science.body')}
                 </p>
               </div>
@@ -686,15 +681,10 @@ export function ScienceDataTrustSection() {
             <div className="flex flex-1 flex-col gap-8 md:flex-row-reverse md:items-start md:gap-10">
               {/* Text — right on desktop (first in DOM = right with flex-row-reverse) */}
               <div className="flex flex-col gap-4 md:w-[44%] md:shrink-0">
-                <Typography
-                  variant="title"
-                  as="h2"
-                  textColor="default"
-                  className="text-[22px] leading-[1.1] tracking-[-0.025em] sm:text-[28px] lg:text-[32px]"
-                >
+                <Typography variant="title" as="h2" textColor="default">
                   {t('product.trust.heading')}
                 </Typography>
-                <p className="text-foreground/65 text-[14px] leading-[1.75] sm:text-[15px]">
+                <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                   {t('product.trust.body')}
                 </p>
                 <ul className="mt-2 flex flex-col gap-2">

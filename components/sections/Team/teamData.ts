@@ -40,6 +40,12 @@ export const founders: TeamMemberData[] = [
 
 export const teamMembers: TeamMemberData[] = [
   {
+    name: 'Christos Andreas Ntemkas',
+    role: 'team.roles.researchTeam',
+    image: '/team/christos.png',
+    linkedin: 'https://www.linkedin.com/in/christos-andreas-ntemkas-25a27815a/',
+  },
+  {
     name: 'Csongor Tarnai',
     role: 'team.roles.researchTeam',
     image: '/team/csongor.png',
@@ -56,12 +62,6 @@ export const teamMembers: TeamMemberData[] = [
     role: 'team.roles.researchTeam',
     image: '/team/nicola.png',
     linkedin: 'https://www.linkedin.com/in/nicola-stefani-078a3a232/',
-  },
-  {
-    name: 'Christos Andreas Ntemkas',
-    role: 'team.roles.researchTeam',
-    image: '/team/christos.png',
-    linkedin: 'https://www.linkedin.com/in/christos-andreas-ntemkas-25a27815a/',
   },
   {
     name: 'Hilmar Snær Örvarsson',

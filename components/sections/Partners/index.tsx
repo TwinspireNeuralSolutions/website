@@ -65,12 +65,7 @@ export function PartnersSection({
             className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16"
           >
             <div className="flex flex-col gap-4 md:max-w-[560px]">
-              <Typography
-                variant="title"
-                as="h2"
-                textColor="white"
-                className="text-[24px] leading-[1.1] tracking-[-0.03em] sm:text-[32px] lg:text-[40px]"
-              >
+              <Typography variant="title" as="h2" textColor="white">
                 {t('partners.heading')}
               </Typography>
               <p className="text-sm leading-relaxed text-white/65 sm:text-base">

@@ -30,15 +30,10 @@ export function ProductSection() {
         <div className="bg-white">
           <div className="section-x section-inner mx-auto pt-20 pb-10">
             <AnimateIn variant="fadeUp" className="flex flex-col gap-5">
-              <Typography
-                variant="title"
-                as="h2"
-                textColor="default"
-                className="text-[28px] leading-[1.1] tracking-[-0.03em] sm:text-[36px]"
-              >
+              <Typography variant="title" as="h2" textColor="default">
                 {t('product.headline1')}
               </Typography>
-              <p className="text-foreground/65 text-[14px] leading-[1.8] sm:text-[15px]">
+              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                 {t('product.p1')}
               </p>
             </AnimateIn>
@@ -73,15 +68,10 @@ export function ProductSection() {
               delay={0.1}
               className="flex flex-col gap-5"
             >
-              <Typography
-                variant="title"
-                as="h3"
-                textColor="default"
-                className="text-[28px] leading-[1.1] tracking-[-0.03em] sm:text-[36px]"
-              >
+              <Typography variant="title" as="h3" textColor="default">
                 {t('product.headline2')}
               </Typography>
-              <p className="text-foreground/65 text-[14px] leading-[1.8] sm:text-[15px]">
+              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                 {t('product.p2')}
               </p>
             </AnimateIn>
@@ -106,15 +96,10 @@ export function ProductSection() {
               variant="fadeUp"
               className="flex flex-1 flex-col justify-end gap-5 pt-20 pb-12"
             >
-              <Typography
-                variant="title"
-                as="h2"
-                textColor="default"
-                className="text-[28px] leading-[1.1] tracking-[-0.03em] lg:text-[44px]"
-              >
+              <Typography variant="title" as="h2" textColor="default">
                 {t('product.headline1')}
               </Typography>
-              <p className="text-foreground/65 text-[14px] leading-[1.8] sm:text-[15px]">
+              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                 {t('product.p1')}
               </p>
             </AnimateIn>
@@ -125,15 +110,10 @@ export function ProductSection() {
               delay={0.1}
               className="flex flex-1 flex-col justify-start gap-5 pt-12 pb-20"
             >
-              <Typography
-                variant="title"
-                as="h3"
-                textColor="default"
-                className="text-[28px] leading-[1.1] tracking-[-0.03em] lg:text-[44px]"
-              >
+              <Typography variant="title" as="h3" textColor="default">
                 {t('product.headline2')}
               </Typography>
-              <p className="text-foreground/65 text-[14px] leading-[1.8] sm:text-[15px]">
+              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                 {t('product.p2')}
               </p>
             </AnimateIn>

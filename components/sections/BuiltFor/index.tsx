@@ -51,7 +51,7 @@ export function BuiltForSection() {
             variant="title"
             as="h2"
             textColor="default"
-            className="mb-10 max-w-[680px] text-left text-[28px] leading-[1.05] tracking-[-0.03em] sm:text-[40px] lg:mb-14 lg:text-[52px]"
+            className="mb-10 max-w-[680px] text-left lg:mb-14"
           >
             {t('builtFor.heading')}
           </Typography>

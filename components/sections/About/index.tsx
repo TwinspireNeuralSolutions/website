@@ -30,12 +30,7 @@ export function AboutSection() {
             variant="slideLeft"
             className="flex flex-col gap-6 md:flex-1"
           >
-            <Typography
-              id="about-heading"
-              variant="title"
-              as="h2"
-              className="text-[32px] leading-[1.1] sm:text-[40px] lg:text-[48px]"
-            >
+            <Typography id="about-heading" variant="title" as="h2">
               {t('about.headline')}
             </Typography>
 

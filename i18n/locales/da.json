@@ -122,6 +122,7 @@
             "coFounderCoo": "Medstifter & COO",
             "researchTeam": "Forskerhold",
             "fullStackDev": "Full Stack Udvikler",
+            "internFullStackDev": "Intern Full Stack Udvikler",
             "aiEngineer": "Generativ AI Ingeniør",
             "advisor": "Rådgiver",
             "strategicAdvisor": "Strategisk Rådgiver"
@@ -179,7 +180,7 @@
         "cta": "Kontakt os"
     },
     "contact": {
-        "title": "Genskadeshyppigheden har ikke rykket sig i et årti.\nLad os ændre det.",
+        "title": "Genskaderaten er uændret i et årti.\nLad os ændre det.",
         "name": "Navn",
         "namePlaceholder": "Jane Smith",
         "email": "E-mail",

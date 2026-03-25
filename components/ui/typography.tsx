@@ -17,10 +17,11 @@ import { cn } from '@/lib/utils'
 const typographyVariants = cva('font-sans', {
   variants: {
     variant: {
-      title: 'text-[40px] font-bold leading-tight tracking-tight',
-      subtitle: 'text-[16px] font-normal leading-relaxed',
+      title:
+        'text-[24px] font-bold leading-[1.05] tracking-[-0.03em] sm:text-[34px] lg:text-[44px]',
+      subtitle: 'text-[15px] font-normal leading-relaxed sm:text-base',
       heading: 'text-[16px] font-bold leading-snug',
-      paragraph: 'text-[12px] font-normal leading-relaxed',
+      paragraph: 'text-[14px] font-normal leading-[1.8] sm:text-[15px]',
     },
     textColor: {
       default: '', // resolved per-variant via compoundVariants below

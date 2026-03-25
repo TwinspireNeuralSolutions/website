@@ -31,7 +31,7 @@ export function ProblemSection() {
               variant="title"
               as="h2"
               textColor="default"
-              className="text-center text-[22px] leading-[1.1] tracking-[-0.03em] sm:text-[28px] lg:text-[34px] xl:text-[40px]"
+              className="text-center"
             >
               {t('problem.headline')}
             </Typography>
@@ -43,10 +43,10 @@ export function ProblemSection() {
             delay={0.12}
             className="flex flex-col gap-4"
           >
-            <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
+            <p className="text-foreground/65 text-center text-[15px] leading-[1.8] sm:text-base">
               {t('problem.p1')}
             </p>
-            <p className="text-foreground/70 text-center text-[13px] leading-[1.8] sm:text-sm">
+            <p className="text-foreground/65 text-center text-[15px] leading-[1.8] sm:text-base">
               {t('problem.p2')}
             </p>
           </AnimateIn>

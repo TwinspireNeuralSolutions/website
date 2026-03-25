@@ -28,7 +28,7 @@ export function CTASection() {
             id="cta-heading"
             variant="title"
             as="h2"
-            className="mx-auto max-w-[820px] text-[28px] leading-[1.1] sm:text-[36px] md:text-[44px] lg:text-[52px]"
+            className="mx-auto max-w-[820px]"
           >
             {t('cta.title')}
           </Typography>
