@@ -5,6 +5,7 @@ import { CTASection } from '@/components/sections/CTA'
 import { FooterSection } from '@/components/sections/Footer'
 import { HeroSection } from '@/components/sections/Hero'
 import { PartnersSection } from '@/components/sections/Partners'
+import { ProductSection } from '@/components/sections/Product'
 import { TeamSection } from '@/components/sections/Team'
 import { Navbar } from '@/components/ui/navbar'
 
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <PartnersSection />
+        <ProductSection />
         <BuiltForSection />
         <CTASection />
         <AboutSection />
