@@ -138,6 +138,12 @@
             "description": "Modtag objektiv beslutningsstøtte med tilpassede grænseværdier og metrikker på hvert trin. Overvåg afvigelser fra personlige basislinjer, restitutionstrends og kapacitetssignaler på tværs af datakilder, med klare forklaringer og anbefalede handlinger."
         }
     },
+    "problem": {
+        "headline": "Du træffer søndagens beslutning med tirsdagens data.",
+        "p1": "Én ud af fire eliteskader er en haseskade. Næsten én ud af fem spillere river den over igen, de fleste inden for otte uger efter comeback. Genskadeshyppigheden har ikke rykket sig i et årti.",
+        "p2": "Den samlede skadeshyppighed har.",
+        "p3": "Værktøjerne har ikke fulgt med — hverken det ene eller det andet."
+    },
     "cta": {
         "title": "Klar til at se, hvad dit holds data faktisk fortæller dig?",
         "subtitle": "Vi optager grundlæggende partnere i Norden dette kvartal. Klubber der tilmelder sig nu er med til at forme produktet, får prioriteret adgang og fordelagtige priser.",
