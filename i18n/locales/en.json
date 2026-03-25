@@ -123,6 +123,8 @@
             "researchTeam": "Research Team",
             "fullStackDev": "Full Stack Developer",
             "internFullStackDev": "Intern Full Stack Developer",
+            "devOpsEngineer": "DevOps Engineer",
+            "cloudCyberEngineer": "Cloud & Cyber Security Engineer",
             "aiEngineer": "Generative AI Engineer",
             "advisor": "Advisor",
             "strategicAdvisor": "Strategic Advisor"

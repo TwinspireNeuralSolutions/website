@@ -41,13 +41,13 @@ export const founders: TeamMemberData[] = [
 export const teamMembers: TeamMemberData[] = [
   {
     name: 'Christos Andreas Ntemkas',
-    role: 'team.roles.researchTeam',
+    role: 'team.roles.cloudCyberEngineer',
     image: '/team/christos.png',
     linkedin: 'https://www.linkedin.com/in/christos-andreas-ntemkas-25a27815a/',
   },
   {
     name: 'Csongor Tarnai',
-    role: 'team.roles.researchTeam',
+    role: 'team.roles.devOpsEngineer',
     image: '/team/csongor.png',
     linkedin: 'https://www.linkedin.com/in/csongor-tarnai-65a4042b5/',
   },
