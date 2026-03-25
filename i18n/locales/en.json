@@ -138,6 +138,19 @@
             "description": "Receive objective decision support with customisable thresholds and metrics at every stage. Monitor deviations from personal baselines, recovery trends, and capacity signals across data sources, with clear explanations and recommended actions."
         }
     },
+    "product": {
+        "science": {
+            "heading": "Many Platforms Measure Load. We Connect It to Individual Responses.",
+            "body": "Based on DTU research in digital twins and sequential learning for physiological time series, Twinspire integrates multimodal signals and translates them into clear, actionable decision support outputs."
+        },
+        "trust": {
+            "heading": "The Data Belongs to the Athlete. Full Stop.",
+            "body": "GDPR-compliant from day one. EU servers. Never sold. Never shared. The Athletic Passport belongs to the athlete. The squad data belongs to the club. We host it — we do not own it.",
+            "bullet1": "Designed for GDPR compliance and DPAs",
+            "bullet2": "EU-based hosting and processing",
+            "bullet3": "Built with Danish research and innovation partners"
+        }
+    },
     "problem": {
         "headline": "You're Making Sunday's Decision with Tuesday's Data.",
         "p1": "One in four elite injuries is a hamstring injury. Nearly one in five players tears it again, most within eight weeks of returning. The reinjury rate has not moved in a decade.",

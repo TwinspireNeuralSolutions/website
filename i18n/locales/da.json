@@ -138,6 +138,19 @@
             "description": "Modtag objektiv beslutningsstøtte med tilpassede grænseværdier og metrikker på hvert trin. Overvåg afvigelser fra personlige basislinjer, restitutionstrends og kapacitetssignaler på tværs af datakilder, med klare forklaringer og anbefalede handlinger."
         }
     },
+    "product": {
+        "science": {
+            "heading": "Mange platforme måler belastning. Vi forbinder den med individuelle responser.",
+            "body": "Baseret på DTU-forskning i digitale tvillinger og sekventiel læring for fysiologiske tidsserier integrerer Twinspire multimodale signaler og omsætter dem til klare, handlingsrettede beslutningsstøtteoutput."
+        },
+        "trust": {
+            "heading": "Dataen tilhører atleten. Punktum.",
+            "body": "GDPR-kompatibel fra dag ét. EU-servere. Aldrig solgt. Aldrig delt. Athletic Passport tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
+            "bullet1": "Designet til GDPR-overholdelse og DPA'er",
+            "bullet2": "EU-baseret hosting og behandling",
+            "bullet3": "Bygget med danske forsknings- og innovationspartnere"
+        }
+    },
     "problem": {
         "headline": "Du træffer søndagens beslutning med tirsdagens data.",
         "p1": "Én ud af fire eliteskader er en haseskade. Næsten én ud af fem spillere river den over igen, de fleste inden for otte uger efter comeback. Genskadeshyppigheden har ikke rykket sig i et årti.",
