@@ -167,10 +167,11 @@
         "p2": "30% of injuries are rehab-related. The reinjury rate hasn't moved in a decade. The tools haven't caught up."
     },
     "cta": {
-        "title": "Your Squad Is Telling You Something. Are You Hearing It?",
+        "title": "Ready to See What Your Squad's Data Is Actually Telling You?",
         "subtitle": "We are onboarding founding partners across the Nordics this quarter. The clubs that join now shape the product, get priority access, and lock in preferred pricing.",
-        "stats": "71 athletes. 2 active clubs. 18 months of real data.",
-        "button": "Apply for the Founding Cohort"
+        "fields": "Name · Club or Clinic · Role · Email",
+        "button": "Apply for the Founding Cohort",
+        "note": "No commitment. A short call to see if it's the right fit."
     },
     "partners": {
         "heading": "Build the Future of Football Health With Us.",

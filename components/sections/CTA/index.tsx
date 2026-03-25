@@ -41,10 +41,10 @@ export function CTASection() {
           </p>
         </AnimateIn>
 
-        {/* Stats line */}
+        {/* Fields hint */}
         <AnimateIn variant="fadeUp" delay={0.18}>
-          <p className="text-foreground/50 mx-auto mt-3 max-w-[580px] text-sm sm:text-base">
-            {t('cta.stats')}
+          <p className="text-foreground/40 mx-auto mt-3 max-w-[580px] text-sm tracking-wide sm:text-base">
+            {t('cta.fields')}
           </p>
         </AnimateIn>
 
@@ -64,6 +64,13 @@ export function CTASection() {
               {t('cta.button')}
             </Button>
           </div>
+        </AnimateIn>
+
+        {/* Note */}
+        <AnimateIn variant="fadeUp" delay={0.36}>
+          <p className="text-foreground/40 mx-auto mt-4 text-xs sm:text-sm">
+            {t('cta.note')}
+          </p>
         </AnimateIn>
       </div>
     </section>
