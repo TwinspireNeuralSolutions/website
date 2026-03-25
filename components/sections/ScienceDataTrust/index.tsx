@@ -711,6 +711,9 @@ export function ScienceDataTrustSection() {
                     </li>
                   ))}
                 </ul>
+                <p className="text-foreground/40 mt-4 text-[11px] leading-[1.6] sm:text-[12px]">
+                  {t('product.trust.disclaimer')}
+                </p>
               </div>
               {/* Diagram — left on desktop (second in DOM = left with flex-row-reverse) */}
               <div className="flex-1">

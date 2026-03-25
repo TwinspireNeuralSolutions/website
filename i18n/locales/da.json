@@ -149,7 +149,8 @@
             "body": "GDPR-kompatibel. EU-servere. Aldrig solgt. Aldrig delt. Passet tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
             "bullet1": "GDPR-overholdelse og DPA’er",
             "bullet2": "EU-baseret hosting og behandling",
-            "bullet3": "Bygget med danske forskningspartnere"
+            "bullet3": "Bygget med danske forskningspartnere",
+            "disclaimer": "Twinspire er en beslutningsstøtteplatform og er ikke beregnet til at diagnosticere eller behandle medicinske tilstande."
         },
         "headline1": "Hver atlet har et mønster. Vi finder det.",
         "p1": "Twinspire bygger en løbende opdateret model af hver spiller baseret på GPS, styrkeoutput, fysinoter, neuromuskulære sensordata og atletens egne wearables, inklusive data fra uden for træningsanlægget. Den lærer, hvad normalt ser ud for den krop. Så fortæller den dig, når noget ændrer sig.",
