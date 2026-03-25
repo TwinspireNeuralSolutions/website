@@ -69,7 +69,7 @@
     },
     "nav": {
         "problem": "Problem",
-        "product": "Produkt",
+        "product": "Løsning",
         "builtFor": "For hvem",
         "science": "Videnskab",
         "team": "Holdet",
@@ -85,12 +85,12 @@
         "termsOfUse": "Vilkår for brug",
         "dataProcessingAgreement": "Databehandleraftale",
         "disclaimer": "Twinspire er en beslutningsstøtteplatform og er ikke beregnet til at diagnosticere eller behandle medicinske tilstande.",
-        "navProblem": "Problemet",
-        "navSolution": "Løsningen",
-        "navScience": "Videnskaben",
+        "navProblem": "Problem",
+        "navSolution": "Løsning",
+        "navScience": "Videnskab",
         "navForWhom": "For hvem",
         "navTeam": "Holdet",
-        "navJoin": "Bliv en del af pilotprogrammet",
+        "navJoin": "Tilmeld dig",
         "navData": "Data & Tillid"
     },
     "hero": {
@@ -189,14 +189,14 @@
         "clubOrClinicPlaceholder": "Klub eller klinik",
         "message": "Besked",
         "messagePlaceholder": "Besked",
-        "submit": "Ansøg nu",
+        "submit": "Tilmeld dig",
         "successTitle": "Du er på vores liste!",
         "successMessage": "Tak for din henvendelse. Vi vender snart tilbage.",
         "errorMessage": "Noget gik galt. Prøv venligst igen.",
         "address": "Adresse",
         "addressValue": "København, Danmark",
         "contactInfo": "Kontaktoplysninger",
-        "phone": "+45 2020 4040",
+        "phone": "+45 29161358",
         "emailContact": "info@twinspire.ai"
     }
 }

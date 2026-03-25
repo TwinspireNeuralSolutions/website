@@ -69,7 +69,7 @@
     },
     "nav": {
         "problem": "Problem",
-        "product": "Product",
+        "product": "Solution",
         "builtFor": "For Whom",
         "science": "Science",
         "team": "Team",
@@ -85,12 +85,12 @@
         "termsOfUse": "Terms of Use",
         "dataProcessingAgreement": "Data Processing Agreement",
         "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions.",
-        "navProblem": "The Problem",
-        "navSolution": "The Solution",
-        "navScience": "The Science",
+        "navProblem": "Problem",
+        "navSolution": "Solution",
+        "navScience": "Science",
         "navForWhom": "For Whom",
-        "navTeam": "The Team",
-        "navJoin": "Join the Pilot Cohort",
+        "navTeam": "Team",
+        "navJoin": "Join Us",
         "navData": "Data & Trust"
     },
     "hero": {
@@ -189,14 +189,14 @@
         "clubOrClinicPlaceholder": "Club or Clinic",
         "message": "Message",
         "messagePlaceholder": "Message",
-        "submit": "Apply Now",
+        "submit": "Join Us",
         "successTitle": "You're on our list!",
         "successMessage": "Thanks for reaching out. We'll be in touch soon.",
         "errorMessage": "Something went wrong. Please try again.",
         "address": "Address",
         "addressValue": "Copenhagen, Denmark",
         "contactInfo": "Contact Information",
-        "phone": "+45 2020 4040",
+        "phone": "+45 29161358",
         "emailContact": "info@twinspire.ai"
     }
 }

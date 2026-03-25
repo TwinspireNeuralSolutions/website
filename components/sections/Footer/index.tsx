@@ -6,13 +6,12 @@ import { useTranslation } from '@/i18n'
 import { AnimateIn } from '@/components/ui/animate-in'
 
 const NAV_LINKS = [
-  { key: 'footer.navProblem' as const, href: '#problem' },
-  { key: 'footer.navSolution' as const, href: '#solution' },
-  { key: 'footer.navScience' as const, href: '#science' },
-  { key: 'footer.navForWhom' as const, href: '#who-for' },
-  { key: 'footer.navTeam' as const, href: '#team' },
-  { key: 'footer.navJoin' as const, href: '#contact' },
-  { key: 'footer.navData' as const, href: '#gdpr' },
+  { key: 'footer.navProblem' as const, id: 'problem' },
+  { key: 'footer.navSolution' as const, id: 'product' },
+  { key: 'footer.navScience' as const, id: 'science' },
+  { key: 'footer.navForWhom' as const, id: 'built-for' },
+  { key: 'footer.navTeam' as const, id: 'team' },
+  { key: 'footer.navJoin' as const, id: 'contact' },
 ] as const
 
 /**
@@ -30,12 +29,17 @@ export function FooterSection() {
           <nav className="mb-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:mb-12 sm:gap-x-5 md:mb-14">
             {NAV_LINKS.map((link, i) => (
               <React.Fragment key={link.key}>
-                <a
-                  href={link.href}
+                <button
+                  type="button"
+                  onClick={() =>
+                    document
+                      .getElementById(link.id)
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
                   className="hover:text-primary text-xs font-medium text-black/50 transition-colors"
                 >
                   {t(link.key)}
-                </a>
+                </button>
                 {i < NAV_LINKS.length - 1 && (
                   <span className="text-xs text-black/20 select-none">·</span>
                 )}
