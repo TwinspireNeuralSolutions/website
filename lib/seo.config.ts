@@ -4,9 +4,10 @@
  */
 export const seoConfig = {
   site: {
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://twinspire.io',
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://twinspire.ai',
     name: 'Twinspire',
-    description: 'Twinspire — performance analytics for elite sports teams.',
+    description:
+      'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data.',
   },
   defaultLocale: 'en',
 } as const

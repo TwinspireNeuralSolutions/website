@@ -76,90 +76,92 @@ export function Navbar() {
       >
         <nav
           aria-label="Main navigation"
-          className="flex items-center gap-2 px-5 py-3.5 sm:px-10 sm:py-4 md:px-14 lg:px-20"
+          className="px-5 py-3.5 sm:px-10 sm:py-4 md:px-14 lg:px-20"
         >
-          {/* Logo — single dark asset, CSS filter inverts to white on the hero */}
-          <Link
-            href={`/${locale}`}
-            aria-label="Twinspire — go to home"
-            className="relative mr-2 h-7 w-[120px] shrink-0 sm:h-8 sm:w-[132px]"
-          >
-            <Image
-              src="/logo-text/logo-black.png"
-              alt="Twinspire"
-              fill
-              priority
-              className="object-contain object-left transition-[filter] duration-300"
-              style={{
-                filter: glass
-                  ? 'brightness(1) invert(0)'
-                  : 'brightness(0) invert(1)',
-              }}
-            />
-          </Link>
-
-          {/* Desktop links */}
-          <ul className="hidden items-center gap-0.5 lg:flex">
-            {NAV_LINKS.map(({ key, href }) => (
-              <li key={key}>
-                <a
-                  href={href}
-                  className={cn(
-                    'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
-                    glass
-                      ? 'text-foreground hover:bg-foreground/[0.06]'
-                      : 'text-white hover:bg-white/[0.12]'
-                  )}
-                >
-                  {t(key)}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex-1" />
-
-          {/* Desktop: lang selector + CTA */}
-          <div className="hidden items-center gap-2 lg:flex">
-            <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
-            <Link href={`/${locale}/admin`}>
-              <Button variant="primary" size="sm" showIcon>
-                {t('nav.teamLogin')}
-              </Button>
-            </Link>
-          </div>
-
-          {/* Mobile: lang selector + burger */}
-          <div className="flex items-center gap-1 lg:hidden">
-            <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
-            <button
-              type="button"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav"
-              onClick={() => setMobileOpen((v) => !v)}
-              className={cn(
-                'relative flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200',
-                glass
-                  ? 'text-foreground hover:bg-foreground/[0.06]'
-                  : 'text-white hover:bg-white/[0.12]'
-              )}
+          <div className="section-inner mx-auto flex items-center gap-2">
+            {/* Logo — single dark asset, CSS filter inverts to white on the hero */}
+            <Link
+              href={`/${locale}`}
+              aria-label="Twinspire — go to home"
+              className="relative mr-2 h-7 w-[120px] shrink-0 sm:h-8 sm:w-[132px]"
             >
-              <Menu
-                className={cn(
-                  'absolute h-5 w-5 transition-all duration-200',
-                  mobileOpen ? 'scale-50 opacity-0' : 'scale-100 opacity-100'
-                )}
-                aria-hidden
+              <Image
+                src="/logo-text/logo-black.png"
+                alt="Twinspire"
+                fill
+                priority
+                className="object-contain object-left transition-[filter] duration-300"
+                style={{
+                  filter: glass
+                    ? 'brightness(1) invert(0)'
+                    : 'brightness(0) invert(1)',
+                }}
               />
-              <X
+            </Link>
+
+            {/* Desktop links */}
+            <ul className="hidden items-center gap-0.5 lg:flex">
+              {NAV_LINKS.map(({ key, href }) => (
+                <li key={key}>
+                  <a
+                    href={href}
+                    className={cn(
+                      'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                      glass
+                        ? 'text-foreground hover:bg-foreground/[0.06]'
+                        : 'text-white hover:bg-white/[0.12]'
+                    )}
+                  >
+                    {t(key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex-1" />
+
+            {/* Desktop: lang selector + CTA */}
+            <div className="hidden items-center gap-2 lg:flex">
+              <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
+              <Link href={`/${locale}/admin`}>
+                <Button variant="primary" size="sm" showIcon>
+                  {t('nav.teamLogin')}
+                </Button>
+              </Link>
+            </div>
+
+            {/* Mobile: lang selector + burger */}
+            <div className="flex items-center gap-1 lg:hidden">
+              <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
+              <button
+                type="button"
+                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-nav"
+                onClick={() => setMobileOpen((v) => !v)}
                 className={cn(
-                  'absolute h-5 w-5 transition-all duration-200',
-                  mobileOpen ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+                  'relative flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200',
+                  glass
+                    ? 'text-foreground hover:bg-foreground/[0.06]'
+                    : 'text-white hover:bg-white/[0.12]'
                 )}
-                aria-hidden
-              />
-            </button>
+              >
+                <Menu
+                  className={cn(
+                    'absolute h-5 w-5 transition-all duration-200',
+                    mobileOpen ? 'scale-50 opacity-0' : 'scale-100 opacity-100'
+                  )}
+                  aria-hidden
+                />
+                <X
+                  className={cn(
+                    'absolute h-5 w-5 transition-all duration-200',
+                    mobileOpen ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+                  )}
+                  aria-hidden
+                />
+              </button>
+            </div>
           </div>
         </nav>
       </div>
@@ -175,34 +177,36 @@ export function Navbar() {
         style={GLASS_STYLE}
       >
         <div className="overflow-hidden">
-          <div className="border-t border-[var(--navbar-glass-border)] px-5 pt-2 pb-6 sm:px-10">
-            <ul className="mb-4 flex flex-col">
-              {NAV_LINKS.map(({ key, href }) => (
-                <li key={key}>
-                  <a
-                    href={href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-foreground hover:bg-foreground/[0.06] block rounded-full px-4 py-3 text-base font-medium transition-colors duration-150"
-                  >
-                    {t(key)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <Link
-              href={`/${locale}/admin`}
-              onClick={() => setMobileOpen(false)}
-              className="block"
-            >
-              <Button
-                variant="primary"
-                size="default"
-                showIcon
-                className="w-full justify-between"
+          <div className="border-t border-[var(--navbar-glass-border)] px-5 sm:px-10">
+            <div className="section-inner mx-auto pt-2 pb-6">
+              <ul className="mb-4 flex flex-col">
+                {NAV_LINKS.map(({ key, href }) => (
+                  <li key={key}>
+                    <a
+                      href={href}
+                      onClick={() => setMobileOpen(false)}
+                      className="text-foreground hover:bg-foreground/[0.06] block rounded-full px-4 py-3 text-base font-medium transition-colors duration-150"
+                    >
+                      {t(key)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={`/${locale}/admin`}
+                onClick={() => setMobileOpen(false)}
+                className="block"
               >
-                {t('nav.teamLogin')}
-              </Button>
-            </Link>
+                <Button
+                  variant="primary"
+                  size="default"
+                  showIcon
+                  className="w-full justify-between"
+                >
+                  {t('nav.teamLogin')}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

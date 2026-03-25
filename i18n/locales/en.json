@@ -91,9 +91,9 @@
         "navData": "Data & Trust"
     },
     "hero": {
-        "headlineLine1": "Europe's AI Rehabilitation",
-        "headlineLine2": "Platform for Football.",
-        "subtitle": "One in five footballers re-tears the same muscle. Twinspire reads what’s happening inside — before it happens.",
+        "headlineLine1": "The Body Knows",
+        "headlineLine2": "Before You Do.",
+        "subtitle": "One in five footballers tears the same muscle twice, most within eight weeks of returning. Twinspire connects the full picture and explains what is changing — before it becomes a setback.",
         "cta": "Join the Founding Pilot Cohort",
         "audienceAthletes": "Athletes",
         "audienceCoaches": "Coaches",
@@ -182,6 +182,9 @@
         "message": "Message",
         "messagePlaceholder": "Message",
         "submit": "Submit",
+        "successTitle": "You're on our list!",
+        "successMessage": "Thanks for reaching out. We'll be in touch soon.",
+        "errorMessage": "Something went wrong. Please try again.",
         "address": "Address",
         "addressValue": "Copenhagen, Denmark",
         "contactInfo": "Contact Information",

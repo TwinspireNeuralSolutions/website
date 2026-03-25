@@ -91,9 +91,9 @@
         "navData": "Data & Tillid"
     },
     "hero": {
-        "headlineLine1": "Europas AI-rehabiliteringsplatform",
-        "headlineLine2": "for fodbold.",
-        "subtitle": "Én ud af fem fodboldspillere overriver den samme muskel igen. Twinspire fortæller dig hvorfor — før det sker.",
+        "headlineLine1": "Kroppen ved det",
+        "headlineLine2": "Før du gør.",
+        "subtitle": "Én ud af fem fodboldspillere overriver den samme muskel to gange, de fleste inden for otte uger efter retur. Twinspire forbinder det fulde billede og forklarer, hvad der ændrer sig — før det bliver et tilbagefald.",
         "cta": "Bliv en del af pilotprogrammet",
         "audienceAthletes": "Atleter",
         "audienceCoaches": "Trænere",
@@ -182,6 +182,9 @@
         "message": "Besked",
         "messagePlaceholder": "Besked",
         "submit": "Indsend",
+        "successTitle": "Du er på vores liste!",
+        "successMessage": "Tak for din henvendelse. Vi vender snart tilbage.",
+        "errorMessage": "Noget gik galt. Prøv venligst igen.",
         "address": "Adresse",
         "addressValue": "København, Danmark",
         "contactInfo": "Kontaktoplysninger",
