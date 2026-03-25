@@ -70,8 +70,11 @@
     "nav": {
         "problem": "Problem",
         "product": "Product",
-        "forTeam": "For Team",
-        "gdpr": "GDPR",
+        "builtFor": "For Whom",
+        "science": "Science",
+        "team": "Team",
+        "partnerships": "Partnerships",
+        "joinUs": "Join Us",
         "teamLogin": "Team Login"
     },
     "footer": {

@@ -70,8 +70,11 @@
     "nav": {
         "problem": "Problem",
         "product": "Produkt",
-        "forTeam": "Til holdet",
-        "gdpr": "GDPR",
+        "builtFor": "For hvem",
+        "science": "Videnskab",
+        "team": "Holdet",
+        "partnerships": "Partnerskaber",
+        "joinUs": "Tilmeld dig",
         "teamLogin": "Team Login"
     },
     "footer": {

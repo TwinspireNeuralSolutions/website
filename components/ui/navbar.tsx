@@ -14,8 +14,9 @@ import { cn } from '@/lib/utils'
 const NAV_LINKS = [
   { key: 'nav.problem' as const, href: '#problem' },
   { key: 'nav.product' as const, href: '#product' },
-  { key: 'nav.forTeam' as const, href: '#for-team' },
-  { key: 'nav.gdpr' as const, href: '#gdpr' },
+  { key: 'nav.builtFor' as const, href: '#built-for' },
+  { key: 'nav.science' as const, href: '#science' },
+  { key: 'nav.team' as const, href: '#team' },
 ]
 
 /** Glass blur applied to both the scrolled bar and the mobile dropdown. */

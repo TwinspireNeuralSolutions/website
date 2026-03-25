@@ -649,7 +649,7 @@ export function ScienceDataTrustSection() {
 
   return (
     <section
-      id="product"
+      id="science"
       aria-label="Science and data trust"
       className="bg-background relative z-10 w-full"
     >
