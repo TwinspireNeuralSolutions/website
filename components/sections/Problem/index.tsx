@@ -22,7 +22,7 @@ export function ProblemSection() {
       aria-labelledby="problem-heading"
       className="bg-background relative z-10 w-full"
     >
-      <div className="section-inner mx-auto px-8 pt-10 pb-16 sm:px-12 md:px-16 md:pt-14 md:pb-24">
+      <div className="section-x section-y section-inner mx-auto">
         <div className="mx-auto flex max-w-3xl flex-col gap-8">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp">

@@ -28,7 +28,7 @@ export function ProductSection() {
       <div className="lg:hidden">
         {/* White band: first text */}
         <div className="bg-white">
-          <div className="section-x section-inner mx-auto pt-14 pb-8">
+          <div className="section-x section-inner mx-auto pt-20 pb-10">
             <AnimateIn variant="fadeUp" className="flex flex-col gap-5">
               <Typography
                 variant="title"
@@ -67,7 +67,7 @@ export function ProductSection() {
 
         {/* Lavender band: second text */}
         <div className="bg-[#e6e6f3]">
-          <div className="section-x section-inner mx-auto pt-8 pb-14">
+          <div className="section-x section-inner mx-auto pt-10 pb-20">
             <AnimateIn
               variant="fadeUp"
               delay={0.1}
