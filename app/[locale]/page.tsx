@@ -6,7 +6,7 @@ import { FooterSection } from '@/components/sections/Footer'
 import { HeroSection } from '@/components/sections/Hero'
 import { PartnersSection } from '@/components/sections/Partners'
 import { ProblemSection } from '@/components/sections/Problem'
-import { ProductSection } from '@/components/sections/Product'
+import { ScienceDataTrustSection } from '@/components/sections/ScienceDataTrust'
 import { TeamSection } from '@/components/sections/Team'
 import { Navbar } from '@/components/ui/navbar'
 
@@ -23,7 +23,7 @@ export default function Home() {
         <PartnersSection />
         <ProblemSection />
         <BuiltForSection />
-        <ProductSection />
+        <ScienceDataTrustSection />
         <CTASection />
         <AboutSection />
         <TeamSection />
