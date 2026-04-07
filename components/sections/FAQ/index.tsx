@@ -70,8 +70,6 @@ const FAQ_ITEMS = [
   },
 ] as const
 
-const INITIAL_VISIBLE_ITEMS = 6
-
 /**
  * FAQSection
  *
@@ -79,14 +77,10 @@ const INITIAL_VISIBLE_ITEMS = 6
  */
 export function FAQSection() {
   const { t } = useTranslation()
-  const [showAll, setShowAll] = useState(false)
   const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0].id)
-  const visibleItems = showAll
-    ? FAQ_ITEMS
-    : FAQ_ITEMS.slice(0, INITIAL_VISIBLE_ITEMS)
-  const mid = Math.ceil(visibleItems.length / 2)
-  const leftColumnItems = visibleItems.slice(0, mid)
-  const rightColumnItems = visibleItems.slice(mid)
+  const mid = Math.ceil(FAQ_ITEMS.length / 2)
+  const leftColumnItems = FAQ_ITEMS.slice(0, mid)
+  const rightColumnItems = FAQ_ITEMS.slice(mid)
 
   const renderFaqItem = (
     item: (typeof FAQ_ITEMS)[number],
@@ -155,7 +149,7 @@ export function FAQSection() {
     <section id="faq" className="bg-muted relative z-10 w-full">
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
         <AnimateIn variant="fadeUp">
-          <div className="mx-auto mb-7 flex max-w-[1080px] flex-col gap-5 text-left sm:mb-8 sm:flex-row sm:items-start sm:justify-between lg:mb-9">
+          <div className="mx-auto mb-7 max-w-[1080px] text-left sm:mb-8 lg:mb-9">
             <div className="max-w-[680px]">
               <Typography
                 variant="title"
@@ -174,28 +168,6 @@ export function FAQSection() {
                 {t('faq.subtitle')}
               </Typography>
             </div>
-
-            <button
-              type="button"
-              className="bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active inline-flex h-10 shrink-0 items-center rounded-full px-5 text-[12px] font-medium transition-colors duration-200"
-              onClick={() => {
-                if (showAll) {
-                  const initialIds: string[] = FAQ_ITEMS.slice(
-                    0,
-                    INITIAL_VISIBLE_ITEMS
-                  ).map((item) => item.id)
-
-                  if (openId && !initialIds.includes(openId)) {
-                    setOpenId(FAQ_ITEMS[0].id)
-                  }
-                }
-
-                setShowAll((current) => !current)
-              }}
-              aria-label={showAll ? t('faq.viewLess') : t('faq.viewAll')}
-            >
-              {showAll ? t('faq.viewLess') : t('faq.viewAll')}
-            </button>
           </div>
         </AnimateIn>
 
