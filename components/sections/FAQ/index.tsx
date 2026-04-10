@@ -99,7 +99,7 @@ export function FAQSection() {
         <Card className="border-border/80 bg-background overflow-hidden rounded-xl shadow-none">
           <button
             type="button"
-            className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-3 text-left sm:min-h-12 sm:px-5"
+            className="group flex min-h-11 w-full items-center justify-between gap-4 px-4 py-3 text-left transition-colors duration-200 sm:min-h-12 sm:px-5"
             onClick={() =>
               setOpenId((current) => (current === item.id ? null : item.id))
             }
@@ -110,36 +110,51 @@ export function FAQSection() {
               variant="heading"
               as="h3"
               textColor="default"
-              className="text-foreground pr-4 text-[13px] leading-[1.45] font-medium sm:text-[14px]"
+              className="text-foreground pr-4 text-[13px] leading-[1.45] font-medium transition-colors duration-200 sm:text-[14px]"
             >
               {t(item.questionKey)}
             </Typography>
             <span
               aria-hidden
               className={cn(
-                'text-primary text-xl leading-none font-light transition-transform duration-200',
-                isOpen ? 'rotate-45' : 'rotate-0'
+                'text-primary text-xl leading-none font-light transition-transform duration-300 ease-out',
+                isOpen ? 'scale-110 rotate-45' : 'scale-100 rotate-0'
               )}
             >
               +
             </span>
           </button>
 
-          {isOpen && (
+          <div
+            id={answerId}
+            aria-hidden={!isOpen}
+            className={cn(
+              'grid overflow-hidden transition-all duration-400 ease-in-out',
+              isOpen
+                ? 'grid-rows-[1fr] opacity-100'
+                : 'grid-rows-[0fr] opacity-0'
+            )}
+          >
             <div
-              id={answerId}
-              className="border-border/80 border-t px-4 pb-4 sm:px-5 sm:pb-5"
+              className={cn(
+                'min-h-0 transition-all duration-300 ease-out',
+                isOpen
+                  ? 'translate-y-0 opacity-100'
+                  : '-translate-y-1 opacity-0'
+              )}
             >
-              <Typography
-                variant="paragraph"
-                as="p"
-                textColor="default"
-                className="text-foreground/70 text-[12px] leading-[1.7] whitespace-pre-line sm:text-[13px]"
-              >
-                {t(item.answerKey)}
-              </Typography>
+              <div className="border-border/80 border-t px-4 pt-3 pb-4 sm:px-5 sm:pt-3.5 sm:pb-5">
+                <Typography
+                  variant="paragraph"
+                  as="p"
+                  textColor="default"
+                  className="text-foreground/70 text-[12px] leading-[1.7] whitespace-pre-line sm:text-[13px]"
+                >
+                  {t(item.answerKey)}
+                </Typography>
+              </div>
             </div>
-          )}
+          </div>
         </Card>
       </AnimateIn>
     )
