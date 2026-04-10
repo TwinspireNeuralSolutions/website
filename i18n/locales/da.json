@@ -96,7 +96,9 @@
   "hero": {
     "headlineLine1": "Kroppen ved det",
     "headlineLine2": "Før du gør.",
-    "subtitle": "Én ud af fem fodboldspillere river den samme muskel over to gange. Ikke på grund af dårlig held, men på grund af oversete signaler. Twinspire læser dem alle.",
+    "subtitleLine1": "Én ud af fem fodboldspillere river den samme muskel over to gange.",
+    "subtitleLine2": "Ikke på grund af dårlig held, men på grund af oversete signaler.",
+    "subtitleLine3": "Twinspire læser dem alle.",
     "cta": "Bliv en del af pilotprogrammet",
     "audienceAthletes": "Atleter",
     "audienceCoaches": "Trænere",

@@ -95,8 +95,10 @@
   },
   "hero": {
     "headlineLine1": "The Body Knows",
-    "headlineLine2": "Before You Do.",
-    "subtitle": "One in five footballers tears the same muscle twice. Not from bad luck, but from missed signals. Twinspire reads every one of them.",
+    "headlineLine2": "Before You Do",
+    "subtitleLine1": "One in five footballers tear the same muscle twice.",
+    "subtitleLine2": "Not from bad luck, but from missed signals.",
+    "subtitleLine3": "Twinspire reads every one of them.",
     "cta": "Join the Founding Pilot Cohort",
     "audienceAthletes": "Athletes",
     "audienceCoaches": "Coaches",

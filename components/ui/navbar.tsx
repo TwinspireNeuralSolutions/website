@@ -77,14 +77,14 @@ export function Navbar() {
       >
         <nav
           aria-label="Main navigation"
-          className="px-5 py-3.5 sm:px-10 sm:py-4 md:px-14 lg:px-20"
+          className="px-5 py-4 sm:px-10 sm:py-5 md:px-14 lg:px-20"
         >
           <div className="section-inner mx-auto flex items-center gap-2">
             {/* Logo — single dark asset, CSS filter inverts to white on the hero */}
             <Link
               href={`/${locale}`}
               aria-label="Twinspire — go to home"
-              className="relative mr-2 h-7 w-[120px] shrink-0 sm:h-8 sm:w-[132px]"
+              className="relative mr-4 h-8 w-[130px] shrink-0 sm:h-9 sm:w-[144px]"
             >
               <Image
                 src="/logo-text/logo-black.png"
@@ -101,7 +101,7 @@ export function Navbar() {
             </Link>
 
             {/* Desktop links */}
-            <ul className="hidden items-center gap-0.5 lg:flex">
+            <ul className="hidden items-center gap-1 lg:flex">
               {NAV_LINKS.map(({ key, id }) => (
                 <li key={key}>
                   <button
@@ -112,7 +112,7 @@ export function Navbar() {
                         ?.scrollIntoView({ behavior: 'smooth' })
                     }
                     className={cn(
-                      'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                      'rounded-full px-5 py-2.5 text-sm font-medium tracking-wide uppercase transition-colors duration-200',
                       glass
                         ? 'text-foreground hover:bg-foreground/[0.06]'
                         : 'text-white hover:bg-white/[0.12]'
@@ -130,7 +130,12 @@ export function Navbar() {
             <div className="hidden items-center gap-2 lg:flex">
               <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
               <Link href={`/${locale}/admin`}>
-                <Button variant="primary" size="sm" showIcon>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  showIcon
+                  className="bg-[#0ea5e9] text-sm font-medium tracking-wide hover:bg-[#0b8ecf] active:bg-[#0879b3]"
+                >
                   {t('nav.teamLogin')}
                 </Button>
               </Link>

@@ -44,10 +44,10 @@ export function HeroSection() {
     <section className="sticky top-0 z-0 h-svh min-h-[600px] w-full overflow-hidden">
       {/* ── Layer 1: Full-bleed player image ── */}
       <Image
-        src="/hero-image.jpg"
+        src="/hero2.png"
         alt="Football player kicking ball in stadium"
         fill
-        className="absolute inset-0 object-cover object-[55%_0%]"
+        className="absolute inset-0 object-cover object-[right_20%]"
         priority
         quality={95}
       />
@@ -72,20 +72,24 @@ export function HeroSection() {
             <div className="w-full max-w-[85vw] sm:max-w-[540px] md:max-w-[600px] lg:max-w-[680px] xl:max-w-[760px]">
               <AnimateIn variant="fadeUp" immediate>
                 <h1
-                  className="mb-4 font-sans font-bold tracking-tight text-white"
+                  className="mb-4 font-sans font-bold tracking-tight text-white uppercase"
                   style={{
-                    fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
+                    fontSize: 'clamp(2.2rem, 4vw, 4.5rem)',
                     lineHeight: 1.05,
                   }}
                 >
                   <span className="block">{t('hero.headlineLine1')}</span>
-                  <span className="block">{t('hero.headlineLine2')}</span>
+                  <span className="block text-[#0ea5e9]">
+                    {t('hero.headlineLine2')}
+                  </span>
                 </h1>
               </AnimateIn>
               <AnimateIn variant="fadeUp" delay={0.15} immediate>
-                <p className="mb-8 max-w-[280px] font-sans text-sm leading-relaxed text-white/70 sm:max-w-[320px] sm:text-base md:max-w-[340px] md:text-base lg:max-w-[400px] lg:text-lg">
-                  {t('hero.subtitle')}
-                </p>
+                <div className="mb-8 flex max-w-[320px] flex-col gap-1 font-sans text-sm leading-relaxed font-medium tracking-wide text-white/70 sm:max-w-[380px] sm:text-base md:max-w-[400px] md:text-base lg:max-w-[460px] lg:text-lg">
+                  <span>{t('hero.subtitleLine1')}</span>
+                  <span>{t('hero.subtitleLine2')}</span>
+                  <span>{t('hero.subtitleLine3')}</span>
+                </div>
               </AnimateIn>
               <AnimateIn variant="fadeUp" delay={0.3} immediate>
                 <Button

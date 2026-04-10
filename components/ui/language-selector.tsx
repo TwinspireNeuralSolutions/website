@@ -66,8 +66,8 @@ export function LanguageSelector({
         aria-expanded={open}
         aria-label="Select language"
         className={cn(
-          'flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium',
-          'select-none transition-colors duration-200 focus-visible:outline-none',
+          'flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium tracking-wide',
+          'transition-colors duration-200 select-none focus-visible:outline-none',
           triggerCls,
           open && openBg
         )}
@@ -88,7 +88,7 @@ export function LanguageSelector({
         <div
           role="listbox"
           aria-label="Languages"
-          className="absolute right-0 top-full z-50 mt-2 min-w-[148px] overflow-hidden rounded-2xl border border-black/[0.08] bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
+          className="absolute top-full right-0 z-50 mt-2 min-w-[148px] overflow-hidden rounded-2xl border border-black/[0.08] bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
           style={{
             animation: 'dropdown-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) both',
           }}
