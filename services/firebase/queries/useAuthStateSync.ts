@@ -7,7 +7,9 @@ import { AUTH_KEYS } from '../constants/query-keys'
 
 function onAuthStateChange(callback: (user: any) => void): () => void {
   if (!auth) {
-    throw new Error('Firebase auth not initialized')
+    return () => {
+      // Firebase auth is unavailable when NEXT_PUBLIC_FIREBASE_* vars are not configured.
+    }
   }
 
   return onAuthStateChanged(auth, callback)

@@ -1,206 +1,262 @@
 {
-    "common": {
-        "backToHome": "Back to Home",
-        "loading": "Loading...",
-        "submit": "Submit",
-        "cancel": "Cancel",
-        "save": "Save",
-        "delete": "Delete",
-        "edit": "Edit",
-        "close": "Close",
-        "confirm": "Confirm",
-        "yes": "Yes",
-        "no": "No",
-        "error": "Error",
-        "success": "Success",
-        "logout": "Logout",
-        "login": "Login",
-        "signIn": "Sign In",
-        "signUp": "Sign Up"
-    },
-    "auth": {
-        "teamManagerLogin": "Team Manager Login",
-        "signInDescription": "Sign in to upload and manage your team's data",
-        "email": "Email",
-        "password": "Password",
-        "emailPlaceholder": "email@example.com",
-        "passwordPlaceholder": "Enter your password",
-        "signInWithEmail": "Sign in with Email",
-        "signingIn": "Signing in...",
-        "orContinueWith": "Or continue with",
-        "google": "Google",
-        "apple": "Apple"
-    },
-    "dashboard": {
-        "selectDevice": "Select Device",
-        "selectDeviceDescription": "Please select a device to proceed with data upload",
-        "uploadTeamData": "Upload {device} Team Data",
-        "uploadDescription": "Upload your team's {device} Excel files to get started with analysis",
-        "dragAndDrop": "Drag & drop your {device} file here",
-        "dropHere": "Drop your {device} file here",
-        "orClickToBrowse": "or click to browse from your computer",
-        "supports": "Supports: .xlsx, .xls, .csv",
-        "fileReady": "File ready to upload",
-        "removeFile": "Remove file",
-        "uploadFile": "Upload File",
-        "uploading": "Uploading...",
-        "uploadSuccessful": "Upload Successful!",
-        "processingFile": "We're processing your file now",
-        "uploadAnother": "Upload Another File",
-        "home": "Home",
-        "back": "Back"
-    },
-    "componentLibrary": {
-        "title": "Component Library",
-        "subtitle": "Reusable UI components built with shadcn/ui and Tailwind CSS",
-        "buttons": "Buttons",
-        "typography": "Typography",
-        "inputs": "Inputs",
-        "primaryButton": "Primary Button",
-        "whiteButton": "White Button",
-        "title40": "Title (40px Bold)",
-        "subtitle16": "Subtitle (16px)",
-        "heading16": "Heading (16px Bold)",
-        "paragraph12": "Paragraph (12px)",
-        "inputLabel": "Input Label",
-        "inputPlaceholder": "Type something...",
-        "textareaLabel": "Textarea Label",
-        "textareaPlaceholder": "Write your message..."
-    },
-    "nav": {
-        "problem": "Problem",
-        "product": "Solution",
-        "builtFor": "For Whom",
-        "science": "Science",
-        "team": "Team",
-        "partnerships": "Partnerships",
-        "joinUs": "Join Us",
-        "teamLogin": "Team Login"
-    },
-    "footer": {
-        "copyright": "© 2026 Twinspire Neural Solutions · All rights reserved",
-        "tagline": "NEURAL  ·  NETWORK  ·  SOLUTION",
-        "linkedinLabel": "LinkedIn",
-        "privacyPolicy": "Privacy Policy",
-        "termsOfUse": "Terms of Use",
-        "dataProcessingAgreement": "Data Processing Agreement",
-        "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions.",
-        "navProblem": "Problem",
-        "navSolution": "Solution",
-        "navScience": "Science",
-        "navForWhom": "For Whom",
-        "navTeam": "Team",
-        "navJoin": "Join Us",
-        "navData": "Data & Trust"
-    },
-    "hero": {
-        "headlineLine1": "The Body Knows",
-        "headlineLine2": "Before You Do.",
-        "subtitle": "One in five footballers tears the same muscle twice. Not from bad luck, but from missed signals. Twinspire reads every one of them.",
-        "cta": "Join the Founding Pilot Cohort",
-        "audienceAthletes": "Athletes",
-        "audienceCoaches": "Coaches",
-        "audiencePhysio": "Physiotherapists"
-    },
-    "about": {
-        "headline": "This Started With One Injury. Then a Second.",
-        "p1": "Pouya was a professional footballer. He did everything right. Full rehab, clinical clearance, gradual return.",
-        "p2": "Eight weeks later, he tore the same muscle again.",
-        "p3": "The warning signs were there. The process couldn't see them. He went back to DTU to build what didn't exist. Twinspire is the result.",
-        "imageAlt": "Pouya on the football pitch wearing an orange training bib"
-    },
-    "team": {
-        "heading": "Built by People Who've Been on the Treatment Table",
-        "founders": "Founders",
-        "researchTeam": "Research Team",
-        "advisers": "Advisory Board",
-        "team": "Team",
-        "roles": {
-            "founderCeo": "Founder & CEO",
-            "academicCoFounder": "Co-Founder & Head of Research",
-            "coFounderDev": "Co-Founder & Lead Developer",
-            "coFounderCoo": "Co-Founder & COO",
-            "researchTeam": "Research Team",
-            "fullStackDev": "Full Stack Developer",
-            "internFullStackDev": "Intern Full Stack Developer",
-            "devOpsEngineer": "DevOps Engineer",
-            "cloudCyberEngineer": "Cloud & Cyber Security Engineer",
-            "aiEngineer": "Generative AI Engineer",
-            "advisor": "Advisor",
-            "strategicAdvisor": "Strategic Advisor"
-        }
-    },
-    "builtFor": {
-        "heading": "For Everyone Who Refuses to Lose a Player to a Preventable Injury.",
-        "footballers": {
-            "title": "Footballers",
-            "description": "Your body has been generating data your whole career. Most of it has disappeared. Twinspire gives it back and makes sure it follows you wherever you go."
-        },
-        "coaches": {
-            "title": "Coaches & Performance Staff",
-            "description": "Know your squad's true readiness before you set the lineup. Neuromuscular load and recovery signals, including data your athletes generate on their own time."
-        },
-        "physio": {
-            "title": "Physiotherapists",
-            "description": "Get unified objective deviation alerts, recovery signals, and recommended actions from every data source."
-        }
-    },
-    "product": {
-        "science": {
-            "heading": "This Is Not a Dashboard. It Is a Model.",
-            "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
-        },
-        "trust": {
-            "heading": "The Data Belongs to the Athlete. Full Stop.",
-            "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
-            "bullet1": "GDPR compliance and DPAs",
-            "bullet2": "EU-based hosting and processing",
-            "bullet3": "Built with Danish research partners",
-            "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions."
-        },
-        "headline1": "Every Athlete Has a Pattern. We Find It.",
-        "p1": "Twinspire builds a continuously updated model of each player by drawing on GPS, strength output, physio notes, neuromuscular sensor data, and the athlete's own wearables, including data from away from the training ground. It learns what normal looks like for that body. Then it tells you when something shifts.",
-        "headline2": "Athletic Passport",
-        "p2": "Every session, every load, every injury is logged, structured, and portable. When a player moves clubs, their full history moves with them.",
-        "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
-    },
-    "problem": {
-        "headline": "You're Making Sunday's Decision with Tuesday's Data.",
-        "p1": "GPS in one system. Strength tests in another. Gym sessions, extra runs, wearable data that never leaves the player's phone. The full picture has never been in one place. Not because of how the staff works, but because of how the tools are built.",
-        "p2": "30% of injuries are rehab-related. The reinjury rate hasn't moved in a decade. The tools haven't caught up."
-    },
-    "cta": {
-        "title": "Ready to See What Your Squad's Data Is Actually Telling You?",
-        "subtitle": "We are onboarding founding partners across the Nordics this quarter. The clubs that join now shape the product, get priority access, and lock in preferred pricing.",
-        "fields": "Name · Club or Clinic · Role · Email",
-        "button": "Apply for the Founding Cohort",
-        "note": "No commitment. A short call to see if it's the right fit."
-    },
-    "partners": {
-        "heading": "Build the Future of Football Health With Us.",
-        "body": "We work with sensor providers, clinics, and research institutions pushing the boundaries of performance and rehabilitation. If your work belongs in the stack — let's talk.",
-        "cta": "Get in touch"
-    },
-    "contact": {
-        "title": "The Reinjury Rate Hasn't Moved in a Decade.\nLet's Change That.",
-        "name": "Name",
-        "namePlaceholder": "Jane Smith",
-        "email": "Email",
-        "emailPlaceholder": "jane@frame.com",
-        "role": "Role",
-        "rolePlaceholder": "Role",
-        "clubOrClinic": "Club or Clinic",
-        "clubOrClinicPlaceholder": "Club or Clinic",
-        "message": "Message",
-        "messagePlaceholder": "Message",
-        "submit": "Join Us",
-        "successTitle": "You're on our list!",
-        "successMessage": "Thanks for reaching out. We'll be in touch soon.",
-        "errorMessage": "Something went wrong. Please try again.",
-        "address": "Address",
-        "addressValue": "Copenhagen, Denmark",
-        "contactInfo": "Contact Information",
-        "phone": "+45 29161358",
-        "emailContact": "info@twinspire.ai"
+  "common": {
+    "backToHome": "Back to Home",
+    "loading": "Loading...",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "error": "Error",
+    "success": "Success",
+    "logout": "Logout",
+    "login": "Login",
+    "signIn": "Sign In",
+    "signUp": "Sign Up"
+  },
+  "auth": {
+    "teamManagerLogin": "Team Manager Login",
+    "signInDescription": "Sign in to upload and manage your team's data",
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "email@example.com",
+    "passwordPlaceholder": "Enter your password",
+    "signInWithEmail": "Sign in with Email",
+    "signingIn": "Signing in...",
+    "orContinueWith": "Or continue with",
+    "google": "Google",
+    "apple": "Apple"
+  },
+  "dashboard": {
+    "selectDevice": "Select Device",
+    "selectDeviceDescription": "Please select a device to proceed with data upload",
+    "uploadTeamData": "Upload {device} Team Data",
+    "uploadDescription": "Upload your team's {device} Excel files to get started with analysis",
+    "dragAndDrop": "Drag & drop your {device} file here",
+    "dropHere": "Drop your {device} file here",
+    "orClickToBrowse": "or click to browse from your computer",
+    "supports": "Supports: .xlsx, .xls, .csv",
+    "fileReady": "File ready to upload",
+    "removeFile": "Remove file",
+    "uploadFile": "Upload File",
+    "uploading": "Uploading...",
+    "uploadSuccessful": "Upload Successful!",
+    "processingFile": "We're processing your file now",
+    "uploadAnother": "Upload Another File",
+    "home": "Home",
+    "back": "Back"
+  },
+  "componentLibrary": {
+    "title": "Component Library",
+    "subtitle": "Reusable UI components built with shadcn/ui and Tailwind CSS",
+    "buttons": "Buttons",
+    "typography": "Typography",
+    "inputs": "Inputs",
+    "primaryButton": "Primary Button",
+    "whiteButton": "White Button",
+    "title40": "Title (40px Bold)",
+    "subtitle16": "Subtitle (16px)",
+    "heading16": "Heading (16px Bold)",
+    "paragraph12": "Paragraph (12px)",
+    "inputLabel": "Input Label",
+    "inputPlaceholder": "Type something...",
+    "textareaLabel": "Textarea Label",
+    "textareaPlaceholder": "Write your message..."
+  },
+  "nav": {
+    "problem": "Problem",
+    "product": "Solution",
+    "builtFor": "For Whom",
+    "science": "Science",
+    "team": "Team",
+    "partnerships": "Partnerships",
+    "joinUs": "Join Us",
+    "teamLogin": "Team Login"
+  },
+  "footer": {
+    "copyright": "© 2026 Twinspire Neural Solutions · All rights reserved",
+    "tagline": "NEURAL  ·  NETWORK  ·  SOLUTION",
+    "linkedinLabel": "LinkedIn",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "dataProcessingAgreement": "Data Processing Agreement",
+    "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions.",
+    "navProblem": "Problem",
+    "navSolution": "Solution",
+    "navScience": "Science",
+    "navForWhom": "For Whom",
+    "navTeam": "Team",
+    "navJoin": "Join Us",
+    "navData": "Data & Trust"
+  },
+  "hero": {
+    "headlineLine1": "The Body Knows",
+    "headlineLine2": "Before You Do.",
+    "subtitle": "One in five footballers tears the same muscle twice. Not from bad luck, but from missed signals. Twinspire reads every one of them.",
+    "cta": "Join the Founding Pilot Cohort",
+    "audienceAthletes": "Athletes",
+    "audienceCoaches": "Coaches",
+    "audiencePhysio": "Physiotherapists"
+  },
+  "about": {
+    "headline": "This Started With One Injury. Then a Second.",
+    "p1": "Pouya was a professional footballer. He did everything right. Full rehab, clinical clearance, gradual return.",
+    "p2": "Eight weeks later, he tore the same muscle again.",
+    "p3": "The warning signs were there. The process couldn't see them. He went back to DTU to build what didn't exist. Twinspire is the result.",
+    "imageAlt": "Pouya on the football pitch wearing an orange training bib"
+  },
+  "team": {
+    "heading": "Built by People Who've Been on the Treatment Table",
+    "founders": "Founders",
+    "researchTeam": "Research Team",
+    "advisers": "Advisory Board",
+    "team": "Team",
+    "roles": {
+      "founderCeo": "Founder & CEO",
+      "academicCoFounder": "Co-Founder & Head of Research",
+      "coFounderDev": "Co-Founder & Lead Developer",
+      "coFounderCoo": "Co-Founder & COO",
+      "researchTeam": "Research Team",
+      "fullStackDev": "Full Stack Developer",
+      "internFullStackDev": "Intern Full Stack Developer",
+      "devOpsEngineer": "DevOps Engineer",
+      "cloudCyberEngineer": "Cloud & Cyber Security Engineer",
+      "aiEngineer": "Generative AI Engineer",
+      "advisor": "Advisor",
+      "strategicAdvisor": "Strategic Advisor"
     }
+  },
+  "builtFor": {
+    "heading": "For Everyone Who Refuses to Lose a Player to a Preventable Injury.",
+    "footballers": {
+      "title": "Footballers",
+      "description": "Your body has been generating data your whole career. Most of it has disappeared. Twinspire gives it back and makes sure it follows you wherever you go."
+    },
+    "coaches": {
+      "title": "Coaches & Performance Staff",
+      "description": "Know your squad's true readiness before you set the lineup. Neuromuscular load and recovery signals, including data your athletes generate on their own time."
+    },
+    "physio": {
+      "title": "Physiotherapists",
+      "description": "Get unified objective deviation alerts, recovery signals, and recommended actions from every data source."
+    }
+  },
+  "product": {
+    "science": {
+      "heading": "This Is Not a Dashboard. It Is a Model.",
+      "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
+    },
+    "trust": {
+      "heading": "The Data Belongs to the Athlete. Full Stop.",
+      "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
+      "bullet1": "GDPR compliance and DPAs",
+      "bullet2": "EU-based hosting and processing",
+      "bullet3": "Built with Danish research partners",
+      "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions."
+    },
+    "headline1": "Every Athlete Has a Pattern. We Find It.",
+    "p1": "Twinspire builds a continuously updated model of each player by drawing on GPS, strength output, physio notes, neuromuscular sensor data, and the athlete's own wearables, including data from away from the training ground. It learns what normal looks like for that body. Then it tells you when something shifts.",
+    "headline2": "Athletic Passport",
+    "p2": "Every session, every load, every injury is logged, structured, and portable. When a player moves clubs, their full history moves with them.",
+    "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
+  },
+  "problem": {
+    "headline": "You're Making Sunday's Decision with Tuesday's Data.",
+    "p1": "GPS in one system. Strength tests in another. Gym sessions, extra runs, wearable data that never leaves the player's phone. The full picture has never been in one place. Not because of how the staff works, but because of how the tools are built.",
+    "p2": "30% of injuries are rehab-related. The reinjury rate hasn't moved in a decade. The tools haven't caught up."
+  },
+  "cta": {
+    "title": "Ready to See What Your Squad's Data Is Actually Telling You?",
+    "subtitle": "We are onboarding founding partners across the Nordics this quarter. The clubs that join now shape the product, get priority access, and lock in preferred pricing.",
+    "fields": "Name · Club or Clinic · Role · Email",
+    "button": "Apply for the Founding Cohort",
+    "note": "No commitment. A short call to see if it's the right fit."
+  },
+  "partners": {
+    "heading": "Build the Future of Football Health With Us.",
+    "body": "We work with sensor providers, clinics, and research institutions pushing the boundaries of performance and rehabilitation. If your work belongs in the stack — let's talk.",
+    "cta": "Get in touch"
+  },
+  "faq": {
+    "title": "Twinspire FAQ",
+    "subtitle": "Answers to the most common questions about Twinspire, our methodology, and how clubs can get started.",
+    "viewAll": "View all",
+    "viewLess": "View less",
+    "items": {
+      "whatIsTwinspire": {
+        "question": "What is Twinspire?",
+        "answer": "Twinspire is an AI-powered decision support platform for football clubs. It builds a continuously updated physiological model of each player by drawing on GPS data, strength output, neuromuscular sensor data, physio notes, and the athlete's own wearables, and alerts medical and coaching staff when something shifts. The goal is to catch the warning signs before an injury becomes a reinjury."
+      },
+      "whatProblemDoesTwinspireSolve": {
+        "question": "What problem does Twinspire solve?",
+        "answer": "One in five footballers tears the same muscle twice. Not from bad luck, but from missed signals. The reinjury rate in football hasn't moved in a decade, largely because the tools available to staff don't connect all the relevant data in one place. GPS lives in one system. Strength test results in another. Wearable data never leaves the player's phone. Twinspire is built to close that gap and give staff a single, objective picture of each player's readiness."
+      },
+      "whoIsTwinspireFor": {
+        "question": "Who is Twinspire for?",
+        "answer": "Twinspire is built for three groups: physiotherapists who need unified deviation alerts and recovery signals across all data sources; coaches and performance staff who need to know a squad's true readiness before setting a lineup; and footballers themselves, who finally have a place to store their career-long data."
+      },
+      "howDoesTwinspireWork": {
+        "question": "How does Twinspire actually work?",
+        "answer": "Twinspire learns what normal looks like for each individual body. It fuses data from wearables, EMG signals, GPS-based movement tracking, and clinical assessments to build a living physiological model unique to each athlete. Once a baseline is established, the platform detects deviations - small shifts in neuromuscular output, recovery patterns, or load response - and surfaces them to staff before they become injuries."
+      },
+      "whatIsAthleticPassport": {
+        "question": "What is the Athletic Passport?",
+        "answer": "The Athletic Passport is a structured, portable record of everything a player's body has done. Every session, every load, every injury, every rehab milestone. It belongs to the athlete, not the club. When a player moves teams, their full history moves with them. For clubs, it means inheriting objective data on every new signing rather than starting from scratch."
+      },
+      "isTwinspireDashboard": {
+        "question": "Is Twinspire a dashboard?",
+        "answer": "No. Most platforms count load. Twinspire understands response. It is not a data visualization layer on top of existing tools - it is a predictive model. The methodology is patent-pending, built on 18 months of real-world data, and validated with athletes from 3rd- to 1st-Division clubs in Denmark."
+      },
+      "whatIsDigitalTwin": {
+        "question": "What is a digital twin?",
+        "answer": "A digital twin is a continuously updated AI model of a real-world subject. In this case, an individual athlete. Rather than comparing a player against a generic population benchmark, a digital twin learns what is normal for that specific body: how it responds to load, how quickly it recovers, what its baseline neuromuscular output looks like on a good day. Once a baseline is established, the model monitors for deviations. A shift that might look unremarkable in a squad-wide average can be a significant warning sign for a particular player. The term originates in engineering, where digital twins are used to simulate and monitor physical assets such as aircraft engines and power grids. Twinspire applies the same principle to human physiology by treating each athlete as a system to be modeled individually, not just tracked collectively."
+      },
+      "whatDataDoesTwinspireUse": {
+        "question": "What data does Twinspire use?",
+        "answer": "Twinspire draws on GPS and movement data, strength and neuromuscular output, EMG muscle signals, clinical and physio assessments, and the athlete's own wearables - including data generated away from the training ground. All data streams are normalized through an automated ingestion pipeline. If you have something that is not listed, do not hesitate to reach out."
+      },
+      "whoOwnsData": {
+        "question": "Who owns the data?",
+        "answer": "The data belongs to the people who generate it. The athlete owns their Athletic Passport. The club owns its squad data. Twinspire hosts it - it does not own it, and it is never sold or shared with third parties. Processing is GDPR-compliant and EU-based."
+      },
+      "isTwinspireGdprCompliant": {
+        "question": "Is Twinspire GDPR compliant?",
+        "answer": "Yes. Twinspire is built with GDPR compliance and EU-based data hosting from the ground up. Data processing agreements are available for clubs and clinics. The platform includes granular access controls so athletes, medical staff, and coaches each see only what is relevant to them."
+      },
+      "whereIsTwinspireBased": {
+        "question": "Where is Twinspire based, and who built it?",
+        "answer": "Twinspire was founded at the Technical University of Denmark (DTU) in Copenhagen. The company was started by Pouya Tobias Strand Nikoui, a former professional footballer who suffered a reinjury after a full clinical clearance, and went back to DTU to build what didn't exist. The team combines expertise in AI and product, platform architecture, scientific research, and data security, backed by DTU Skylab and DIF Innovation Lab."
+      },
+      "howToGetStarted": {
+        "question": "How do I get started?",
+        "answer": "Twinspire is currently onboarding founding partner clubs across the Nordics. There is no commitment to apply - just a short call to see if it's the right fit. You can reach out via the contact form on the website or directly at info@twinspire.ai."
+      }
+    }
+  },
+  "contact": {
+    "title": "The Reinjury Rate Hasn't Moved in a Decade.\nLet's Change That.",
+    "name": "Name",
+    "namePlaceholder": "Jane Smith",
+    "email": "Email",
+    "emailPlaceholder": "jane@frame.com",
+    "role": "Role",
+    "rolePlaceholder": "Role",
+    "clubOrClinic": "Club or Clinic",
+    "clubOrClinicPlaceholder": "Club or Clinic",
+    "message": "Message",
+    "messagePlaceholder": "Message",
+    "submit": "Join Us",
+    "successTitle": "You're on our list!",
+    "successMessage": "Thanks for reaching out. We'll be in touch soon.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "address": "Address",
+    "addressValue": "Copenhagen, Denmark",
+    "contactInfo": "Contact Information",
+    "phone": "+45 29161358",
+    "emailContact": "info@twinspire.ai"
+  }
 }

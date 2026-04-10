@@ -11,10 +11,12 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || '',
 }
 
+let hasLoggedMissingConfig = false
+
 /**
  * Validate Firebase configuration
  */
-function validateFirebaseConfig() {
+function validateFirebaseConfig(): boolean {
   const requiredFields = [
     'apiKey',
     'authDomain',
@@ -31,15 +33,17 @@ function validateFirebaseConfig() {
   if (missingFields.length > 0) {
     const errorMessage = `Missing Firebase configuration fields: ${missingFields.join(', ')}`
 
-    // Always log in production to help debug configuration issues
-    if (typeof window !== 'undefined') {
-      console.error('Firebase Configuration Error:', errorMessage)
+    if (typeof window !== 'undefined' && !hasLoggedMissingConfig) {
+      hasLoggedMissingConfig = true
+      console.warn(
+        `Firebase is not configured. Auth features are disabled until NEXT_PUBLIC_FIREBASE_* variables are set. ${errorMessage}`
+      )
     }
 
-    if (process.env.NODE_ENV === 'development') {
-      console.warn(errorMessage)
-    }
+    return false
   }
+
+  return true
 }
 
 /**
@@ -55,7 +59,10 @@ export function initializeFirebase() {
     return { app: undefined, auth: undefined, db: undefined }
   }
 
-  validateFirebaseConfig()
+  const isConfigValid = validateFirebaseConfig()
+  if (!isConfigValid) {
+    return { app: undefined, auth: undefined, db: undefined }
+  }
 
   if (!getApps().length) {
     app = initializeApp(firebaseConfig)
