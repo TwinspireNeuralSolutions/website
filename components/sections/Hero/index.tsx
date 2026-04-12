@@ -44,7 +44,7 @@ export function HeroSection() {
     <section className="sticky top-0 z-0 h-svh min-h-[600px] w-full overflow-hidden">
       {/* ── Layer 1: Full-bleed player image ── */}
       <Image
-        src="/hero-image.jpg"
+        src="/hero-image.png"
         alt="Football player kicking ball in stadium"
         fill
         className="absolute inset-0 object-cover object-[55%_0%]"
