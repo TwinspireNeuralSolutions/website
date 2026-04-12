@@ -52,10 +52,7 @@ export function FooterSection() {
       {/* TWINSPIRE — full viewport width, black at 10% */}
       <AnimateIn variant="fadeIn" delay={0.1}>
         <div className="mb-1 overflow-hidden text-center select-none">
-          <h2
-            className="w-full leading-none font-black tracking-tight text-black/10"
-            style={{ fontSize: 'clamp(48px, 13vw, 220px)' }}
-          >
+          <h2 className="w-full text-[48px] leading-none font-black tracking-tight text-black/10 sm:text-[80px] md:text-[120px] lg:text-[180px] xl:text-[220px]">
             TWINSPIRE
           </h2>
         </div>

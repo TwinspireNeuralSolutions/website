@@ -18,7 +18,7 @@ const typographyVariants = cva('font-sans', {
   variants: {
     variant: {
       title:
-        'text-[24px] font-bold leading-[1.05] tracking-[-0.03em] sm:text-[34px] lg:text-[44px]',
+        'text-[24px] font-extrabold uppercase leading-[1.1] tracking-[-0.01em] sm:text-[32px] lg:text-[42px]',
       subtitle: 'text-[15px] font-normal leading-relaxed sm:text-base',
       heading: 'text-[16px] font-bold leading-snug',
       paragraph: 'text-[14px] font-normal leading-[1.8] sm:text-[15px]',

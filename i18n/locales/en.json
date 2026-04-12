@@ -103,14 +103,14 @@
     "audiencePhysio": "Physiotherapists"
   },
   "about": {
-    "headline": "This Started With One Injury. Then a Second.",
+    "headline": "This Started With One Injury. Then A Second.",
     "p1": "Pouya was a professional footballer. He did everything right. Full rehab, clinical clearance, gradual return.",
     "p2": "Eight weeks later, he tore the same muscle again.",
     "p3": "The warning signs were there. The process couldn't see them. He went back to DTU to build what didn't exist. Twinspire is the result.",
     "imageAlt": "Pouya on the football pitch wearing an orange training bib"
   },
   "team": {
-    "heading": "Built by People Who've Been on the Treatment Table",
+    "heading": "Built By People Who've Been On The Treatment Table",
     "founders": "Founders",
     "researchTeam": "Research Team",
     "advisers": "Advisory Board",
@@ -131,7 +131,8 @@
     }
   },
   "builtFor": {
-    "heading": "For Everyone Who Refuses to Lose a Player to a Preventable Injury.",
+    "headingLine1": "For Everyone Who Refuses To Lose",
+    "headingLine2": "A Player To A Preventable Injury.",
     "footballers": {
       "title": "Footballers",
       "description": "Your body has been generating data your whole career. Most of it has disappeared. Twinspire gives it back and makes sure it follows you wherever you go."
@@ -147,25 +148,26 @@
   },
   "product": {
     "science": {
-      "heading": "This Is Not a Dashboard. It Is a Model.",
+      "heading": "This Is Not A Dashboard. It Is A Model.",
       "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
     },
     "trust": {
-      "heading": "The Data Belongs to the Athlete. Full Stop.",
+      "heading": "The Data Belongs To The Athlete. Full Stop.",
       "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
       "bullet1": "GDPR compliance and DPAs",
       "bullet2": "EU-based hosting and processing",
       "bullet3": "Built with Danish research partners",
       "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions."
     },
-    "headline1": "Every Athlete Has a Pattern. We Find It.",
+    "headline1": "Every Athlete Has A Pattern. We Find It.",
     "p1": "Twinspire builds a continuously updated model of each player by drawing on GPS, strength output, physio notes, neuromuscular sensor data, and the athlete's own wearables, including data from away from the training ground. It learns what normal looks like for that body. Then it tells you when something shifts.",
     "headline2": "Athletic Passport",
     "p2": "Every session, every load, every injury is logged, structured, and portable. When a player moves clubs, their full history moves with them.",
     "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
   },
   "problem": {
-    "headline": "You're Making Sunday's Decision with Tuesday's Data.",
+    "headlineLine1": "You're Making Sunday's Decision With",
+    "headlineLine2": "Tuesday's Data.",
     "p1": "GPS in one system. Strength tests in another. Gym sessions, extra runs, wearable data that never leaves the player's phone. The full picture has never been in one place. Not because of how the staff works, but because of how the tools are built.",
     "p2": "30% of injuries are rehab-related. The reinjury rate hasn't moved in a decade. The tools haven't caught up."
   },
@@ -177,7 +179,7 @@
     "note": "No commitment. A short call to see if it's the right fit."
   },
   "partners": {
-    "heading": "Build the Future of Football Health With Us.",
+    "heading": "Build The Future Of Football Health With Us.",
     "body": "We work with sensor providers, clinics, and research institutions pushing the boundaries of performance and rehabilitation. If your work belongs in the stack — let's talk.",
     "cta": "Get in touch"
   },
@@ -238,7 +240,7 @@
     }
   },
   "contact": {
-    "title": "The Reinjury Rate Hasn't Moved in a Decade.\nLet's Change That.",
+    "title": "The Reinjury Rate Hasn't Moved In A Decade.\nLet's Change That.",
     "name": "Name",
     "namePlaceholder": "Jane Smith",
     "email": "Email",

@@ -71,13 +71,7 @@ export function HeroSection() {
           <div className="flex flex-1 flex-col justify-center">
             <div className="w-full max-w-[85vw] sm:max-w-[540px] md:max-w-[600px] lg:max-w-[680px] xl:max-w-[760px]">
               <AnimateIn variant="fadeUp" immediate>
-                <h1
-                  className="mb-4 font-sans font-bold tracking-tight text-white"
-                  style={{
-                    fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
-                    lineHeight: 1.05,
-                  }}
-                >
+                <h1 className="mb-4 font-sans text-[24px] leading-[1.1] font-extrabold tracking-[-0.01em] text-white uppercase sm:text-[32px] lg:text-[42px]">
                   <span className="block">{t('hero.headlineLine1')}</span>
                   <span className="block">{t('hero.headlineLine2')}</span>
                 </h1>

@@ -131,7 +131,8 @@
     }
   },
   "builtFor": {
-    "heading": "For alle, der nægter at miste en spiller til en forebyggelig skade.",
+    "headingLine1": "For alle, der nægter at miste",
+    "headingLine2": "en spiller til en forebyggelig skade.",
     "footballers": {
       "title": "Fodboldspillere",
       "description": "Din krop har genereret data hele din karriere. Det meste er forsvundet. Twinspire giver det tilbage og sørger for, at det følger dig uanset hvor du går."
@@ -165,7 +166,8 @@
     "mockupAlt": "Twinspires personale-dashboard og spiller-mobilapp med simuleringsparametre og parathedsmålinger"
   },
   "problem": {
-    "headline": "Du træffer søndagens beslutning med tirsdagens data.",
+    "headlineLine1": "Du træffer søndagens beslutning med",
+    "headlineLine2": "tirsdagens data.",
     "p1": "GPS i ét system. Styrketests i et andet. Træningssessioner, ekstrarunder, wearable-data der aldrig forlader spillerens telefon. Det fulde billede har aldrig befundet sig på ét sted. Ikke fordi personalet arbejder forkert, men fordi værktøjerne er bygget forkert.",
     "p2": "30 % af skader er genoptræningsrelaterede. Genskadeshyppigheden har ikke rykket sig i et årti. Værktøjerne har ikke fulgt med."
   },

@@ -51,9 +51,10 @@ export function BuiltForSection() {
             variant="title"
             as="h2"
             textColor="default"
-            className="mb-10 max-w-[680px] text-left lg:mb-14"
+            className="mb-10 text-left lg:mb-14"
           >
-            {t('builtFor.heading')}
+            <span className="block">{t('builtFor.headingLine1')}</span>
+            <span className="block">{t('builtFor.headingLine2')}</span>
           </Typography>
         </AnimateIn>
 

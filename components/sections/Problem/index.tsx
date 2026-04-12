@@ -23,7 +23,7 @@ export function ProblemSection() {
       className="bg-background relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8">
+        <div className="mx-auto flex flex-col gap-8">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp">
             <Typography
@@ -33,7 +33,8 @@ export function ProblemSection() {
               textColor="default"
               className="text-center"
             >
-              {t('problem.headline')}
+              <span className="block">{t('problem.headlineLine1')}</span>
+              <span className="block">{t('problem.headlineLine2')}</span>
             </Typography>
           </AnimateIn>
 
@@ -41,7 +42,7 @@ export function ProblemSection() {
           <AnimateIn
             variant="fadeUp"
             delay={0.12}
-            className="flex flex-col gap-4"
+            className="mx-auto flex max-w-3xl flex-col gap-4"
           >
             <p className="text-foreground/65 text-center text-[15px] leading-[1.8] sm:text-base">
               {t('problem.p1')}
