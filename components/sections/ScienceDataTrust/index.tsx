@@ -687,14 +687,14 @@ export function ScienceDataTrustSection() {
                 <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
                   {t('product.trust.body')}
                 </p>
-                <ul className="mt-2 flex flex-col gap-2">
+                <ul className="mt-2 flex flex-col gap-2 pl-8">
                   {bullets.map((item) => (
                     <li
                       key={item}
                       className="text-foreground/65 flex items-center gap-3 text-[13px] sm:text-[14px]"
                     >
                       <span
-                        className="bg-primary h-px w-4 shrink-0"
+                        className="bg-foreground h-1.5 w-1.5 shrink-0 rounded-full"
                         aria-hidden="true"
                       />
                       {item}

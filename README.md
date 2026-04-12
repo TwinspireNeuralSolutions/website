@@ -1,5 +1,23 @@
 # website
 
+## fix-dash-to-point Changes
+
+Date: 2026-04-12 Branch: fix-dash-to-point
+
+### Summary
+Changed bullet indicators from dashes to black dots in the Trust section, with
+left padding for better visual hierarchy.
+
+### What Changed
+1. Replaced dash indicators with black bullet points
+- Changed from a horizontal line to a small filled circle.
+- Changed color from primary to black (foreground).
+- Added left padding (pl-8) to indent bullets from the text above.
+- File:
+ - components/sections/ScienceDataTrust/index.tsx
+
+
+
 ## FAQ-v2 Changes
 
 Date: 2026-04-10 Branch: FAQ-v2
