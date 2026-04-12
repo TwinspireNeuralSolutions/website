@@ -28,11 +28,15 @@ FAQ section title and accordion behavior were updated.
 
 ## Partnerships Section Placement Update
 
-Date: 2026-04-12  Branch: partnerships-section
+Date: 2026-04-12 Branch: partnerships-section
 
 ### Summary
-Moved the Partnerships section to appear immediately after the Problem section ("The Reinjury Rate Hasn't Moved in a Decade. Let's Change That.") for improved narrative flow and trust-building.
+Moved the Partnerships section to appear immediately after the Problem section
+("The Reinjury Rate Hasn't Moved in a Decade. Let's Change That.") for improved
+narrative flow and trust-building.
 
 ### What Changed
-- Updated `app/[locale]/page.tsx` to render `<PartnersSection showPartnershipText />` after `<ProblemSection />` instead of after the hero or before the footer.
+- Updated `app/[locale]/page.tsx` to render
+  `<PartnersSection showPartnershipText />` after `<ProblemSection />` instead
+  of after the hero or before the footer.
 - Follows best practice for trust and collaboration call to action.
