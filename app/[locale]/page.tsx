@@ -22,7 +22,6 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <PartnersSection showPartnershipText />
         <ProblemSection />
         <ProductSection />
         <BuiltForSection />
@@ -32,6 +31,7 @@ export default function Home() {
         <TeamSection />
         <FAQSection />
         <ContactSection />
+        <PartnersSection showPartnershipText />
       </main>
       <FooterSection />
     </>
