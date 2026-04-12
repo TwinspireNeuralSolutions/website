@@ -1,27 +1,18 @@
 # website
 
-## FAQ-v2 Changes
+## fix-long-dash Changes
 
-Date: 2026-04-10 Branch: FAQ-v2
+Date: 2026-04-12 Branch: fix-long-dash
 
 ### Summary
-FAQ section title and accordion behavior were updated.
+Replaced em dashes (—) with short hyphens (-) in all SEO metadata to look more
+professional in Google search results.
 
 ### What Changed
-1. FAQ title update
-- Changed FAQ title to FAQ's in both locales.
+1. Replaced em dashes in page title, description, OpenGraph, and Twitter
+   metadata
 - Files:
- - i18n/locales/en.json
- - i18n/locales/da.json
+ - app/layout.tsx
+ - lib/seo.config.ts
 
-2. Dropdown spacing update
-- Added more top padding inside expanded FAQ answers.
-- File:
- - components/sections/FAQ/index.tsx
 
-3. Open/close animation enhancement
-- Added smoother expand/collapse timing.
-- Added content slide and fade for open/close.
-- Improved plus icon motion (rotate and subtle scale).
-- File:
- - components/sections/FAQ/index.tsx

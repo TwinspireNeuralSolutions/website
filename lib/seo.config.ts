@@ -7,7 +7,7 @@ export const seoConfig = {
     url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://twinspire.ai',
     name: 'Twinspire',
     description:
-      'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data.',
+      'Twinspire builds a personalised neuromuscular model for every footballer - unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data.',
   },
   defaultLocale: 'en',
 } as const
