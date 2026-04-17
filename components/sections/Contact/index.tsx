@@ -128,7 +128,7 @@ export function ContactSection() {
                 </p>
 
                 {/* Contact info — visible on desktop, hidden on mobile (shown below form) */}
-                <div className="hidden flex-col gap-0 lg:flex">
+                <div className="mt-auto hidden grid-cols-1 gap-1 sm:grid-cols-2 lg:grid">
                   {/* Email */}
                   <div className="hover:bg-foreground/5 flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200">
                     <div className="bg-primary flex h-7 w-7 items-center justify-center rounded-full">
@@ -152,6 +152,32 @@ export function ContactSection() {
                       {t('contact.emailContact')}
                     </span>
                   </div>
+
+                  {/* Phone */}
+                  <a
+                    href={`tel:${t('contact.phone')}`}
+                    className="hover:bg-foreground/5 flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200"
+                  >
+                    <div className="bg-primary flex h-7 w-7 items-center justify-center rounded-full">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-background shrink-0"
+                        aria-hidden="true"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    </div>
+                    <span className="text-foreground/60 hover:text-foreground text-[15px] font-medium transition-colors duration-200">
+                      {t('contact.phone')}
+                    </span>
+                  </a>
 
                   {/* Address */}
                   <a
@@ -216,111 +242,125 @@ export function ContactSection() {
                 duration={0.6}
                 className="order-2 w-full lg:order-2 lg:w-[380px] lg:shrink-0"
               >
-                <div className="bg-foreground/[0.02] flex h-full flex-col rounded-2xl p-5 sm:p-6 lg:p-8">
-                  <h3 className="text-foreground/30 mb-1 text-center text-[16px] font-semibold tracking-wide uppercase">
-                    {t('contact.formTitle')}
-                  </h3>
-                  <div className="border-border/20 mx-auto mb-5 w-10 border-t" />
+                <div className="bg-foreground/[0.02] border-t-primary flex h-full flex-col overflow-hidden rounded-2xl border-t-[3px] p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-6 lg:p-8">
+                  <AnimateIn variant="fadeDown" delay={0.4} duration={0.5}>
+                    <h3 className="text-foreground/30 mb-1 text-center text-[16px] font-semibold tracking-wide uppercase">
+                      {t('contact.formTitle')}
+                    </h3>
+                    <div className="border-border/20 mx-auto mb-5 w-10 border-t" />
+                  </AnimateIn>
                   {submitted ? (
-                    <div className="flex min-h-[260px] flex-col items-center justify-center gap-4 text-center">
-                      <div
-                        className="bg-primary flex h-14 w-14 items-center justify-center rounded-full"
-                        aria-hidden="true"
-                      >
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 22 22"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                    <AnimateIn variant="scaleUp" delay={0.1} duration={0.5}>
+                      <div className="flex min-h-[260px] flex-col items-center justify-center gap-4 text-center">
+                        <div
+                          className="bg-primary flex h-14 w-14 items-center justify-center rounded-full"
+                          aria-hidden="true"
                         >
-                          <path
-                            d="M4.5 11.5L9 16L17.5 7"
-                            stroke="white"
-                            strokeWidth="2.2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 22 22"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4.5 11.5L9 16L17.5 7"
+                              stroke="white"
+                              strokeWidth="2.2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <Typography
+                          variant="heading"
+                          as="h3"
+                          className="text-[18px] font-bold"
+                        >
+                          {t('contact.successTitle')}
+                        </Typography>
+                        <p className="text-foreground/60 text-[14px] leading-relaxed">
+                          {t('contact.successMessage')}
+                        </p>
                       </div>
-                      <Typography
-                        variant="heading"
-                        as="h3"
-                        className="text-[18px] font-bold"
-                      >
-                        {t('contact.successTitle')}
-                      </Typography>
-                      <p className="text-foreground/60 text-[14px] leading-relaxed">
-                        {t('contact.successMessage')}
-                      </p>
-                    </div>
+                    </AnimateIn>
                   ) : (
                     <form
                       onSubmit={handleSubmit}
                       noValidate
                       className="flex flex-1 flex-col gap-3.5"
                     >
-                      <div className="relative">
-                        <Input
-                          id="contact-name"
-                          type="text"
-                          name="name"
-                          value={form.name}
-                          onChange={handleChange}
-                          placeholder={t('contact.name')}
-                          required
-                          autoComplete="name"
-                          aria-label={t('contact.name')}
-                          className={fieldClasses}
-                        />
-                        {form.name.trim().length >= 2 && <CheckIcon />}
-                      </div>
+                      <AnimateIn variant="fadeUp" delay={0.45} duration={0.4}>
+                        <div className="relative">
+                          <Input
+                            id="contact-name"
+                            type="text"
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                            placeholder={t('contact.name')}
+                            required
+                            autoComplete="name"
+                            aria-label={t('contact.name')}
+                            className={fieldClasses}
+                          />
+                          {form.name.trim().length >= 2 && <CheckIcon />}
+                        </div>
+                      </AnimateIn>
 
-                      <div className="relative">
-                        <Input
-                          id="contact-clubOrClinic"
-                          type="text"
-                          name="clubOrClinic"
-                          value={form.clubOrClinic}
-                          onChange={handleChange}
-                          placeholder={t('contact.clubOrClinic')}
-                          autoComplete="organization"
-                          aria-label={t('contact.clubOrClinic')}
-                          className={fieldClasses}
-                        />
-                        {form.clubOrClinic.trim().length >= 2 && <CheckIcon />}
-                      </div>
+                      <AnimateIn variant="fadeUp" delay={0.55} duration={0.4}>
+                        <div className="relative">
+                          <Input
+                            id="contact-clubOrClinic"
+                            type="text"
+                            name="clubOrClinic"
+                            value={form.clubOrClinic}
+                            onChange={handleChange}
+                            placeholder={t('contact.clubOrClinic')}
+                            autoComplete="organization"
+                            aria-label={t('contact.clubOrClinic')}
+                            className={fieldClasses}
+                          />
+                          {form.clubOrClinic.trim().length >= 2 && (
+                            <CheckIcon />
+                          )}
+                        </div>
+                      </AnimateIn>
 
-                      <div className="relative">
-                        <Input
-                          id="contact-role"
-                          type="text"
-                          name="role"
-                          value={form.role}
-                          onChange={handleChange}
-                          placeholder={t('contact.role')}
-                          required
-                          aria-label={t('contact.role')}
-                          className={fieldClasses}
-                        />
-                        {form.role.trim().length >= 2 && <CheckIcon />}
-                      </div>
+                      <AnimateIn variant="fadeUp" delay={0.65} duration={0.4}>
+                        <div className="relative">
+                          <Input
+                            id="contact-role"
+                            type="text"
+                            name="role"
+                            value={form.role}
+                            onChange={handleChange}
+                            placeholder={t('contact.role')}
+                            required
+                            aria-label={t('contact.role')}
+                            className={fieldClasses}
+                          />
+                          {form.role.trim().length >= 2 && <CheckIcon />}
+                        </div>
+                      </AnimateIn>
 
-                      <div className="relative">
-                        <Input
-                          id="contact-email"
-                          type="email"
-                          name="email"
-                          value={form.email}
-                          onChange={handleChange}
-                          placeholder={t('contact.email')}
-                          required
-                          autoComplete="email"
-                          aria-label={t('contact.email')}
-                          className={fieldClasses}
-                        />
-                        {isValidEmail(form.email) && <CheckIcon />}
-                      </div>
+                      <AnimateIn variant="fadeUp" delay={0.75} duration={0.4}>
+                        <div className="relative">
+                          <Input
+                            id="contact-email"
+                            type="email"
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder={t('contact.email')}
+                            required
+                            autoComplete="email"
+                            aria-label={t('contact.email')}
+                            className={fieldClasses}
+                          />
+                          {isValidEmail(form.email) && <CheckIcon />}
+                        </div>
+                      </AnimateIn>
 
                       {submitError && (
                         <p className="text-[13px] text-red-600" role="alert">
@@ -328,18 +368,20 @@ export function ContactSection() {
                         </p>
                       )}
 
-                      <Button
-                        type="submit"
-                        variant="primary"
-                        size="lg"
-                        showIcon
-                        disabled={isSubmitting}
-                        className="mt-auto w-full"
-                      >
-                        {isSubmitting
-                          ? t('common.loading')
-                          : t('contact.submit')}
-                      </Button>
+                      <AnimateIn variant="fadeUp" delay={0.85} duration={0.4}>
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          size="lg"
+                          showIcon
+                          disabled={isSubmitting}
+                          className="mt-auto w-full"
+                        >
+                          {isSubmitting
+                            ? t('common.loading')
+                            : t('contact.submit')}
+                        </Button>
+                      </AnimateIn>
                     </form>
                   )}
                 </div>
@@ -352,7 +394,7 @@ export function ContactSection() {
                 duration={0.5}
                 className="order-3 lg:hidden"
               >
-                <div className="flex flex-col gap-0">
+                <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
                   <div className="hover:bg-foreground/5 flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200">
                     <div className="bg-primary flex h-7 w-7 items-center justify-center rounded-full">
                       <svg
@@ -375,6 +417,30 @@ export function ContactSection() {
                       {t('contact.emailContact')}
                     </span>
                   </div>
+                  <a
+                    href={`tel:${t('contact.phone')}`}
+                    className="hover:bg-foreground/5 flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200"
+                  >
+                    <div className="bg-primary flex h-7 w-7 items-center justify-center rounded-full">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-background shrink-0"
+                        aria-hidden="true"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    </div>
+                    <span className="text-foreground/60 hover:text-foreground text-[15px] font-medium transition-colors duration-200">
+                      {t('contact.phone')}
+                    </span>
+                  </a>
                   <a
                     href="https://maps.google.com/?q=Copenhagen,+Denmark"
                     target="_blank"
