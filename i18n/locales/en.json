@@ -70,7 +70,7 @@
   "nav": {
     "problem": "Problem",
     "product": "Solution",
-    "builtFor": "For Whom",
+    "builtFor": "Who We Work With",
     "science": "Science",
     "team": "Team",
     "partnerships": "Partnerships",
@@ -131,18 +131,20 @@
     }
   },
   "builtFor": {
-    "heading": "For Everyone Who Refuses to Lose a Player to a Preventable Injury.",
+    "heading": "Who We",
+    "headingAccent": "Work With",
+    "subtitle": "We are currently reaching out to clubs, clinics, and performance institutions to participate in our research validation study.",
     "footballers": {
       "title": "Footballers",
-      "description": "Your body has been generating data your whole career. Most of it has disappeared. Twinspire gives it back and makes sure it follows you wherever you go."
+      "description": "Your body has been generating data your whole career. Most of it has disappeared. This research aims to establish whether a structured data passport can change that and give you ownership of your own athletic history."
     },
     "coaches": {
       "title": "Coaches & Performance Staff",
-      "description": "Know your squad's true readiness before you set the lineup. Neuromuscular load and recovery signals, including data your athletes generate on their own time."
+      "description": "Help us understand how readiness modeling integrates into real decision-making environments, and where the model's outputs are and aren't actionable."
     },
     "physio": {
       "title": "Physiotherapists",
-      "description": "Get unified objective deviation alerts, recovery signals, and recommended actions from every data source."
+      "description": "Co-develop unified deviation-alert and recovery-signal workflows grounded in multi-source data. Help us understand what a clinically useful signal actually looks like in practice."
     }
   },
   "product": {

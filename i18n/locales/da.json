@@ -70,7 +70,7 @@
   "nav": {
     "problem": "Problem",
     "product": "Løsning",
-    "builtFor": "For hvem",
+    "builtFor": "Hvem vi arbejder med",
     "science": "Videnskab",
     "team": "Holdet",
     "partnerships": "Partnerskaber",
@@ -131,18 +131,20 @@
     }
   },
   "builtFor": {
-    "heading": "For alle, der nægter at miste en spiller til en forebyggelig skade.",
+    "heading": "Hvem vi",
+    "headingAccent": "arbejder med",
+    "subtitle": "Vi kontakter i øjeblikket klubber, klinikker og performanceinstitutioner for at deltage i vores forskningsvalideringsstudie.",
     "footballers": {
       "title": "Fodboldspillere",
-      "description": "Din krop har genereret data hele din karriere. Det meste er forsvundet. Twinspire giver det tilbage og sørger for, at det følger dig uanset hvor du går."
+      "description": "Din krop har genereret data hele din karriere. Det meste er forsvundet. Denne forskning sigter mod at fastslå, om et struktureret datapas kan ændre det og give dig ejerskab over din egen atletiske historie."
     },
     "coaches": {
       "title": "Trænere og Performance Staff",
-      "description": "Kend dit holds sande parathed, inden du sætter startopstillingen. Neuromuskulær belastning og restitutionssignaler, inklusive data dine atleter genererer på egen hånd."
+      "description": "Hjælp os med at forstå, hvordan parathedsmodellering integreres i reelle beslutningsmiljøer, og hvor modellens resultater er og ikke er handlingsbare."
     },
     "physio": {
       "title": "Fysioterapeuter",
-      "description": "Få samlet objektive afvigelsesadvarsler, restitutionssignaler og anbefalede handlinger fra alle datakilder."
+      "description": "Medudvikl samlede afvigelses-alarm og restitutionssignal-arbejdsgange baseret på data fra flere kilder. Hjælp os med at forstå, hvordan et klinisk nyttigt signal faktisk ser ud i praksis."
     }
   },
   "product": {
