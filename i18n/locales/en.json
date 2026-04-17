@@ -110,11 +110,14 @@
     "imageAlt": "Pouya on the football pitch wearing an orange training bib"
   },
   "team": {
-    "heading": "Built by People Who've Been on the Treatment Table",
+    "heading": "The Research Came First.",
+    "headingAccent": "The Team Was Built Around It.",
+    "subtitle": "The project is supported by a dedicated research team of four based at DTU, contributing specialisms in physiological modeling, data engineering, biomechanics, and neuromuscular analysis. Their work forms the scientific backbone of the validation studies currently underway.",
     "founders": "Founders",
     "researchTeam": "Research Team",
     "advisers": "Advisory Board",
     "team": "Team",
+    "readBio": "Learn more",
     "roles": {
       "founderCeo": "Founder & CEO",
       "academicCoFounder": "Co-Founder & Head of Research",
@@ -127,7 +130,15 @@
       "cloudCyberEngineer": "Cloud & Cyber Security Engineer",
       "aiEngineer": "Generative AI Engineer",
       "advisor": "Advisor",
-      "strategicAdvisor": "Strategic Advisor"
+      "strategicAdvisor": "Strategic Advisor",
+      "marketAdvisor": "Market & Commercialization Strategy (post-project)"
+    },
+    "descriptions": {
+      "pouya": "Twinspire began from his direct experience with injury and rehabilitation in elite football, which exposed the gap between available data and the quality of individualized decision support. He leads the overall research translation, strategic direction, and external partnerships around the project.",
+      "john": "Professor at DTU Health and lead of the neuromuscular research environment from which the project emerged. His group has worked for several years on digital twin methodology for physiological systems, and this research forms the scientific foundation and institutional anchor of Twinspire.",
+      "daryan": "Platform architecture & data integrations.",
+      "roxane": "Sports-tech research & institutional partnerships.",
+      "kim": "Market & Commercialization Strategy (post-project)."
     }
   },
   "builtFor": {

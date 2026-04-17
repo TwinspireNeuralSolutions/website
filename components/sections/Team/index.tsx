@@ -14,9 +14,11 @@ import { founders, advisers, teamMembers } from './teamData'
  * TeamSection — Unified team grid + separate advisers subsection.
  *
  * Layout:
- *  - Section heading
+ *  - Section heading + subtitle
  *  - One combined responsive grid for all team members (founders + team)
  *  - A visually separated "Advisers" subsection below
+ *
+ * Founder cards show a description overlay on hover.
  */
 export function TeamSection() {
   const { t } = useTranslation()
@@ -26,13 +28,25 @@ export function TeamSection() {
       <div className="section-x section-y section-inner mx-auto">
         {/* Heading */}
         <AnimateIn variant="fadeUp">
+          <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+            <span className="text-foreground font-bold">
+              {t('team.heading')}
+            </span>{' '}
+            <span className="text-primary font-bold">
+              {t('team.headingAccent')}
+            </span>
+          </h2>
+        </AnimateIn>
+
+        {/* Subtitle */}
+        <AnimateIn variant="fadeUp">
           <Typography
-            variant="title"
-            as="h2"
-            textColor="default"
-            className="mb-10 max-w-[820px] text-left lg:mb-14"
+            variant="subtitle"
+            as="p"
+            textColor="muted"
+            className="mx-auto mb-10 max-w-[720px] text-center lg:mb-14"
           >
-            {t('team.heading')}
+            {t('team.subtitle')}
           </Typography>
         </AnimateIn>
 
@@ -46,6 +60,14 @@ export function TeamSection() {
               <TeamMember
                 name={member.name}
                 role={t(member.role as Parameters<typeof t>[0])}
+                description={
+                  member.description
+                    ? t(member.description as Parameters<typeof t>[0])
+                    : undefined
+                }
+                readBioLabel={
+                  member.description ? t('team.readBio') : undefined
+                }
                 image={member.image}
                 linkedin={member.linkedin}
               />
@@ -77,6 +99,14 @@ export function TeamSection() {
                 <TeamMember
                   name={member.name}
                   role={t(member.role as Parameters<typeof t>[0])}
+                  description={
+                    member.description
+                      ? t(member.description as Parameters<typeof t>[0])
+                      : undefined
+                  }
+                  readBioLabel={
+                    member.description ? t('team.readBio') : undefined
+                  }
                   image={member.image}
                   linkedin={member.linkedin}
                 />
