@@ -123,9 +123,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
             onClick={(e) => {
               if (e.target === e.currentTarget) dialogRef.current?.close()
             }}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') dialogRef.current?.close()
-            }}
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             className="fixed inset-0 z-50 m-auto max-h-[90vh] w-[92vw] max-w-lg border-none bg-transparent p-0 backdrop:bg-black/50 backdrop:backdrop-blur-sm"
           >
             <div className="bg-background relative flex max-h-[90vh] flex-col overflow-hidden rounded-2xl shadow-xl">
