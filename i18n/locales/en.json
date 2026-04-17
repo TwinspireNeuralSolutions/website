@@ -245,6 +245,7 @@
     "role": "Role",
     "clubOrClinic": "Club or Clinic",
     "submit": "Apply to Join the Study",
+    "formTitle": "Apply to Join",
     "successTitle": "You're on our list!",
     "successMessage": "Thanks for reaching out. We'll be in touch soon.",
     "errorMessage": "Something went wrong. Please try again.",
