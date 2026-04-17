@@ -149,7 +149,7 @@ export function DataEthicsSection() {
 
         {/* ── Subtitle ── */}
         <AnimateIn variant="fadeUp" delay={0.06}>
-          <p className="text-muted-foreground mx-auto mb-8 max-w-[640px] px-4 text-center text-[15px] leading-[1.6] sm:mb-10 sm:px-0 sm:text-base lg:mb-14 lg:text-[17px]">
+          <p className="text-foreground/70 mx-auto mb-8 max-w-[640px] px-4 text-center text-[16px] leading-[1.5] font-normal sm:mb-10 sm:px-0 sm:text-[18px] lg:mb-14 lg:text-[20px]">
             {t('dataEthics.heading')}
           </p>
         </AnimateIn>
