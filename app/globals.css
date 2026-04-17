@@ -5,7 +5,7 @@
  * ========================= */
 :root {
   /* Brand colors */
-  --primary: #0802A3;
+  --primary: #0802a3;
   --primary-hover: #06018a;
   --primary-active: #050170;
   --primary-foreground: #ffffff;
@@ -18,31 +18,30 @@
   --card: #ffffff;
   --card-foreground: #0a0a0a;
   --border: #e5e5e5;
-  --ring: #0802A3;
+  --ring: #0802a3;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
   /* Partners strip */
-  --partners-bg: rgba(9, 7, 133, 0.50);
+  --partners-bg: rgba(9, 7, 133, 0.5);
 
   /* Footer */
-  --footer-bg: #E8E5F0;
-  --footer-watermark: #D5D2DE;
-  --footer-muted: #6A6A6A;
+  --footer-bg: #e8e5f0;
+  --footer-watermark: #d5d2de;
+  --footer-muted: #6a6a6a;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #0802A3 0%, #3b35d6 100%);
+  --gradient-primary: linear-gradient(135deg, #0802a3 0%, #3b35d6 100%);
   --gradient-secondary: linear-gradient(135deg, #0802a3 0%, #b5b2ff 100%);
 
   /* Font */
   --font-sans: 'Satoshi', system-ui, -apple-system, sans-serif;
 
   /* Navbar glass — light mode */
-  --navbar-glass-bg: rgba(255, 255, 255, 0.90);
+  --navbar-glass-bg: rgba(255, 255, 255, 0.9);
   --navbar-glass-border: rgba(0, 0, 0, 0.08);
   --navbar-glass-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.10),
+    0 2px 4px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 
   /* Dropdown glass — higher opacity so list text is crisp */
@@ -62,11 +61,10 @@
   --destructive-foreground: #fafafa;
 
   /* Navbar glass — dark mode */
-  --navbar-glass-bg: rgba(14, 14, 16, 0.80);
+  --navbar-glass-bg: rgba(14, 14, 16, 0.8);
   --navbar-glass-border: rgba(255, 255, 255, 0.09);
   --navbar-glass-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.20),
-    0 8px 24px rgba(0, 0, 0, 0.36),
+    0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.36),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   /* Dropdown glass — dark */
@@ -111,6 +109,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -138,9 +137,15 @@ body {
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animated-gradient {
@@ -172,23 +177,43 @@ strong {
  * ========================= */
 
 .section-x {
-  padding-left: 1.25rem;   /* px-5 */
+  padding-left: 1.25rem; /* px-5 */
   padding-right: 1.25rem;
 }
-@media (min-width: 640px)  { .section-x { padding-left: 2.5rem;  padding-right: 2.5rem;  } }
-@media (min-width: 768px)  { .section-x { padding-left: 3.5rem;  padding-right: 3.5rem;  } }
-@media (min-width: 1024px) { .section-x { padding-left: 5rem;    padding-right: 5rem;    } }
+@media (min-width: 640px) {
+  .section-x {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .section-x {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-x {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 
 .section-y {
-  padding-top: 5rem;       /* py-20 */
+  padding-top: 5rem; /* py-20 */
   padding-bottom: 5rem;
 }
-@media (min-width: 768px)  { .section-y { padding-top: 7rem; padding-bottom: 7rem; } }
+@media (min-width: 768px) {
+  .section-y {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
 
 .section-inner {
   margin-left: auto;
   margin-right: auto;
-  max-width: 80rem;        /* max-w-7xl */
+  max-width: 80rem; /* max-w-7xl */
   width: 100%;
 }
 
@@ -204,3 +229,17 @@ strong {
   }
 }
 
+/* Slow bounce for step connector arrows */
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}

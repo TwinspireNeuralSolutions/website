@@ -147,8 +147,40 @@
   },
   "product": {
     "science": {
-      "heading": "Dette er ikke et dashboard. Det er en model.",
-      "body": "De fleste platforme tæller belastning. Twinspire forstår respons. Metoden fusionerer wearables, EMG og biomekanik til en levende fysiologisk model, unik for hver atlet. Patentansøgt. Valideret på reelle data. Bygget til at have ret, inden det tages i brug."
+      "label": "Videnskaben",
+      "heading": "De fleste systemer beskriver belastning.",
+      "headingAccent": "Twinspire er under udvikling til at modellere individuel respons.",
+      "intro": "Forskningen bygger på principper fra adaptive systemer, tidsvarierende dynamikker og individualiseret tilstandsestimering for at undersøge, hvordan hver atlet reagerer over tid. I stedet for at behandle atleten som en statisk profil eller sammenligne dem med populationsgennemsnit, er målet at identificere personaliseret referenceadfærd og detektere meningsfulde afvigelser fra den forventede tilstand.",
+      "pillars": {
+        "modeling": {
+          "title": "Individualiseret Modellering",
+          "body": "Metodologien bygger på fem års digital tvilling-forskning på DTU Health Tech og er patentansøgt. Kernen i arbejdet undersøger, hvordan longitudinelle multimodale data kan bruges til at identificere tilpasningsdygtige matematiske modeller af den individuelle atlet, der fanger skiftende fysiologiske, neuromuskulære og præstationsrelaterede dynamikker over tid.",
+          "bullet1": "5 års forskning på DTU Health Tech",
+          "bullet2": "Patentansøgt metodologi",
+          "bullet3": "Longitudinelle multimodale data"
+        },
+        "signals": {
+          "title": "Multi-Signal Analyse",
+          "body": "Sideløbende med individualiseret modellering undersøger Twinspire storskala-relationer mellem signaler på tværs af integrerede partnerdatastrømme for at fastslå, hvilke kombinationer af målinger giver den stærkeste forklaringskraft. Dette inkluderer igangværende og planlagte forskningssamarbejder inden for præstationsovervågning, rehabiliteringsmiljøer, neuromuskulær sensing samt kognitive og mentale belastningsrelaterede vurderinger.",
+          "bullet1": "Integrerede partnerdatastrømme",
+          "bullet2": "Neuromuskulær sensing",
+          "bullet3": "Kognitiv belastningsvurdering"
+        },
+        "validation": {
+          "title": "Validering & Risikoreduktion",
+          "body": "Den aktuelle fase fokuserer på metodologisk validering, løsning af centrale videnskabelige usikkerheder og reduktion af de tekniske risici, der er nødvendige, før bredere anvendt implementering i præstations- og rehabiliteringsmiljøer.",
+          "bullet1": "Metodologisk validering",
+          "bullet2": "Videnskabelig usikkerhedsløsning",
+          "bullet3": "Teknisk risikoreduktion"
+        }
+      },
+      "researchTitle": "Aktuelle forskningsspørgsmål",
+      "questions": {
+        "q1": "Hvor tidligt kan afvigelser fra en atlets personlige baseline detekteres, og hvilke afvigelser er meningsfuldt forbundet med forhøjet sårbarhed efter tilbagevenden til spil?",
+        "q2": "Hvad er den minimale sensor- og datakonfiguration, der kræves for at etablere en stabil og pålidelig individualiseret model?",
+        "q3": "Hvordan påvirker manglende perioder, skiftende kontekster og klubskift modellens robusthed over tid?",
+        "q4": "Kan fremvoksende kompensationsmønstre identificeres, inden de bliver tydelige gennem symptomer eller konventionel monitorering?"
+      }
     },
     "trust": {
       "heading": "Dataen tilhører atleten. Punktum.",

@@ -105,8 +105,7 @@ export function ContactSection() {
               <div className="flex h-full min-h-[280px] flex-col items-start justify-center gap-4">
                 {/* Checkmark */}
                 <div
-                  className="flex h-12 w-12 items-center justify-center rounded-full"
-                  style={{ backgroundColor: '#0802A3' }}
+                  className="bg-primary flex h-12 w-12 items-center justify-center rounded-full"
                   aria-hidden="true"
                 >
                   <svg
