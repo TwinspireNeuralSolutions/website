@@ -110,14 +110,17 @@
     "imageAlt": "Pouya på fodboldbanen iført en orange træningsvest"
   },
   "team": {
-    "heading": "Bygget af folk, der selv har ligget på behandlingsbordet",
+    "heading": "Forskningen kom først.",
+    "headingAccent": "Holdet blev bygget omkring den.",
+    "subtitle": "Projektet understøttes af et dedikeret forskerhold på fire, baseret på DTU, med specialer inden for fysiologisk modellering, dataingeniørarbejde, biomekanik og neuromuskulær analyse. Deres arbejde udgør den videnskabelige rygrad i de valideringsstudier, der er i gang.",
     "founders": "Grundlæggere",
     "researchTeam": "Forskerhold",
     "advisers": "Bestyrelse",
     "team": "Holdet",
+    "readBio": "Læs mere",
     "roles": {
       "founderCeo": "Grundlægger & CEO",
-      "academicCoFounder": "Akademisk Medstifter & Forskningschef",
+      "academicCoFounder": "Medstifter & Forskningschef",
       "coFounderDev": "Medstifter & Lead Udvikler",
       "coFounderCoo": "Medstifter & COO",
       "researchTeam": "Forskerhold",
@@ -127,7 +130,15 @@
       "cloudCyberEngineer": "Cloud & Cybersikkerhedsingeniør",
       "aiEngineer": "Generativ AI Ingeniør",
       "advisor": "Rådgiver",
-      "strategicAdvisor": "Strategisk Rådgiver"
+      "strategicAdvisor": "Strategisk Rådgiver",
+      "marketAdvisor": "Markeds- & kommercialiseringsstrategi (efter projektet)"
+    },
+    "descriptions": {
+      "pouya": "Twinspire udsprang af hans direkte erfaring med skader og genoptræning i elitefodbold, som afslørede kløften mellem tilgængelige data og kvaliteten af individualiseret beslutningsstøtte. Han leder den overordnede forskningstranslation, strategiske retning og eksterne partnerskaber omkring projektet.",
+      "john": "Professor ved DTU Health og leder af det neuromuskulære forskningsmiljø, som projektet udsprang fra. Hans gruppe har arbejdet i flere år med digital tvilling-metodologi for fysiologiske systemer, og denne forskning udgør det videnskabelige fundament og institutionelle anker for Twinspire.",
+      "daryan": "Platformarkitektur & dataintegrationer.",
+      "roxane": "Sports-tech forskning & institutionelle partnerskaber.",
+      "kim": "Markeds- & kommercialiseringsstrategi (efter projektet)."
     }
   },
   "builtFor": {

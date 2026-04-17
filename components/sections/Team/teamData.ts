@@ -1,6 +1,8 @@
 export interface TeamMemberData {
   name: string
   role: string
+  /** Optional translation key for a short bio / description */
+  description?: string
   image: string
   /** Optional LinkedIn profile URL */
   linkedin?: string
@@ -15,24 +17,28 @@ export const founders: TeamMemberData[] = [
   {
     name: 'Pouya Tobias Strand Nikoui',
     role: 'team.roles.founderCeo',
+    description: 'team.descriptions.pouya',
     image: '/team/pouya.png',
     linkedin: 'https://www.linkedin.com/in/pnikoui/',
   },
   {
     name: 'Prof. John Paulin Hansen',
     role: 'team.roles.academicCoFounder',
+    description: 'team.descriptions.john',
     image: '/team/john.png',
     linkedin: 'https://www.linkedin.com/in/johnpaulinhansen/',
   },
   {
     name: 'Daryan Kamalifar',
     role: 'team.roles.coFounderDev',
+    description: 'team.descriptions.daryan',
     image: '/team/daryan.jpg',
     linkedin: 'https://www.linkedin.com/in/daryan-kf/',
   },
   {
     name: 'Roxane Maar',
     role: 'team.roles.coFounderCoo',
+    description: 'team.descriptions.roxane',
     image: '/team/roxane.png',
     linkedin: 'https://www.linkedin.com/in/roxanemaar/',
   },
@@ -74,14 +80,9 @@ export const teamMembers: TeamMemberData[] = [
 
 export const advisers: TeamMemberData[] = [
   {
-    name: 'Thomas Dedenroth Miller',
-    role: 'team.roles.advisor',
-    image: '/team/thomas.png',
-    linkedin: 'https://www.linkedin.com/in/thomas-d-miller-6940879/',
-  },
-  {
     name: 'Kim Kragbæk Larsen',
-    role: 'team.roles.advisor',
+    role: 'team.roles.marketAdvisor',
+    description: 'team.descriptions.kim',
     image: '/team/kim.png',
     linkedin: 'https://www.linkedin.com/in/kimkragbaeklarsen/',
   },
