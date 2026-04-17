@@ -1,4 +1,3 @@
-import { AboutSection } from '@/components/sections/About'
 import { BuiltForSection } from '@/components/sections/BuiltFor'
 import { ContactSection } from '@/components/sections/Contact'
 import { CTASection } from '@/components/sections/CTA'
@@ -29,7 +28,6 @@ export default function Home() {
         <BuiltForSection />
         <ScienceDataTrustSection />
         <CTASection />
-        <AboutSection />
         <TeamSection />
         <DataEthicsSection />
         <FAQSection />
