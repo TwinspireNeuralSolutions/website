@@ -1,0 +1,204 @@
+'use client'
+
+import { useState } from 'react'
+import { Typography } from '@/components/ui/typography'
+import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/ui/animate-in'
+import { useTranslation } from '@/i18n'
+
+/** Shield with check — Core Principles */
+function ShieldCheckIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-primary"
+      aria-hidden="true"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  )
+}
+
+/** Scale/balance — Governance & Compliance */
+function ScaleIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-primary"
+      aria-hidden="true"
+    >
+      <path d="M12 3v19" />
+      <path d="M5 8h14" />
+      <path d="M5 8l-2 8h6L5 8z" />
+      <path d="M19 8l-2 8h6l-4-8z" />
+      <path d="M10 3h4" />
+    </svg>
+  )
+}
+
+/** Alert triangle — Research Disclaimer */
+function AlertTriangleIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-primary"
+      aria-hidden="true"
+    >
+      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  )
+}
+
+interface CardData {
+  icon: React.ReactNode
+  titleKey:
+    | 'dataEthics.card1Title'
+    | 'dataEthics.card2Title'
+    | 'dataEthics.card3Title'
+  bodyKey: 'dataEthics.card1' | 'dataEthics.card2' | 'dataEthics.card3'
+}
+
+/**
+ * DataEthicsSection — Data & Research Ethics governance section.
+ *
+ * Clean layout:
+ *   - Section label
+ *   - Bold headline
+ *   - 3 cards with icon + title + body
+ */
+export function DataEthicsSection() {
+  const { t } = useTranslation()
+  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>(
+    {}
+  )
+
+  const toggleCard = (index: number) => {
+    setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }))
+  }
+
+  const cards: CardData[] = [
+    {
+      icon: <ShieldCheckIcon />,
+      titleKey: 'dataEthics.card1Title',
+      bodyKey: 'dataEthics.card1',
+    },
+    {
+      icon: <ScaleIcon />,
+      titleKey: 'dataEthics.card2Title',
+      bodyKey: 'dataEthics.card2',
+    },
+    {
+      icon: <AlertTriangleIcon />,
+      titleKey: 'dataEthics.card3Title',
+      bodyKey: 'dataEthics.card3',
+    },
+  ]
+
+  return (
+    <section
+      id="data-ethics"
+      aria-labelledby="data-ethics-heading"
+      className="bg-background relative z-10 w-full"
+    >
+      <div className="section-x section-y section-inner mx-auto">
+        {/* ── Top divider ── */}
+        <div
+          className="border-border mb-8 border-t sm:mb-10 lg:mb-16"
+          aria-hidden="true"
+        />
+
+        {/* ── Title ── */}
+        <AnimateIn variant="fadeUp">
+          <Typography
+            id="data-ethics-heading"
+            variant="title"
+            as="h2"
+            textColor="default"
+            className="mx-auto mb-4 text-center uppercase lg:mb-5"
+          >
+            {t('dataEthics.sectionLabel')}
+          </Typography>
+        </AnimateIn>
+
+        {/* ── Subtitle ── */}
+        <AnimateIn variant="fadeUp" delay={0.06}>
+          <p className="text-muted-foreground mx-auto mb-8 max-w-[640px] px-4 text-center text-[15px] leading-[1.6] sm:mb-10 sm:px-0 sm:text-base lg:mb-14 lg:text-[17px]">
+            {t('dataEthics.heading')}
+          </p>
+        </AnimateIn>
+
+        {/* ── 3-card grid ── */}
+        <StaggerContainer
+          className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 sm:items-start sm:gap-10 sm:px-8 lg:grid-cols-3 lg:gap-12 lg:px-12"
+          stagger={0.08}
+        >
+          {cards.map((card, i) => {
+            const isExpanded = expandedCards[i] ?? false
+            const isShortCard = i === 2
+
+            return (
+              <StaggerItem key={t(card.titleKey)}>
+                <div className="border-border border-t-primary bg-muted/30 flex flex-col gap-4 rounded-xl border border-t-2 p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-md sm:min-h-[14rem] sm:p-7">
+                  {/* Icon + Title */}
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
+                      {card.icon}
+                    </div>
+                    <Typography variant="heading" as="h3" textColor="default">
+                      {t(card.titleKey)}
+                    </Typography>
+                  </div>
+                  <p
+                    className={`text-foreground/60 text-justify text-[13px] leading-[1.75] sm:text-[14px] ${
+                      !isShortCard && !isExpanded ? 'line-clamp-3' : ''
+                    }`}
+                  >
+                    {t(card.bodyKey)}
+                  </p>
+                  {!isShortCard && (
+                    <button
+                      type="button"
+                      onClick={() => toggleCard(i)}
+                      className="text-primary mt-auto self-start text-[13px] font-medium transition-colors duration-150 hover:underline"
+                    >
+                      {isExpanded
+                        ? t('dataEthics.readLess')
+                        : t('dataEthics.readMore')}
+                    </button>
+                  )}
+                </div>
+              </StaggerItem>
+            )
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  )
+}

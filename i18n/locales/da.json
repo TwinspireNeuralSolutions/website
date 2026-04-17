@@ -237,6 +237,20 @@
       }
     }
   },
+  "dataEthics": {
+    "sectionLabel": "Data & Forskningsetik",
+    "heading": "Atletdata skal håndteres ansvarligt,\ntransparent og med klare grænser.",
+    "subtitle": "Sådan tilgår vi datastyring i alle faser af forskningen.",
+    "card1Title": "Kerneprincipper",
+    "card1": "Twinspire udvikles med datastyring og forskningsetik som centrale designprincipper. Den nuværende fase er fokuseret på videnskabelig validering med opmærksomhed på lovlig behandling, sporbarhed, gennemsigtighed og ansvarlig håndtering af longitudinelle atletdata.",
+    "card2Title": "Governance & Compliance",
+    "card2": "Projektet er bygget op omkring GDPR-tilpassede datapraksisser, EU-baseret hosting og behandling, relevante databehandleraftaler og forskningsworkflows designet til at understøtte klar governance på tværs af klubber, behandlere og atleter. Hvor det er relevant, er forskningsdatastyring struktureret i overensstemmelse med FAIR-principperne.",
+    "card3Title": "Forskningsansvarsfraskrivelse",
+    "card3": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",
+    "disclaimer": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",
+    "readMore": "Læs mere",
+    "readLess": "Læs mindre"
+  },
   "contact": {
     "title": "Genskaderaten er uændret i et årti.\nLad os ændre det.",
     "name": "Navn",
