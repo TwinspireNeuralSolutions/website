@@ -2,7 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { buildConfirmationEmail } from '@/components/emails/ConfirmationEmail'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY is not configured')
+  }
+  return new Resend(apiKey)
+}
 
 const FROM_ADDRESS = 'Twinspire <info@twinspire.ai>'
 const TEAM_ADDRESS = 'info@twinspire.ai'
@@ -12,7 +18,7 @@ interface ContactPayload {
   email: string
   role: string
   clubOrClinic: string
-  message: string
+  message?: string
 }
 
 function isValidEmail(email: string): boolean {
@@ -49,6 +55,8 @@ export async function POST(req: NextRequest) {
   const confirmationHtml = buildConfirmationEmail(name.trim())
 
   try {
+    const resend = getResendClient()
+
     // 1. Send confirmation receipt to the applicant
     await resend.emails.send({
       from: FROM_ADDRESS,
