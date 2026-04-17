@@ -242,6 +242,24 @@
       }
     }
   },
+  "dataEthics": {
+    "sectionLabel": "Data & Research Ethics",
+    "heading": "Athlete Data Must Be Handled",
+    "headingAccent1": "Responsibly, Transparently,",
+    "headingPart2": "and with",
+    "headingAccent2": "Clear Boundaries.",
+    "subtitle": "How we approach data governance at every stage of research.",
+    "description": "Twinspire is being developed with data governance and research ethics as core design principles.",
+    "card1Title": "Core Principles",
+    "card1": "The current phase is focused on scientific validation, with attention to lawful processing, traceability, transparency, and responsible handling of longitudinal athlete data.",
+    "card2Title": "Governance & Compliance",
+    "card2": "The project is built around GDPR-aligned data practices, EU-based hosting and processing, relevant data processing agreements, and research workflows designed to support clear governance across clubs, practitioners, and athletes. Where appropriate, research data management is structured in accordance with FAIR principles.",
+    "card3Title": "Research Disclaimer",
+    "card3": "Twinspire is a research-stage decision support prototype. It is not intended to diagnose, treat, or replace clinical judgment.",
+    "disclaimer": "Twinspire is a research-stage decision support prototype. It is not intended to diagnose, treat, or replace clinical judgment.",
+    "readMore": "Read more",
+    "readLess": "Read less"
+  },
   "contact": {
     "title": "The Reinjury Rate Hasn't Moved in a Decade.",
     "titleAccent": "The Research to Change That Is Underway.",

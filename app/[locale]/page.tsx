@@ -9,6 +9,7 @@ import { PartnersSection } from '@/components/sections/Partners'
 import { ProductSection } from '@/components/sections/Product'
 import { ProblemSection } from '@/components/sections/Problem'
 import { ScienceDataTrustSection } from '@/components/sections/ScienceDataTrust'
+import { DataEthicsSection } from '@/components/sections/DataEthics'
 import { TeamSection } from '@/components/sections/Team'
 import { Navbar } from '@/components/ui/navbar'
 
@@ -30,6 +31,7 @@ export default function Home() {
         <CTASection />
         <AboutSection />
         <TeamSection />
+        <DataEthicsSection />
         <FAQSection />
         <ContactSection />
         <PartnersSection />
