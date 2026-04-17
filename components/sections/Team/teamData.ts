@@ -74,12 +74,6 @@ export const teamMembers: TeamMemberData[] = [
 
 export const advisers: TeamMemberData[] = [
   {
-    name: 'Thomas Dedenroth Miller',
-    role: 'team.roles.advisor',
-    image: '/team/thomas.png',
-    linkedin: 'https://www.linkedin.com/in/thomas-d-miller-6940879/',
-  },
-  {
     name: 'Kim Kragbæk Larsen',
     role: 'team.roles.advisor',
     image: '/team/kim.png',
