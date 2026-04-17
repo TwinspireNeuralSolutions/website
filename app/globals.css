@@ -228,3 +228,18 @@ strong {
     transform: translateY(0) scale(1);
   }
 }
+
+/* Slow bounce for step connector arrows */
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}

@@ -1,15 +1,185 @@
 'use client'
 
+import React from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
+import { cn } from '@/lib/utils'
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Pillar icons — used both as small badge icons and as large card icons.
+ * Accept className so they can scale to any container size.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+function ModelingIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn('h-7 w-7', className)}
+      aria-hidden="true"
+    >
+      <circle cx="8" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="8" cy="22" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="16" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="24" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="24" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="24" cy="20" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <line
+        x1="10.5"
+        y1="10"
+        x2="13.5"
+        y2="8"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="10.5"
+        y1="10"
+        x2="13.5"
+        y2="16"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="10.5"
+        y1="22"
+        x2="13.5"
+        y2="16"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="10.5"
+        y1="22"
+        x2="13.5"
+        y2="24"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="18.5"
+        y1="8"
+        x2="21.5"
+        y2="12"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="18.5"
+        y1="16"
+        x2="21.5"
+        y2="12"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="18.5"
+        y1="16"
+        x2="21.5"
+        y2="20"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+      <line
+        x1="18.5"
+        y1="24"
+        x2="21.5"
+        y2="20"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.5"
+      />
+    </svg>
+  )
+}
+
+function SignalsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn('h-7 w-7', className)}
+      aria-hidden="true"
+    >
+      <polyline
+        points="4,20 8,20 10,12 14,24 18,8 22,22 24,16 28,16"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line
+        x1="4"
+        y1="26"
+        x2="28"
+        y2="26"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.3"
+      />
+      <line
+        x1="4"
+        y1="6"
+        x2="28"
+        y2="6"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.3"
+      />
+    </svg>
+  )
+}
+
+function ValidationIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn('h-7 w-7', className)}
+      aria-hidden="true"
+    >
+      <path
+        d="M16 3L5 8v7c0 7.18 4.7 13.89 11 16 6.3-2.11 11-8.82 11-16V8L16 3z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinejoin="round"
+      />
+      <polyline
+        points="11,16 14.5,19.5 21,13"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * SVG diagram illustrations for each step
+ * ──────────────────────────────────────────────────────────────────────────── */
 
 /**
- * Science SVG — four signal-type input nodes (EMG waveform, GPS track,
+ * Modeling diagram — four signal-type input nodes (EMG waveform, GPS track,
  * clinical bar chart, 18-month timeline) feeding into a neural-network
  * adaptive model at the centre.
  */
-function ScienceDiagram() {
+function ModelingDiagram() {
   return (
     <div className="bg-muted border-border w-full overflow-hidden rounded-2xl border p-4">
       <svg
@@ -19,7 +189,7 @@ function ScienceDiagram() {
         className="w-full"
         aria-hidden="true"
       >
-        {/* ── Connection lines ── */}
+        {/* Connection lines */}
         <path
           d="M125,48 C190,48 226,112 222,140"
           stroke="#c4c3d8"
@@ -41,7 +211,7 @@ function ScienceDiagram() {
           strokeWidth="1.6"
         />
 
-        {/* ── TL node: EMG Signal ── */}
+        {/* TL node: EMG Signal */}
         <rect
           x="5"
           y="22"
@@ -74,7 +244,7 @@ function ScienceDiagram() {
           Muscle Signal
         </text>
 
-        {/* ── TR node: GPS Movement ── */}
+        {/* TR node: GPS Movement */}
         <rect
           x="415"
           y="22"
@@ -108,7 +278,7 @@ function ScienceDiagram() {
           Movement
         </text>
 
-        {/* ── BL node: Clinical Assessment ── */}
+        {/* BL node: Clinical Assessment */}
         <rect
           x="5"
           y="206"
@@ -170,7 +340,7 @@ function ScienceDiagram() {
           Assessment
         </text>
 
-        {/* ── BR node: 18-Month Dataset ── */}
+        {/* BR node: 18-Month Dataset */}
         <rect
           x="415"
           y="206"
@@ -233,9 +403,8 @@ function ScienceDiagram() {
           Real-World Data
         </text>
 
-        {/* ── Centre: Adaptive Neural Model ── */}
+        {/* Centre: Adaptive Neural Model */}
         <circle cx="270" cy="140" r="48" fill="#0f0f12" />
-        {/* Neural net — 3 layers: 4 · 3 · 2 nodes */}
         <circle cx="250" cy="118" r="2.5" fill="white" opacity="0.55" />
         <circle cx="250" cy="130" r="2.5" fill="white" opacity="0.55" />
         <circle cx="250" cy="142" r="2.5" fill="white" opacity="0.55" />
@@ -379,11 +548,10 @@ function ScienceDiagram() {
 }
 
 /**
- * Trust SVG — three concentric permission rings: Athlete (full control,
- * innermost dark circle) → Club (aggregate view, middle ring) →
- * External (no access, outer dashed ring).
+ * Signals diagram — multiple waveform streams converging into a correlation matrix,
+ * representing cross-signal analysis across partner data streams.
  */
-function TrustDiagram() {
+function SignalsDiagram() {
   return (
     <div className="bg-muted border-border w-full overflow-hidden rounded-2xl border p-4">
       <svg
@@ -393,258 +561,774 @@ function TrustDiagram() {
         className="w-full"
         aria-hidden="true"
       >
-        {/* ── Outer ring: External — No Access ── */}
-        <circle
-          cx="270"
-          cy="140"
-          r="122"
-          fill="#f4f4f8"
-          stroke="#dddde8"
-          strokeWidth="1"
-          strokeDasharray="5 4"
-        />
-
-        {/* X marks at outer boundary compass points */}
-        <line
-          x1="264"
-          y1="14"
-          x2="276"
-          y2="26"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="276"
-          y1="14"
-          x2="264"
-          y2="26"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="264"
-          y1="254"
-          x2="276"
-          y2="266"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="276"
-          y1="254"
-          x2="264"
-          y2="266"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="142"
-          y1="134"
-          x2="154"
-          y2="146"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="154"
-          y1="134"
-          x2="142"
-          y2="146"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="386"
-          y1="134"
-          x2="398"
-          y2="146"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <line
-          x1="398"
-          y1="134"
-          x2="386"
-          y2="146"
-          stroke="#c8c8d8"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-
-        {/* External label (top of outer ring) */}
-        <text
-          x="270"
-          y="34"
-          textAnchor="middle"
-          fill="#b0b0c8"
-          fontSize="7"
-          fontFamily="sans-serif"
-          fontWeight="600"
-        >
-          External
-        </text>
-        <text
-          x="270"
-          y="46"
-          textAnchor="middle"
-          fill="#c0c0d4"
-          fontSize="5.5"
-          fontFamily="sans-serif"
-        >
-          No Access — Never Shared
-        </text>
-
-        {/* ── Middle ring: Club — Aggregate View ── */}
-        <circle
-          cx="270"
-          cy="140"
-          r="88"
-          fill="#eaeaf2"
-          stroke="#d4d4e4"
+        {/* Signal stream 1 — Performance */}
+        <rect
+          x="5"
+          y="30"
+          width="140"
+          height="44"
+          rx="6"
+          fill="white"
+          stroke="#e0e0ea"
           strokeWidth="1"
         />
-
-        {/* Club label (above inner circle) */}
-        <text
-          x="270"
-          y="75"
-          textAnchor="middle"
-          fill="#555570"
-          fontSize="7"
-          fontFamily="sans-serif"
-          fontWeight="600"
-        >
-          Club View
-        </text>
-        <text
-          x="270"
-          y="87"
-          textAnchor="middle"
-          fill="#777790"
-          fontSize="5.5"
-          fontFamily="sans-serif"
-        >
-          Aggregate Only — Athlete Permitted
-        </text>
-
-        {/* ── Inner circle: Athlete — Full Control ── */}
-        <circle cx="270" cy="140" r="52" fill="#0f0f12" />
-
-        {/* Padlock (centred at 270, 128) */}
-        <path
-          d="M260,124 L260,116 Q260,106 270,106 Q280,106 280,116 L280,124"
-          stroke="white"
-          strokeWidth="2"
+        <polyline
+          points="14,52 26,42 38,56 50,44 62,50 74,40 86,54 98,46"
+          stroke="#0802A3"
+          strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
-        <rect x="254" y="123" width="32" height="22" rx="4" fill="white" />
-        <circle cx="270" cy="131" r="3.5" fill="#0f0f12" />
+        <text
+          x="108"
+          y="49"
+          fill="#1a1a2e"
+          fontSize="6.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Performance
+        </text>
+        <text x="108" y="59" fill="#777" fontSize="5.5" fontFamily="sans-serif">
+          Monitoring
+        </text>
+
+        {/* Signal stream 2 — Rehab */}
         <rect
-          x="268.5"
-          y="133.5"
-          width="3"
-          height="6"
-          rx="1.5"
-          fill="#0f0f12"
+          x="5"
+          y="118"
+          width="140"
+          height="44"
+          rx="6"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
+        <polyline
+          points="14,140 30,130 46,148 62,132 78,144 94,136"
+          stroke="#0802A3"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <text
+          x="108"
+          y="137"
+          fill="#1a1a2e"
+          fontSize="6.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Rehab
+        </text>
+        <text
+          x="108"
+          y="147"
+          fill="#777"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          Environment
+        </text>
+
+        {/* Signal stream 3 — Neuromuscular */}
+        <rect
+          x="5"
+          y="206"
+          width="140"
+          height="44"
+          rx="6"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
+        <polyline
+          points="14,228 22,228 26,218 32,238 36,216 42,238 46,228 60,228"
+          stroke="#0802A3"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.5"
+        />
+        <text
+          x="108"
+          y="225"
+          fill="#1a1a2e"
+          fontSize="6.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Neuro
+        </text>
+        <text
+          x="108"
+          y="235"
+          fill="#777"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          Muscular
+        </text>
+
+        {/* Connection lines to centre */}
+        <path
+          d="M145,52 C200,52 240,110 255,130"
+          stroke="#c4c3d8"
+          strokeWidth="1.2"
+        />
+        <path
+          d="M145,140 C200,140 240,140 255,140"
+          stroke="#0802A3"
+          strokeWidth="1.6"
+        />
+        <path
+          d="M145,228 C200,228 240,170 255,150"
+          stroke="#c4c3d8"
+          strokeWidth="1.2"
         />
 
-        {/* "ATHLETE" label inside inner circle */}
+        {/* Centre: Correlation matrix */}
+        <rect x="250" y="100" width="80" height="80" rx="8" fill="#0f0f12" />
+        {/* Grid cells */}
+        <rect
+          x="260"
+          y="110"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.9"
+        />
+        <rect
+          x="278"
+          y="110"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.4"
+        />
+        <rect
+          x="296"
+          y="110"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.2"
+        />
+        <rect
+          x="260"
+          y="128"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.4"
+        />
+        <rect
+          x="278"
+          y="128"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.85"
+        />
+        <rect
+          x="296"
+          y="128"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.5"
+        />
+        <rect
+          x="260"
+          y="146"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.2"
+        />
+        <rect
+          x="278"
+          y="146"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.5"
+        />
+        <rect
+          x="296"
+          y="146"
+          width="14"
+          height="14"
+          rx="2"
+          fill="white"
+          opacity="0.75"
+        />
         <text
-          x="270"
-          y="158"
+          x="290"
+          y="176"
           textAnchor="middle"
           fill="white"
-          fontSize="6"
+          fontSize="5.5"
           fontFamily="sans-serif"
-          letterSpacing="1"
-          opacity="0.65"
+          letterSpacing="0.5"
+          opacity="0.6"
         >
-          ATHLETE
+          CORRELATION
         </text>
 
-        {/* ── Left callout ── */}
+        {/* Output connections */}
+        <path
+          d="M330,130 C360,120 390,90 420,80"
+          stroke="#0802A3"
+          strokeWidth="1.4"
+        />
+        <path
+          d="M330,140 C360,140 390,140 420,140"
+          stroke="#0802A3"
+          strokeWidth="1.6"
+        />
+        <path
+          d="M330,150 C360,160 390,190 420,200"
+          stroke="#0802A3"
+          strokeWidth="1.4"
+        />
+
+        {/* Output nodes */}
+        <rect
+          x="420"
+          y="60"
+          width="110"
+          height="40"
+          rx="6"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
         <text
-          x="10"
-          y="128"
-          fill="#555570"
-          fontSize="7"
+          x="475"
+          y="77"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="6.5"
           fontFamily="sans-serif"
           fontWeight="600"
         >
-          GDPR-Compliant
+          Strongest Signals
         </text>
         <text
-          x="10"
-          y="140"
-          fill="#777790"
-          fontSize="6"
+          x="475"
+          y="89"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="5.5"
           fontFamily="sans-serif"
         >
-          EU Servers
+          Identified
         </text>
-        <line
-          x1="104"
-          y1="134"
-          x2="182"
-          y2="140"
-          stroke="#c4c4d8"
-          strokeWidth="1"
-          strokeDasharray="3 2"
-        />
 
-        {/* ── Right callout ── */}
+        <rect
+          x="420"
+          y="120"
+          width="110"
+          height="40"
+          rx="6"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
         <text
-          x="440"
-          y="128"
-          fill="#555570"
-          fontSize="7"
+          x="475"
+          y="137"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="6.5"
           fontFamily="sans-serif"
           fontWeight="600"
         >
-          Athlete Owned
+          Explanatory
         </text>
         <text
-          x="440"
-          y="140"
-          fill="#777790"
-          fontSize="6"
+          x="475"
+          y="149"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="5.5"
           fontFamily="sans-serif"
         >
-          Full Control
+          Power Ranked
         </text>
-        <line
-          x1="436"
-          y1="134"
-          x2="322"
-          y2="140"
-          stroke="#c4c4d8"
+
+        <rect
+          x="420"
+          y="182"
+          width="110"
+          height="40"
+          rx="6"
+          fill="white"
+          stroke="#e0e0ea"
           strokeWidth="1"
-          strokeDasharray="3 2"
         />
+        <text
+          x="475"
+          y="199"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="6.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Research
+        </text>
+        <text
+          x="475"
+          y="211"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          Collaborations
+        </text>
       </svg>
     </div>
   )
 }
 
 /**
- * ScienceDataTrustSection — Two editorial numbered blocks with alternating layout:
- * Block 01 (Science) text left / diagram right — Block 02 (Trust) diagram left / text right.
+ * Validation diagram — a phased pipeline showing methodological validation,
+ * scientific uncertainty resolution, and deployment readiness.
+ */
+function ValidationDiagram() {
+  return (
+    <div className="bg-muted border-border w-full overflow-hidden rounded-2xl border p-4">
+      <svg
+        viewBox="0 0 540 280"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full"
+        aria-hidden="true"
+      >
+        {/* Phase 1: Methodology */}
+        <rect
+          x="20"
+          y="90"
+          width="140"
+          height="100"
+          rx="10"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
+        <circle cx="90" cy="130" r="20" fill="#0f0f12" />
+        <polyline
+          points="80,130 87,137 100,124"
+          stroke="white"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <text
+          x="90"
+          y="168"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="7"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Methodology
+        </text>
+        <text
+          x="90"
+          y="179"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          Validation
+        </text>
+
+        {/* Arrow 1→2 */}
+        <line
+          x1="164"
+          y1="140"
+          x2="196"
+          y2="140"
+          stroke="#0802A3"
+          strokeWidth="1.5"
+        />
+        <polygon points="196,136 204,140 196,144" fill="#0802A3" />
+
+        {/* Phase 2: Uncertainty */}
+        <rect
+          x="200"
+          y="90"
+          width="140"
+          height="100"
+          rx="10"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
+        <circle cx="270" cy="130" r="20" fill="#0f0f12" />
+        {/* Magnifying glass */}
+        <circle
+          cx="266"
+          cy="127"
+          r="8"
+          stroke="white"
+          strokeWidth="1.5"
+          fill="none"
+        />
+        <line
+          x1="272"
+          y1="133"
+          x2="278"
+          y2="139"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <text
+          x="270"
+          y="168"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="7"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Uncertainty
+        </text>
+        <text
+          x="270"
+          y="179"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          Resolution
+        </text>
+
+        {/* Arrow 2→3 */}
+        <line
+          x1="344"
+          y1="140"
+          x2="376"
+          y2="140"
+          stroke="#0802A3"
+          strokeWidth="1.5"
+        />
+        <polygon points="376,136 384,140 376,144" fill="#0802A3" />
+
+        {/* Phase 3: Deployment */}
+        <rect
+          x="380"
+          y="90"
+          width="140"
+          height="100"
+          rx="10"
+          fill="white"
+          stroke="#e0e0ea"
+          strokeWidth="1"
+        />
+        <circle cx="450" cy="130" r="20" fill="#0f0f12" />
+        {/* Shield icon */}
+        <path
+          d="M450,115 L440,120 L440,128 C440,134 444,139 450,141 C456,139 460,134 460,128 L460,120 Z"
+          stroke="white"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinejoin="round"
+        />
+        <text
+          x="450"
+          y="168"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="7"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Risk Reduction
+        </text>
+        <text
+          x="450"
+          y="179"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          & Deployment
+        </text>
+
+        {/* Progress bar */}
+        <rect x="60" y="220" width="420" height="6" rx="3" fill="#e0e0ea" />
+        <rect x="60" y="220" width="160" height="6" rx="3" fill="#0802A3" />
+        <circle
+          cx="220"
+          cy="223"
+          r="5"
+          fill="#0802A3"
+          stroke="white"
+          strokeWidth="2"
+        />
+        <text
+          x="270"
+          y="246"
+          textAnchor="middle"
+          fill="#777"
+          fontSize="6"
+          fontFamily="sans-serif"
+        >
+          Current Phase
+        </text>
+
+        {/* Phase labels along progress bar */}
+        <text
+          x="60"
+          y="258"
+          fill="#1a1a2e"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Research
+        </text>
+        <text
+          x="250"
+          y="258"
+          textAnchor="middle"
+          fill="#1a1a2e"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Validation
+        </text>
+        <text
+          x="460"
+          y="258"
+          textAnchor="middle"
+          fill="#999"
+          fontSize="5.5"
+          fontFamily="sans-serif"
+        >
+          Applied Deployment
+        </text>
+      </svg>
+    </div>
+  )
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Down-arrow connector between steps
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+function StepConnector() {
+  return (
+    <AnimateIn variant="fadeIn" delay={0.1}>
+      <div className="flex justify-center py-6 sm:py-8" aria-hidden="true">
+        <svg
+          width="18"
+          height="24"
+          viewBox="0 0 18 24"
+          fill="none"
+          className="text-primary animate-bounce-slow"
+        >
+          <path
+            d="M9 2v18M4 16l5 5 5-5"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    </AnimateIn>
+  )
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Checkmark bullet
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+function CheckBullet({ text }: { text: string }) {
+  return (
+    <li className="text-foreground/60 flex items-center gap-2.5 text-[13px] sm:text-[14px]">
+      <svg
+        className="text-primary/60 h-4 w-4 shrink-0"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M4 8l3 3 5-5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      {text}
+    </li>
+  )
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Step block — alternating text / illustration layout
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+interface StepBlockProps {
+  number: string
+  badgeIcon: React.ReactNode
+  diagram: React.ReactNode
+  title: string
+  body: string
+  bullets: string[]
+  reverse?: boolean
+  delay?: number
+}
+
+function StepBlock({
+  number,
+  badgeIcon,
+  diagram,
+  title,
+  body,
+  bullets,
+  reverse,
+  delay = 0,
+}: StepBlockProps) {
+  return (
+    <AnimateIn variant="fadeUp" delay={delay}>
+      <div
+        className={cn(
+          'flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12 lg:gap-20',
+          reverse && 'md:flex-row-reverse'
+        )}
+      >
+        {/* ── Text side ── */}
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-4">
+          {/* Large step number */}
+          <AnimateIn variant="scaleUp" delay={delay + 0.1}>
+            <span className="text-primary/15 text-[52px] leading-none font-bold sm:text-[60px] lg:text-[72px]">
+              {number}
+            </span>
+          </AnimateIn>
+
+          {/* Icon badge + title */}
+          <div className="flex items-center gap-3">
+            <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-xl">
+              {badgeIcon}
+            </div>
+            <Typography
+              variant="heading"
+              as="h3"
+              textColor="default"
+              className="text-[18px] sm:text-[20px]"
+            >
+              {title}
+            </Typography>
+          </div>
+
+          {/* Description */}
+          <Typography
+            variant="paragraph"
+            textColor="default"
+            className="text-justify"
+          >
+            {body}
+          </Typography>
+
+          {/* Bullet points */}
+          <ul className="mt-1 flex flex-col gap-2">
+            {bullets.map((b) => (
+              <CheckBullet key={b} text={b} />
+            ))}
+          </ul>
+        </div>
+
+        {/* ── Diagram side ── */}
+        <div className="flex min-w-0 flex-1 items-center overflow-hidden transition-transform duration-300 hover:scale-105">
+          {diagram}
+        </div>
+      </div>
+    </AnimateIn>
+  )
+}
+
+/**
+ * ScienceDataTrustSection — Alternating step layout (inspired by "How it works" pattern)
+ * with numbered pillar blocks, illustration cards with decorative blobs,
+ * down-arrow connectors, research questions panel, and data trust block.
  */
 export function ScienceDataTrustSection() {
   const { t } = useTranslation()
 
-  const bullets = [
-    t('product.trust.bullet1'),
-    t('product.trust.bullet2'),
-    t('product.trust.bullet3'),
+  const steps: Omit<StepBlockProps, 'delay'>[] = [
+    {
+      number: '01',
+      badgeIcon: <ModelingIcon className="h-5 w-5" />,
+      diagram: <ModelingDiagram />,
+      title: t('product.science.pillars.modeling.title'),
+      body: t('product.science.pillars.modeling.body'),
+      bullets: [
+        t('product.science.pillars.modeling.bullet1'),
+        t('product.science.pillars.modeling.bullet2'),
+        t('product.science.pillars.modeling.bullet3'),
+      ],
+      reverse: false,
+    },
+    {
+      number: '02',
+      badgeIcon: <SignalsIcon className="h-5 w-5" />,
+      diagram: <SignalsDiagram />,
+      title: t('product.science.pillars.signals.title'),
+      body: t('product.science.pillars.signals.body'),
+      bullets: [
+        t('product.science.pillars.signals.bullet1'),
+        t('product.science.pillars.signals.bullet2'),
+        t('product.science.pillars.signals.bullet3'),
+      ],
+      reverse: true,
+    },
+    {
+      number: '03',
+      badgeIcon: <ValidationIcon className="h-5 w-5" />,
+      diagram: <ValidationDiagram />,
+      title: t('product.science.pillars.validation.title'),
+      body: t('product.science.pillars.validation.body'),
+      bullets: [
+        t('product.science.pillars.validation.bullet1'),
+        t('product.science.pillars.validation.bullet2'),
+        t('product.science.pillars.validation.bullet3'),
+      ],
+      reverse: false,
+    },
+  ]
+
+  const questions = [
+    t('product.science.questions.q1'),
+    t('product.science.questions.q2'),
+    t('product.science.questions.q3'),
+    t('product.science.questions.q4'),
   ]
 
   return (
@@ -654,67 +1338,56 @@ export function ScienceDataTrustSection() {
       className="bg-background relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto flex flex-col">
-        {/* ── Block 01: Science — text LEFT · diagram RIGHT ── */}
-        <AnimateIn variant="fadeUp">
-          <div className="border-border flex flex-col gap-6 border-t py-12 md:flex-row md:items-start md:gap-12 md:py-16">
-            <div className="flex flex-1 flex-col gap-8 md:flex-row md:items-start md:gap-10">
-              {/* Text — left on desktop */}
-              <div className="flex flex-col gap-4 md:w-[44%] md:shrink-0">
-                <Typography variant="title" as="h2" textColor="default">
-                  {t('product.science.heading')}
-                </Typography>
-                <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                  {t('product.science.body')}
-                </p>
-              </div>
-              {/* Diagram — right on desktop */}
-              <div className="flex-1">
-                <ScienceDiagram />
-              </div>
-            </div>
+        {/* ── Section header ── */}
+        <div className="border-border flex flex-col gap-4 border-t pt-16 sm:pt-20 md:pt-24">
+          <AnimateIn variant="fadeUp">
+            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+              <span className="text-foreground font-bold">
+                {t('product.science.heading')}
+              </span>{' '}
+              <span className="text-primary font-bold">
+                {t('product.science.headingAccent')}
+              </span>
+            </h2>
+          </AnimateIn>
+          <AnimateIn variant="fadeUp" delay={0.05}>
+            <p className="text-foreground/55 text-center text-[15px] leading-[1.8] sm:text-base">
+              {t('product.science.intro')}
+            </p>
+          </AnimateIn>
+        </div>
+
+        {/* ── Alternating step blocks ── */}
+        <div className="flex flex-col pt-12 pb-0 sm:pt-16 md:pt-20">
+          {steps.map((step, index) => (
+            <React.Fragment key={step.number}>
+              {index > 0 && <StepConnector />}
+              <StepBlock {...step} delay={0.05 + index * 0.08} />
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* ── Research questions ── */}
+        <StepConnector />
+        <AnimateIn variant="fadeUp" delay={0.15}>
+          <div className="border-border bg-muted/40 mb-12 flex flex-col gap-6 rounded-2xl border p-6 sm:mb-16 sm:p-8 md:p-10">
+            <Typography variant="heading" as="h3" textColor="default">
+              {t('product.science.researchTitle')}
+            </Typography>
+            <ol className="flex flex-col gap-4">
+              {questions.map((question, index) => (
+                <li key={index} className="flex gap-4">
+                  <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <Typography variant="paragraph" textColor="default">
+                    {question}
+                  </Typography>
+                </li>
+              ))}
+            </ol>
           </div>
         </AnimateIn>
-
-        {/* ── Block 02: Trust — diagram LEFT · text RIGHT ── */}
-        <AnimateIn variant="fadeUp" delay={0.1}>
-          <div className="border-border flex flex-col gap-6 border-t py-12 md:flex-row md:items-start md:gap-12 md:py-16">
-            <div className="flex flex-1 flex-col gap-8 md:flex-row-reverse md:items-start md:gap-10">
-              {/* Text — right on desktop (first in DOM = right with flex-row-reverse) */}
-              <div className="flex flex-col gap-4 md:w-[44%] md:shrink-0">
-                <Typography variant="title" as="h2" textColor="default">
-                  {t('product.trust.heading')}
-                </Typography>
-                <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                  {t('product.trust.body')}
-                </p>
-                <ul className="mt-2 flex flex-col gap-2">
-                  {bullets.map((item) => (
-                    <li
-                      key={item}
-                      className="text-foreground/65 flex items-center gap-3 text-[13px] sm:text-[14px]"
-                    >
-                      <span
-                        className="bg-primary h-px w-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-foreground/40 mt-4 text-[11px] leading-[1.6] sm:text-[12px]">
-                  {t('product.trust.disclaimer')}
-                </p>
-              </div>
-              {/* Diagram — left on desktop (second in DOM = left with flex-row-reverse) */}
-              <div className="flex-1">
-                <TrustDiagram />
-              </div>
-            </div>
-          </div>
-        </AnimateIn>
-
-        {/* ── Bottom rule ── */}
-        <div className="border-border border-t" aria-hidden="true" />
       </div>
     </section>
   )
