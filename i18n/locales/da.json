@@ -182,7 +182,8 @@
     "cta": "Kontakt os"
   },
   "faq": {
-    "title": "FAQ's",
+    "title": "FAQ",
+    "titleAccent": "",
     "subtitle": "Svar på de mest almindelige spørgsmål om Twinspire, vores metode, og hvordan klubber kan komme i gang.",
     "viewAll": "Se alle",
     "viewLess": "Se færre",

@@ -166,22 +166,12 @@ export function FAQSection() {
         <AnimateIn variant="fadeUp">
           <div className="mx-auto mb-7 max-w-[1080px] text-left sm:mb-8 lg:mb-9">
             <div className="max-w-[680px]">
-              <Typography
-                variant="title"
-                as="h2"
-                textColor="default"
-                className="text-[24px] sm:text-[30px] lg:text-[35px]"
-              >
+              <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
                 {t('faq.title')}
-              </Typography>
-              <Typography
-                variant="subtitle"
-                as="p"
-                textColor="default"
-                className="mt-2 max-w-[580px] text-[13px] leading-[1.6] sm:mt-2.5 sm:text-[14px]"
-              >
+              </h2>
+              <p className="text-foreground/55 mt-3 max-w-[580px] text-[13px] leading-relaxed sm:mt-4 sm:text-[15px]">
                 {t('faq.subtitle')}
-              </Typography>
+              </p>
             </div>
           </div>
         </AnimateIn>

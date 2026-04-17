@@ -182,7 +182,8 @@
     "cta": "Get in touch"
   },
   "faq": {
-    "title": "FAQ's",
+    "title": "FAQ",
+    "titleAccent": "",
     "subtitle": "Answers to the most common questions about Twinspire, our methodology, and how clubs can get started.",
     "viewAll": "View all",
     "viewLess": "View less",
