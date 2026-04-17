@@ -170,11 +170,13 @@
     "p2": "30 % af skader er genoptræningsrelaterede. Genskadeshyppigheden har ikke rykket sig i et årti. Værktøjerne har ikke fulgt med."
   },
   "cta": {
-    "title": "Klar til at se, hvad dit holds data egentlig fortæller dig?",
-    "subtitle": "Vi optager grundlæggende partnere i Norden dette kvartal. De klubber, der tilmelder sig nu, er med til at forme produktet, får prioriteret adgang og låser fordelagtige priser fast.",
+    "title": "Vi udvælger",
+    "titleAccent": "valideringspartnere",
+    "titleEnd": "i hele Norden.",
+    "subtitle": "Klubber og klinikker, der deltager i forskningsstudiet, bidrager direkte til at forme metodologien, får tidlig indsigt i foreløbige resultater og hjælper med at sikre, at tilgangen er forankret i klinisk praksis og præstationspraksis fra den virkelige verden, inden nogen markedsintroduktion overvejes. Hvis dit arbejde eller din teknologi er relevant for vores forskning, vil vi gerne høre fra dig!",
     "fields": "Navn · Klub eller klinik · Rolle · E-mail",
-    "button": "Ansøg om pilotprogrammet",
-    "note": "Ingen forpligtelse. En kort samtale for at se, om det er det rette match."
+    "button": "Kontakt os",
+    "note": "Ingen forpligtelse. En kort samtale for at undersøge, om samarbejdet er et godt match."
   },
   "partners": {
     "heading": "Byg fremtidens fodboldssundhed med os.",
