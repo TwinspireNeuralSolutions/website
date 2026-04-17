@@ -134,24 +134,37 @@ export function DataEthicsSection() {
           aria-hidden="true"
         />
 
-        {/* ── Title ── */}
+        {/* ── Heading (matches Team section on team-section branch) ── */}
         <AnimateIn variant="fadeUp">
-          <Typography
+          <h2
             id="data-ethics-heading"
-            variant="title"
-            as="h2"
-            textColor="default"
-            className="mx-auto mb-4 text-center uppercase lg:mb-5"
+            className="mx-auto mb-4 max-w-[720px] px-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:px-0 sm:text-[26px] lg:mb-6 lg:text-[32px]"
           >
-            {t('dataEthics.sectionLabel')}
-          </Typography>
+            <span className="text-foreground font-bold">
+              {t('dataEthics.heading')}
+            </span>{' '}
+            <span className="text-primary font-bold">
+              {t('dataEthics.headingAccent1')}
+            </span>{' '}
+            <span className="text-foreground font-bold">
+              {t('dataEthics.headingPart2')}
+            </span>{' '}
+            <span className="text-primary font-bold">
+              {t('dataEthics.headingAccent2')}
+            </span>
+          </h2>
         </AnimateIn>
 
         {/* ── Subtitle ── */}
         <AnimateIn variant="fadeUp" delay={0.06}>
-          <p className="text-foreground/70 mx-auto mb-8 max-w-[640px] px-4 text-center text-[16px] leading-[1.5] font-normal sm:mb-10 sm:px-0 sm:text-[18px] lg:mb-14 lg:text-[20px]">
-            {t('dataEthics.heading')}
-          </p>
+          <Typography
+            variant="subtitle"
+            as="p"
+            textColor="muted"
+            className="mx-auto mb-10 max-w-[720px] text-center lg:mb-14"
+          >
+            {t('dataEthics.description')}
+          </Typography>
         </AnimateIn>
 
         {/* ── 3-card grid ── */}
