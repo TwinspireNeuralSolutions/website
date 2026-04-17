@@ -116,13 +116,16 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
           </div>
         </Card>
 
-        {/* Description modal — onClick closes on backdrop click; Escape is handled natively by <dialog> */}
+        {/* Description modal — onClick closes on backdrop click; Escape handled natively by <dialog> */}
         {description && (
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
           <dialog
             ref={dialogRef}
             onClick={(e) => {
-              // eslint-disable-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
               if (e.target === e.currentTarget) dialogRef.current?.close()
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') dialogRef.current?.close()
             }}
             className="fixed inset-0 z-50 m-auto max-h-[90vh] w-[92vw] max-w-lg border-none bg-transparent p-0 backdrop:bg-black/50 backdrop:backdrop-blur-sm"
           >
