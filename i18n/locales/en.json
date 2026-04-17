@@ -238,7 +238,8 @@
     }
   },
   "contact": {
-    "title": "The Reinjury Rate Hasn't Moved in a Decade. The Research to Change That Is Underway.",
+    "title": "The Reinjury Rate Hasn't Moved in a Decade.",
+    "titleAccent": "The Research to Change That Is Underway.",
     "subtitle": "Fill out the form or reach out directly to start a conversation about joining our founding research cohort.",
     "name": "Name",
     "email": "Email",
