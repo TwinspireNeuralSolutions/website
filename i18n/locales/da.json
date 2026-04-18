@@ -94,13 +94,14 @@
     "navData": "Data & Tillid"
   },
   "hero": {
-    "headlineLine1": "Kroppen ved det",
-    "headlineLine2": "Før du gør.",
-    "subtitle": "Én ud af fem fodboldspillere river den samme muskel over to gange. Ikke på grund af dårlig held, men på grund af oversete signaler. Twinspire læser dem alle.",
-    "cta": "Bliv en del af pilotprogrammet",
-    "audienceAthletes": "Atleter",
-    "audienceCoaches": "Trænere",
-    "audiencePhysio": "Fysioterapeuter"
+    "headlineLine1Start": "Elitesport tracker ",
+    "headlineLine1Highlight": "holdet.",
+    "headlineLine2Start": "Twinspire studerer ",
+    "headlineLine2Highlight": "individet.",
+    "dataTypes": "GPS · Styrke · Fysio · Biomekanik · Neuromuskulær",
+    "valueProp": "Dataen findes — men den er aldrig blevet samlet i én longitudinel model af en enkelt atlet. Twinspire bygger den model og tilpasser den, efterhånden som atleten ændrer sig, så hver beslutning træffes ud fra deres egen baseline.",
+    "credibility": "Bygget på fem års forskning fra DTU Health Tech.",
+    "cta": "Deltag i forskningsvalideringsstudiet"
   },
   "team": {
     "heading": "Forskningen kom først.",
