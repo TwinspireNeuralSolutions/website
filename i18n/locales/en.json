@@ -94,13 +94,14 @@
     "navData": "Data & Trust"
   },
   "hero": {
-    "headlineLine1": "The Body Knows",
-    "headlineLine2": "Before You Do.",
-    "subtitle": "One in five footballers tears the same muscle twice. Not from bad luck, but from missed signals. Twinspire reads every one of them.",
-    "cta": "Join the Founding Pilot Cohort",
-    "audienceAthletes": "Athletes",
-    "audienceCoaches": "Coaches",
-    "audiencePhysio": "Physiotherapists"
+    "headlineLine1Start": "Elite Sport Tracks ",
+    "headlineLine1Highlight": "the Squad.",
+    "headlineLine2Start": "Twinspire Studies ",
+    "headlineLine2Highlight": "the Individual.",
+    "dataTypes": "GPS · Strength · Physio · Biomechanics · Neuromuscular",
+    "valueProp": "The data exists — but it has never been unified into one longitudinal model of a single athlete. Twinspire builds that model and adapts it as the athlete changes, so every decision is made against their own evolving baseline.",
+    "credibility": "Built on five years of DTU Health Tech research.",
+    "cta": "Join the Research Validation Study"
   },
   "about": {
     "headline": "This Started With One Injury. Then a Second.",
