@@ -155,54 +155,25 @@
   },
   "product": {
     "science": {
-      "label": "The Science",
-      "heading": "Most systems describe load.",
-      "headingAccent": "Twinspire is being developed to model individual response.",
-      "intro": "The research draws on principles from adaptive systems, time-varying dynamics, and individualized state estimation to study how each athlete responds across time. Rather than treating the athlete as a static profile or comparing them against population averages, the objective is to identify personalized reference behavior and detect meaningful departures from that expected state.",
-      "pillars": {
-        "modeling": {
-          "title": "Individualized Modeling",
-          "body": "The methodology builds on five years of digital twin research at DTU Health Tech and is patent pending. At its core, the work investigates how longitudinal multimodal data can be used to identify adaptable mathematical models of the individual athlete that capture changing physiological, neuromuscular, and performance-related dynamics over time.",
-          "bullet1": "5 years of DTU Health Tech research",
-          "bullet2": "Patent-pending methodology",
-          "bullet3": "Longitudinal multimodal data"
-        },
-        "signals": {
-          "title": "Multi-Signal Analysis",
-          "body": "Alongside individualized modeling, Twinspire is investigating larger-scale relationships among signals across integrated partner data streams to determine which combinations of measures provide the strongest explanatory power. This includes ongoing and planned research collaborations spanning performance monitoring, rehabilitation environments, neuromuscular sensing, and cognitive and mental load-related assessments.",
-          "bullet1": "Integrated partner data streams",
-          "bullet2": "Neuromuscular sensing",
-          "bullet3": "Cognitive load assessment"
-        },
-        "validation": {
-          "title": "Validation & Risk Reduction",
-          "body": "The current phase focuses on methodological validation, resolution of key scientific uncertainties, and reduction of the technical risks required before broader applied deployment in performance and rehabilitation settings.",
-          "bullet1": "Methodological validation",
-          "bullet2": "Scientific uncertainty resolution",
-          "bullet3": "Technical risk reduction"
-        }
-      },
-      "researchTitle": "Current Research Questions",
-      "questions": {
-        "q1": "How early can deviations from an athlete's personal baseline be detected, and which deviations are meaningfully associated with elevated vulnerability following return to play?",
-        "q2": "What is the minimum sensor and data configuration required to establish a stable and reliable individualized model?",
-        "q3": "How do missing periods, changing contexts, and club transitions affect model robustness over time?",
-        "q4": "Can emerging compensation patterns be identified before they become evident through symptoms or conventional monitoring?"
-      }
+      "heading": "",
+      "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
     },
     "trust": {
-      "heading": "The Data Belongs to the Athlete. Full Stop.",
+      "heading": "",
       "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
       "bullet1": "GDPR compliance and DPAs",
       "bullet2": "EU-based hosting and processing",
       "bullet3": "Built with Danish research partners",
       "disclaimer": "Twinspire is a decision support platform and is not intended to diagnose or treat medical conditions."
     },
-    "headline1": "Every Athlete Has a Pattern. We Find It.",
-    "p1": "Twinspire builds a continuously updated model of each player by drawing on GPS, strength output, physio notes, neuromuscular sensor data, and the athlete's own wearables, including data from away from the training ground. It learns what normal looks like for that body. Then it tells you when something shifts.",
-    "headline2": "Athletic Passport",
-    "p2": "Every session, every load, every injury is logged, structured, and portable. When a player moves clubs, their full history moves with them.",
-    "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
+    "headline1": "From Population Averages to Individualized Dynamics",
+    "p1": "Twinspire is building a research-based digital twin framework that models each athlete individually. The framework integrates longitudinal multimodal data — external load, strength and neuromuscular testing, clinician observations, and wearable-derived physiological measures collected in and beyond the training environment — to learn athlete-specific reference patterns and detect meaningful deviations over time. Treating the athlete as a dynamic system, the approach draws on motor control, adaptive systems, and personalized time-series learning. The underlying methodology is based on research conducted at DTU and is patent-pending. In parallel we are developing a structured longitudinal data layer that links sessions, tests, symptoms, and contextual notes into a portable athlete history; this infrastructure is currently used to investigate continuity, interpretability, and individualized decision support across performance and rehabilitation settings.",
+    "headline2": "From Research Prototype to Applied Validation",
+    "p2": "We have developed a research prototype for individualized athlete modeling across mobile, tablet, and browser environments. The system integrates heterogeneous performance, physiological, and neuromuscular data with minimal additional input from practitioners. The prototype now moves into real-world validation to ensure the framework remains usable, robust, and interpretable in elite performance and rehabilitation practice. Current work focuses on three practical questions: Are the workflows operationally usable for staff? Do the multi-source ingestion pipelines provide sufficient data quality and continuity? Do the captured signals support meaningful individualized modeling in practice?",
+    "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and individualized readiness metrics",
+    "readMore": "Read more",
+    "readLess": "Read less",
+    "close": "Go back"
   },
   "problem": {
     "label": "The Problem",

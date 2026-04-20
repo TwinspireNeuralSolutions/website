@@ -154,54 +154,25 @@
   },
   "product": {
     "science": {
-      "label": "Videnskaben",
-      "heading": "De fleste systemer beskriver belastning.",
-      "headingAccent": "Twinspire er under udvikling til at modellere individuel respons.",
-      "intro": "Forskningen bygger på principper fra adaptive systemer, tidsvarierende dynamikker og individualiseret tilstandsestimering for at undersøge, hvordan hver atlet reagerer over tid. I stedet for at behandle atleten som en statisk profil eller sammenligne dem med populationsgennemsnit, er målet at identificere personaliseret referenceadfærd og detektere meningsfulde afvigelser fra den forventede tilstand.",
-      "pillars": {
-        "modeling": {
-          "title": "Individualiseret Modellering",
-          "body": "Metodologien bygger på fem års digital tvilling-forskning på DTU Health Tech og er patentansøgt. Kernen i arbejdet undersøger, hvordan longitudinelle multimodale data kan bruges til at identificere tilpasningsdygtige matematiske modeller af den individuelle atlet, der fanger skiftende fysiologiske, neuromuskulære og præstationsrelaterede dynamikker over tid.",
-          "bullet1": "5 års forskning på DTU Health Tech",
-          "bullet2": "Patentansøgt metodologi",
-          "bullet3": "Longitudinelle multimodale data"
-        },
-        "signals": {
-          "title": "Multi-Signal Analyse",
-          "body": "Sideløbende med individualiseret modellering undersøger Twinspire storskala-relationer mellem signaler på tværs af integrerede partnerdatastrømme for at fastslå, hvilke kombinationer af målinger giver den stærkeste forklaringskraft. Dette inkluderer igangværende og planlagte forskningssamarbejder inden for præstationsovervågning, rehabiliteringsmiljøer, neuromuskulær sensing samt kognitive og mentale belastningsrelaterede vurderinger.",
-          "bullet1": "Integrerede partnerdatastrømme",
-          "bullet2": "Neuromuskulær sensing",
-          "bullet3": "Kognitiv belastningsvurdering"
-        },
-        "validation": {
-          "title": "Validering & Risikoreduktion",
-          "body": "Den aktuelle fase fokuserer på metodologisk validering, løsning af centrale videnskabelige usikkerheder og reduktion af de tekniske risici, der er nødvendige, før bredere anvendt implementering i præstations- og rehabiliteringsmiljøer.",
-          "bullet1": "Metodologisk validering",
-          "bullet2": "Videnskabelig usikkerhedsløsning",
-          "bullet3": "Teknisk risikoreduktion"
-        }
-      },
-      "researchTitle": "Aktuelle forskningsspørgsmål",
-      "questions": {
-        "q1": "Hvor tidligt kan afvigelser fra en atlets personlige baseline detekteres, og hvilke afvigelser er meningsfuldt forbundet med forhøjet sårbarhed efter tilbagevenden til spil?",
-        "q2": "Hvad er den minimale sensor- og datakonfiguration, der kræves for at etablere en stabil og pålidelig individualiseret model?",
-        "q3": "Hvordan påvirker manglende perioder, skiftende kontekster og klubskift modellens robusthed over tid?",
-        "q4": "Kan fremvoksende kompensationsmønstre identificeres, inden de bliver tydelige gennem symptomer eller konventionel monitorering?"
-      }
+      "heading": "",
+      "body": "De fleste platforme tæller belastning. Twinspire forstår respons. Metoden fusionerer wearables, EMG og biomekanik til en levende fysiologisk model, unik for hver atlet. Patentansøgt. Valideret på reelle data. Bygget til at have ret, inden det tages i brug."
     },
     "trust": {
-      "heading": "Dataen tilhører atleten. Punktum.",
+      "heading": "",
       "body": "GDPR-kompatibel. EU-servere. Aldrig solgt. Aldrig delt. Passet tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
       "bullet1": "GDPR-overholdelse og DPA’er",
       "bullet2": "EU-baseret hosting og behandling",
       "bullet3": "Bygget med danske forskningspartnere",
       "disclaimer": "Twinspire er en beslutningsstøtteplatform og er ikke beregnet til at diagnosticere eller behandle medicinske tilstande."
     },
-    "headline1": "Hver atlet har et mønster. Vi finder det.",
-    "p1": "Twinspire bygger en løbende opdateret model af hver spiller baseret på GPS, styrkeoutput, fysinoter, neuromuskulære sensordata og atletens egne wearables, inklusive data fra uden for træningsanlægget. Den lærer, hvad normalt ser ud for den krop. Så fortæller den dig, når noget ændrer sig.",
-    "headline2": "Athletic Passport",
-    "p2": "Hver session, hver belastning, hver skade er logget, struktureret og transportabel. Når en spiller skifter klub, følger hele historikken med.",
-    "mockupAlt": "Twinspires personale-dashboard og spiller-mobilapp med simuleringsparametre og parathedsmålinger"
+    "headline1": "Fra populationsgennemsnit til individualiseret dynamik",
+    "p1": "Twinspire udvikler en forskningsbaseret digital tvilling‑ramme, der modellerer hver atlet individuelt. Rammen integrerer longitudinelle multimodale data — ekstern belastning, styrke- og neuromuskulære tests, kliniske observationer og wearables‑målinger indsamlet både i og uden for træningsmiljøet — for at lære atlet‑specifikke reference‑mønstre og opdage meningsfulde afvigelser over tid. Ved at betragte atleten som et dynamisk system anvendes principper fra motorisk kontrol, adaptive systemer og personaliseret tidsserie‑læring. Metodikken bygger på forskning fra DTU og er patentansøgt. Parallelt bygger vi et struktureret, longitudinelt data‑lag, som kobler sessioner, tests, symptomer og kontekstuelle noter til en bærbar atlet‑historik; infrastrukturen bruges i forskningsfasen til at undersøge kontinuitet, fortolkbarhed og individualiseret beslutningsstøtte på tværs af performance og rehabilitering.",
+    "headline2": "Fra forskningsprototype til anvendt validering",
+    "p2": "Vi har udviklet en forskningsprototype til individualiseret atletmodellering på mobil, tablet og browser, som integrerer heterogene præstations-, fysiologiske og neuromuskulære data med minimal ekstra indsats fra praktikere. Prototypen går nu ind i realverdensvalidering for at sikre, at rammeværket forbliver brugbart, robust og fortolkeligt i elite‑performance og rehabiliteringspraksis. Det aktuelle arbejde fokuserer på tre praktiske spørgsmål: Er arbejdsgangene operationelt brugbare for personalet? Lever indtastnings‑pipelinesne tilstrækkelig datakvalitet og kontinuitet? Understøtter de indsamlede signaler meningsfuld individualiseret modellering i praksis?",
+    "mockupAlt": "Twinspire personale‑dashboard og spiller‑mobilapp med parametre og individualiserede parathedsmål",
+    "readMore": "Læs mere",
+    "readLess": "Læs mindre",
+    "close": "Gå tilbage"
   },
   "problem": {
     "label": "Problemet",
