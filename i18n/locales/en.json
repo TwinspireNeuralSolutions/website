@@ -147,11 +147,11 @@
   },
   "product": {
     "science": {
-      "heading": "This Is Not a Dashboard. It Is a Model.",
+      "heading": "",
       "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
     },
     "trust": {
-      "heading": "The Data Belongs to the Athlete. Full Stop.",
+      "heading": "",
       "body": "GDPR-compliant. EU servers. Never sold. Never shared. The passport belongs to the athlete. The squad data belongs to the club. We host it — we don't own it.",
       "bullet1": "GDPR compliance and DPAs",
       "bullet2": "EU-based hosting and processing",
@@ -164,7 +164,8 @@
     "p2": "We have developed a research prototype for individualized athlete modeling across mobile, tablet, and browser environments. The system integrates heterogeneous performance, physiological, and neuromuscular data with minimal additional input from practitioners. The prototype now moves into real-world validation to ensure the framework remains usable, robust, and interpretable in elite performance and rehabilitation practice. Current work focuses on three practical questions: Are the workflows operationally usable for staff? Do the multi-source ingestion pipelines provide sufficient data quality and continuity? Do the captured signals support meaningful individualized modeling in practice?",
     "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and individualized readiness metrics",
     "readMore": "Read more",
-    "close": "Close"
+    "readLess": "Read less",
+    "close": "Go back"
   },
   "problem": {
     "headline": "You're Making Sunday's Decision with Tuesday's Data.",

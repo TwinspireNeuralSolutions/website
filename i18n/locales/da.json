@@ -147,11 +147,11 @@
   },
   "product": {
     "science": {
-      "heading": "Dette er ikke et dashboard. Det er en model.",
+      "heading": "",
       "body": "De fleste platforme tæller belastning. Twinspire forstår respons. Metoden fusionerer wearables, EMG og biomekanik til en levende fysiologisk model, unik for hver atlet. Patentansøgt. Valideret på reelle data. Bygget til at have ret, inden det tages i brug."
     },
     "trust": {
-      "heading": "Dataen tilhører atleten. Punktum.",
+      "heading": "",
       "body": "GDPR-kompatibel. EU-servere. Aldrig solgt. Aldrig delt. Passet tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
       "bullet1": "GDPR-overholdelse og DPA’er",
       "bullet2": "EU-baseret hosting og behandling",
@@ -164,7 +164,8 @@
     "p2": "Vi har udviklet en forskningsprototype til individualiseret atletmodellering på mobil, tablet og browser, som integrerer heterogene præstations-, fysiologiske og neuromuskulære data med minimal ekstra indsats fra praktikere. Prototypen går nu ind i realverdensvalidering for at sikre, at rammeværket forbliver brugbart, robust og fortolkeligt i elite‑performance og rehabiliteringspraksis. Det aktuelle arbejde fokuserer på tre praktiske spørgsmål: Er arbejdsgangene operationelt brugbare for personalet? Lever indtastnings‑pipelinesne tilstrækkelig datakvalitet og kontinuitet? Understøtter de indsamlede signaler meningsfuld individualiseret modellering i praksis?",
     "mockupAlt": "Twinspire personale‑dashboard og spiller‑mobilapp med parametre og individualiserede parathedsmål",
     "readMore": "Læs mere",
-    "close": "Luk"
+    "readLess": "Læs mindre",
+    "close": "Gå tilbage"
   },
   "problem": {
     "headline": "Du træffer søndagens beslutning med tirsdagens data.",
