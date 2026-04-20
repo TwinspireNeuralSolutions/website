@@ -20,7 +20,8 @@ export function ProductSection() {
     const last = parts.pop()
     return (
       <>
-        {parts.join(' ')} {last && <span className="text-primary font-bold">{last}</span>}
+        {parts.join(' ')}{' '}
+        {last && <span className="text-primary font-bold">{last}</span>}
       </>
     )
   }
@@ -32,7 +33,7 @@ export function ProductSection() {
           <div className="space-y-12">
             {/* Part 1 — top (two-column info card like Part 2) */}
             <AnimateIn variant="fadeUp" className="flex flex-col gap-6">
-              <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+              <h2 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
                 {highlightLastWord(t('product.headline1'))}
               </h2>
 
@@ -96,7 +97,7 @@ export function ProductSection() {
               delay={0.08}
               className="flex flex-col gap-6"
             >
-              <h3 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+              <h3 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
                 {highlightLastWord(t('product.headline2'))}
               </h3>
 
