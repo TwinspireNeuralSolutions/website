@@ -47,23 +47,22 @@ export function ProblemSection() {
     >
       <div className="section-x section-y section-inner mx-auto">
         <AnimateIn variant="fadeUp">
-          <Typography
-            id="problem-heading"
-            variant="title"
-            as="h2"
-            textColor="default"
-            className="mx-auto mb-10 max-w-[820px] text-center uppercase lg:mb-14"
-          >
+          <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
             {headlineParts.map((part, i) =>
               highlights.includes(part) ? (
-                <span key={`${part}-${i}`} className="text-primary">
+                <span key={`${part}-${i}`} className="text-primary font-bold">
                   {part}
                 </span>
               ) : (
-                <span key={`${part}-${i}`}>{part}</span>
+                <span
+                  key={`${part}-${i}`}
+                  className="text-foreground font-bold"
+                >
+                  {part}
+                </span>
               )
             )}
-          </Typography>
+          </h2>
         </AnimateIn>
 
         {/* Timeline container */}
