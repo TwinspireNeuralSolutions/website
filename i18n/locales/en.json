@@ -205,9 +205,20 @@
     "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and readiness metrics"
   },
   "problem": {
+    "label": "The Problem",
     "headline": "You're Making Sunday's Decision with Tuesday's Data.",
-    "p1": "GPS in one system. Strength tests in another. Gym sessions, extra runs, wearable data that never leaves the player's phone. The full picture has never been in one place. Not because of how the staff works, but because of how the tools are built.",
-    "p2": "30% of injuries are rehab-related. The reinjury rate hasn't moved in a decade. The tools haven't caught up."
+    "p1": "GPS in one platform. Strength data in another. Clinical notes remain local. Wearable signals often never leave the athlete’s own device. The challenge in elite sport is no longer access to data alone, but the absence of a coherent longitudinal model of the individual athlete across contexts and over time.",
+    "block1Title": "The Unresolved Decision",
+    "p2": "Football injury epidemiology is well established through long-running cohort studies, including the UEFA Elite Club research, which spans thousands of players across multiple countries and seasons. Yet despite increasingly sophisticated monitoring environments, the central decision problem remains unresolved: how to interpret changing signals at the individual level when decisions about return to training, return to play, and load modification must be made under uncertainty.",
+    "block2Title": "The Return-to-Play Gap",
+    "block3Title": "Recurrent Injuries",
+    "p3": "Subsequent and recurrent injuries continue to represent a meaningful part of the burden in professional football, and the period following return remains especially sensitive. The gap is therefore not simply one of data collection, but of individualized interpretation.",
+    "imageAlt": "Coaching staff analyzing player performance data on the sideline",
+    "card2ImageAlt": "Footballers training on the pitch during a competitive session",
+    "originLabel": "Origin Story",
+    "originHeading": "Why This Research Began",
+    "originBody": "Twinspire began with a rehabilitation process that, on paper, followed the expected path: monitoring, testing, staged progression, and medical clearance. Yet a second injury followed shortly after return. That experience exposed a broader research gap: even in data-rich elite environments, critical decisions are still made based on fragmented data and without a robust individualized model of the athlete across time. Twinspire was founded to resolve that gap.",
+    "founderAlt": "Twinspire founder during rehabilitation — the experience that inspired the research"
   },
   "cta": {
     "title": "We Are Selecting",
