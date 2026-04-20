@@ -155,8 +155,40 @@
   },
   "product": {
     "science": {
-      "heading": "",
-      "body": "Most platforms count load. Twinspire understands response. The methodology fuses wearables, EMG, and biomechanics into a living physiological model, unique to every athlete. Patent-pending. Validated on real data. Built to be right before it's used."
+      "label": "The Science",
+      "heading": "Most systems describe load.",
+      "headingAccent": "Twinspire is being developed to model individual response.",
+      "intro": "The research draws on principles from adaptive systems, time-varying dynamics, and individualized state estimation to study how each athlete responds across time. Rather than treating the athlete as a static profile or comparing them against population averages, the objective is to identify personalized reference behavior and detect meaningful departures from that expected state.",
+      "pillars": {
+        "modeling": {
+          "title": "Individualized Modeling",
+          "body": "The methodology builds on five years of digital twin research at DTU Health Tech and is patent pending. At its core, the work investigates how longitudinal multimodal data can be used to identify adaptable mathematical models of the individual athlete that capture changing physiological, neuromuscular, and performance-related dynamics over time.",
+          "bullet1": "5 years of DTU Health Tech research",
+          "bullet2": "Patent-pending methodology",
+          "bullet3": "Longitudinal multimodal data"
+        },
+        "signals": {
+          "title": "Multi-Signal Analysis",
+          "body": "Alongside individualized modeling, Twinspire is investigating larger-scale relationships among signals across integrated partner data streams to determine which combinations of measures provide the strongest explanatory power. This includes ongoing and planned research collaborations spanning performance monitoring, rehabilitation environments, neuromuscular sensing, and cognitive and mental load-related assessments.",
+          "bullet1": "Integrated partner data streams",
+          "bullet2": "Neuromuscular sensing",
+          "bullet3": "Cognitive load assessment"
+        },
+        "validation": {
+          "title": "Validation & Risk Reduction",
+          "body": "The current phase focuses on methodological validation, resolution of key scientific uncertainties, and reduction of the technical risks required before broader applied deployment in performance and rehabilitation settings.",
+          "bullet1": "Methodological validation",
+          "bullet2": "Scientific uncertainty resolution",
+          "bullet3": "Technical risk reduction"
+        }
+      },
+      "researchTitle": "Current Research Questions",
+      "questions": {
+        "q1": "How early can deviations from an athlete's personal baseline be detected, and which deviations are meaningfully associated with elevated vulnerability following return to play?",
+        "q2": "What is the minimum sensor and data configuration required to establish a stable and reliable individualized model?",
+        "q3": "How do missing periods, changing contexts, and club transitions affect model robustness over time?",
+        "q4": "Can emerging compensation patterns be identified before they become evident through symptoms or conventional monitoring?"
+      }
     },
     "trust": {
       "heading": "",
