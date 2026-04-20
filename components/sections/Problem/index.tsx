@@ -176,14 +176,9 @@ export function ProblemSection() {
         <section className="bg-footer-bg relative z-10 mt-12 w-full">
           <div className="section-x section-y section-inner mx-auto py-10 text-center md:py-14">
             <div className="mx-auto max-w-[820px]">
-              <Typography
-                variant="title"
-                as="h3"
-                textColor="default"
-                className="mx-auto mb-6 max-w-[820px] text-center uppercase lg:mb-8"
-              >
+              <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
                 {t('problem.originHeading')}
-              </Typography>
+              </h3>
 
               <div className="border-border mx-auto mt-2 w-1/2 border-t" />
 
