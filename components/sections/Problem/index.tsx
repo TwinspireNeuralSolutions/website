@@ -117,7 +117,7 @@ export function ProblemSection() {
                 </div>
 
                 {/* Right column (desktop) */}
-                <div className="flex md:justify-start">
+                <div className="hidden md:flex md:justify-start">
                   {item.side === 'right' ? (
                     <div className="w-full max-w-[820px]">
                       <div className="px-0 py-0">
@@ -143,12 +143,28 @@ export function ProblemSection() {
                   )}
                 </div>
 
-                {/* Mobile stacked */}
+                {/* Mobile stacked: centered number above title */}
                 <div className="md:hidden">
-                  <div>
-                    <Typography variant="paragraph" as="p" className="mt-3">
-                      {item.body}
-                    </Typography>
+                  <div className="space-y-2 text-center">
+                    <div>
+                      <div className="bg-primary mx-auto flex h-8 w-8 items-center justify-center rounded-full font-bold text-white">
+                        {item.number}
+                      </div>
+                    </div>
+
+                    <div>
+                      <Typography
+                        variant="heading"
+                        as="h3"
+                        textColor="default"
+                        className="uppercase"
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography variant="paragraph" as="p" className="mt-2">
+                        {item.body}
+                      </Typography>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -156,38 +172,32 @@ export function ProblemSection() {
           </div>
         </div>
 
-        {/* Restyled 'Why This Research Began' section (centered title + divider + centered paragraph) */}
-        <div className="mt-12">
-          <div className="section-x section-y section-inner mx-auto">
-            <div className="mx-auto max-w-[820px] text-center">
+        {/* Restyled 'Why This Research Began' section — use CTA background */}
+        {/* Restyled 'Why This Research Began' section — CTA style */}
+        <section className="bg-footer-bg relative z-10 mt-12 w-full">
+          <div className="section-x section-y section-inner mx-auto py-10 text-center md:py-14">
+            <div className="mx-auto max-w-[820px]">
               <Typography
                 variant="title"
                 as="h3"
                 textColor="default"
-                className="mx-auto"
+                className="mx-auto mb-6 max-w-[820px] text-center uppercase lg:mb-8"
               >
-                Why This Research Began
+                {t('problem.originHeading')}
               </Typography>
 
-              <div className="border-border mx-auto mt-4 w-1/2 border-t" />
+              <div className="border-border mx-auto mt-2 w-1/2 border-t" />
 
               <Typography
                 variant="paragraph"
                 as="p"
-                className="text-foreground/70 mx-auto mt-6 max-w-[720px] text-center"
+                className="text-foreground/60 mx-auto mt-4 max-w-[720px]"
               >
-                Twinspire began with a rehabilitation process that, on paper,
-                followed the expected path: monitoring, testing, staged
-                progression, and medical clearance. Yet a second injury followed
-                shortly after return. That experience exposed a broader research
-                gap: even in data-rich elite environments, critical decisions
-                are still made based on fragmented data and without a robust
-                individualized model of the athlete across time. Twinspire was
-                founded to resolve that gap.
+                {t('problem.originBody')}
               </Typography>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   )
