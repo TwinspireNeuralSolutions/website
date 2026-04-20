@@ -1,8 +1,11 @@
 'use client'
 
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
+import { Button } from '@/components/ui/button'
+import { X } from 'lucide-react'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -21,6 +24,18 @@ import { useTranslation } from '@/i18n'
  */
 export function ProductSection() {
   const { t } = useTranslation()
+  const [isOpen, setIsOpen] = useState(false)
+  const [activeKey, setActiveKey] = useState<'p1' | 'p2' | null>(null)
+
+  function openModal(key: 'p1' | 'p2') {
+    setActiveKey(key)
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+    setActiveKey(null)
+  }
 
   return (
     <section id="product" className="relative z-10 w-full overflow-hidden">
@@ -33,9 +48,21 @@ export function ProductSection() {
               <Typography variant="title" as="h2" textColor="default">
                 {t('product.headline1')}
               </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p1')}
-              </p>
+              <div>
+                <p className="text-foreground/65 line-clamp-3 text-[15px] leading-[1.8] sm:text-base">
+                  {t('product.p1')}
+                </p>
+                <div className="mt-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => openModal('p1')}
+                    aria-expanded={isOpen && activeKey === 'p1'}
+                  >
+                    {t('product.readMore')}
+                  </Button>
+                </div>
+              </div>
             </AnimateIn>
           </div>
         </div>
@@ -51,9 +78,9 @@ export function ProductSection() {
             <Image
               src="/product/product-mockup.png"
               alt={t('product.mockupAlt')}
-              width={1200}
-              height={900}
-              className="h-auto w-full object-contain drop-shadow-xl"
+              width={1400}
+              height={1100}
+              className="h-[60vh] w-full object-contain drop-shadow-xl"
               sizes="100vw"
               priority
             />
@@ -71,9 +98,21 @@ export function ProductSection() {
               <Typography variant="title" as="h3" textColor="default">
                 {t('product.headline2')}
               </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p2')}
-              </p>
+              <div>
+                <p className="text-foreground/65 line-clamp-3 text-[15px] leading-[1.8] sm:text-base">
+                  {t('product.p2')}
+                </p>
+                <div className="mt-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => openModal('p2')}
+                    aria-expanded={isOpen && activeKey === 'p2'}
+                  >
+                    {t('product.readMore')}
+                  </Button>
+                </div>
+              </div>
             </AnimateIn>
           </div>
         </div>
@@ -99,9 +138,21 @@ export function ProductSection() {
               <Typography variant="title" as="h2" textColor="default">
                 {t('product.headline1')}
               </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p1')}
-              </p>
+              <div>
+                <p className="text-foreground/65 line-clamp-3 text-[15px] leading-[1.8] sm:text-base">
+                  {t('product.p1')}
+                </p>
+                <div className="mt-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => openModal('p1')}
+                    aria-expanded={isOpen && activeKey === 'p1'}
+                  >
+                    {t('product.readMore')}
+                  </Button>
+                </div>
+              </div>
             </AnimateIn>
 
             {/* Second text — lavender half, text pushed to top of its half */}
@@ -113,9 +164,21 @@ export function ProductSection() {
               <Typography variant="title" as="h3" textColor="default">
                 {t('product.headline2')}
               </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p2')}
-              </p>
+              <div>
+                <p className="text-foreground/65 line-clamp-3 text-[15px] leading-[1.8] sm:text-base">
+                  {t('product.p2')}
+                </p>
+                <div className="mt-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => openModal('p2')}
+                    aria-expanded={isOpen && activeKey === 'p2'}
+                  >
+                    {t('product.readMore')}
+                  </Button>
+                </div>
+              </div>
             </AnimateIn>
           </div>
 
@@ -124,15 +187,69 @@ export function ProductSection() {
             <Image
               src="/product/product-mockup.png"
               alt={t('product.mockupAlt')}
-              width={1100}
-              height={840}
-              className="h-auto max-h-[75vh] w-full object-contain drop-shadow-2xl"
+              width={1300}
+              height={1000}
+              className="h-auto max-h-[85vh] w-full object-contain drop-shadow-2xl"
               sizes="50vw"
               priority
             />
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+        >
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={closeModal}
+            aria-hidden
+          />
+
+          <div className="relative z-10 w-full max-w-3xl rounded-xl bg-white p-6 shadow-lg">
+            <div className="flex w-full items-start justify-between gap-4">
+              <Typography variant="heading" as="h3" textColor="default">
+                {activeKey === 'p1'
+                  ? t('product.headline1')
+                  : t('product.headline2')}
+              </Typography>
+              <div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={closeModal}
+                  aria-label={t('product.close')}
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            <div className="text-foreground/85 mt-4 max-h-[70vh] overflow-y-auto text-sm leading-7">
+              {activeKey === 'p1' && (
+                <p className="whitespace-pre-line">{t('product.p1')}</p>
+              )}
+              {activeKey === 'p2' && (
+                <div className="flex flex-col gap-3">
+                  {String(t('product.p2'))
+                    .split('?')
+                    .map((s) => s.trim())
+                    .filter(Boolean)
+                    .map((q, i) => (
+                      <p key={i} className="whitespace-pre-line">
+                        {q.endsWith('?') ? q : q + '?'}
+                      </p>
+                    ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
