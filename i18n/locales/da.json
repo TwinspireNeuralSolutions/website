@@ -165,9 +165,20 @@
     "mockupAlt": "Twinspires personale-dashboard og spiller-mobilapp med simuleringsparametre og parathedsmålinger"
   },
   "problem": {
+    "label": "Problemet",
     "headline": "Du træffer søndagens beslutning med tirsdagens data.",
-    "p1": "GPS i ét system. Styrketests i et andet. Træningssessioner, ekstrarunder, wearable-data der aldrig forlader spillerens telefon. Det fulde billede har aldrig befundet sig på ét sted. Ikke fordi personalet arbejder forkert, men fordi værktøjerne er bygget forkert.",
-    "p2": "30 % af skader er genoptræningsrelaterede. Genskadeshyppigheden har ikke rykket sig i et årti. Værktøjerne har ikke fulgt med."
+    "p1": "GPS i én platform. Styrkedata i en anden. Kliniske noter forbliver lokale. Wearable-signaler forlader ofte aldrig atletens egen enhed. Udfordringen i elitesport handler ikke længere kun om adgang til data alene, men om fraværet af en sammenhængende longitudinel model af den enkelte atlet på tværs af kontekster og over tid.",
+    "block1Title": "Det uløste beslutningsproblem",
+    "p2": "Fodboldskade-epidemiologi er veletableret gennem langvarige kohortestudier, herunder UEFA Elite Club-forskning, der spænder over tusindvis af spillere på tværs af flere lande og sæsoner. Alligevel, trods stadigt mere sofistikerede monitoreringsmiljøer, forbliver det centrale beslutningsproblem uløst: hvordan man fortolker skiftende signaler på individniveau, når beslutninger om genoptræning, returspil og belastningsmodifikation skal træffes under usikkerhed.",
+    "block2Title": "Return-to-Play-kløften",
+    "block3Title": "Tilbagevendende skader",
+    "p3": "Efterfølgende og tilbagevendende skader udgør fortsat en betydelig del af byrden i professionel fodbold, og perioden efter tilbagevenden er særligt følsom. Kløften handler derfor ikke blot om dataindsamling, men om individualiseret fortolkning.",
+    "imageAlt": "Trænerteam der analyserer spillerpræstationsdata på sidelinjen",
+    "card2ImageAlt": "Fodboldspillere der træner på banen under en konkurrencepræget session",
+    "originLabel": "Oprindelseshistorie",
+    "originHeading": "Hvorfor denne forskning begyndte",
+    "originBody": "Twinspire begyndte med en genoptræningsproces, der på papiret fulgte den forventede vej: monitorering, testning, trinvis progression og lægelig godkendelse. Alligevel fulgte en ny skade kort efter tilbagevenden. Den oplevelse afslørede et bredere forskningshul: selv i datarige elitemiljøer træffes kritiske beslutninger stadig på baggrund af fragmenterede data og uden en robust individualiseret model af atleten over tid. Twinspire blev grundlagt for at lukke det hul.",
+    "founderAlt": "Twinspires grundlægger under genoptræning — oplevelsen der inspirerede forskningen"
   },
   "cta": {
     "title": "Klar til at se, hvad dit holds data egentlig fortæller dig?",

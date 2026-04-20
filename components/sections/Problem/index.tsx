@@ -4,17 +4,32 @@ import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
-/**
- * ProblemSection — "You're Making Sunday's Decision with Tuesday's Data."
- *
- * Two-column layout on large screens:
- *   Left (~45%): Large bold headline
- *   Right (~55%): Body paragraphs describing the problem
- *
- * Stacks single-column on mobile (headline → body).
- */
 export function ProblemSection() {
   const { t } = useTranslation()
+
+  const items = [
+    {
+      key: 'one',
+      number: '1',
+      side: 'right',
+      title: t('problem.block1Title'),
+      body: t('problem.p1'),
+    },
+    {
+      key: 'two',
+      number: '2',
+      side: 'left',
+      title: t('problem.block2Title'),
+      body: t('problem.p2'),
+    },
+    {
+      key: 'three',
+      number: '3',
+      side: 'right',
+      title: t('problem.block3Title'),
+      body: t('problem.p3'),
+    },
+  ]
 
   return (
     <section
@@ -23,33 +38,132 @@ export function ProblemSection() {
       className="bg-background relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8">
-          {/* ── Headline ── */}
-          <AnimateIn variant="fadeUp">
-            <Typography
-              id="problem-heading"
-              variant="title"
-              as="h2"
-              textColor="default"
-              className="text-center"
-            >
-              {t('problem.headline')}
-            </Typography>
-          </AnimateIn>
-
-          {/* ── Body paragraphs ── */}
-          <AnimateIn
-            variant="fadeUp"
-            delay={0.12}
-            className="flex flex-col gap-4"
+        <AnimateIn variant="fadeUp">
+          <Typography
+            id="problem-heading"
+            variant="title"
+            as="h2"
+            textColor="default"
+            className="max-w-[820px] text-left"
           >
-            <p className="text-foreground/65 text-center text-[15px] leading-[1.8] sm:text-base">
-              {t('problem.p1')}
-            </p>
-            <p className="text-foreground/65 text-center text-[15px] leading-[1.8] sm:text-base">
-              {t('problem.p2')}
-            </p>
-          </AnimateIn>
+            {t('problem.headline')}
+          </Typography>
+        </AnimateIn>
+
+        {/* Timeline container */}
+        <div className="relative mx-auto mt-10 max-w-6xl">
+          <div className="hidden md:block">
+            <div className="bg-border absolute top-6 left-1/2 h-[calc(100%_-_3rem)] w-px -translate-x-1/2" />
+          </div>
+
+          <div className="mt-6 space-y-10 md:space-y-12">
+            {items.map((item) => (
+              <div
+                key={item.key}
+                className="grid grid-cols-1 items-start gap-y-6 md:grid-cols-[1fr_48px_1fr] md:items-center md:gap-x-2 md:gap-y-12"
+              >
+                {/* Left column (desktop) */}
+                <div className="hidden md:flex md:justify-end">
+                  {item.side === 'left' ? (
+                    <div className="w-full max-w-[820px]">
+                      <div className="px-0 py-0">
+                        <Typography
+                          variant="heading"
+                          as="h3"
+                          textColor="default"
+                          className="text-left uppercase"
+                        >
+                          {item.title}
+                        </Typography>
+                        <Typography
+                          variant="paragraph"
+                          as="p"
+                          className="mt-2 text-left"
+                        >
+                          {item.body}
+                        </Typography>
+                      </div>
+                    </div>
+                  ) : (
+                    <div />
+                  )}
+                </div>
+
+                {/* Center column: timeline + badge */}
+                <div className="flex justify-center md:order-none">
+                  <div className="relative flex items-center">
+                    <div className="hidden items-center justify-center md:flex">
+                      <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full font-bold text-white">
+                        {item.number}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right column (desktop) */}
+                <div className="flex md:justify-start">
+                  {item.side === 'right' ? (
+                    <div className="w-full max-w-[820px]">
+                      <div className="px-0 py-0">
+                        <Typography
+                          variant="heading"
+                          as="h3"
+                          textColor="default"
+                          className="text-left uppercase"
+                        >
+                          {item.title}
+                        </Typography>
+                        <Typography
+                          variant="paragraph"
+                          as="p"
+                          className="mt-2 text-left"
+                        >
+                          {item.body}
+                        </Typography>
+                      </div>
+                    </div>
+                  ) : (
+                    <div />
+                  )}
+                </div>
+
+                {/* Mobile stacked */}
+                <div className="md:hidden">
+                  <div>
+                    <Typography variant="paragraph" as="p" className="mt-3">
+                      {item.body}
+                    </Typography>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Separate section below the timeline */}
+        <div className="mt-12">
+          <div className="section-x section-y section-inner mx-auto">
+            <div className="w-full max-w-[820px]">
+              <Typography
+                variant="heading"
+                as="h3"
+                textColor="default"
+                className="uppercase"
+              >
+                Why This Research Began
+              </Typography>
+              <Typography variant="paragraph" as="p" className="mt-3">
+                Twinspire began with a rehabilitation process that, on paper,
+                followed the expected path: monitoring, testing, staged
+                progression, and medical clearance. Yet a second injury followed
+                shortly after return. That experience exposed a broader research
+                gap: even in data-rich elite environments, critical decisions
+                are still made based on fragmented data and without a robust
+                individualized model of the athlete across time. Twinspire was
+                founded to resolve that gap.
+              </Typography>
+            </div>
+          </div>
         </div>
       </div>
     </section>
