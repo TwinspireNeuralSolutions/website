@@ -20,7 +20,7 @@ export function ProductSection() {
     const last = parts.pop()
     return (
       <>
-        {parts.join(' ')} {last && <span className="text-primary">{last}</span>}
+        {parts.join(' ')} {last && <span className="text-primary font-bold">{last}</span>}
       </>
     )
   }
@@ -32,13 +32,9 @@ export function ProductSection() {
           <div className="space-y-12">
             {/* Part 1 — top (two-column info card like Part 2) */}
             <AnimateIn variant="fadeUp" className="flex flex-col gap-6">
-              <Typography
-                variant="title"
-                as="h2"
-                className="text-center tracking-wider uppercase"
-              >
+              <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
                 {highlightLastWord(t('product.headline1'))}
-              </Typography>
+              </h2>
 
               <div className="bg-muted/30 rounded-2xl p-6 md:p-8">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
@@ -100,13 +96,9 @@ export function ProductSection() {
               delay={0.08}
               className="flex flex-col gap-6"
             >
-              <Typography
-                variant="title"
-                as="h3"
-                className="text-center tracking-wider uppercase"
-              >
+              <h3 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
                 {highlightLastWord(t('product.headline2'))}
-              </Typography>
+              </h3>
 
               <div className="bg-muted/30 rounded-2xl p-6 md:p-8">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
