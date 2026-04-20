@@ -31,6 +31,14 @@ export function ProblemSection() {
     },
   ]
 
+  // Highlight specific phrases in the headline
+  const headline = t('problem.headline')
+  const highlights = ["Sunday's Decision", "Tuesday's Data"]
+  const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const headlineParts = headline.split(
+    new RegExp(`(${highlights.map(escapeRegExp).join('|')})`)
+  )
+
   return (
     <section
       id="problem"
@@ -44,9 +52,17 @@ export function ProblemSection() {
             variant="title"
             as="h2"
             textColor="default"
-            className="max-w-[820px] text-left"
+            className="mx-auto mb-10 max-w-[820px] text-center uppercase lg:mb-14"
           >
-            {t('problem.headline')}
+            {headlineParts.map((part, i) =>
+              highlights.includes(part) ? (
+                <span key={`${part}-${i}`} className="text-primary">
+                  {part}
+                </span>
+              ) : (
+                <span key={`${part}-${i}`}>{part}</span>
+              )
+            )}
           </Typography>
         </AnimateIn>
 
@@ -140,19 +156,26 @@ export function ProblemSection() {
           </div>
         </div>
 
-        {/* Separate section below the timeline */}
+        {/* Restyled 'Why This Research Began' section (centered title + divider + centered paragraph) */}
         <div className="mt-12">
           <div className="section-x section-y section-inner mx-auto">
-            <div className="w-full max-w-[820px]">
+            <div className="mx-auto max-w-[820px] text-center">
               <Typography
-                variant="heading"
+                variant="title"
                 as="h3"
                 textColor="default"
-                className="uppercase"
+                className="mx-auto"
               >
                 Why This Research Began
               </Typography>
-              <Typography variant="paragraph" as="p" className="mt-3">
+
+              <div className="border-border mx-auto mt-4 w-1/2 border-t" />
+
+              <Typography
+                variant="paragraph"
+                as="p"
+                className="text-foreground/70 mx-auto mt-6 max-w-[720px] text-center"
+              >
                 Twinspire began with a rehabilitation process that, on paper,
                 followed the expected path: monitoring, testing, staged
                 progression, and medical clearance. Yet a second injury followed
