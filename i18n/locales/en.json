@@ -162,10 +162,10 @@
       "pillars": {
         "modeling": {
           "title": "Individualized Modeling",
-          "body": "The methodology builds on five years of digital twin research at DTU Health Tech and is patent pending. At its core, the work investigates how longitudinal multimodal data can be used to identify adaptable mathematical models of the individual athlete that capture changing physiological, neuromuscular, and performance-related dynamics over time.",
-          "bullet1": "5 years of DTU Health Tech research",
-          "bullet2": "Patent-pending methodology",
-          "bullet3": "Longitudinal multimodal data"
+          "body": "The methodology investigates how multimodal data can be used to identify adaptable mathematical models of the individual athlete that capture changing physiological, neuromuscular, and performance-related dynamics over time.",
+          "bullet1": "Research-backed methods",
+          "bullet2": "Adaptive modeling",
+          "bullet3": "Signal integration"
         },
         "signals": {
           "title": "Multi-Signal Analysis",

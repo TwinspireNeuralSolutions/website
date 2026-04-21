@@ -161,10 +161,10 @@
       "pillars": {
         "modeling": {
           "title": "Individualiseret Modellering",
-          "body": "Metodologien bygger på fem års digital tvilling-forskning på DTU Health Tech og er patentansøgt. Kernen i arbejdet undersøger, hvordan longitudinelle multimodale data kan bruges til at identificere tilpasningsdygtige matematiske modeller af den individuelle atlet, der fanger skiftende fysiologiske, neuromuskulære og præstationsrelaterede dynamikker over tid.",
-          "bullet1": "5 års forskning på DTU Health Tech",
-          "bullet2": "Patentansøgt metodologi",
-          "bullet3": "Longitudinelle multimodale data"
+          "body": "Metodologien undersøger, hvordan multimodale data kan bruges til at identificere tilpasningsdygtige matematiske modeller af den enkelte atlet, som fanger skiftende fysiologiske, neuromuskulære og præstationsrelaterede dynamikker over tid.",
+          "bullet1": "Forskningstøttede metoder",
+          "bullet2": "Tilpassende modellering",
+          "bullet3": "Signalintegration"
         },
         "signals": {
           "title": "Multi-Signal Analyse",

@@ -181,12 +181,18 @@ function ValidationIcon({ className }: { className?: string }) {
  */
 function ModelingDiagram() {
   return (
-    <div className="bg-muted border-border w-full overflow-hidden rounded-2xl border p-4">
+    <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-4">
+      <img
+        src="/science/1.png"
+        alt="Modeling illustration"
+        className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
+      />
+      {/* Original SVG retained as hidden fallback */}
       <svg
         viewBox="0 0 540 280"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full"
+        className="hidden"
         aria-hidden="true"
       >
         {/* Connection lines */}
@@ -553,12 +559,17 @@ function ModelingDiagram() {
  */
 function SignalsDiagram() {
   return (
-    <div className="bg-muted border-border w-full overflow-hidden rounded-2xl border p-4">
+    <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-4">
+      <img
+        src="/science/2.png"
+        alt="Signals illustration"
+        className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
+      />
       <svg
         viewBox="0 0 540 280"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full"
+        className="hidden"
         aria-hidden="true"
       >
         {/* Signal stream 1 — Performance */}
@@ -912,12 +923,17 @@ function SignalsDiagram() {
  */
 function ValidationDiagram() {
   return (
-    <div className="bg-muted border-border w-full overflow-hidden rounded-2xl border p-4">
+    <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-4">
+      <img
+        src="/science/3.png"
+        alt="Validation illustration"
+        className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
+      />
       <svg
         viewBox="0 0 540 280"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full"
+        className="hidden"
         aria-hidden="true"
       >
         {/* Phase 1: Methodology */}
@@ -1288,12 +1304,8 @@ export function ScienceDataTrustSection() {
       badgeIcon: <ModelingIcon className="h-5 w-5" />,
       diagram: <ModelingDiagram />,
       title: t('product.science.pillars.modeling.title'),
-      body: t('product.science.pillars.modeling.body'),
-      bullets: [
-        t('product.science.pillars.modeling.bullet1'),
-        t('product.science.pillars.modeling.bullet2'),
-        t('product.science.pillars.modeling.bullet3'),
-      ],
+      body: 'Most systems describe load. Twinspire is being developed to model individual response. The research draws on adaptive systems and individualized state estimation to understand how each athlete responds over time.',
+      bullets: [],
       reverse: false,
     },
     {
@@ -1301,12 +1313,8 @@ export function ScienceDataTrustSection() {
       badgeIcon: <SignalsIcon className="h-5 w-5" />,
       diagram: <SignalsDiagram />,
       title: t('product.science.pillars.signals.title'),
-      body: t('product.science.pillars.signals.body'),
-      bullets: [
-        t('product.science.pillars.signals.bullet1'),
-        t('product.science.pillars.signals.bullet2'),
-        t('product.science.pillars.signals.bullet3'),
-      ],
+      body: 'The goal is to establish a personalized reference state and detect meaningful deviations from it. The methodology investigates how multimodal data can be used to model evolving physiological and neuromuscular dynamics.',
+      bullets: [],
       reverse: true,
     },
     {
@@ -1314,21 +1322,17 @@ export function ScienceDataTrustSection() {
       badgeIcon: <ValidationIcon className="h-5 w-5" />,
       diagram: <ValidationDiagram />,
       title: t('product.science.pillars.validation.title'),
-      body: t('product.science.pillars.validation.body'),
-      bullets: [
-        t('product.science.pillars.validation.bullet1'),
-        t('product.science.pillars.validation.bullet2'),
-        t('product.science.pillars.validation.bullet3'),
-      ],
+      body: 'The current phase focuses on validating the approach and resolving key uncertainties before broader deployment.',
+      bullets: [],
       reverse: false,
     },
   ]
 
   const questions = [
-    t('product.science.questions.q1'),
-    t('product.science.questions.q2'),
-    t('product.science.questions.q3'),
-    t('product.science.questions.q4'),
+    'How early can deviations from baseline be detected?',
+    'What data is required to establish a reliable individualized model?',
+    'How do missing data and changing contexts affect robustness?',
+    'Can compensation patterns be identified before symptoms emerge?',
   ]
 
   return (
@@ -1339,7 +1343,7 @@ export function ScienceDataTrustSection() {
     >
       <div className="section-x section-y section-inner mx-auto flex flex-col">
         {/* ── Section header ── */}
-        <div className="border-border flex flex-col gap-4 border-t pt-16 sm:pt-20 md:pt-24">
+        <div className="flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
           <AnimateIn variant="fadeUp">
             <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
               <span className="text-foreground font-bold">
@@ -1349,11 +1353,6 @@ export function ScienceDataTrustSection() {
                 {t('product.science.headingAccent')}
               </span>
             </h2>
-          </AnimateIn>
-          <AnimateIn variant="fadeUp" delay={0.05}>
-            <p className="text-foreground/55 text-center text-[15px] leading-[1.8] sm:text-base">
-              {t('product.science.intro')}
-            </p>
           </AnimateIn>
         </div>
 

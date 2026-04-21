@@ -25,8 +25,8 @@ export default function Home() {
         <PartnersSection />
         <ProblemSection />
         <ProductSection />
-        <BuiltForSection />
         <ScienceDataTrustSection />
+        <BuiltForSection />
         <CTASection />
         <TeamSection />
         <DataEthicsSection />
