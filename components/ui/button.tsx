@@ -58,12 +58,25 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Show trailing arrow icon with hover animation */
   showIcon?: boolean
+  /** Icon rendering position: 'inline' places it after the text; 'absolute' pins it to the button's right edge */
+  iconPosition?: 'inline' | 'absolute'
   /** Use as child (for Link composition) */
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, showIcon = false, children, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      showIcon = false,
+      iconPosition = 'inline',
+      children,
+      ...props
+    },
+    ref
+  ) => {
     // Icon circle adapts to the button background so it's always visible
     const iconCircleClass =
       variant === 'white'
@@ -92,19 +105,38 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(
           buttonVariants({ variant, size, className }),
-          showIcon && pr
+          iconPosition === 'absolute' && 'relative',
+          iconPosition === 'inline' && showIcon && pr
         )}
         ref={ref}
         {...props}
       >
         {children}
-        {showIcon && (
+        {showIcon && iconPosition === 'inline' && (
           <span
             className={cn(
               'inline-flex shrink-0 items-center justify-center rounded-full backdrop-blur-sm transition-colors duration-200',
               circle,
               iconCircleClass
             )}
+          >
+            <ArrowRight
+              className={cn(
+                arrow,
+                '-rotate-45 transition-transform duration-200 group-hover:rotate-0'
+              )}
+            />
+          </span>
+        )}
+
+        {showIcon && iconPosition === 'absolute' && (
+          <span
+            className={cn(
+              'absolute top-1/2 right-2 inline-flex -translate-y-1/2 items-center justify-center rounded-full transition-colors duration-200',
+              circle,
+              iconCircleClass
+            )}
+            aria-hidden
           >
             <ArrowRight
               className={cn(

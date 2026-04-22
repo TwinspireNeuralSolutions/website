@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
@@ -9,7 +8,7 @@ import { useTranslation } from '@/i18n'
  * CTASection — "Ready to See What Your Squad's Data Is Actually Telling You?"
  *
  * Full-width lavender (`footer-bg`) banner with a centred headline,
- * a short supporting paragraph, a stats line, and a primary CTA button
+ * a short supporting paragraph, and a primary CTA button
  * that anchors to the #contact form below.
  */
 export function CTASection() {
@@ -24,19 +23,21 @@ export function CTASection() {
       <div className="section-x section-y section-inner mx-auto text-center">
         {/* Headline */}
         <AnimateIn variant="fadeUp">
-          <Typography
+          <h2
             id="cta-heading"
-            variant="title"
-            as="h2"
-            className="mx-auto max-w-[820px]"
+            className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]"
           >
-            {t('cta.title')}
-          </Typography>
+            <span className="text-foreground font-bold">{t('cta.title')}</span>{' '}
+            <span className="text-primary font-bold">
+              {t('cta.titleAccent')}
+            </span>{' '}
+            {t('cta.titleEnd')}
+          </h2>
         </AnimateIn>
 
         {/* Supporting paragraph */}
         <AnimateIn variant="fadeUp" delay={0.1}>
-          <p className="text-foreground/60 mx-auto mt-6 max-w-[580px] text-sm leading-relaxed sm:text-base md:mt-8">
+          <p className="text-foreground/60 mx-auto mt-6 max-w-[720px] text-center text-sm leading-relaxed sm:text-base md:mt-8">
             {t('cta.subtitle')}
           </p>
         </AnimateIn>

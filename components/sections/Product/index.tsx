@@ -1,136 +1,187 @@
 'use client'
 
-import Image from 'next/image'
+import React from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
+import Image from 'next/image'
+import { splitLastWord } from '@/lib/utils'
 
-/**
- * ProductSection
- *
- * Layout principle:
- *   - First text block always sits on a white background.
- *   - Second text block ("Athletic Passport") always sits on the lavender (#e6e6f3) background.
- *   - The product mockup image straddles the white/lavender boundary:
- *       desktop → image is vertically centred at the exact midpoint of the section
- *       mobile  → image sits between the two text blocks in a half-white / half-lavender band
- *
- * Mobile:  white band (text1) → gradient band (image) → lavender band (text2)
- * Desktop: absolute half-white / half-lavender bg; left col has two equal flex-1 halves;
- *          right col has image centred → it straddles the midpoint.
- */
 export function ProductSection() {
   const { t } = useTranslation()
+  const questions = [
+    'Are workflows operationally usable for staff?',
+    'Do data pipelines provide sufficient quality and continuity?',
+    'Do the signals support meaningful individualized modeling in practice?',
+  ]
+
+  // use shared highlight helper for consistent title accents
 
   return (
-    <section id="product" className="relative z-10 w-full overflow-hidden">
-      {/* ── MOBILE layout (hidden on lg+) ──────────────────────────────── */}
-      <div className="lg:hidden">
-        {/* White band: first text */}
-        <div className="bg-white">
-          <div className="section-x section-inner mx-auto pt-20 pb-10">
-            <AnimateIn variant="fadeUp" className="flex flex-col gap-5">
-              <Typography variant="title" as="h2" textColor="default">
-                {t('product.headline1')}
-              </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p1')}
-              </p>
-            </AnimateIn>
-          </div>
-        </div>
+    <section id="product" className="bg-background relative z-10 w-full">
+      <div className="section-x section-inner mx-auto py-12">
+        <div className="space-y-12 pt-6">
+          {/* Part 1 — top (two-column info card like Part 2) */}
+          <AnimateIn variant="fadeUp" className="flex flex-col gap-6">
+            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+              {(() => {
+                const [lead, last] = splitLastWord(t('product.headline1'))
+                return (
+                  <>
+                    <span className="text-foreground font-bold">{lead}</span>{' '}
+                    <span className="text-primary font-bold">{last}</span>
+                  </>
+                )
+              })()}
+            </h2>
 
-        {/* Gradient band: image straddles white → lavender */}
-        <div
-          className="w-full overflow-hidden"
-          style={{
-            background: 'linear-gradient(to bottom, #ffffff 50%, #e6e6f3 50%)',
-          }}
-        >
-          <div className="section-x section-inner mx-auto">
-            <Image
-              src="/product/product-mockup.png"
-              alt={t('product.mockupAlt')}
-              width={1200}
-              height={900}
-              className="h-auto w-full object-contain drop-shadow-xl"
-              sizes="100vw"
-              priority
-            />
-          </div>
-        </div>
+            <div>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
+                <div className="pt-6 pl-6">
+                  <div className="flex items-center gap-3">
+                    <Typography
+                      variant="heading"
+                      as="h3"
+                      textColor="default"
+                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+                    >
+                      Digital twin <span className="font-bold">framework</span>
+                    </Typography>
+                  </div>
+                  <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
+                    Twinspire is developing a research-based digital twin
+                    framework for individualized athlete modeling. The system
+                    integrates longitudinal data from multiple sources,
+                    including training load, neuromuscular testing, clinician
+                    input, and wearable-derived physiological measures.
+                  </p>
+                </div>
 
-        {/* Lavender band: second text */}
-        <div className="bg-[#e6e6f3]">
-          <div className="section-x section-inner mx-auto pt-10 pb-20">
-            <AnimateIn
-              variant="fadeUp"
-              delay={0.1}
-              className="flex flex-col gap-5"
-            >
-              <Typography variant="title" as="h3" textColor="default">
-                {t('product.headline2')}
-              </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p2')}
-              </p>
-            </AnimateIn>
-          </div>
-        </div>
-      </div>
+                <div className="pt-6 pl-6">
+                  <div className="flex items-center gap-3">
+                    <Typography
+                      variant="heading"
+                      as="h3"
+                      textColor="default"
+                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+                    >
+                      <span className="font-bold">Approach</span>
+                    </Typography>
+                  </div>
+                  <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
+                    The approach combines principles from computational motor
+                    control, adaptive nonlinear systems, system identification,
+                    longitudinal sequence modelling, and self supervised
+                    learning to identify individualized representations of how
+                    an athlete’s physiological and functional state changes over
+                    time.
+                  </p>
+                </div>
 
-      {/* ── DESKTOP layout (hidden below lg) ───────────────────────────── */}
-      <div className="relative hidden min-h-[70vh] lg:block">
-        {/* Absolute background: top half white, bottom half lavender */}
-        <div className="absolute inset-0 flex flex-col" aria-hidden>
-          <div className="flex-1 bg-white" />
-          <div className="flex-1 bg-[#e6e6f3]" />
-        </div>
+                <div className="pt-6 pl-6">
+                  <div className="flex items-center gap-3">
+                    <Typography
+                      variant="heading"
+                      as="h3"
+                      textColor="default"
+                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+                    >
+                      Structured data <span className="font-bold">layer</span>
+                    </Typography>
+                  </div>
+                  <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
+                    In parallel, Twinspire is building a structured data layer
+                    that links sessions, tests, symptoms, and contextual
+                    information into a portable athlete history, supporting
+                    continuity and decision-making across performance and
+                    rehabilitation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </AnimateIn>
 
-        {/* Content on top */}
-        <div className="section-x section-inner relative mx-auto flex min-h-[70vh] gap-16">
-          {/* Left column: two equal flex-1 halves — midpoint aligns with bg boundary */}
-          <div className="flex w-[50%] flex-col">
-            {/* First text — white half, text pushed to bottom of its half */}
-            <AnimateIn
-              variant="fadeUp"
-              className="flex flex-1 flex-col justify-end gap-5 pt-20 pb-12"
-            >
-              <Typography variant="title" as="h2" textColor="default">
-                {t('product.headline1')}
-              </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p1')}
-              </p>
-            </AnimateIn>
+          {/* Part 2 — bottom (two-column info card + research questions) */}
+          <AnimateIn
+            variant="fadeUp"
+            delay={0.08}
+            className="flex flex-col gap-6"
+          >
+            <h3 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+              {(() => {
+                const [lead, last] = splitLastWord(t('product.headline2'))
+                return (
+                  <>
+                    <span className="text-foreground font-bold">{lead}</span>{' '}
+                    <span className="text-primary font-bold">{last}</span>
+                  </>
+                )
+              })()}
+            </h3>
 
-            {/* Second text — lavender half, text pushed to top of its half */}
-            <AnimateIn
-              variant="fadeUp"
-              delay={0.1}
-              className="flex flex-1 flex-col justify-start gap-5 pt-12 pb-20"
-            >
-              <Typography variant="title" as="h3" textColor="default">
-                {t('product.headline2')}
-              </Typography>
-              <p className="text-foreground/65 text-[15px] leading-[1.8] sm:text-base">
-                {t('product.p2')}
-              </p>
-            </AnimateIn>
-          </div>
+            {/* Combined container: paragraph, image, then questions on mobile; paragraph+questions left and image right on md+ */}
+            <div>
+              <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-10">
+                {/* Left: paragraph + questions (stacked) */}
+                <div className="flex flex-col gap-4">
+                  <Typography
+                    variant="paragraph"
+                    textColor="default"
+                    className="text-foreground/75 pb-6"
+                  >
+                    A research prototype has been developed across mobile and
+                    web environments, designed to integrate heterogeneous data
+                    with minimal input from practitioners. The system now enters
+                    real-world validation, focusing on whether it remains
+                    usable, robust, and interpretable within elite performance
+                    settings.
+                  </Typography>
 
-          {/* Right column: image centred vertically = exactly at the white/lavender boundary */}
-          <div className="flex flex-1 items-center justify-center py-8">
-            <Image
-              src="/product/product-mockup.png"
-              alt={t('product.mockupAlt')}
-              width={1100}
-              height={840}
-              className="h-auto max-h-[75vh] w-full object-contain drop-shadow-2xl"
-              sizes="50vw"
-              priority
-            />
-          </div>
+                  <Typography
+                    variant="heading"
+                    as="h4"
+                    textColor="default"
+                    className="mt-0 mb-2"
+                  >
+                    The current work addresses three questions:
+                  </Typography>
+
+                  <ul className="marker:text-primary mt-4 list-disc space-y-2 pl-6">
+                    <li>
+                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                        Are workflows operationally usable for staff?
+                      </p>
+                    </li>
+
+                    <li>
+                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                        Do data pipelines provide sufficient quality and
+                        continuity?
+                      </p>
+                    </li>
+
+                    <li>
+                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                        Do the signals support meaningful individualized
+                        modeling in practice?
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Right: product image */}
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/product/product-mockup.png"
+                    alt="Product mockup"
+                    width={1200}
+                    height={800}
+                    className="w-full max-w-[720px] rounded-xl object-contain sm:h-80 md:h-96 lg:h-[520px]"
+                  />
+                </div>
+              </div>
+            </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

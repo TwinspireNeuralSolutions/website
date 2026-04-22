@@ -70,7 +70,7 @@
   "nav": {
     "problem": "Problem",
     "product": "Løsning",
-    "builtFor": "For hvem",
+    "builtFor": "For Hvem",
     "science": "Videnskab",
     "team": "Holdet",
     "partnerships": "Partnerskaber",
@@ -94,30 +94,27 @@
     "navData": "Data & Tillid"
   },
   "hero": {
-    "headlineLine1": "Kroppen ved det",
-    "headlineLine2": "Før du gør.",
-    "subtitle": "Én ud af fem fodboldspillere river den samme muskel over to gange. Ikke på grund af dårlig held, men på grund af oversete signaler. Twinspire læser dem alle.",
-    "cta": "Bliv en del af pilotprogrammet",
-    "audienceAthletes": "Atleter",
-    "audienceCoaches": "Trænere",
-    "audiencePhysio": "Fysioterapeuter"
-  },
-  "about": {
-    "headline": "Det startede med én skade. Så en til.",
-    "p1": "Pouya var professionel fodboldspiller. Han gjorde alt rigtigt. Fuld genoptræning, klinisk godkendelse, gradvis comeback.",
-    "p2": "Otte uger senere rev han den samme hasemuskel over igen.",
-    "p3": "Advarselstegnene var der. Processen kunne ikke se dem. Han vendte tilbage til DTU for at bygge det, der ikke fandtes. Twinspire er resultatet.",
-    "imageAlt": "Pouya på fodboldbanen iført en orange træningsvest"
+    "headlineLine1Start": "Elitesport tracker ",
+    "headlineLine1Highlight": "holdet.",
+    "headlineLine2Start": "Twinspire studerer ",
+    "headlineLine2Highlight": "individet.",
+    "dataTypes": "GPS · Styrke · Fysio · Biomekanik · Neuromuskulær",
+    "valueProp": "Dataen findes — men den er aldrig blevet samlet i én longitudinel model af en enkelt atlet. Twinspire bygger den model og tilpasser den, efterhånden som atleten ændrer sig, så hver beslutning træffes ud fra deres egen baseline.",
+    "credibility": "Bygget på fem års forskning fra DTU Health Tech.",
+    "cta": "Deltag i forskningsvalideringsstudiet"
   },
   "team": {
-    "heading": "Bygget af folk, der selv har ligget på behandlingsbordet",
+    "heading": "Forskningen kom først.",
+    "headingAccent": "Holdet blev bygget omkring den.",
+    "subtitle": "Projektet understøttes af et dedikeret forskerhold på fire, baseret på DTU, med specialer inden for fysiologisk modellering, dataingeniørarbejde, biomekanik og neuromuskulær analyse. Deres arbejde udgør den videnskabelige rygrad i de valideringsstudier, der er i gang.",
     "founders": "Grundlæggere",
     "researchTeam": "Forskerhold",
     "advisers": "Bestyrelse",
     "team": "Holdet",
+    "readBio": "Læs mere",
     "roles": {
       "founderCeo": "Grundlægger & CEO",
-      "academicCoFounder": "Akademisk Medstifter & Forskningschef",
+      "academicCoFounder": "Medstifter & Forskningschef",
       "coFounderDev": "Medstifter & Lead Udvikler",
       "coFounderCoo": "Medstifter & COO",
       "researchTeam": "Forskerhold",
@@ -127,54 +124,112 @@
       "cloudCyberEngineer": "Cloud & Cybersikkerhedsingeniør",
       "aiEngineer": "Generativ AI Ingeniør",
       "advisor": "Rådgiver",
-      "strategicAdvisor": "Strategisk Rådgiver"
+      "strategicAdvisor": "Strategisk Rådgiver",
+      "marketAdvisor": "Markeds- & kommercialiseringsstrategi (efter projektet)"
+    },
+    "descriptions": {
+      "pouya": "Twinspire udsprang af hans direkte erfaring med skader og genoptræning i elitefodbold, som afslørede kløften mellem tilgængelige data og kvaliteten af individualiseret beslutningsstøtte. Han leder den overordnede forskningstranslation, strategiske retning og eksterne partnerskaber omkring projektet.",
+      "john": "Professor ved DTU Health og leder af det neuromuskulære forskningsmiljø, som projektet udsprang fra. Hans gruppe har arbejdet i flere år med digital tvilling-metodologi for fysiologiske systemer, og denne forskning udgør det videnskabelige fundament og institutionelle anker for Twinspire.",
+      "daryan": "Platformarkitektur & dataintegrationer.",
+      "roxane": "Sports-tech forskning & institutionelle partnerskaber.",
+      "kim": "Markeds- & kommercialiseringsstrategi (efter projektet)."
     }
   },
   "builtFor": {
-    "heading": "For alle, der nægter at miste en spiller til en forebyggelig skade.",
+    "heading": "Hvem vi",
+    "headingAccent": "arbejder med",
+    "subtitle": "Vi kontakter i øjeblikket klubber, klinikker og performanceinstitutioner for at deltage i vores forskningsvalideringsstudie.",
     "footballers": {
       "title": "Fodboldspillere",
-      "description": "Din krop har genereret data hele din karriere. Det meste er forsvundet. Twinspire giver det tilbage og sørger for, at det følger dig uanset hvor du går."
+      "description": "Din krop har genereret data hele din karriere. Det meste er forsvundet. Denne forskning sigter mod at fastslå, om et struktureret datapas kan ændre det og give dig ejerskab over din egen atletiske historie."
     },
     "coaches": {
       "title": "Trænere og Performance Staff",
-      "description": "Kend dit holds sande parathed, inden du sætter startopstillingen. Neuromuskulær belastning og restitutionssignaler, inklusive data dine atleter genererer på egen hånd."
+      "description": "Hjælp os med at forstå, hvordan parathedsmodellering integreres i reelle beslutningsmiljøer, og hvor modellens resultater er og ikke er handlingsbare."
     },
     "physio": {
       "title": "Fysioterapeuter",
-      "description": "Få samlet objektive afvigelsesadvarsler, restitutionssignaler og anbefalede handlinger fra alle datakilder."
+      "description": "Medudvikl samlede afvigelses-alarm og restitutionssignal-arbejdsgange baseret på data fra flere kilder. Hjælp os med at forstå, hvordan et klinisk nyttigt signal faktisk ser ud i praksis."
     }
   },
   "product": {
     "science": {
-      "heading": "Dette er ikke et dashboard. Det er en model.",
-      "body": "De fleste platforme tæller belastning. Twinspire forstår respons. Metoden fusionerer wearables, EMG og biomekanik til en levende fysiologisk model, unik for hver atlet. Patentansøgt. Valideret på reelle data. Bygget til at have ret, inden det tages i brug."
+      "label": "Videnskaben",
+      "heading": "De fleste systemer beskriver belastning.",
+      "headingAccent": "Twinspire er under udvikling til at modellere individuel respons.",
+      "intro": "Forskningen bygger på principper fra adaptive systemer, tidsvarierende dynamikker og individualiseret tilstandsestimering for at undersøge, hvordan hver atlet reagerer over tid. I stedet for at behandle atleten som en statisk profil eller sammenligne dem med populationsgennemsnit, er målet at identificere personaliseret referenceadfærd og detektere meningsfulde afvigelser fra den forventede tilstand.",
+      "pillars": {
+        "modeling": {
+          "title": "Individualiseret Modellering",
+          "body": "Metodologien undersøger, hvordan multimodale data kan bruges til at identificere tilpasningsdygtige matematiske modeller af den enkelte atlet, som fanger skiftende fysiologiske, neuromuskulære og præstationsrelaterede dynamikker over tid.",
+          "bullet1": "Forskningstøttede metoder",
+          "bullet2": "Tilpassende modellering",
+          "bullet3": "Signalintegration"
+        },
+        "signals": {
+          "title": "Multi-Signal Analyse",
+          "body": "Sideløbende med individualiseret modellering undersøger Twinspire storskala-relationer mellem signaler på tværs af integrerede partnerdatastrømme for at fastslå, hvilke kombinationer af målinger giver den stærkeste forklaringskraft. Dette inkluderer igangværende og planlagte forskningssamarbejder inden for præstationsovervågning, rehabiliteringsmiljøer, neuromuskulær sensing samt kognitive og mentale belastningsrelaterede vurderinger.",
+          "bullet1": "Integrerede partnerdatastrømme",
+          "bullet2": "Neuromuskulær sensing",
+          "bullet3": "Kognitiv belastningsvurdering"
+        },
+        "validation": {
+          "title": "Validering & Risikoreduktion",
+          "body": "Den aktuelle fase fokuserer på metodologisk validering, løsning af centrale videnskabelige usikkerheder og reduktion af de tekniske risici, der er nødvendige, før bredere anvendt implementering i præstations- og rehabiliteringsmiljøer.",
+          "bullet1": "Metodologisk validering",
+          "bullet2": "Videnskabelig usikkerhedsløsning",
+          "bullet3": "Teknisk risikoreduktion"
+        }
+      },
+      "researchTitle": "Aktuelle forskningsspørgsmål",
+      "questions": {
+        "q1": "Hvor tidligt kan afvigelser fra en atlets personlige baseline detekteres, og hvilke afvigelser er meningsfuldt forbundet med forhøjet sårbarhed efter tilbagevenden til spil?",
+        "q2": "Hvad er den minimale sensor- og datakonfiguration, der kræves for at etablere en stabil og pålidelig individualiseret model?",
+        "q3": "Hvordan påvirker manglende perioder, skiftende kontekster og klubskift modellens robusthed over tid?",
+        "q4": "Kan fremvoksende kompensationsmønstre identificeres, inden de bliver tydelige gennem symptomer eller konventionel monitorering?"
+      }
     },
     "trust": {
-      "heading": "Dataen tilhører atleten. Punktum.",
+      "heading": "",
       "body": "GDPR-kompatibel. EU-servere. Aldrig solgt. Aldrig delt. Passet tilhører atleten. Holddata tilhører klubben. Vi hoster det — vi ejer det ikke.",
       "bullet1": "GDPR-overholdelse og DPA’er",
       "bullet2": "EU-baseret hosting og behandling",
       "bullet3": "Bygget med danske forskningspartnere",
       "disclaimer": "Twinspire er en beslutningsstøtteplatform og er ikke beregnet til at diagnosticere eller behandle medicinske tilstande."
     },
-    "headline1": "Hver atlet har et mønster. Vi finder det.",
-    "p1": "Twinspire bygger en løbende opdateret model af hver spiller baseret på GPS, styrkeoutput, fysinoter, neuromuskulære sensordata og atletens egne wearables, inklusive data fra uden for træningsanlægget. Den lærer, hvad normalt ser ud for den krop. Så fortæller den dig, når noget ændrer sig.",
-    "headline2": "Athletic Passport",
-    "p2": "Hver session, hver belastning, hver skade er logget, struktureret og transportabel. Når en spiller skifter klub, følger hele historikken med.",
-    "mockupAlt": "Twinspires personale-dashboard og spiller-mobilapp med simuleringsparametre og parathedsmålinger"
+    "headline1": "Fra populationsgennemsnit til individualiseret dynamik",
+    "p1": "Twinspire udvikler en forskningsbaseret digital tvilling‑ramme, der modellerer hver atlet individuelt. Rammen integrerer longitudinelle multimodale data — ekstern belastning, styrke- og neuromuskulære tests, kliniske observationer og wearables‑målinger indsamlet både i og uden for træningsmiljøet — for at lære atlet‑specifikke reference‑mønstre og opdage meningsfulde afvigelser over tid. Ved at betragte atleten som et dynamisk system anvendes principper fra motorisk kontrol, adaptive systemer og personaliseret tidsserie‑læring. Metodikken bygger på forskning fra DTU og er patentansøgt. Parallelt bygger vi et struktureret, longitudinelt data‑lag, som kobler sessioner, tests, symptomer og kontekstuelle noter til en bærbar atlet‑historik; infrastrukturen bruges i forskningsfasen til at undersøge kontinuitet, fortolkbarhed og individualiseret beslutningsstøtte på tværs af performance og rehabilitering.",
+    "headline2": "Fra forskningsprototype til anvendt validering",
+    "p2": "Vi har udviklet en forskningsprototype til individualiseret atletmodellering på mobil, tablet og browser, som integrerer heterogene præstations-, fysiologiske og neuromuskulære data med minimal ekstra indsats fra praktikere. Prototypen går nu ind i realverdensvalidering for at sikre, at rammeværket forbliver brugbart, robust og fortolkeligt i elite‑performance og rehabiliteringspraksis. Det aktuelle arbejde fokuserer på tre praktiske spørgsmål: Er arbejdsgangene operationelt brugbare for personalet? Lever indtastnings‑pipelinesne tilstrækkelig datakvalitet og kontinuitet? Understøtter de indsamlede signaler meningsfuld individualiseret modellering i praksis?",
+    "mockupAlt": "Twinspire personale‑dashboard og spiller‑mobilapp med parametre og individualiserede parathedsmål",
+    "readMore": "Læs mere",
+    "readLess": "Læs mindre",
+    "close": "Gå tilbage"
   },
   "problem": {
+    "label": "Problemet",
     "headline": "Du træffer søndagens beslutning med tirsdagens data.",
-    "p1": "GPS i ét system. Styrketests i et andet. Træningssessioner, ekstrarunder, wearable-data der aldrig forlader spillerens telefon. Det fulde billede har aldrig befundet sig på ét sted. Ikke fordi personalet arbejder forkert, men fordi værktøjerne er bygget forkert.",
-    "p2": "30 % af skader er genoptræningsrelaterede. Genskadeshyppigheden har ikke rykket sig i et årti. Værktøjerne har ikke fulgt med."
+    "p1": "GPS i én platform. Styrkedata i en anden. Kliniske noter forbliver lokale. Wearable-signaler forlader ofte aldrig atletens egen enhed. Udfordringen i elitesport handler ikke længere kun om adgang til data alene, men om fraværet af en sammenhængende longitudinel model af den enkelte atlet på tværs af kontekster og over tid.",
+    "block1Title": "Det uløste beslutningsproblem",
+    "p2": "Fodboldskade-epidemiologi er veletableret gennem langvarige kohortestudier, herunder UEFA Elite Club-forskning, der spænder over tusindvis af spillere på tværs af flere lande og sæsoner. Alligevel, trods stadigt mere sofistikerede monitoreringsmiljøer, forbliver det centrale beslutningsproblem uløst: hvordan man fortolker skiftende signaler på individniveau, når beslutninger om genoptræning, returspil og belastningsmodifikation skal træffes under usikkerhed.",
+    "block2Title": "Return-to-Play-kløften",
+    "block3Title": "Tilbagevendende skader",
+    "p3": "Efterfølgende og tilbagevendende skader udgør fortsat en betydelig del af byrden i professionel fodbold, og perioden efter tilbagevenden er særligt følsom. Kløften handler derfor ikke blot om dataindsamling, men om individualiseret fortolkning.",
+    "imageAlt": "Trænerteam der analyserer spillerpræstationsdata på sidelinjen",
+    "card2ImageAlt": "Fodboldspillere der træner på banen under en konkurrencepræget session",
+    "originLabel": "Oprindelseshistorie",
+    "originHeading": "Hvorfor denne forskning begyndte",
+    "originBody": "Twinspire begyndte med en genoptræningsproces, der på papiret fulgte den forventede vej: monitorering, testning, trinvis progression og lægelig godkendelse. Alligevel fulgte en ny skade kort efter tilbagevenden. Den oplevelse afslørede et bredere forskningshul: selv i datarige elitemiljøer træffes kritiske beslutninger stadig på baggrund af fragmenterede data og uden en robust individualiseret model af atleten over tid. Twinspire blev grundlagt for at lukke det hul.",
+    "founderAlt": "Twinspires grundlægger under genoptræning — oplevelsen der inspirerede forskningen"
   },
   "cta": {
-    "title": "Klar til at se, hvad dit holds data egentlig fortæller dig?",
-    "subtitle": "Vi optager grundlæggende partnere i Norden dette kvartal. De klubber, der tilmelder sig nu, er med til at forme produktet, får prioriteret adgang og låser fordelagtige priser fast.",
+    "title": "Vi udvælger",
+    "titleAccent": "valideringspartnere",
+    "titleEnd": "i hele Norden.",
+    "subtitle": "Klubber og klinikker, der deltager i forskningsstudiet, bidrager direkte til at forme metodologien, får tidlig indsigt i foreløbige resultater og hjælper med at sikre, at tilgangen er forankret i klinisk praksis og præstationspraksis fra den virkelige verden, inden nogen markedsintroduktion overvejes. Hvis dit arbejde eller din teknologi er relevant for vores forskning, vil vi gerne høre fra dig!",
     "fields": "Navn · Klub eller klinik · Rolle · E-mail",
-    "button": "Ansøg om pilotprogrammet",
-    "note": "Ingen forpligtelse. En kort samtale for at se, om det er det rette match."
+    "button": "Kontakt os",
+    "note": "Ingen forpligtelse. En kort samtale for at undersøge, om samarbejdet er et godt match."
   },
   "partners": {
     "heading": "Byg fremtidens fodboldssundhed med os.",
@@ -182,7 +237,8 @@
     "cta": "Kontakt os"
   },
   "faq": {
-    "title": "FAQ's",
+    "title": "FAQ",
+    "titleAccent": "",
     "subtitle": "Svar på de mest almindelige spørgsmål om Twinspire, vores metode, og hvordan klubber kan komme i gang.",
     "viewAll": "Se alle",
     "viewLess": "Se færre",
@@ -237,24 +293,40 @@
       }
     }
   },
+  "dataEthics": {
+    "sectionLabel": "Data & Forskningsetik",
+    "heading": "Atletdata skal håndteres",
+    "headingAccent1": "ansvarligt, transparent",
+    "headingPart2": "og med",
+    "headingAccent2": "klare grænser.",
+    "subtitle": "Sådan tilgår vi datastyring i alle faser af forskningen.",
+    "description": "Twinspire udvikles med datastyring og forskningsetik som centrale designprincipper.",
+    "card1Title": "Kerneprincipper",
+    "card1": "Den nuværende fase er fokuseret på videnskabelig validering med opmærksomhed på lovlig behandling, sporbarhed, gennemsigtighed og ansvarlig håndtering af longitudinelle atletdata.",
+    "card2Title": "Governance & Compliance",
+    "card2": "Projektet er bygget op omkring GDPR-tilpassede datapraksisser, EU-baseret hosting og behandling, relevante databehandleraftaler og forskningsworkflows designet til at understøtte klar governance på tværs af klubber, behandlere og atleter. Hvor det er relevant, er forskningsdatastyring struktureret i overensstemmelse med FAIR-principperne.",
+    "card3Title": "Forskningsansvarsfraskrivelse",
+    "card3": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",
+    "disclaimer": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",
+    "readMore": "Læs mere",
+    "readLess": "Læs mindre"
+  },
   "contact": {
-    "title": "Genskaderaten er uændret i et årti.\nLad os ændre det.",
+    "title": "Genskaderaten er uændret i et årti.",
+    "titleAccent": "Forskningen til at ændre det er i gang.",
+    "subtitle": "Udfyld formularen eller kontakt os direkte for at starte en samtale om at deltage i vores grundlæggende forskningskohorte.",
     "name": "Navn",
-    "namePlaceholder": "Jane Smith",
     "email": "E-mail",
-    "emailPlaceholder": "jane@frame.com",
     "role": "Rolle",
-    "rolePlaceholder": "Rolle",
     "clubOrClinic": "Klub eller klinik",
-    "clubOrClinicPlaceholder": "Klub eller klinik",
-    "message": "Besked",
-    "messagePlaceholder": "Besked",
-    "submit": "Tilmeld dig",
+    "submit": "Ansøg om at deltage i studiet",
+    "formTitle": "Kontakt os",
     "successTitle": "Du er på vores liste!",
     "successMessage": "Tak for din henvendelse. Vi vender snart tilbage.",
     "errorMessage": "Noget gik galt. Prøv venligst igen.",
     "address": "Adresse",
     "addressValue": "København, Danmark",
+    "getInTouch": "Kontakt os",
     "contactInfo": "Kontaktoplysninger",
     "phone": "+45 29161358",
     "emailContact": "info@twinspire.ai"

@@ -43,17 +43,28 @@ export function BuiltForSection() {
   ]
 
   return (
-    <section id="built-for" className="relative z-10 w-full bg-white">
+    <section id="built-for" className="bg-background relative z-10 w-full">
       <div className="section-x section-y section-inner mx-auto">
-        {/* Heading */}
+        {/* Heading + Subtitle */}
+        <AnimateIn variant="fadeUp">
+          <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+            <span className="text-foreground font-bold">
+              {t('builtFor.heading')}
+            </span>{' '}
+            <span className="text-primary font-bold">
+              {t('builtFor.headingAccent')}
+            </span>
+          </h2>
+        </AnimateIn>
+
         <AnimateIn variant="fadeUp">
           <Typography
-            variant="title"
-            as="h2"
-            textColor="default"
-            className="mb-10 max-w-[680px] text-left lg:mb-14"
+            variant="subtitle"
+            as="p"
+            textColor="muted"
+            className="mx-auto mb-10 max-w-[720px] text-center lg:mb-14"
           >
-            {t('builtFor.heading')}
+            {t('builtFor.subtitle')}
           </Typography>
         </AnimateIn>
 

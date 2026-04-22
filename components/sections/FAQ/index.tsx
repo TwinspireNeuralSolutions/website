@@ -161,43 +161,42 @@ export function FAQSection() {
   }
 
   return (
-    <section id="faq" className="bg-muted relative z-10 w-full">
+    <section id="faq" className="bg-background relative z-10 w-full">
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
-        <AnimateIn variant="fadeUp">
-          <div className="mx-auto mb-7 max-w-[1080px] text-left sm:mb-8 lg:mb-9">
-            <div className="max-w-[680px]">
-              <Typography
-                variant="title"
-                as="h2"
-                textColor="default"
-                className="text-[24px] sm:text-[30px] lg:text-[35px]"
-              >
-                {t('faq.title')}
-              </Typography>
-              <Typography
-                variant="subtitle"
-                as="p"
-                textColor="default"
-                className="mt-2 max-w-[580px] text-[13px] leading-[1.6] sm:mt-2.5 sm:text-[14px]"
-              >
-                {t('faq.subtitle')}
-              </Typography>
+        <div className="border-border mb-6 border-t" aria-hidden="true" />
+        <AnimateIn variant="scaleUp" duration={0.6}>
+          {/* Header */}
+          <AnimateIn variant="fadeUp" delay={0.15}>
+            <div className="mb-7 text-left sm:mb-8 lg:mb-9">
+              <div className="max-w-[680px]">
+                <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+                  {t('faq.title')}
+                </h2>
+                <p className="text-foreground/55 mt-3 max-w-[580px] text-[13px] leading-relaxed sm:mt-4 sm:text-[15px]">
+                  {t('faq.subtitle')}
+                </p>
+              </div>
             </div>
+          </AnimateIn>
+
+          {/* FAQ grid */}
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
+            <AnimateIn variant="slideLeft" delay={0.2} duration={0.6}>
+              <div className="flex flex-col gap-3">
+                {leftColumnItems.map((item, index) =>
+                  renderFaqItem(item, index, 0)
+                )}
+              </div>
+            </AnimateIn>
+            <AnimateIn variant="slideRight" delay={0.3} duration={0.6}>
+              <div className="flex flex-col gap-3">
+                {rightColumnItems.map((item, index) =>
+                  renderFaqItem(item, index, leftColumnItems.length)
+                )}
+              </div>
+            </AnimateIn>
           </div>
         </AnimateIn>
-
-        <div className="mx-auto grid max-w-[1080px] grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
-          <div className="flex flex-col gap-3">
-            {leftColumnItems.map((item, index) =>
-              renderFaqItem(item, index, 0)
-            )}
-          </div>
-          <div className="flex flex-col gap-3">
-            {rightColumnItems.map((item, index) =>
-              renderFaqItem(item, index, leftColumnItems.length)
-            )}
-          </div>
-        </div>
       </div>
     </section>
   )

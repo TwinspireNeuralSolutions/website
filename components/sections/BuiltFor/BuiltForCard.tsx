@@ -67,17 +67,17 @@ export const BuiltForCard = React.forwardRef<HTMLDivElement, BuiltForCardProps>(
             }}
           />
 
-          {/* Overlay content */}
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2.5 px-5 pt-2 pb-7">
+          {/* Overlay content — title starts at same position across cards */}
+          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 px-5 pb-7">
             <Typography
               variant="heading"
               as="h3"
               textColor="white"
-              className="text-[16px] leading-tight sm:text-[17px]"
+              className="text-[17px] leading-[1.15] font-bold tracking-tight whitespace-nowrap sm:text-[18px] lg:text-[20px]"
             >
               {title}
             </Typography>
-            <p className="text-[12px] leading-[1.7] text-white/75 sm:text-[12.5px]">
+            <p className="h-[82px] overflow-hidden text-[12px] leading-[1.7] text-white/75 sm:text-[12.5px]">
               {description}
             </p>
           </div>

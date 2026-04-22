@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
+import { Typography } from '@/components/ui/typography'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -17,6 +18,10 @@ import { useTranslation } from '@/i18n'
  */
 export function HeroSection() {
   const { t } = useTranslation()
+  const dataTypes = t('hero.dataTypes')
+    .split('.')
+    .map((s) => s.trim())
+    .filter(Boolean)
   const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -25,9 +30,7 @@ export function HeroSection() {
       raf = requestAnimationFrame(() => {
         if (!contentRef.current) return
         const y = window.scrollY
-        // Text drifts up at 35% of scroll speed — last to be covered
         contentRef.current.style.transform = `translateY(${-y * 0.35}px)`
-        // Subtle fade as it exits
         contentRef.current.style.opacity = String(
           Math.max(0, 1 - y / (window.innerHeight * 0.85))
         )
@@ -41,15 +44,16 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="sticky top-0 z-0 h-svh min-h-[600px] w-full overflow-hidden">
-      {/* ── Layer 1: Full-bleed player image ── */}
+    <section className="sticky top-0 z-0 h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
+      {/* ── Layer 1: Background image ── */}
       <Image
-        src="/hero-image.jpg"
+        src="/hero/image.png"
         alt="Football player kicking ball in stadium"
         fill
-        className="absolute inset-0 object-cover object-[55%_0%]"
+        sizes="100vw"
+        className="absolute inset-0 object-cover object-[50%_30%] md:object-[55%_10%]"
         priority
-        quality={95}
+        quality={90}
       />
 
       {/* ── Layer 2: Primary blue wash ── */}
@@ -64,61 +68,66 @@ export function HeroSection() {
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex flex-col py-5 will-change-transform sm:py-8 md:py-10 lg:py-12"
+        className="absolute inset-0 z-10 flex items-center justify-center px-4 py-6 will-change-transform sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
       >
-        <div className="section-x section-inner mx-auto flex flex-1 flex-col">
-          {/* ── Hero text + CTA — vertically centred ── */}
-          <div className="flex flex-1 flex-col justify-center">
-            <div className="w-full max-w-[85vw] sm:max-w-[540px] md:max-w-[600px] lg:max-w-[680px] xl:max-w-[760px]">
-              <AnimateIn variant="fadeUp" immediate>
-                <h1
-                  className="mb-4 font-sans font-bold tracking-tight text-white"
-                  style={{
-                    fontSize: 'clamp(1.9rem, 3.2vw, 4.5rem)',
-                    lineHeight: 1.05,
-                  }}
-                >
-                  <span className="block">{t('hero.headlineLine1')}</span>
-                  <span className="block">{t('hero.headlineLine2')}</span>
-                </h1>
-              </AnimateIn>
-              <AnimateIn variant="fadeUp" delay={0.15} immediate>
-                <p className="mb-8 max-w-[280px] font-sans text-sm leading-relaxed text-white/70 sm:max-w-[320px] sm:text-base md:max-w-[340px] md:text-base lg:max-w-[400px] lg:text-lg">
-                  {t('hero.subtitle')}
-                </p>
-              </AnimateIn>
-              <AnimateIn variant="fadeUp" delay={0.3} immediate>
-                <Button
-                  variant="white"
-                  size="lg"
-                  showIcon
-                  onClick={() =>
-                    document
-                      .getElementById('contact')
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                >
-                  {t('hero.cta')}
-                </Button>
-              </AnimateIn>
-            </div>
-          </div>
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 text-center sm:gap-2 md:gap-2 lg:gap-3">
+          {/* ── Headline ── */}
+          <AnimateIn variant="fadeUp" immediate>
+            <h1 className="text-center text-[18px] leading-[1.15] font-extrabold tracking-wide break-words whitespace-normal text-white/90 uppercase sm:text-[22px] md:text-[28px] md:whitespace-nowrap lg:text-[36px] xl:text-[40px]">
+              {t('hero.headlineLine1Start')}
+              <span className="text-white">
+                {t('hero.headlineLine1Highlight')}
+              </span>
+              <br />
+              {t('hero.headlineLine2Start')}
+              <span className="text-white">
+                {t('hero.headlineLine2Highlight')}
+              </span>
+            </h1>
+          </AnimateIn>
 
-          {/* ── Audience tags ── */}
-          <AnimateIn variant="fadeIn" delay={0.5} immediate>
-            <div className="flex items-center gap-2 text-xs sm:gap-3 sm:text-sm">
-              <span className="font-medium text-white/90">
-                {t('hero.audienceAthletes')}
+          {/* (Deduplicated) */}
+          {/* ── Data tags + Value proposition (single paragraph) ── */}
+          <AnimateIn variant="fadeUp" delay={0.15} immediate>
+            <Typography
+              variant="paragraph"
+              textColor="white"
+              className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
+              as="p"
+            >
+              <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
+                {dataTypes.map((d, i) => (
+                  <span key={i} className="font-semibold whitespace-nowrap">
+                    {d}
+                    {i < dataTypes.length - 1 ? '.' : ''}
+                  </span>
+                ))}
+              </div>
+
+              <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
+                {t('hero.valueProp')}
               </span>
-              <span className="text-white/30">•</span>
-              <span className="font-medium text-white/90">
-                {t('hero.audienceCoaches')}
+
+              <span className="mt-2 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
+                {t('hero.credibility')}
               </span>
-              <span className="text-white/30">•</span>
-              <span className="font-medium text-white/90">
-                {t('hero.audiencePhysio')}
-              </span>
-            </div>
+            </Typography>
+          </AnimateIn>
+
+          {/* ── CTA ── */}
+          <AnimateIn variant="fadeUp" delay={0.4} immediate>
+            <Button
+              variant="white"
+              size="lg"
+              showIcon
+              onClick={() =>
+                document
+                  .getElementById('contact')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              {t('hero.cta')}
+            </Button>
           </AnimateIn>
         </div>
       </div>
