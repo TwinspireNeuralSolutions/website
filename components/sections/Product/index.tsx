@@ -143,7 +143,7 @@ export function ProductSection() {
                     variant="heading"
                     as="h4"
                     textColor="default"
-                    className="mb-2"
+                    className="mb-4"
                   >
                     The current work addresses the following research questions.
                   </Typography>
