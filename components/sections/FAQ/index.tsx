@@ -163,6 +163,7 @@ export function FAQSection() {
   return (
     <section id="faq" className="bg-background relative z-10 w-full">
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
+        <div className="border-border mb-6 border-t" aria-hidden="true" />
         <AnimateIn variant="scaleUp" duration={0.6}>
           {/* Header */}
           <AnimateIn variant="fadeUp" delay={0.15}>
