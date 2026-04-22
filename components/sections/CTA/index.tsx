@@ -27,8 +27,10 @@ export function CTASection() {
             id="cta-heading"
             className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]"
           >
-            {t('cta.title')}{' '}
-            <span className="text-primary">{t('cta.titleAccent')}</span>{' '}
+            <span className="text-foreground font-bold">{t('cta.title')}</span>{' '}
+            <span className="text-primary font-bold">
+              {t('cta.titleAccent')}
+            </span>{' '}
             {t('cta.titleEnd')}
           </h2>
         </AnimateIn>
