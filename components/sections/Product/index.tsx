@@ -37,15 +37,15 @@ export function ProductSection() {
 
             <div>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
-                <div>
+                <div className="pt-6 pl-6">
                   <div className="flex items-center gap-3">
                     <Typography
                       variant="heading"
                       as="h3"
                       textColor="default"
-                      className="tracking-wider uppercase"
+                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
                     >
-                      Digital twin framework
+                      Digital twin <span className="font-bold">framework</span>
                     </Typography>
                   </div>
                   <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
@@ -57,15 +57,15 @@ export function ProductSection() {
                   </p>
                 </div>
 
-                <div>
+                <div className="pt-6 pl-6">
                   <div className="flex items-center gap-3">
                     <Typography
                       variant="heading"
                       as="h3"
                       textColor="default"
-                      className="tracking-wider uppercase"
+                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
                     >
-                      Approach
+                      <span className="font-bold">Approach</span>
                     </Typography>
                   </div>
                   <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
@@ -78,15 +78,15 @@ export function ProductSection() {
                   </p>
                 </div>
 
-                <div>
+                <div className="pt-6 pl-6">
                   <div className="flex items-center gap-3">
                     <Typography
                       variant="heading"
                       as="h3"
                       textColor="default"
-                      className="tracking-wider uppercase"
+                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
                     >
-                      Structured data layer
+                      Structured data <span className="font-bold">layer</span>
                     </Typography>
                   </div>
                   <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
@@ -119,55 +119,64 @@ export function ProductSection() {
               })()}
             </h3>
 
-            {/* Combined container: main text and image — use bordered cards like Science */}
+            {/* Combined container: paragraph, image, then questions on mobile; paragraph+questions left and image right on md+ */}
             <div>
               <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-10">
-                {/* Left: main text + research questions — bordered card to match Science */}
-                <div className="border-border flex h-56 w-full items-center overflow-hidden rounded-2xl border bg-transparent p-4 sm:h-64 md:h-72">
-                  <div className="prose text-foreground/75 flex w-full max-w-full flex-col justify-center gap-4">
-                    <p className="text-[16px] leading-[1.9] md:text-[18px]">
-                      A research prototype has been developed across mobile and
-                      web environments, designed to integrate heterogeneous data
-                      with minimal input from practitioners. The system now
-                      enters real-world validation, focusing on whether it
-                      remains usable, robust, and interpretable within elite
-                      performance settings.
-                    </p>
+                {/* Left: paragraph + questions (stacked) */}
+                <div className="flex flex-col gap-4">
+                  <Typography
+                    variant="paragraph"
+                    textColor="default"
+                    className="text-foreground/75 pb-6"
+                  >
+                    A research prototype has been developed across mobile and
+                    web environments, designed to integrate heterogeneous data
+                    with minimal input from practitioners. The system now enters
+                    real-world validation, focusing on whether it remains
+                    usable, robust, and interpretable within elite performance
+                    settings.
+                  </Typography>
 
-                    <div className="mt-2">
-                      <Typography
-                        variant="heading"
-                        as="h4"
-                        textColor="default"
-                        className="mb-2"
-                      >
-                        The current work addresses the following research
-                        questions.
-                      </Typography>
-                      <ol className="flex flex-col gap-2">
-                        {questions.map((q, i) => (
-                          <li key={i} className="flex gap-3">
-                            <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
-                              {String(i + 1).padStart(2, '0')}
-                            </span>
-                            <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
-                              {q}
-                            </p>
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                  </div>
+                  <Typography
+                    variant="heading"
+                    as="h4"
+                    textColor="default"
+                    className="mt-0 mb-2"
+                  >
+                    The current work addresses three questions:
+                  </Typography>
+
+                  <ul className="marker:text-primary mt-4 list-disc space-y-2 pl-6">
+                    <li>
+                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                        Are workflows operationally usable for staff?
+                      </p>
+                    </li>
+
+                    <li>
+                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                        Do data pipelines provide sufficient quality and
+                        continuity?
+                      </p>
+                    </li>
+
+                    <li>
+                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                        Do the signals support meaningful individualized
+                        modeling in practice?
+                      </p>
+                    </li>
+                  </ul>
                 </div>
 
-                {/* Right: product image — bordered card to match Science */}
-                <div className="border-border flex h-56 w-full items-center justify-center overflow-hidden rounded-2xl border bg-transparent p-4 sm:h-64 md:h-72">
+                {/* Right: product image */}
+                <div className="flex items-center justify-center">
                   <Image
                     src="/product/product-mockup.png"
                     alt="Product mockup"
-                    width={1080}
-                    height={720}
-                    className="h-56 w-full max-w-[520px] rounded-xl object-contain sm:h-64 md:h-72"
+                    width={1200}
+                    height={800}
+                    className="w-full max-w-[720px] rounded-xl object-contain sm:h-80 md:h-96 lg:h-[520px]"
                   />
                 </div>
               </div>

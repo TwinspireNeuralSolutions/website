@@ -1260,7 +1260,7 @@ function StepBlock({
         <Typography
           variant="paragraph"
           textColor="default"
-          className="mt-3 text-justify"
+          className="text-justify"
         >
           {body}
         </Typography>
