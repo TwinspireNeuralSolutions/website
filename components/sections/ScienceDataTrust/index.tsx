@@ -261,15 +261,14 @@ function ModelingDiagram() {
           stroke="#e0e0ea"
           strokeWidth="1"
         />
-        <path
-          d="M422,50 C432,38 442,60 452,44 C462,32 474,56 488,42"
+        <polyline
+          points="422,48 430,48 435,37 441,59 446,35 453,59 458,48 520,48"
           stroke="#0802A3"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
-        <circle cx="422" cy="50" r="2.5" fill="#0802A3" />
-        <circle cx="488" cy="42" r="2.5" fill="#0802A3" />
         <text
           x="498"
           y="43"
@@ -1347,16 +1346,14 @@ export function ScienceDataTrustSection() {
 
         {/* ── Alternating step blocks ── */}
         <div className="flex flex-col pt-12 pb-0 sm:pt-16 md:pt-20">
-          {steps.map((step, index) => (
-            <React.Fragment key={step.number}>
-              {index > 0 && <StepConnector />}
-              <StepBlock {...step} delay={0.05 + index * 0.08} />
-            </React.Fragment>
+          {steps.map((step) => (
+            <div key={step.number} className="mb-10 lg:mb-12">
+              <StepBlock {...step} delay={0.05} />
+            </div>
           ))}
         </div>
 
         {/* ── Research questions ── */}
-        <StepConnector />
         <AnimateIn variant="fadeUp" delay={0.15}>
           <div className="border-border bg-muted/40 mb-12 flex flex-col gap-6 rounded-2xl border p-6 sm:mb-16 sm:p-8 md:p-10">
             <Typography variant="heading" as="h3" textColor="default">
