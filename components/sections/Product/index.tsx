@@ -28,7 +28,7 @@ export function ProductSection() {
   }
 
   return (
-    <section id="product" className="bg-primary relative z-10 w-full">
+    <section id="product" className="bg-background relative z-10 w-full">
       <div className="section-x section-inner mx-auto py-12">
         <div className="border-border w-full rounded-xl border bg-white p-6 shadow-lg sm:p-8 md:p-10">
           <div className="space-y-12">
