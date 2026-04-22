@@ -1233,24 +1233,24 @@ function StepBlock({
   return (
     <div
       className={cn(
-        'flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12 lg:gap-20',
+        'flex flex-col gap-10 md:flex-row md:items-stretch md:gap-16 lg:gap-24',
         reverse && 'md:flex-row-reverse'
       )}
     >
       {/* ── Text side ── */}
-      <div className="flex min-w-0 flex-1 flex-col justify-center gap-4">
+      <div className="flex min-w-0 flex-1 flex-col justify-center gap-6">
         {/* Large step number */}
         <span className="text-primary/15 text-[52px] leading-none font-bold sm:text-[60px] lg:text-[72px]">
           {number}
         </span>
 
         {/* Title without badge icon */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <Typography
             variant="heading"
             as="h3"
             textColor="default"
-            className="text-[18px] sm:text-[20px]"
+            className="text-[18px] break-words whitespace-normal sm:text-[20px]"
           >
             {highlightLastWord(title)}
           </Typography>
@@ -1260,13 +1260,13 @@ function StepBlock({
         <Typography
           variant="paragraph"
           textColor="default"
-          className="text-justify"
+          className="mt-3 text-justify"
         >
           {body}
         </Typography>
 
         {/* Bullet points */}
-        <ul className="mt-1 flex flex-col gap-2">
+        <ul className="mt-3 flex flex-col gap-3">
           {bullets.map((b) => (
             <CheckBullet key={b} text={b} />
           ))}
@@ -1349,7 +1349,7 @@ export function ScienceDataTrustSection() {
         {/* ── Alternating step blocks ── */}
         <div className="flex flex-col pt-12 pb-0 sm:pt-16 md:pt-20">
           {steps.map((step) => (
-            <div key={step.number} className="mb-10 lg:mb-12">
+            <div key={step.number} className="mb-14 lg:mb-16">
               <StepBlock {...step} delay={0.05} />
             </div>
           ))}

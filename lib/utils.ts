@@ -20,8 +20,7 @@ export function highlightLastWord(s: string): React.ReactNode {
     null,
     parts.join(' '),
     ' ',
-    last &&
-      React.createElement('span', { className: 'text-primary font-bold' }, last)
+    last && React.createElement('span', { className: 'font-bold' }, last)
   )
 }
 

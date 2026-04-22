@@ -12,22 +12,22 @@ export function ProblemSection() {
       key: 'one',
       number: '1',
       side: 'left',
-      title: t('problem.block1Title'),
-      body: t('problem.p1'),
+      title: 'The Unresolved Decision',
+      body: 'GPS in one platform. Strength data in another. Clinical notes remain local. Wearable signals often never leave the athlete’s own device. The challenge in elite sport is no longer access to data alone, but the absence of a coherent longitudinal model of the individual athlete across contexts and over time.',
     },
     {
       key: 'two',
       number: '2',
       side: 'right',
-      title: t('problem.block2Title'),
-      body: t('problem.p2'),
+      title: 'The Return-to-Play Gap',
+      body: 'Football injury epidemiology is well established through long-running cohort studies, including the UEFA Elite Club research, which spans thousands of players across multiple countries and seasons. Yet despite increasingly sophisticated monitoring environments, the central decision problem remains unresolved: how to interpret changing signals at the individual level when decisions about return to training, return to play, and load modification must be made under uncertainty.',
     },
     {
       key: 'three',
       number: '3',
       side: 'left',
-      title: t('problem.block3Title'),
-      body: t('problem.p3'),
+      title: 'Recurrent Injuries',
+      body: 'Subsequent and recurrent injuries continue to represent a meaningful part of the burden in professional football, and the period following return remains especially sensitive. The gap is therefore not simply one of data collection, but of individualized interpretation.',
     },
   ]
 
@@ -47,7 +47,7 @@ export function ProblemSection() {
     >
       <div className="section-x section-y section-inner mx-auto">
         <AnimateIn variant="fadeUp">
-          <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+          <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
             {headlineParts.map((part, i) =>
               highlights.includes(part) ? (
                 <span key={`${part}-${i}`} className="text-primary font-bold">
@@ -66,7 +66,7 @@ export function ProblemSection() {
         </AnimateIn>
 
         {/* Timeline container */}
-        <div className="relative mx-auto mt-10 max-w-6xl">
+        <div className="relative mx-auto mt-16 max-w-6xl">
           <div className="hidden md:block">
             <div className="bg-border absolute top-6 left-1/2 h-[calc(100%_-_3rem)] w-px -translate-x-1/2" />
           </div>
@@ -173,25 +173,33 @@ export function ProblemSection() {
 
         {/* Restyled 'Why This Research Began' section — use CTA background */}
         {/* Restyled 'Why This Research Began' section — CTA style */}
-        <section className="bg-footer-bg relative z-10 mt-12 w-full">
-          <div className="section-x section-y section-inner mx-auto py-10 text-center md:py-14">
-            <div className="mx-auto max-w-[820px]">
-              <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
-                {t('problem.originHeading')}
-              </h3>
+        <div className="relative z-10 mt-20 w-full">
+          <div
+            className="bg-footer-bg"
+            style={{
+              marginLeft: 'calc(50% - 50vw)',
+              marginRight: 'calc(50% - 50vw)',
+            }}
+          >
+            <div className="section-x section-y section-inner mx-auto py-10 text-center md:py-14">
+              <div className="mx-auto max-w-[820px]">
+                <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+                  {t('problem.originHeading')}
+                </h3>
 
-              <div className="border-border mx-auto mt-2 w-1/2 border-t" />
+                <div className="border-border mx-auto mt-2 w-1/2 border-t" />
 
-              <Typography
-                variant="paragraph"
-                as="p"
-                className="text-foreground/60 mx-auto mt-4 max-w-[720px]"
-              >
-                {t('problem.originBody')}
-              </Typography>
+                <Typography
+                  variant="paragraph"
+                  as="p"
+                  className="text-foreground/60 mx-auto mt-4 max-w-[720px]"
+                >
+                  {t('problem.originBody')}
+                </Typography>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </section>
   )

@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
+import { Typography } from '@/components/ui/typography'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -46,7 +47,7 @@ export function HeroSection() {
         alt="Football player kicking ball in stadium"
         fill
         sizes="100vw"
-        className="absolute inset-0 object-cover object-[50%_20%] md:object-[55%_0%]"
+        className="absolute inset-0 object-cover object-[50%_30%] md:object-[55%_10%]"
         priority
         quality={90}
       />
@@ -63,12 +64,12 @@ export function HeroSection() {
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-5 py-16 will-change-transform sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-28"
+        className="absolute inset-0 z-10 flex items-center justify-center px-4 py-6 will-change-transform sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
       >
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 text-center sm:gap-2.5 md:gap-3 lg:gap-4">
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 text-center sm:gap-2 md:gap-2 lg:gap-3">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
-            <h1 className="text-[18px] leading-[1.15] font-extrabold tracking-wide text-white/90 uppercase sm:text-[22px] md:text-[28px] md:whitespace-nowrap lg:text-[36px] xl:text-[40px]">
+            <h1 className="text-center text-[18px] leading-[1.15] font-extrabold tracking-wide break-words whitespace-normal text-white/90 uppercase sm:text-[22px] md:text-[28px] md:whitespace-nowrap lg:text-[36px] xl:text-[40px]">
               {t('hero.headlineLine1Start')}
               <span className="text-white">
                 {t('hero.headlineLine1Highlight')}
@@ -81,25 +82,18 @@ export function HeroSection() {
             </h1>
           </AnimateIn>
 
-          {/* ── Data tags ── */}
-          <AnimateIn variant="fadeUp" delay={0.1} immediate>
-            <p className="text-[10px] font-bold tracking-[0.25em] text-white/70 uppercase md:text-[11px]">
-              {t('hero.dataTypes')}
-            </p>
-          </AnimateIn>
-
-          {/* ── Value proposition ── */}
-          <AnimateIn variant="fadeUp" delay={0.2} immediate>
-            <p className="mx-auto -mt-1 -mb-1 max-w-[260px] text-[10px] leading-[1.6] text-white/90 sm:max-w-[320px] sm:text-[11px] md:max-w-[420px] md:text-xs md:leading-[1.7] lg:max-w-[500px] lg:text-sm">
-              {t('hero.valueProp')}
-            </p>
-          </AnimateIn>
-
-          {/* ── Credibility ── */}
-          <AnimateIn variant="fadeUp" delay={0.3} immediate>
-            <p className="text-[8px] font-medium tracking-wide text-white/60 italic sm:text-[9px] md:text-[11px] lg:text-xs">
+          {/* (Deduplicated) */}
+          {/* ── Data tags + Value proposition (single paragraph) ── */}
+          <AnimateIn variant="fadeUp" delay={0.15} immediate>
+            <Typography
+              variant="paragraph"
+              textColor="white"
+              className="mx-auto mt-2 mb-4 max-w-[720px] text-center"
+              as="p"
+            >
+              {t('hero.dataTypes')} {t('hero.valueProp')}{' '}
               {t('hero.credibility')}
-            </p>
+            </Typography>
           </AnimateIn>
 
           {/* ── CTA ── */}

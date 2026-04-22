@@ -98,9 +98,9 @@
     "headlineLine1Highlight": "the Squad.",
     "headlineLine2Start": "Twinspire Studies ",
     "headlineLine2Highlight": "the Individual.",
-    "dataTypes": "GPS · Strength · Physio · Biomechanics · Neuromuscular",
-    "valueProp": "The data exists — but it has never been unified into one longitudinal model of a single athlete. Twinspire builds that model and adapts it as the athlete changes, so every decision is made against their own evolving baseline.",
-    "credibility": "Built on five years of DTU Health Tech research.",
+    "dataTypes": "GPS data. Strength data. Physio notes. Biomechanical measurements. Neuromuscular signals.",
+    "valueProp": "The data exists, but it has never been unified into a longitudinal model of a single athlete. Twinspire builds a model that adapts as the athlete changes, so every decision is made against that player's own evolving baseline.",
+    "credibility": "Built on five years of DTU research.",
     "cta": "Join the Research Validation Study"
   },
 

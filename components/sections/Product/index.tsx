@@ -20,11 +20,10 @@ export function ProductSection() {
   return (
     <section id="product" className="bg-background relative z-10 w-full">
       <div className="section-x section-inner mx-auto py-12">
-        <div className="border-border mb-6 border-t" aria-hidden="true" />
         <div className="space-y-12 pt-6">
           {/* Part 1 — top (two-column info card like Part 2) */}
           <AnimateIn variant="fadeUp" className="flex flex-col gap-6">
-            <h2 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
               {(() => {
                 const [lead, last] = splitLastWord(t('product.headline1'))
                 return (
@@ -36,7 +35,7 @@ export function ProductSection() {
               })()}
             </h2>
 
-            <div className="bg-muted/30 rounded-2xl p-6 md:p-8">
+            <div>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
                 <div>
                   <div className="flex items-center gap-3">
@@ -108,7 +107,7 @@ export function ProductSection() {
             delay={0.08}
             className="flex flex-col gap-6"
           >
-            <h3 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+            <h3 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
               {(() => {
                 const [lead, last] = splitLastWord(t('product.headline2'))
                 return (
@@ -120,58 +119,57 @@ export function ProductSection() {
               })()}
             </h3>
 
-            {/* Combined container: main text and image share the same background */}
-            <div className="bg-muted/30 rounded-2xl p-6 md:p-8">
+            {/* Combined container: main text and image — use bordered cards like Science */}
+            <div>
               <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-10">
-                {/* Left: main text (aligned with image) */}
-                <div className="prose text-foreground/75 max-w-full">
-                  <p className="text-[15px] leading-[1.8] md:text-[16px]">
-                    A research prototype has been developed across mobile and
-                    web environments, designed to integrate heterogeneous data
-                    with minimal input from practitioners. The system now enters
-                    real-world validation, focusing on whether it remains
-                    usable, robust, and interpretable within elite performance
-                    settings.
-                  </p>
+                {/* Left: main text + research questions — bordered card to match Science */}
+                <div className="border-border flex h-56 w-full items-center overflow-hidden rounded-2xl border bg-transparent p-4 sm:h-64 md:h-72">
+                  <div className="prose text-foreground/75 flex w-full max-w-full flex-col justify-center gap-4">
+                    <p className="text-[16px] leading-[1.9] md:text-[18px]">
+                      A research prototype has been developed across mobile and
+                      web environments, designed to integrate heterogeneous data
+                      with minimal input from practitioners. The system now
+                      enters real-world validation, focusing on whether it
+                      remains usable, robust, and interpretable within elite
+                      performance settings.
+                    </p>
+
+                    <div className="mt-2">
+                      <Typography
+                        variant="heading"
+                        as="h4"
+                        textColor="default"
+                        className="mb-2"
+                      >
+                        The current work addresses the following research
+                        questions.
+                      </Typography>
+                      <ol className="flex flex-col gap-2">
+                        {questions.map((q, i) => (
+                          <li key={i} className="flex gap-3">
+                            <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
+                              {String(i + 1).padStart(2, '0')}
+                            </span>
+                            <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
+                              {q}
+                            </p>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Right: product image (same background) */}
-                <div className="flex w-full items-center justify-center">
+                {/* Right: product image — bordered card to match Science */}
+                <div className="border-border flex h-56 w-full items-center justify-center overflow-hidden rounded-2xl border bg-transparent p-4 sm:h-64 md:h-72">
                   <Image
                     src="/product/product-mockup.png"
                     alt="Product mockup"
                     width={1080}
                     height={720}
-                    className="h-44 w-full max-w-[520px] rounded-xl object-contain sm:h-52 md:h-60"
+                    className="h-56 w-full max-w-[520px] rounded-xl object-contain sm:h-64 md:h-72"
                   />
                 </div>
-              </div>
-            </div>
-
-            {/* Full-width: research questions remain under the image/text row */}
-            <div className="mt-2">
-              <div className="bg-muted/40 rounded-2xl p-6 sm:p-8 md:p-10">
-                <Typography
-                  variant="heading"
-                  as="h4"
-                  textColor="default"
-                  className="mb-4"
-                >
-                  The current work addresses the following research questions.
-                </Typography>
-
-                <ol className="flex flex-col gap-3">
-                  {questions.map((q, i) => (
-                    <li key={i} className="flex gap-4">
-                      <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
-                        {q}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
               </div>
             </div>
           </AnimateIn>
