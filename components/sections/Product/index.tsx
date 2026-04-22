@@ -21,7 +21,7 @@ export function ProductSection() {
     <section id="product" className="bg-background relative z-10 w-full">
       <div className="section-x section-inner mx-auto py-12">
         <div className="border-border mb-6 border-t" aria-hidden="true" />
-        <div className="space-y-12">
+        <div className="space-y-12 pt-6">
           {/* Part 1 — top (two-column info card like Part 2) */}
           <AnimateIn variant="fadeUp" className="flex flex-col gap-6">
             <h2 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
