@@ -185,7 +185,7 @@ function ModelingDiagram() {
       <img
         src="/science/1.png"
         alt="Modeling illustration"
-        className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
+        className="w-full rounded-xl object-contain"
       />
       {/* Original SVG retained as hidden fallback */}
       <svg
