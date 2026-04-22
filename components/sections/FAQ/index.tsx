@@ -161,41 +161,39 @@ export function FAQSection() {
   }
 
   return (
-    <section id="faq" className="bg-muted relative z-10 w-full">
+    <section id="faq" className="bg-background relative z-10 w-full">
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
         <AnimateIn variant="scaleUp" duration={0.6}>
-          <div className="border-border/40 bg-background mx-auto w-full max-w-[1080px] rounded-2xl border p-4 sm:p-6 lg:p-8">
-            {/* Header */}
-            <AnimateIn variant="fadeUp" delay={0.15}>
-              <div className="mb-7 text-left sm:mb-8 lg:mb-9">
-                <div className="max-w-[680px]">
-                  <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-                    {t('faq.title')}
-                  </h2>
-                  <p className="text-foreground/55 mt-3 max-w-[580px] text-[13px] leading-relaxed sm:mt-4 sm:text-[15px]">
-                    {t('faq.subtitle')}
-                  </p>
-                </div>
+          {/* Header */}
+          <AnimateIn variant="fadeUp" delay={0.15}>
+            <div className="mb-7 text-left sm:mb-8 lg:mb-9">
+              <div className="max-w-[680px]">
+                <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+                  {t('faq.title')}
+                </h2>
+                <p className="text-foreground/55 mt-3 max-w-[580px] text-[13px] leading-relaxed sm:mt-4 sm:text-[15px]">
+                  {t('faq.subtitle')}
+                </p>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* FAQ grid */}
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
+            <AnimateIn variant="slideLeft" delay={0.2} duration={0.6}>
+              <div className="flex flex-col gap-3">
+                {leftColumnItems.map((item, index) =>
+                  renderFaqItem(item, index, 0)
+                )}
               </div>
             </AnimateIn>
-
-            {/* FAQ grid */}
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
-              <AnimateIn variant="slideLeft" delay={0.2} duration={0.6}>
-                <div className="flex flex-col gap-3">
-                  {leftColumnItems.map((item, index) =>
-                    renderFaqItem(item, index, 0)
-                  )}
-                </div>
-              </AnimateIn>
-              <AnimateIn variant="slideRight" delay={0.3} duration={0.6}>
-                <div className="flex flex-col gap-3">
-                  {rightColumnItems.map((item, index) =>
-                    renderFaqItem(item, index, leftColumnItems.length)
-                  )}
-                </div>
-              </AnimateIn>
-            </div>
+            <AnimateIn variant="slideRight" delay={0.3} duration={0.6}>
+              <div className="flex flex-col gap-3">
+                {rightColumnItems.map((item, index) =>
+                  renderFaqItem(item, index, leftColumnItems.length)
+                )}
+              </div>
+            </AnimateIn>
           </div>
         </AnimateIn>
       </div>
