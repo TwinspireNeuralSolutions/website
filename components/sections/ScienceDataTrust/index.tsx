@@ -1159,25 +1159,23 @@ function ValidationDiagram() {
 
 function StepConnector() {
   return (
-    <AnimateIn variant="fadeIn" delay={0.1}>
-      <div className="flex justify-center py-6 sm:py-8" aria-hidden="true">
-        <svg
-          width="18"
-          height="24"
-          viewBox="0 0 18 24"
-          fill="none"
-          className="text-primary animate-bounce-slow"
-        >
-          <path
-            d="M9 2v18M4 16l5 5 5-5"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-    </AnimateIn>
+    <div className="flex justify-center py-6 sm:py-8" aria-hidden="true">
+      <svg
+        width="18"
+        height="24"
+        viewBox="0 0 18 24"
+        fill="none"
+        className="text-primary"
+      >
+        <path
+          d="M9 2v18M4 16l5 5 5-5"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   )
 }
 
@@ -1233,60 +1231,53 @@ function StepBlock({
   delay = 0,
 }: StepBlockProps) {
   return (
-    <AnimateIn variant="fadeUp" delay={delay}>
-      <div
-        className={cn(
-          'flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12 lg:gap-20',
-          reverse && 'md:flex-row-reverse'
-        )}
-      >
-        {/* ── Text side ── */}
-        <div className="flex min-w-0 flex-1 flex-col justify-center gap-4">
-          {/* Large step number */}
-          <AnimateIn variant="scaleUp" delay={delay + 0.1}>
-            <span className="text-primary/15 text-[52px] leading-none font-bold sm:text-[60px] lg:text-[72px]">
-              {number}
-            </span>
-          </AnimateIn>
+    <div
+      className={cn(
+        'flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12 lg:gap-20',
+        reverse && 'md:flex-row-reverse'
+      )}
+    >
+      {/* ── Text side ── */}
+      <div className="flex min-w-0 flex-1 flex-col justify-center gap-4">
+        {/* Large step number */}
+        <span className="text-primary/15 text-[52px] leading-none font-bold sm:text-[60px] lg:text-[72px]">
+          {number}
+        </span>
 
-          {/* Icon badge + title */}
-          <div className="flex items-center gap-3">
-            <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-xl">
-              {badgeIcon}
-            </div>
-            <Typography
-              variant="heading"
-              as="h3"
-              textColor="default"
-              className="text-[18px] sm:text-[20px]"
-            >
-              {title}
-            </Typography>
-          </div>
-
-          {/* Description */}
+        {/* Title without badge icon */}
+        <div className="flex items-center gap-3">
           <Typography
-            variant="paragraph"
+            variant="heading"
+            as="h3"
             textColor="default"
-            className="text-justify"
+            className="text-[18px] sm:text-[20px]"
           >
-            {body}
+            {title}
           </Typography>
-
-          {/* Bullet points */}
-          <ul className="mt-1 flex flex-col gap-2">
-            {bullets.map((b) => (
-              <CheckBullet key={b} text={b} />
-            ))}
-          </ul>
         </div>
 
-        {/* ── Diagram side ── */}
-        <div className="flex min-w-0 flex-1 items-center overflow-hidden transition-transform duration-300 hover:scale-105">
-          {diagram}
-        </div>
+        {/* Description */}
+        <Typography
+          variant="paragraph"
+          textColor="default"
+          className="text-justify"
+        >
+          {body}
+        </Typography>
+
+        {/* Bullet points */}
+        <ul className="mt-1 flex flex-col gap-2">
+          {bullets.map((b) => (
+            <CheckBullet key={b} text={b} />
+          ))}
+        </ul>
       </div>
-    </AnimateIn>
+
+      {/* ── Diagram side (no hover scale) ── */}
+      <div className="flex min-w-0 flex-1 items-center overflow-hidden">
+        {diagram}
+      </div>
+    </div>
   )
 }
 
@@ -1344,16 +1335,14 @@ export function ScienceDataTrustSection() {
       <div className="section-x section-y section-inner mx-auto flex flex-col">
         {/* ── Section header ── */}
         <div className="flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
-          <AnimateIn variant="fadeUp">
-            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
-              <span className="text-foreground font-bold">
-                {t('product.science.heading')}
-              </span>{' '}
-              <span className="text-primary font-bold">
-                {t('product.science.headingAccent')}
-              </span>
-            </h2>
-          </AnimateIn>
+          <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+            <span className="text-foreground font-bold">
+              {t('product.science.heading')}
+            </span>{' '}
+            <span className="text-primary font-bold">
+              {t('product.science.headingAccent')}
+            </span>
+          </h2>
         </div>
 
         {/* ── Alternating step blocks ── */}
