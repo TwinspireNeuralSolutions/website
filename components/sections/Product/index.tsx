@@ -42,13 +42,14 @@ export function ProductSection() {
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
                   <div>
                     <div className="flex items-center gap-3">
-                      <span
-                        className="bg-primary block h-0.5 w-12"
-                        aria-hidden
-                      />
-                      <h5 className="text-primary/90 text-sm font-semibold tracking-wider uppercase">
+                      <Typography
+                        variant="heading"
+                        as="h3"
+                        textColor="default"
+                        className="tracking-wider uppercase"
+                      >
                         Digital twin framework
-                      </h5>
+                      </Typography>
                     </div>
                     <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
                       Twinspire is developing a research-based digital twin
@@ -61,13 +62,14 @@ export function ProductSection() {
 
                   <div>
                     <div className="flex items-center gap-3">
-                      <span
-                        className="bg-primary block h-0.5 w-12"
-                        aria-hidden
-                      />
-                      <h5 className="text-primary/90 text-sm font-semibold tracking-wider uppercase">
+                      <Typography
+                        variant="heading"
+                        as="h3"
+                        textColor="default"
+                        className="tracking-wider uppercase"
+                      >
                         Approach
-                      </h5>
+                      </Typography>
                     </div>
                     <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
                       The approach combines principles from computational motor
@@ -81,13 +83,14 @@ export function ProductSection() {
 
                   <div>
                     <div className="flex items-center gap-3">
-                      <span
-                        className="bg-primary block h-0.5 w-12"
-                        aria-hidden
-                      />
-                      <h5 className="text-primary/90 text-sm font-semibold tracking-wider uppercase">
+                      <Typography
+                        variant="heading"
+                        as="h3"
+                        textColor="default"
+                        className="tracking-wider uppercase"
+                      >
                         Structured data layer
-                      </h5>
+                      </Typography>
                     </div>
                     <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
                       In parallel, Twinspire is building a structured data layer
