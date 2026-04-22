@@ -164,7 +164,7 @@ export function DataEthicsSection() {
         </AnimateIn>
 
         {/* ── 3-card grid ── */}
-        <div className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 sm:items-start sm:gap-10 sm:px-8 lg:grid-cols-3 lg:gap-12 lg:px-12">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-start sm:gap-10 lg:grid-cols-3 lg:gap-12">
           {cards.map((card, i) => {
             const isExpanded = expandedCards[i] ?? false
             const isShortCard = i === 2
@@ -176,7 +176,7 @@ export function DataEthicsSection() {
                     {t(card.titleKey)}
                   </Typography>
                   <p
-                    className={`text-foreground/60 text-justify text-[13px] leading-[1.75] sm:text-[14px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
+                    className={`text-foreground/60 text-[13px] leading-[1.75] sm:text-[14px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
                   >
                     {t(card.bodyKey)}
                   </p>
