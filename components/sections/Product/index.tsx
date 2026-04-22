@@ -70,9 +70,12 @@ export function ProductSection() {
                       </h5>
                     </div>
                     <p className="text-foreground/75 mt-3 text-justify text-[15px] leading-[1.8] md:text-[16px]">
-                      The approach draws on motor control, adaptive systems, and
-                      time-series modeling to understand how an athlete’s
-                      physiological state evolves.
+                      The approach combines principles from computational motor
+                      control, adaptive nonlinear systems, system
+                      identification, longitudinal sequence modelling, and self
+                      supervised learning to identify individualized
+                      representations of how an athlete’s physiological and
+                      functional state changes over time.
                     </p>
                   </div>
 
