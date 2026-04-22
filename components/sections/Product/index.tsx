@@ -50,7 +50,7 @@ export function ProductSection() {
                         Digital twin framework
                       </h5>
                     </div>
-                    <p className="text-foreground/75 mt-3 text-justify text-[15px] leading-[1.8] md:text-[16px]">
+                    <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
                       Twinspire is developing a research-based digital twin
                       framework for individualized athlete modeling. The system
                       integrates longitudinal data from multiple sources,
@@ -69,7 +69,7 @@ export function ProductSection() {
                         Approach
                       </h5>
                     </div>
-                    <p className="text-foreground/75 mt-3 text-justify text-[15px] leading-[1.8] md:text-[16px]">
+                    <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
                       The approach combines principles from computational motor
                       control, adaptive nonlinear systems, system
                       identification, longitudinal sequence modelling, and self
@@ -89,7 +89,7 @@ export function ProductSection() {
                         Structured data layer
                       </h5>
                     </div>
-                    <p className="text-foreground/75 mt-3 text-justify text-[15px] leading-[1.8] md:text-[16px]">
+                    <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
                       In parallel, Twinspire is building a structured data layer
                       that links sessions, tests, symptoms, and contextual
                       information into a portable athlete history, supporting
@@ -116,7 +116,7 @@ export function ProductSection() {
                 <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-10">
                   {/* Left: main text (aligned with image) */}
                   <div className="prose text-foreground/75 max-w-full">
-                    <p className="text-justify text-[15px] leading-[1.8] md:text-[16px]">
+                    <p className="text-[15px] leading-[1.8] md:text-[16px]">
                       A research prototype has been developed across mobile and
                       web environments, designed to integrate heterogeneous data
                       with minimal input from practitioners. The system now
@@ -157,7 +157,7 @@ export function ProductSection() {
                         <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
                           {String(i + 1).padStart(2, '0')}
                         </span>
-                        <p className="text-foreground/75 text-justify text-[15px] leading-[1.8] md:text-[16px]">
+                        <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
                           {q}
                         </p>
                       </li>
