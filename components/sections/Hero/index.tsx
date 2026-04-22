@@ -18,6 +18,10 @@ import { useTranslation } from '@/i18n'
  */
 export function HeroSection() {
   const { t } = useTranslation()
+  const dataTypes = t('hero.dataTypes')
+    .split('.')
+    .map((s) => s.trim())
+    .filter(Boolean)
   const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -88,11 +92,25 @@ export function HeroSection() {
             <Typography
               variant="paragraph"
               textColor="white"
-              className="mx-auto mt-2 mb-4 max-w-[720px] text-center"
+              className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
               as="p"
             >
-              {t('hero.dataTypes')} {t('hero.valueProp')}{' '}
-              {t('hero.credibility')}
+              <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
+                {dataTypes.map((d, i) => (
+                  <span key={i} className="font-semibold whitespace-nowrap">
+                    {d}
+                    {i < dataTypes.length - 1 ? '.' : ''}
+                  </span>
+                ))}
+              </div>
+
+              <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
+                {t('hero.valueProp')}
+              </span>
+
+              <span className="mt-2 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
+                {t('hero.credibility')}
+              </span>
             </Typography>
           </AnimateIn>
 
