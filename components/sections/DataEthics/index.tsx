@@ -2,11 +2,7 @@
 
 import { useState } from 'react'
 import { Typography } from '@/components/ui/typography'
-import {
-  AnimateIn,
-  StaggerContainer,
-  StaggerItem,
-} from '@/components/ui/animate-in'
+import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /** Shield with check — Core Principles */
@@ -134,11 +130,11 @@ export function DataEthicsSection() {
           aria-hidden="true"
         />
 
-        {/* ── Heading (matches Team section on team-section branch) ── */}
+        {/* ── Heading (match Team section style) ── */}
         <AnimateIn variant="fadeUp">
           <h2
+            className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]"
             id="data-ethics-heading"
-            className="mx-auto mb-4 max-w-[720px] px-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:px-0 sm:text-[26px] lg:mb-6 lg:text-[32px]"
           >
             <span className="text-foreground font-bold">
               {t('dataEthics.heading')}
@@ -168,30 +164,19 @@ export function DataEthicsSection() {
         </AnimateIn>
 
         {/* ── 3-card grid ── */}
-        <StaggerContainer
-          className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 sm:items-start sm:gap-10 sm:px-8 lg:grid-cols-3 lg:gap-12 lg:px-12"
-          stagger={0.08}
-        >
+        <div className="grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 sm:items-start sm:gap-10 sm:px-8 lg:grid-cols-3 lg:gap-12 lg:px-12">
           {cards.map((card, i) => {
             const isExpanded = expandedCards[i] ?? false
             const isShortCard = i === 2
 
             return (
-              <StaggerItem key={t(card.titleKey)}>
-                <div className="border-border border-t-primary bg-muted/30 flex flex-col gap-4 rounded-xl border border-t-2 p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-md sm:min-h-[14rem] sm:p-7">
-                  {/* Icon + Title */}
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
-                      {card.icon}
-                    </div>
-                    <Typography variant="heading" as="h3" textColor="default">
-                      {t(card.titleKey)}
-                    </Typography>
-                  </div>
+              <div key={t(card.titleKey)}>
+                <div className="bg-muted/30 flex flex-col gap-4 rounded-xl p-6 sm:min-h-[14rem] sm:p-7">
+                  <Typography variant="heading" as="h3" textColor="default">
+                    {t(card.titleKey)}
+                  </Typography>
                   <p
-                    className={`text-foreground/60 text-justify text-[13px] leading-[1.75] sm:text-[14px] ${
-                      !isShortCard && !isExpanded ? 'line-clamp-3' : ''
-                    }`}
+                    className={`text-foreground/60 text-justify text-[13px] leading-[1.75] sm:text-[14px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
                   >
                     {t(card.bodyKey)}
                   </p>
@@ -207,10 +192,10 @@ export function DataEthicsSection() {
                     </button>
                   )}
                 </div>
-              </StaggerItem>
+              </div>
             )
           })}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   )
