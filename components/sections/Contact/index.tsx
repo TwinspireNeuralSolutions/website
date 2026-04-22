@@ -101,7 +101,7 @@ export function ContactSection() {
     >
       <div className="section-x section-y section-inner mx-auto overflow-hidden">
         <AnimateIn variant="scaleUp" duration={0.6}>
-          <div className="border-border/40 bg-background mx-auto w-full max-w-[1060px] rounded-2xl border p-4 sm:p-6 lg:p-8">
+          <div className="mx-auto w-full max-w-[1060px] p-4 sm:p-6 lg:p-8">
             <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
               {/* ── Left: Title + description + contact info ── */}
               <AnimateIn
@@ -235,62 +235,52 @@ export function ContactSection() {
                 </div>
               </AnimateIn>
 
-              {/* ── Right: Form card ── */}
-              <AnimateIn
-                variant="slideRight"
-                delay={0.3}
-                duration={0.6}
-                className="order-2 w-full lg:order-2 lg:w-[380px] lg:shrink-0"
-              >
-                <div className="bg-foreground/[0.02] border-t-primary flex h-full flex-col overflow-hidden rounded-2xl border-t-[3px] p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-6 lg:p-8">
-                  <AnimateIn variant="fadeDown" delay={0.4} duration={0.5}>
-                    <h3 className="text-foreground/30 mb-1 text-center text-[16px] font-semibold tracking-wide uppercase">
-                      {t('contact.formTitle')}
-                    </h3>
-                    <div className="border-border/20 mx-auto mb-5 w-10 border-t" />
-                  </AnimateIn>
+              {/* ── Right: Form card (no animation) ── */}
+              <div className="order-2 w-full lg:order-2 lg:w-[380px] lg:shrink-0">
+                <div className="bg-background flex h-full flex-col overflow-hidden rounded-2xl p-5 sm:p-6 lg:p-8">
                   {submitted ? (
-                    <AnimateIn variant="scaleUp" delay={0.1} duration={0.5}>
-                      <div className="flex min-h-[260px] flex-col items-center justify-center gap-4 text-center">
-                        <div
-                          className="bg-primary flex h-14 w-14 items-center justify-center rounded-full"
-                          aria-hidden="true"
+                    <div className="flex min-h-[260px] flex-col items-center justify-center gap-4 text-center">
+                      <div
+                        className="bg-primary flex h-14 w-14 items-center justify-center rounded-full"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 22 22"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M4.5 11.5L9 16L17.5 7"
-                              stroke="white"
-                              strokeWidth="2.2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <Typography
-                          variant="heading"
-                          as="h3"
-                          className="text-[18px] font-bold"
-                        >
-                          {t('contact.successTitle')}
-                        </Typography>
-                        <p className="text-foreground/60 text-[14px] leading-relaxed">
-                          {t('contact.successMessage')}
-                        </p>
+                          <path
+                            d="M4.5 11.5L9 16L17.5 7"
+                            stroke="white"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
-                    </AnimateIn>
+                      <Typography
+                        variant="heading"
+                        as="h3"
+                        className="text-[18px] font-bold"
+                      >
+                        {t('contact.successTitle')}
+                      </Typography>
+                      <p className="text-foreground/60 text-[14px] leading-relaxed">
+                        {t('contact.successMessage')}
+                      </p>
+                    </div>
                   ) : (
-                    <form
-                      onSubmit={handleSubmit}
-                      noValidate
-                      className="flex flex-1 flex-col gap-3.5"
-                    >
-                      <AnimateIn variant="fadeUp" delay={0.45} duration={0.4}>
+                    <>
+                      <h3 className="text-foreground/30 mb-3 text-center text-[16px] font-semibold tracking-wide">
+                        {t('contact.formTitle')}
+                      </h3>
+                      <form
+                        onSubmit={handleSubmit}
+                        noValidate
+                        className="flex flex-1 flex-col gap-3.5"
+                      >
                         <div className="relative">
                           <Input
                             id="contact-name"
@@ -306,9 +296,7 @@ export function ContactSection() {
                           />
                           {form.name.trim().length >= 2 && <CheckIcon />}
                         </div>
-                      </AnimateIn>
 
-                      <AnimateIn variant="fadeUp" delay={0.55} duration={0.4}>
                         <div className="relative">
                           <Input
                             id="contact-clubOrClinic"
@@ -325,9 +313,7 @@ export function ContactSection() {
                             <CheckIcon />
                           )}
                         </div>
-                      </AnimateIn>
 
-                      <AnimateIn variant="fadeUp" delay={0.65} duration={0.4}>
                         <div className="relative">
                           <Input
                             id="contact-role"
@@ -342,9 +328,7 @@ export function ContactSection() {
                           />
                           {form.role.trim().length >= 2 && <CheckIcon />}
                         </div>
-                      </AnimateIn>
 
-                      <AnimateIn variant="fadeUp" delay={0.75} duration={0.4}>
                         <div className="relative">
                           <Input
                             id="contact-email"
@@ -360,32 +344,32 @@ export function ContactSection() {
                           />
                           {isValidEmail(form.email) && <CheckIcon />}
                         </div>
-                      </AnimateIn>
 
-                      {submitError && (
-                        <p className="text-[13px] text-red-600" role="alert">
-                          {submitError}
-                        </p>
-                      )}
+                        {submitError && (
+                          <p className="text-[13px] text-red-600" role="alert">
+                            {submitError}
+                          </p>
+                        )}
 
-                      <AnimateIn variant="fadeUp" delay={0.85} duration={0.4}>
-                        <Button
-                          type="submit"
-                          variant="primary"
-                          size="lg"
-                          showIcon
-                          disabled={isSubmitting}
-                          className="mt-auto w-full"
-                        >
-                          {isSubmitting
-                            ? t('common.loading')
-                            : t('contact.submit')}
-                        </Button>
-                      </AnimateIn>
-                    </form>
+                        <div>
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            size="lg"
+                            showIcon
+                            disabled={isSubmitting}
+                            className="mt-auto w-full"
+                          >
+                            {isSubmitting
+                              ? t('common.loading')
+                              : t('contact.submit')}
+                          </Button>
+                        </div>
+                      </form>
+                    </>
                   )}
                 </div>
-              </AnimateIn>
+              </div>
 
               {/* ── Mobile-only: Contact info below form ── */}
               <AnimateIn
