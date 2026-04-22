@@ -5,7 +5,7 @@ import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 import Image from 'next/image'
-import { highlightLastWord } from '@/lib/utils'
+import { splitLastWord } from '@/lib/utils'
 
 export function ProductSection() {
   const { t } = useTranslation()
@@ -24,7 +24,15 @@ export function ProductSection() {
           {/* Part 1 — top (two-column info card like Part 2) */}
           <AnimateIn variant="fadeUp" className="flex flex-col gap-6">
             <h2 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-              {highlightLastWord(t('product.headline1'))}
+              {(() => {
+                const [lead, last] = splitLastWord(t('product.headline1'))
+                return (
+                  <>
+                    <span className="text-foreground font-bold">{lead}</span>{' '}
+                    <span className="text-primary font-bold">{last}</span>
+                  </>
+                )
+              })()}
             </h2>
 
             <div className="bg-muted/30 rounded-2xl p-6 md:p-8">
@@ -100,7 +108,15 @@ export function ProductSection() {
             className="flex flex-col gap-6"
           >
             <h3 className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-              {highlightLastWord(t('product.headline2'))}
+              {(() => {
+                const [lead, last] = splitLastWord(t('product.headline2'))
+                return (
+                  <>
+                    <span className="text-foreground font-bold">{lead}</span>{' '}
+                    <span className="text-primary font-bold">{last}</span>
+                  </>
+                )
+              })()}
             </h3>
 
             {/* Combined container: main text and image share the same background */}
