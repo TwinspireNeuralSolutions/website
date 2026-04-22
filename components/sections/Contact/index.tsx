@@ -357,6 +357,7 @@ export function ContactSection() {
                             variant="primary"
                             size="lg"
                             showIcon
+                            iconPosition="absolute"
                             disabled={isSubmitting}
                             className="mt-auto w-full"
                           >
