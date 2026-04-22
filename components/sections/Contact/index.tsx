@@ -101,7 +101,7 @@ export function ContactSection() {
     >
       <div className="section-x section-y section-inner mx-auto overflow-hidden">
         <AnimateIn variant="scaleUp" duration={0.6}>
-          <div className="mx-auto w-full max-w-[1060px] p-4 sm:p-6 lg:p-8">
+          <div className="mx-auto w-full max-w-[1080px]">
             <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
               {/* ── Left: Title + description + contact info ── */}
               <AnimateIn
@@ -235,7 +235,7 @@ export function ContactSection() {
                 </div>
               </AnimateIn>
 
-              {/* ── Right: Form card (no animation) ── */}
+              {/* ── Right: Form (white background restored) ── */}
               <div className="order-2 w-full lg:order-2 lg:w-[380px] lg:shrink-0">
                 <div className="bg-background flex h-full flex-col overflow-hidden rounded-2xl p-5 sm:p-6 lg:p-8">
                   {submitted ? (
