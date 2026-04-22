@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
+import { highlightLastWord } from '@/lib/utils'
 
 /** Shield with check — Core Principles */
 function ShieldCheckIcon() {
@@ -167,7 +168,7 @@ export function DataEthicsSection() {
               <div key={t(card.titleKey)}>
                 <div className="bg-muted/30 flex flex-col gap-4 rounded-xl p-6 sm:min-h-[14rem] sm:p-7">
                   <Typography variant="heading" as="h3" textColor="default">
-                    {t(card.titleKey)}
+                    {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
                     className={`text-foreground/60 text-[13px] leading-[1.75] sm:text-[14px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}

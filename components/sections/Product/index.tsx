@@ -5,6 +5,7 @@ import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 import Image from 'next/image'
+import { highlightLastWord } from '@/lib/utils'
 
 export function ProductSection() {
   const { t } = useTranslation()
@@ -14,18 +15,7 @@ export function ProductSection() {
     'Do the signals support meaningful individualized modeling in practice?',
   ]
 
-  // helper: highlight last word in a headline
-  function highlightLastWord(s: string) {
-    const parts = String(s).trim().split(' ')
-    if (parts.length === 0) return s
-    const last = parts.pop()
-    return (
-      <>
-        {parts.join(' ')}{' '}
-        {last && <span className="text-primary font-bold">{last}</span>}
-      </>
-    )
-  }
+  // use shared highlight helper for consistent title accents
 
   return (
     <section id="product" className="bg-background relative z-10 w-full">

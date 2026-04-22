@@ -5,6 +5,7 @@ import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 import { cn } from '@/lib/utils'
+import { highlightLastWord } from '@/lib/utils'
 
 /* ────────────────────────────────────────────────────────────────────────────
  * Pillar icons — used both as small badge icons and as large card icons.
@@ -1251,7 +1252,7 @@ function StepBlock({
             textColor="default"
             className="text-[18px] sm:text-[20px]"
           >
-            {title}
+            {highlightLastWord(title)}
           </Typography>
         </div>
 
