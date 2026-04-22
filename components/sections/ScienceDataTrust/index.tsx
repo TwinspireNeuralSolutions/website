@@ -1333,6 +1333,7 @@ export function ScienceDataTrustSection() {
       className="bg-background relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto flex flex-col">
+        <div className="border-border mb-6 border-t" aria-hidden="true" />
         {/* ── Section header ── */}
         <div className="flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
           <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
