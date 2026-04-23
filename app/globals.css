@@ -243,3 +243,14 @@ strong {
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
 }
+
+/* =========================
+ * Hero height-based adjustments
+ * Keep small and md centered via flexbox. Only apply
+ * height-based nudges on large (desktop) viewports.
+ * ========================= */
+@media (min-width: 1024px) and (min-height: 1001px) {
+  [data-hero-container] {
+    transform: translateY(-3rem) !important;
+  }
+}
