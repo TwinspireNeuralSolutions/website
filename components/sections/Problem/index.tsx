@@ -187,7 +187,7 @@ export function ProblemSection() {
                   {t('problem.originHeading')}
                 </h3>
 
-                <div className="border-border mx-auto mt-2 w-1/2 border-t" />
+                <div className="border-border mx-auto mt-2 hidden w-1/2 border-t sm:block" />
 
                 <Typography
                   variant="paragraph"

@@ -181,7 +181,7 @@
           "bullet3": "Teknisk risikoreduktion"
         }
       },
-      "researchTitle": "Aktuelle forskningsspørgsmål",
+      "researchTitle": "Det aktuelle arbejde adresserer tre spørgsmål:",
       "questions": {
         "q1": "Hvor tidligt kan afvigelser fra en atlets personlige baseline detekteres, og hvilke afvigelser er meningsfuldt forbundet med forhøjet sårbarhed efter tilbagevenden til spil?",
         "q2": "Hvad er den minimale sensor- og datakonfiguration, der kræves for at etablere en stabil og pålidelig individualiseret model?",
@@ -199,6 +199,18 @@
     },
     "headline1": "Fra populationsgennemsnit til individualiseret dynamik",
     "p1": "Twinspire udvikler en forskningsbaseret digital tvilling‑ramme, der modellerer hver atlet individuelt. Rammen integrerer longitudinelle multimodale data — ekstern belastning, styrke- og neuromuskulære tests, kliniske observationer og wearables‑målinger indsamlet både i og uden for træningsmiljøet — for at lære atlet‑specifikke reference‑mønstre og opdage meningsfulde afvigelser over tid. Ved at betragte atleten som et dynamisk system anvendes principper fra motorisk kontrol, adaptive systemer og personaliseret tidsserie‑læring. Metodikken bygger på forskning fra DTU og er patentansøgt. Parallelt bygger vi et struktureret, longitudinelt data‑lag, som kobler sessioner, tests, symptomer og kontekstuelle noter til en bærbar atlet‑historik; infrastrukturen bruges i forskningsfasen til at undersøge kontinuitet, fortolkbarhed og individualiseret beslutningsstøtte på tværs af performance og rehabilitering.",
+    "card1": {
+      "title": "Digital twin framework",
+      "body": "Twinspire is developing a research-based digital twin framework for individualized athlete modeling. The system integrates longitudinal data from multiple sources, including training load, neuromuscular testing, clinician input, and wearable-derived physiological measures."
+    },
+    "card2": {
+      "title": "Approach",
+      "body": "The approach combines principles from computational motor control, adaptive nonlinear systems, system identification, longitudinal sequence modelling, and self supervised learning to identify individualized representations of how an athlete’s physiological and functional state changes over time."
+    },
+    "card3": {
+      "title": "Structured data layer",
+      "body": "In parallel, Twinspire is building a structured data layer that links sessions, tests, symptoms, and contextual information into a portable athlete history, supporting continuity and decision-making across performance and rehabilitation."
+    },
     "headline2": "Fra forskningsprototype til anvendt validering",
     "p2": "Vi har udviklet en forskningsprototype til individualiseret atletmodellering på mobil, tablet og browser, som integrerer heterogene præstations-, fysiologiske og neuromuskulære data med minimal ekstra indsats fra praktikere. Prototypen går nu ind i realverdensvalidering for at sikre, at rammeværket forbliver brugbart, robust og fortolkeligt i elite‑performance og rehabiliteringspraksis. Det aktuelle arbejde fokuserer på tre praktiske spørgsmål: Er arbejdsgangene operationelt brugbare for personalet? Lever indtastnings‑pipelinesne tilstrækkelig datakvalitet og kontinuitet? Understøtter de indsamlede signaler meningsfuld individualiseret modellering i praksis?",
     "mockupAlt": "Twinspire personale‑dashboard og spiller‑mobilapp med parametre og individualiserede parathedsmål",
