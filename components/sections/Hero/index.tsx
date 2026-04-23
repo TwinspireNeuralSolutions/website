@@ -51,7 +51,7 @@ export function HeroSection() {
         alt="Football player kicking ball in stadium"
         fill
         sizes="100vw"
-        className="absolute inset-0 object-cover object-[50%_30%] md:object-[55%_10%]"
+        className="absolute inset-0 object-cover object-[50%_20%] sm:object-[50%_25%] md:object-[55%_10%]"
         priority
         quality={90}
       />
@@ -68,12 +68,12 @@ export function HeroSection() {
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-4 pt-8 pb-6 will-change-transform sm:px-6 md:items-center md:px-8 lg:px-10"
+        className="absolute inset-0 z-10 flex items-center justify-center px-4 pt-6 pb-6 will-change-transform sm:items-start sm:px-6 sm:pt-4 md:items-center md:px-8 md:pt-0 lg:px-10"
       >
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-4 text-center sm:gap-6 sm:px-6 md:gap-6 md:px-8 lg:gap-8 lg:px-0">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
-            <h1 className="mb-1 max-w-[320px] text-center text-[20px] leading-[1.2] font-extrabold tracking-normal break-words whitespace-normal text-white/90 uppercase sm:mb-2 sm:max-w-[540px] sm:text-[22px] sm:tracking-wide md:mb-4 md:max-w-[720px] md:text-[28px] lg:mt-12 lg:mb-2 lg:text-[36px] xl:text-[40px]">
+            <h1 className="mb-1 w-full max-w-[320px] text-[20px] leading-[1.08] font-extrabold tracking-tight break-words text-white/95 sm:mb-2 sm:max-w-[560px] sm:text-[24px] md:mb-4 md:max-w-[720px] md:text-[28px] lg:mb-2 lg:text-[36px] xl:text-[44px]">
               {t('hero.headlineLine1Start')}
               <span className="text-white">
                 {t('hero.headlineLine1Highlight')}
@@ -104,7 +104,7 @@ export function HeroSection() {
                 ))}
               </span>
 
-              <span className="mx-auto mt-2 block max-w-[360px] px-6 text-[16px] leading-[1.7] font-medium break-words whitespace-normal text-white sm:max-w-[720px] sm:px-0">
+              <span className="mx-auto mt-2 block max-w-[340px] px-4 text-[16px] leading-[1.6] font-medium break-words whitespace-normal text-white sm:max-w-[560px] sm:px-0 md:max-w-[720px]">
                 {t('hero.valueProp')}
               </span>
 
@@ -118,7 +118,7 @@ export function HeroSection() {
           <AnimateIn variant="fadeUp" delay={0.4} immediate>
             <div className="mt-4 flex w-full justify-center sm:mt-6 sm:w-auto">
               <Button
-                className="w-full sm:w-auto"
+                className="w-full max-w-[520px] sm:w-auto"
                 variant="white"
                 size="lg"
                 showIcon
