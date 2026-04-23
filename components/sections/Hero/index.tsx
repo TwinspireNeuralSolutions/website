@@ -50,7 +50,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="sticky top-0 z-0 min-h-[75vh] w-full overflow-hidden md:min-h-[85vh]">
+    <section className="sticky top-0 z-0 min-h-[75vh] w-full overflow-hidden md:min-h-screen">
       {/* ── Layer 1: Background image ── */}
       <Image
         src="/hero/image.png"
