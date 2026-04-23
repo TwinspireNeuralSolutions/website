@@ -68,12 +68,12 @@ export function HeroSection() {
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-4 py-6 will-change-transform sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
+        className="absolute inset-0 z-10 flex items-center justify-center px-4 pt-8 pb-6 will-change-transform sm:px-6 md:items-center md:px-8 lg:px-10"
       >
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 text-center sm:gap-2 md:gap-2 lg:gap-3">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-4 text-center sm:gap-6 sm:px-6 md:gap-6 md:px-8 lg:gap-8 lg:px-0">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
-            <h1 className="text-center text-[18px] leading-[1.15] font-extrabold tracking-wide break-words whitespace-normal text-white/90 uppercase sm:text-[22px] md:text-[28px] md:whitespace-nowrap lg:text-[36px] xl:text-[40px]">
+            <h1 className="mb-1 max-w-[320px] text-center text-[20px] leading-[1.2] font-extrabold tracking-normal break-words whitespace-normal text-white/90 uppercase sm:mb-2 sm:max-w-[540px] sm:text-[22px] sm:tracking-wide md:mb-4 md:max-w-[720px] md:text-[28px] lg:mt-12 lg:mb-2 lg:text-[36px] xl:text-[40px]">
               {t('hero.headlineLine1Start')}
               <span className="text-white">
                 {t('hero.headlineLine1Highlight')}
@@ -92,23 +92,23 @@ export function HeroSection() {
             <Typography
               variant="paragraph"
               textColor="white"
-              className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
+              className="mx-auto mt-2 mb-4 max-w-[720px] text-center sm:mt-3 sm:mb-4 md:mt-4 md:mb-4 md:max-w-none lg:mt-4"
               as="p"
             >
-              <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
+              <span className="flex flex-wrap justify-center gap-2 text-[12px] tracking-wider text-[#C0BEC7] uppercase">
                 {dataTypes.map((d, i) => (
                   <span key={i} className="font-semibold whitespace-nowrap">
                     {d}
                     {i < dataTypes.length - 1 ? '.' : ''}
                   </span>
                 ))}
-              </div>
+              </span>
 
-              <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
+              <span className="mx-auto mt-2 block max-w-[360px] px-6 text-[16px] leading-[1.7] font-medium break-words whitespace-normal text-white sm:max-w-[720px] sm:px-0">
                 {t('hero.valueProp')}
               </span>
 
-              <span className="mt-2 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
+              <span className="mx-auto mt-1 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
                 {t('hero.credibility')}
               </span>
             </Typography>
@@ -116,18 +116,21 @@ export function HeroSection() {
 
           {/* ── CTA ── */}
           <AnimateIn variant="fadeUp" delay={0.4} immediate>
-            <Button
-              variant="white"
-              size="lg"
-              showIcon
-              onClick={() =>
-                document
-                  .getElementById('contact')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              {t('hero.cta')}
-            </Button>
+            <div className="mt-4 flex w-full justify-center sm:mt-6 sm:w-auto">
+              <Button
+                className="w-full sm:w-auto"
+                variant="white"
+                size="lg"
+                showIcon
+                onClick={() =>
+                  document
+                    .getElementById('contact')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                {t('hero.cta')}
+              </Button>
+            </div>
           </AnimateIn>
         </div>
       </div>
