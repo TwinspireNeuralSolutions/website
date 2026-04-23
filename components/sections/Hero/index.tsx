@@ -30,10 +30,16 @@ export function HeroSection() {
       raf = requestAnimationFrame(() => {
         if (!contentRef.current) return
         const y = window.scrollY
-        contentRef.current.style.transform = `translateY(${-y * 0.35}px)`
-        contentRef.current.style.opacity = String(
-          Math.max(0, 1 - y / (window.innerHeight * 0.85))
-        )
+        // Apply parallax only on md+ screens to avoid large shifts on small devices
+        if (window.innerWidth >= 768) {
+          contentRef.current.style.transform = `translateY(${-y * 0.35}px)`
+          contentRef.current.style.opacity = String(
+            Math.max(0, 1 - y / (window.innerHeight * 0.85))
+          )
+        } else {
+          contentRef.current.style.transform = 'none'
+          contentRef.current.style.opacity = '1'
+        }
       })
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -44,7 +50,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="sticky top-0 z-0 h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
+    <section className="sticky top-0 z-0 min-h-screen w-full overflow-hidden">
       {/* ── Layer 1: Background image ── */}
       <Image
         src="/hero/image.png"
@@ -68,7 +74,7 @@ export function HeroSection() {
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-4 pt-6 pb-6 will-change-transform sm:items-start sm:px-6 sm:pt-4 md:items-center md:px-8 md:pt-0 lg:px-10"
+        className="absolute inset-0 z-10 flex items-center justify-center px-4 py-6 will-change-transform sm:px-6 md:px-8 lg:px-10"
       >
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-4 text-center sm:gap-6 sm:px-6 md:gap-6 md:px-8 lg:gap-8 lg:px-0">
           {/* ── Headline ── */}
