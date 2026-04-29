@@ -192,7 +192,7 @@ export function ProblemSection() {
                 <Typography
                   variant="paragraph"
                   as="p"
-                  className="text-foreground/60 mx-auto mt-4 max-w-[720px]"
+                  className="text-foreground/70 mx-auto mt-4 max-w-[720px]"
                 >
                   {t('problem.originBody')}
                 </Typography>

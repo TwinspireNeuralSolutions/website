@@ -127,26 +127,12 @@ export function ProductSection() {
                       >
                         {t('product.p2')}
                       </Typography>
-                    </div>
 
-                    <div className="flex min-w-0 flex-1 items-center overflow-hidden md:-mt-6 lg:-mt-8 xl:-mt-10">
-                      <Image
-                        src="/product/product-mockup.png"
-                        alt="Product mockup"
-                        width={1200}
-                        height={800}
-                        className="w-full max-w-[720px] rounded-xl object-contain sm:h-80 md:h-96 lg:h-[520px]"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Full-width questions block (below text+image) */}
-                  <div className="mt-6 md:mt-8">
-                    <div className="md:border-border bg-muted/40 mb-0 flex flex-col gap-4 rounded-2xl p-6 md:border md:p-8 md:p-10">
+                      {/* Questions block — left column, no container */}
                       <Typography variant="heading" as="h3" textColor="default">
                         {t('product.science.researchTitle')}
                       </Typography>
-                      <ol className="flex flex-col gap-4">
+                      <ol className="flex flex-col gap-1">
                         {[
                           t('product.questions.q1'),
                           t('product.questions.q2'),
@@ -163,7 +149,19 @@ export function ProductSection() {
                         ))}
                       </ol>
                     </div>
+
+                    <div className="flex min-w-0 flex-1 items-center overflow-hidden md:-mt-6 lg:-mt-8 xl:-mt-10">
+                      <Image
+                        src="/product/product-mockup.png"
+                        alt="Product mockup"
+                        width={1200}
+                        height={800}
+                        className="w-full max-w-[720px] rounded-xl object-contain sm:h-80 md:h-96 lg:h-[520px]"
+                      />
+                    </div>
                   </div>
+
+                  {/* Removed full-width questions block — now in left column above */}
                 </div>
               </div>
             </div>
