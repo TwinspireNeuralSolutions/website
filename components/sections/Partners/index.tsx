@@ -68,7 +68,7 @@ export function PartnersSection({
               <Typography variant="title" as="h2" textColor="white">
                 {t('partners.heading')}
               </Typography>
-              <p className="text-sm leading-relaxed text-white/65 sm:text-base">
+              <p className="text-[14px] leading-[1.8] text-white/70 sm:text-[15px]">
                 {t('partners.body')}
               </p>
             </div>

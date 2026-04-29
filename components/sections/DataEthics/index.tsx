@@ -171,7 +171,7 @@ export function DataEthicsSection() {
                     {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
-                    className={`text-foreground/60 text-[13px] leading-[1.75] sm:text-[14px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
+                    className={`text-foreground/70 text-[14px] leading-[1.8] sm:text-[15px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
                   >
                     {t(card.bodyKey)}
                   </p>

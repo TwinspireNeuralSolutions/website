@@ -148,7 +148,7 @@ export function FAQSection() {
                   variant="paragraph"
                   as="p"
                   textColor="default"
-                  className="text-foreground/70 text-[12px] leading-[1.7] whitespace-pre-line sm:text-[13px]"
+                  className="text-foreground/70 text-[14px] leading-[1.8] whitespace-pre-line sm:text-[15px]"
                 >
                   {t(item.answerKey)}
                 </Typography>
@@ -172,7 +172,7 @@ export function FAQSection() {
                 <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
                   {t('faq.title')}
                 </h2>
-                <p className="text-foreground/55 mt-3 max-w-[580px] text-[13px] leading-relaxed sm:mt-4 sm:text-[15px]">
+                <p className="text-foreground/70 mt-3 max-w-[580px] text-[14px] leading-[1.8] sm:mt-4 sm:text-[15px]">
                   {t('faq.subtitle')}
                 </p>
               </div>

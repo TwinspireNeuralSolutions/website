@@ -89,24 +89,29 @@ export function HeroSection() {
           {/* (Deduplicated) */}
           {/* ── Data tags + Value proposition (single paragraph) ── */}
           <AnimateIn variant="fadeUp" delay={0.15} immediate>
-            <div className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none">
-              <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
+            <Typography
+              variant="paragraph"
+              textColor="white"
+              className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
+              as="p"
+            >
+              <span className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
                 {dataTypes.map((d, i) => (
                   <span key={i} className="font-semibold whitespace-nowrap">
                     {d}
                     {i < dataTypes.length - 1 ? '.' : ''}
                   </span>
                 ))}
-              </div>
+              </span>
 
-              <p className="mt-3 font-sans text-[14px] leading-[1.6] font-normal text-white/90">
+              <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
                 {t('hero.valueProp')}
-              </p>
+              </span>
 
-              <p className="mt-2 pt-1 font-sans text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
+              <span className="mt-2 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
                 {t('hero.credibility')}
-              </p>
-            </div>
+              </span>
+            </Typography>
           </AnimateIn>
 
           {/* ── CTA ── */}

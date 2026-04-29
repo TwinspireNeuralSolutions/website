@@ -1185,7 +1185,7 @@ function StepConnector() {
 
 function CheckBullet({ text }: { text: string }) {
   return (
-    <li className="text-foreground/60 flex items-center gap-2.5 text-[13px] sm:text-[14px]">
+    <li className="text-foreground/70 flex items-center gap-2.5 text-[14px] sm:text-[15px]">
       <svg
         className="text-primary/60 h-4 w-4 shrink-0"
         viewBox="0 0 16 16"
