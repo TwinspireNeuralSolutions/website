@@ -165,7 +165,11 @@ export function DataEthicsSection() {
             const isShortCard = i === 2
 
             return (
-              <div key={t(card.titleKey)}>
+              <AnimateIn
+                key={t(card.titleKey)}
+                variant="fadeUp"
+                delay={i * 0.08}
+              >
                 <div className="bg-muted/30 flex flex-col gap-4 rounded-xl p-6 sm:min-h-[14rem] sm:p-7">
                   <Typography variant="heading" as="h3" textColor="default">
                     {highlightLastWord(t(card.titleKey))}
@@ -187,7 +191,7 @@ export function DataEthicsSection() {
                     </button>
                   )}
                 </div>
-              </div>
+              </AnimateIn>
             )
           })}
         </div>

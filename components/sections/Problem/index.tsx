@@ -72,101 +72,100 @@ export function ProblemSection() {
           </div>
 
           <div className="mt-6 space-y-10 md:space-y-12">
-            {items.map((item) => (
-              <div
-                key={item.key}
-                className="grid grid-cols-1 items-start gap-y-6 md:grid-cols-[1fr_48px_1fr] md:items-center md:gap-x-2 md:gap-y-12"
-              >
-                {/* Left column (desktop) */}
-                <div className="hidden md:flex md:justify-end">
-                  {item.side === 'left' ? (
-                    <div className="w-full max-w-[820px]">
-                      <div className="px-0 py-0">
+            {items.map((item, i) => (
+              <AnimateIn key={item.key} variant="fadeUp" delay={i * 0.08}>
+                <div className="grid grid-cols-1 items-start gap-y-6 md:grid-cols-[1fr_48px_1fr] md:items-center md:gap-x-2 md:gap-y-12">
+                  {/* Left column (desktop) */}
+                  <div className="hidden md:flex md:justify-end">
+                    {item.side === 'left' ? (
+                      <div className="w-full max-w-[820px]">
+                        <div className="px-0 py-0">
+                          <Typography
+                            variant="heading"
+                            as="h3"
+                            textColor="default"
+                            className="text-left uppercase"
+                          >
+                            {item.title}
+                          </Typography>
+                          <Typography
+                            variant="paragraph"
+                            as="p"
+                            className="mt-2 text-left"
+                          >
+                            {item.body}
+                          </Typography>
+                        </div>
+                      </div>
+                    ) : (
+                      <div />
+                    )}
+                  </div>
+
+                  {/* Center column: timeline + badge */}
+                  <div className="flex justify-center md:order-none">
+                    <div className="relative flex items-center">
+                      <div className="hidden items-center justify-center md:flex">
+                        <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full font-bold text-white">
+                          {item.number}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right column (desktop) */}
+                  <div className="hidden md:flex md:justify-start">
+                    {item.side === 'right' ? (
+                      <div className="w-full max-w-[820px]">
+                        <div className="px-0 py-0">
+                          <Typography
+                            variant="heading"
+                            as="h3"
+                            textColor="default"
+                            className="text-left uppercase"
+                          >
+                            {item.title}
+                          </Typography>
+                          <Typography
+                            variant="paragraph"
+                            as="p"
+                            className="mt-2 text-left"
+                          >
+                            {item.body}
+                          </Typography>
+                        </div>
+                      </div>
+                    ) : (
+                      <div />
+                    )}
+                  </div>
+
+                  {/* Mobile stacked: centered number above title */}
+                  <div className="md:hidden">
+                    <div className="space-y-2 text-center">
+                      <div>
+                        <div className="bg-primary mx-auto flex h-8 w-8 items-center justify-center rounded-full font-bold text-white">
+                          {item.number}
+                        </div>
+                      </div>
+
+                      <div>
                         <Typography
                           variant="heading"
                           as="h3"
                           textColor="default"
-                          className="text-left uppercase"
+                          className="uppercase"
                         >
                           {item.title}
                         </Typography>
-                        <Typography
-                          variant="paragraph"
-                          as="p"
-                          className="mt-2 text-left"
-                        >
+                        <Typography variant="paragraph" as="p" className="mt-2">
                           {item.body}
                         </Typography>
                       </div>
                     </div>
-                  ) : (
-                    <div />
-                  )}
-                </div>
-
-                {/* Center column: timeline + badge */}
-                <div className="flex justify-center md:order-none">
-                  <div className="relative flex items-center">
-                    <div className="hidden items-center justify-center md:flex">
-                      <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full font-bold text-white">
-                        {item.number}
-                      </div>
-                    </div>
                   </div>
                 </div>
-
-                {/* Right column (desktop) */}
-                <div className="hidden md:flex md:justify-start">
-                  {item.side === 'right' ? (
-                    <div className="w-full max-w-[820px]">
-                      <div className="px-0 py-0">
-                        <Typography
-                          variant="heading"
-                          as="h3"
-                          textColor="default"
-                          className="text-left uppercase"
-                        >
-                          {item.title}
-                        </Typography>
-                        <Typography
-                          variant="paragraph"
-                          as="p"
-                          className="mt-2 text-left"
-                        >
-                          {item.body}
-                        </Typography>
-                      </div>
-                    </div>
-                  ) : (
-                    <div />
-                  )}
-                </div>
-
-                {/* Mobile stacked: centered number above title */}
-                <div className="md:hidden">
-                  <div className="space-y-2 text-center">
-                    <div>
-                      <div className="bg-primary mx-auto flex h-8 w-8 items-center justify-center rounded-full font-bold text-white">
-                        {item.number}
-                      </div>
-                    </div>
-
-                    <div>
-                      <Typography
-                        variant="heading"
-                        as="h3"
-                        textColor="default"
-                        className="uppercase"
-                      >
-                        {item.title}
-                      </Typography>
-                      <Typography variant="paragraph" as="p" className="mt-2">
-                        {item.body}
-                      </Typography>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -182,21 +181,23 @@ export function ProblemSection() {
             }}
           >
             <div className="section-x section-y section-inner mx-auto py-10 text-center md:py-14">
-              <div className="mx-auto max-w-[820px]">
-                <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
-                  {t('problem.originHeading')}
-                </h3>
+              <AnimateIn variant="fadeUp">
+                <div className="mx-auto max-w-[820px]">
+                  <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+                    {t('problem.originHeading')}
+                  </h3>
 
-                <div className="border-border mx-auto mt-2 hidden w-1/2 border-t sm:block" />
+                  <div className="border-border mx-auto mt-2 hidden w-1/2 border-t sm:block" />
 
-                <Typography
-                  variant="paragraph"
-                  as="p"
-                  className="text-foreground/70 mx-auto mt-4 max-w-[720px]"
-                >
-                  {t('problem.originBody')}
-                </Typography>
-              </div>
+                  <Typography
+                    variant="paragraph"
+                    as="p"
+                    className="text-foreground/70 mx-auto mt-4 max-w-[720px]"
+                  >
+                    {t('problem.originBody')}
+                  </Typography>
+                </div>
+              </AnimateIn>
             </div>
           </div>
         </div>
