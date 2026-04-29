@@ -128,10 +128,10 @@
       "marketAdvisor": "Markeds- & kommercialiseringsstrategi (efter projektet)"
     },
     "descriptions": {
-      "pouya": "Pouya spillede professionel fodbold, indtil en ny skade satte en bremser for hans karriere på banen. Signalerne var der, men intet i processen havde værktøjerne til at læse dem. Han vendte tilbage til DTU, gjorde den oplevelse til et forskningsspørgsmål og byggede det, som sporten manglede. Hans kandidatgrad i elektrisk ingeniørvidenskab med speciale i AI og styresystemer blev fundamentet for Twinspires keremetodologi og grundlaget for patentansøgningen. Han leder forskningsformidling, strategisk retning og eksterne partnerskaber.",
-      "john": "John er professor ved DTU og har brugt årevis på at lede forskning i digital tvillingemetodologi for fysiologiske systemer - et arbejde der udgør det videnskabelige fundament for Twinspire. Hans neuromuskulære forskergruppe er stedet, projektet blev til, og hans laboratorium forbliver dets institutionelle anker. Ud over forskningen har John bygget og solgt teknologivirksomheder med exits til Facebook, Oculus og GN Audio og bringer en sjælden kombination af videnskabelig dybde og iværksættererfaring til teamet.",
-      "daryan": "Daryan har brugt syv år på at bygge software i skæringspunktet mellem arkitektur, dataingeniørvidenskab og personaleledelse. Hos Twinspire leder han den tekniske implementering af forskningsprototypen - han bygger den datapipeline, der forbinder klubbers datakilder, og den app og webinfrastruktur som behandlere bruger dagligt. Han har ledet udviklingsteams og vejledt ingeniører gennem hele sin karriere.",
-      "roxane": "Roxane har bygget virksomheder på tre kontinenter. Hun medstiftede tidligere CUJU, en AI-baseret sportsscoutingvirksomhed, der anvender computer vision til at identificere talent i udviklingslande, udviklet i tæt samarbejde med ROGON Sports Management. Inden da arbejdede hun med FN og Verdensbanken idenfor innovation og programudvikling. Hun har en kandidatgrad og CEMS-master fra NUS og CBS samt to Executive Degrees fra MIT. Hos Twinspire leder hun fundraising og den operationelle infrastruktur, der holder projektet i bevægelse.",
+      "pouya": "Pouya spillede professionel fodbold, indtil en genskade tvang ham til at tage en pause fra banen. Signalerne var der. Intet i processen havde værktøjerne til at læse dem. Han vendte tilbage til DTU, forvandlede erfaringen til et forskningsspørgsmål og byggede det, sporten manglede. Hans kandidatgrad i elektroteknologi med speciale i AI og kontrolsystemer blev grundlaget for Twinspires kernemetodologi og grundlaget for patentet. Han leder forskningstranslation, strategisk retning og eksterne partnerskaber.",
+      "john": "John er professor ved DTU og har brugt år på at lede forskning i digital tvilling-metodologi for fysiologiske systemer – arbejde, der udgør det videnskabelige fundament for Twinspire. Hans neuromuskulære forskningsgruppe er, hvor projektet opstod, og hans laboratorium forbliver dets institutionelle anker. Ud over forskning har John bygget og solgt teknologivirksomheder med exits til Facebook, Oculus og GN Audio, hvilket bringer en sjælden kombination af videnskabelig dybde og iværksættererfaring til teamet.",
+      "daryan": "Daryan har brugt syv år på at bygge software i skæringspunktet mellem arkitektur, dataengineering og personaleledelse. Hos Twinspire leder han den tekniske implementering, der forbinder klubdatakilder, app- og webinfrastrukturen, som praktikere bruger dagligt. Han har ledet udviklingsteams og vejledt ingeniører gennem hele sin karriere.",
+      "roxane": "Roxane har opbygget virksomheder på tre kontinenter. Hun var tidligere med til at stifte CUJU, et AI-sportscoutingselskab, der anvender computervision til at opdage talent i det globale syd, udviklet i tæt samarbejde med ROGON Sports Management. Inden da arbejdede hun med FN og Verdensbanken på udvikling af innovationsprogrammer. Hun har en kandidatgrad og CEMS Master fra NUS & CBS samt to Executive Degrees fra MIT. Hos Twinspire leder hun fundraising og den operationelle infrastruktur, der holder projektet i gang.",
       "kim": "Markeds- & kommercialiseringsstrategi (efter projektet)."
     }
   },
@@ -308,7 +308,7 @@
     "sectionLabel": "Data & Forskningsetik",
     "heading": "Atletdata skal håndteres",
     "headingAccent1": "ansvarligt, transparent",
-    "headingPart2": "og med",
+    "headingPart2": "med",
     "headingAccent2": "klare grænser.",
     "subtitle": "Sådan tilgår vi datastyring i alle faser af forskningen.",
     "description": "Twinspire udvikles med datastyring og forskningsetik som centrale designprincipper.",
