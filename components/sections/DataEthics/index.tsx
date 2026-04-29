@@ -138,7 +138,7 @@ export function DataEthicsSection() {
             id="data-ethics-heading"
           >
             <span className="text-foreground font-bold">
-              {t('dataEthics.heading')} {t('dataEthics.headingPart2')}
+              {t('dataEthics.heading')}
             </span>{' '}
             <span className="text-primary font-bold">
               {t('dataEthics.headingAccent1')} {t('dataEthics.headingAccent2')}
