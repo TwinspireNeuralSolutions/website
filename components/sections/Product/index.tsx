@@ -9,11 +9,6 @@ import { splitLastWord } from '@/lib/utils'
 
 export function ProductSection() {
   const { t } = useTranslation()
-  const questions = [
-    'Are workflows operationally usable for staff?',
-    'Do data pipelines provide sufficient quality and continuity?',
-    'Do the signals support meaningful individualized modeling in practice?',
-  ]
 
   // use shared highlight helper for consistent title accents
 
@@ -45,15 +40,11 @@ export function ProductSection() {
                       textColor="default"
                       className="text-[18px] break-words whitespace-normal sm:text-[20px]"
                     >
-                      Digital twin <span className="font-bold">framework</span>
+                      {t('product.card1Title')}
                     </Typography>
                   </div>
                   <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
-                    Twinspire is developing a research-based digital twin
-                    framework for individualized athlete modeling. The system
-                    integrates longitudinal data from multiple sources,
-                    including training load, neuromuscular testing, clinician
-                    input, and wearable-derived physiological measures.
+                    {t('product.card1Body')}
                   </p>
                 </div>
 
@@ -65,16 +56,11 @@ export function ProductSection() {
                       textColor="default"
                       className="text-[18px] break-words whitespace-normal sm:text-[20px]"
                     >
-                      <span className="font-bold">Approach</span>
+                      {t('product.card2Title')}
                     </Typography>
                   </div>
                   <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
-                    The approach combines principles from computational motor
-                    control, adaptive nonlinear systems, system identification,
-                    longitudinal sequence modelling, and self supervised
-                    learning to identify individualized representations of how
-                    an athlete’s physiological and functional state changes over
-                    time.
+                    {t('product.card2Body')}
                   </p>
                 </div>
 
@@ -86,15 +72,11 @@ export function ProductSection() {
                       textColor="default"
                       className="text-[18px] break-words whitespace-normal sm:text-[20px]"
                     >
-                      Structured data <span className="font-bold">layer</span>
+                      {t('product.card3Title')}
                     </Typography>
                   </div>
                   <p className="text-foreground/75 mt-3 text-[15px] leading-[1.8] md:text-[16px]">
-                    In parallel, Twinspire is building a structured data layer
-                    that links sessions, tests, symptoms, and contextual
-                    information into a portable athlete history, supporting
-                    continuity and decision-making across performance and
-                    rehabilitation.
+                    {t('product.card3Body')}
                   </p>
                 </div>
               </div>
@@ -129,12 +111,7 @@ export function ProductSection() {
                     textColor="default"
                     className="text-foreground/75 pb-6"
                   >
-                    A research prototype has been developed across mobile and
-                    web environments, designed to integrate heterogeneous data
-                    with minimal input from practitioners. The system now enters
-                    real-world validation, focusing on whether it remains
-                    usable, robust, and interpretable within elite performance
-                    settings.
+                    {t('product.p2Intro')}
                   </Typography>
 
                   <Typography
@@ -143,27 +120,25 @@ export function ProductSection() {
                     textColor="default"
                     className="mt-0 mb-2"
                   >
-                    The current work addresses three questions:
+                    {t('product.p2Heading')}
                   </Typography>
 
                   <ul className="marker:text-primary mt-4 list-disc space-y-2 pl-6">
                     <li>
                       <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
-                        Are workflows operationally usable for staff?
+                        {t('product.p2q1')}
                       </p>
                     </li>
 
                     <li>
                       <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
-                        Do data pipelines provide sufficient quality and
-                        continuity?
+                        {t('product.p2q2')}
                       </p>
                     </li>
 
                     <li>
                       <p className="text-foreground/75 text-[15px] leading-[1.8] md:text-[16px]">
-                        Do the signals support meaningful individualized
-                        modeling in practice?
+                        {t('product.p2q3')}
                       </p>
                     </li>
                   </ul>

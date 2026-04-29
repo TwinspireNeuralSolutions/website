@@ -12,22 +12,22 @@ export function ProblemSection() {
       key: 'one',
       number: '1',
       side: 'left',
-      title: 'The Unresolved Decision',
-      body: 'GPS in one platform. Strength data in another. Clinical notes remain local. Wearable signals often never leave the athlete’s own device. The challenge in elite sport is no longer access to data alone, but the absence of a coherent longitudinal model of the individual athlete across contexts and over time.',
+      title: t('problem.block1Title'),
+      body: t('problem.p1'),
     },
     {
       key: 'two',
       number: '2',
       side: 'right',
-      title: 'The Return-to-Play Gap',
-      body: 'Football injury epidemiology is well established through long-running cohort studies, including the UEFA Elite Club research, which spans thousands of players across multiple countries and seasons. Yet despite increasingly sophisticated monitoring environments, the central decision problem remains unresolved: how to interpret changing signals at the individual level when decisions about return to training, return to play, and load modification must be made under uncertainty.',
+      title: t('problem.block2Title'),
+      body: t('problem.p2'),
     },
     {
       key: 'three',
       number: '3',
       side: 'left',
-      title: 'Recurrent Injuries',
-      body: 'Subsequent and recurrent injuries continue to represent a meaningful part of the burden in professional football, and the period following return remains especially sensitive. The gap is therefore not simply one of data collection, but of individualized interpretation.',
+      title: t('problem.block3Title'),
+      body: t('problem.p3'),
     },
   ]
 

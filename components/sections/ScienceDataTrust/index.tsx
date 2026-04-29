@@ -1295,7 +1295,7 @@ export function ScienceDataTrustSection() {
       badgeIcon: <ModelingIcon className="h-5 w-5" />,
       diagram: <ModelingDiagram />,
       title: t('product.science.pillars.modeling.title'),
-      body: 'Most systems describe load. Twinspire is being developed to model individual response. The research draws on adaptive systems and individualized state estimation to understand how each athlete responds over time.',
+      body: t('product.science.pillars.modeling.body'),
       bullets: [],
       reverse: false,
     },
@@ -1304,7 +1304,7 @@ export function ScienceDataTrustSection() {
       badgeIcon: <SignalsIcon className="h-5 w-5" />,
       diagram: <SignalsDiagram />,
       title: t('product.science.pillars.signals.title'),
-      body: 'The goal is to establish a personalized reference state and detect meaningful deviations from it. The methodology investigates how multimodal data can be used to model evolving physiological and neuromuscular dynamics.',
+      body: t('product.science.pillars.signals.body'),
       bullets: [],
       reverse: true,
     },
@@ -1313,17 +1313,17 @@ export function ScienceDataTrustSection() {
       badgeIcon: <ValidationIcon className="h-5 w-5" />,
       diagram: <ValidationDiagram />,
       title: t('product.science.pillars.validation.title'),
-      body: 'The current phase focuses on validating the approach and resolving key uncertainties before broader deployment.',
+      body: t('product.science.pillars.validation.body'),
       bullets: [],
       reverse: false,
     },
   ]
 
   const questions = [
-    'How early can deviations from baseline be detected?',
-    'What data is required to establish a reliable individualized model?',
-    'How do missing data and changing contexts affect robustness?',
-    'Can compensation patterns be identified before symptoms emerge?',
+    t('product.science.questions.q1'),
+    t('product.science.questions.q2'),
+    t('product.science.questions.q3'),
+    t('product.science.questions.q4'),
   ]
 
   return (
