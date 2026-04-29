@@ -186,7 +186,7 @@ function ModelingDiagram() {
       <img
         src="/science/1.png"
         alt="Modeling illustration"
-        className="w-full rounded-xl object-contain"
+        className="block w-full rounded-xl object-contain"
       />
       {/* Original SVG retained as hidden fallback */}
       <svg
@@ -927,7 +927,7 @@ function ValidationDiagram() {
       <img
         src="/science/3.png"
         alt="Validation illustration"
-        className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
+        className="h-56 w-full rounded-xl object-contain object-top sm:h-64 md:h-72"
       />
       <svg
         viewBox="0 0 540 280"
