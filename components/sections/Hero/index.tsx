@@ -1,7 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import {
+  MapPin,
+  Zap,
+  ClipboardList,
+  Ruler,
+  Activity,
+  Brain,
+} from 'lucide-react'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
@@ -15,35 +22,20 @@ import { useTranslation } from '@/i18n'
  * drifts upward at ~35% of scroll speed — so it's the last thing
  * to disappear, staying readable for longer.
  */
+const DATA_PILLS = [
+  { icon: MapPin, key: 'hero.pill.gps' },
+  { icon: Zap, key: 'hero.pill.strength' },
+  { icon: ClipboardList, key: 'hero.pill.physio' },
+  { icon: Ruler, key: 'hero.pill.biomechanical' },
+  { icon: Activity, key: 'hero.pill.neuromuscular' },
+  { icon: Brain, key: 'hero.pill.cognitive' },
+] as const
+
 export function HeroSection() {
   const { t } = useTranslation()
-  const dataTypes = t('hero.dataTypes')
-    .split('.')
-    .map((s) => s.trim())
-    .filter(Boolean)
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    let raf: number
-    const onScroll = () => {
-      raf = requestAnimationFrame(() => {
-        if (!contentRef.current) return
-        const y = window.scrollY
-        contentRef.current.style.transform = `translateY(${-y * 0.35}px)`
-        contentRef.current.style.opacity = String(
-          Math.max(0, 1 - y / (window.innerHeight * 0.85))
-        )
-      })
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(raf)
-    }
-  }, [])
 
   return (
-    <section className="sticky top-0 z-0 h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
+    <section className="relative h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
       {/* ── Layer 1: Background image ── */}
       <Image
         src="/hero/image.png"
@@ -65,10 +57,7 @@ export function HeroSection() {
       <div className="from-primary/55 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
 
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
-      <div
-        ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-8 py-6 will-change-transform sm:px-10 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
-      >
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-8 py-6 sm:px-10 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-0 pt-16 text-center sm:pt-20 md:pt-24 lg:pt-28">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
@@ -85,15 +74,16 @@ export function HeroSection() {
             </h1>
           </AnimateIn>
 
-          {/* ── Data tags ── */}
+          {/* ── Data pills — 2×3 icon grid, hidden mobile+sm, visible md+ ── */}
           <AnimateIn variant="fadeUp" delay={0.15} immediate>
-            <div className="mb-10 flex flex-wrap items-center justify-center gap-2.5 sm:mb-12 sm:gap-3 lg:mb-5 lg:gap-2.5">
-              {dataTypes.map((d, i) => (
+            <div className="mb-10 hidden flex-wrap justify-center gap-2 md:mb-12 md:flex md:gap-2.5 lg:mb-5">
+              {DATA_PILLS.map(({ icon: Icon, key }) => (
                 <span
-                  key={i}
-                  className="rounded-full border border-white/30 bg-white/10 px-3 py-2 text-xs whitespace-nowrap text-white/90 uppercase backdrop-blur-sm sm:px-3.5 lg:py-1.5"
+                  key={key}
+                  className="flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-2 text-xs text-white/90 uppercase backdrop-blur-sm"
                 >
-                  {d}
+                  <Icon size={13} className="shrink-0 opacity-80" />
+                  {t(key)}
                 </span>
               ))}
             </div>

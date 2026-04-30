@@ -99,6 +99,14 @@
     "headlineLine2Start": "Twinspire studerer ",
     "headlineLine2Highlight": "individet.",
     "dataTypes": "GPS · Styrke · Fysio · Biomekanik · Neuromuskulær",
+    "pill": {
+      "gps": "GPS-data",
+      "strength": "Styrkedata",
+      "physio": "Fysionoter",
+      "biomechanical": "Biomekanik",
+      "neuromuscular": "Neuromuskulær",
+      "cognitive": "Kognitiv belastning"
+    },
     "valueProp": "Dataen findes — men den er aldrig blevet samlet i én longitudinel model af en enkelt atlet. Twinspire bygger den model og tilpasser den, efterhånden som atleten ændrer sig, så hver beslutning træffes ud fra deres egen baseline.",
     "credibility": "Bygget på fem års forskning fra DTU Health Tech.",
     "cta": "Deltag i forskningsvalideringsstudiet"
