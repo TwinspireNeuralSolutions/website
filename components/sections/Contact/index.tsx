@@ -73,7 +73,7 @@ export function ContactSection() {
     'h-11 rounded-xl border border-border/30 bg-background px-4 shadow-none text-[14px] ' +
     'placeholder:text-foreground/30 placeholder:text-[14px] transition-all duration-200 ' +
     'hover:border-border/60 ' +
-    'focus-visible:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary/15 focus-visible:ring-offset-0'
+    'focus:outline-none focus-visible:outline-none focus-visible:ring-0'
 
   const isValidEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -105,7 +105,6 @@ export function ContactSection() {
         <AnimateIn variant="scaleUp" duration={0.6}>
           <div className="mx-auto w-full max-w-[1080px]">
             <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
-
               {/* Left: Title + description + contact info */}
               <AnimateIn
                 variant="slideLeft"
@@ -356,9 +355,9 @@ export function ContactSection() {
                           rows={3}
                           className={
                             'border-border/30 bg-background min-h-[80px] resize-none rounded-xl border px-4 py-2.5 text-[14px] ' +
-                            'placeholder:text-foreground/30 placeholder:text-[14px] transition-all duration-200 ' +
-                            'hover:border-border/60 ' +
-                            'focus-visible:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary/15 focus-visible:ring-offset-0'
+                            'placeholder:text-foreground/30 transition-all duration-200 placeholder:text-[14px]' +
+                            'hover:border-border/60' +
+                            'focus-visible:ring-0 focus-visible:outline-none'
                           }
                         />
 
@@ -388,7 +387,6 @@ export function ContactSection() {
                   )}
                 </div>
               </div>
-
             </div>
           </div>
         </AnimateIn>
