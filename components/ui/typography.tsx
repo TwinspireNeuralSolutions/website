@@ -57,7 +57,16 @@ const typographyVariants = cva('font-sans', {
   },
 })
 
-type TypographyElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
+type TypographyElement =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'span'
+  | 'div'
 
 const variantElementMap: Record<string, TypographyElement> = {
   title: 'h1',
