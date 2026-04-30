@@ -5,7 +5,6 @@ import { useEffect, useRef } from 'react'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
-import { Typography } from '@/components/ui/typography'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -57,23 +56,23 @@ export function HeroSection() {
       />
 
       {/* ── Layer 2: Primary blue wash ── */}
-      <div className="bg-primary/55 absolute inset-0 z-[1]" />
+      <div className="bg-primary/70 absolute inset-0 z-[1]" />
 
       {/* ── Layer 3: Ambient video texture ── */}
       <BackgroundVideo src="/hero-video.mp4" opacity={0.25} className="z-[2]" />
 
       {/* ── Layer 4: Bottom vignette ── */}
-      <div className="from-primary/45 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
+      <div className="from-primary/55 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
 
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-4 py-6 will-change-transform sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
+        className="absolute inset-0 z-10 flex items-center justify-center px-8 py-6 will-change-transform sm:px-10 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
       >
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 text-center sm:gap-2 md:gap-2 lg:gap-3">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-0 pt-16 text-center sm:pt-20 md:pt-24 lg:pt-28">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
-            <h1 className="text-center text-[18px] leading-[1.15] font-extrabold tracking-wide break-words whitespace-normal text-white/90 uppercase sm:text-[22px] md:text-[28px] md:whitespace-nowrap lg:text-[36px] xl:text-[40px]">
+            <h1 className="mb-10 text-center text-[28px] leading-[1.15] font-extrabold tracking-wide break-words whitespace-normal text-white uppercase sm:mb-12 sm:text-[32px] md:text-[38px] md:whitespace-nowrap lg:mb-6 lg:text-[44px] xl:text-[50px]">
               {t('hero.headlineLine1Start')}
               <span className="text-white">
                 {t('hero.headlineLine1Highlight')}
@@ -86,32 +85,32 @@ export function HeroSection() {
             </h1>
           </AnimateIn>
 
-          {/* (Deduplicated) */}
-          {/* ── Data tags + Value proposition (single paragraph) ── */}
+          {/* ── Data tags ── */}
           <AnimateIn variant="fadeUp" delay={0.15} immediate>
-            <Typography
-              variant="paragraph"
-              textColor="white"
-              className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
-              as="p"
-            >
-              <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
-                {dataTypes.map((d, i) => (
-                  <span key={i} className="font-semibold whitespace-nowrap">
-                    {d}
-                    {i < dataTypes.length - 1 ? '.' : ''}
-                  </span>
-                ))}
-              </div>
+            <div className="mb-10 flex flex-wrap items-center justify-center gap-2.5 sm:mb-12 sm:gap-3 lg:mb-5 lg:gap-2.5">
+              {dataTypes.map((d, i) => (
+                <span
+                  key={i}
+                  className="rounded-full border border-white/30 bg-white/10 px-3 py-2 text-xs whitespace-nowrap text-white/90 uppercase backdrop-blur-sm sm:px-3.5 lg:py-1.5"
+                >
+                  {d}
+                </span>
+              ))}
+            </div>
+          </AnimateIn>
 
-              <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
-                {t('hero.valueProp')}
-              </span>
+          {/* ── Value proposition ── */}
+          <AnimateIn variant="fadeUp" delay={0.25} immediate>
+            <p className="mx-auto mb-6 max-w-2xl px-2 text-base leading-relaxed text-white/90 sm:mb-8 sm:text-lg lg:mb-4 lg:text-base">
+              {t('hero.valueProp')}
+            </p>
+          </AnimateIn>
 
-              <span className="mt-2 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
-                {t('hero.credibility')}
-              </span>
-            </Typography>
+          {/* ── Credibility subtext ── */}
+          <AnimateIn variant="fadeUp" delay={0.32} immediate>
+            <p className="mb-8 text-base text-white/90 sm:mb-10 sm:text-lg lg:mb-5 lg:text-base">
+              {t('hero.credibility')}
+            </p>
           </AnimateIn>
 
           {/* ── CTA ── */}
