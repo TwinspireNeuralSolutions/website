@@ -95,14 +95,14 @@ export function HeroSection() {
               className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
               as="div"
             >
-              <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
+              <span className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
                 {dataTypes.map((d, i) => (
                   <span key={i} className="font-semibold whitespace-nowrap">
                     {d}
                     {i < dataTypes.length - 1 ? '.' : ''}
                   </span>
                 ))}
-              </div>
+              </span>
 
               <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
                 {t('hero.valueProp')}

@@ -138,7 +138,7 @@ export function DataEthicsSection() {
             id="data-ethics-heading"
           >
             <span className="text-foreground font-bold">
-              {t('dataEthics.heading')} {t('dataEthics.headingPart2')}
+              {t('dataEthics.heading')}
             </span>{' '}
             <span className="text-primary font-bold">
               {t('dataEthics.headingAccent1')} {t('dataEthics.headingAccent2')}
@@ -165,13 +165,17 @@ export function DataEthicsSection() {
             const isShortCard = i === 2
 
             return (
-              <div key={t(card.titleKey)}>
+              <AnimateIn
+                key={t(card.titleKey)}
+                variant="fadeUp"
+                delay={i * 0.08}
+              >
                 <div className="bg-muted/30 flex flex-col gap-4 rounded-xl p-6 sm:min-h-[14rem] sm:p-7">
                   <Typography variant="heading" as="h3" textColor="default">
                     {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
-                    className={`text-foreground/60 text-[13px] leading-[1.75] sm:text-[14px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
+                    className={`text-foreground/70 text-[14px] leading-[1.8] sm:text-[15px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
                   >
                     {t(card.bodyKey)}
                   </p>
@@ -187,7 +191,7 @@ export function DataEthicsSection() {
                     </button>
                   )}
                 </div>
-              </div>
+              </AnimateIn>
             )
           })}
         </div>

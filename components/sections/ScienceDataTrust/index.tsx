@@ -186,7 +186,7 @@ function ModelingDiagram() {
       <img
         src="/science/1.png"
         alt="Modeling illustration"
-        className="w-full rounded-xl object-contain"
+        className="block w-full rounded-xl object-contain"
       />
       {/* Original SVG retained as hidden fallback */}
       <svg
@@ -927,7 +927,7 @@ function ValidationDiagram() {
       <img
         src="/science/3.png"
         alt="Validation illustration"
-        className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
+        className="h-56 w-full rounded-xl object-contain object-top sm:h-64 md:h-72"
       />
       <svg
         viewBox="0 0 540 280"
@@ -1185,7 +1185,7 @@ function StepConnector() {
 
 function CheckBullet({ text }: { text: string }) {
   return (
-    <li className="text-foreground/60 flex items-center gap-2.5 text-[13px] sm:text-[14px]">
+    <li className="text-foreground/70 flex items-center gap-2.5 text-[14px] sm:text-[15px]">
       <svg
         className="text-primary/60 h-4 w-4 shrink-0"
         viewBox="0 0 16 16"
@@ -1295,7 +1295,7 @@ export function ScienceDataTrustSection() {
       badgeIcon: <ModelingIcon className="h-5 w-5" />,
       diagram: <ModelingDiagram />,
       title: t('product.science.pillars.modeling.title'),
-      body: 'Most systems describe load. Twinspire is being developed to model individual response. The research draws on adaptive systems and individualized state estimation to understand how each athlete responds over time.',
+      body: t('product.science.pillars.modeling.body'),
       bullets: [],
       reverse: false,
     },
@@ -1304,7 +1304,7 @@ export function ScienceDataTrustSection() {
       badgeIcon: <SignalsIcon className="h-5 w-5" />,
       diagram: <SignalsDiagram />,
       title: t('product.science.pillars.signals.title'),
-      body: 'The goal is to establish a personalized reference state and detect meaningful deviations from it. The methodology investigates how multimodal data can be used to model evolving physiological and neuromuscular dynamics.',
+      body: t('product.science.pillars.signals.body'),
       bullets: [],
       reverse: true,
     },
@@ -1313,17 +1313,17 @@ export function ScienceDataTrustSection() {
       badgeIcon: <ValidationIcon className="h-5 w-5" />,
       diagram: <ValidationDiagram />,
       title: t('product.science.pillars.validation.title'),
-      body: 'The current phase focuses on validating the approach and resolving key uncertainties before broader deployment.',
+      body: t('product.science.pillars.validation.body'),
       bullets: [],
       reverse: false,
     },
   ]
 
   const questions = [
-    'How early can deviations from baseline be detected?',
-    'What data is required to establish a reliable individualized model?',
-    'How do missing data and changing contexts affect robustness?',
-    'Can compensation patterns be identified before symptoms emerge?',
+    t('product.science.questions.q1'),
+    t('product.science.questions.q2'),
+    t('product.science.questions.q3'),
+    t('product.science.questions.q4'),
   ]
 
   return (
@@ -1336,22 +1336,26 @@ export function ScienceDataTrustSection() {
         <div className="border-border mb-6 border-t" aria-hidden="true" />
         {/* ── Section header ── */}
         <div className="mt-6 flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
-          <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
-            <span className="text-foreground font-bold">
-              {t('product.science.heading')}
-            </span>{' '}
-            <span className="text-primary font-bold">
-              {t('product.science.headingAccent')}
-            </span>
-          </h2>
+          <AnimateIn variant="fadeUp">
+            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+              <span className="text-foreground font-bold">
+                {t('product.science.heading')}
+              </span>{' '}
+              <span className="text-primary font-bold">
+                {t('product.science.headingAccent')}
+              </span>
+            </h2>
+          </AnimateIn>
         </div>
 
         {/* ── Alternating step blocks ── */}
         <div className="flex flex-col pt-12 pb-0 sm:pt-16 md:pt-20">
-          {steps.map((step) => (
-            <div key={step.number} className="mb-14 lg:mb-16">
-              <StepBlock {...step} delay={0.05} />
-            </div>
+          {steps.map((step, i) => (
+            <AnimateIn key={step.number} variant="fadeUp" delay={i * 0.08}>
+              <div className="mb-14 lg:mb-16">
+                <StepBlock {...step} delay={0.05} />
+              </div>
+            </AnimateIn>
           ))}
         </div>
 

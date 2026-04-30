@@ -37,7 +37,7 @@ export function CTASection() {
 
         {/* Supporting paragraph */}
         <AnimateIn variant="fadeUp" delay={0.1}>
-          <p className="text-foreground/60 mx-auto mt-6 max-w-[720px] text-center text-sm leading-relaxed sm:text-base md:mt-8">
+          <p className="text-foreground/70 mx-auto mt-6 max-w-[720px] text-center text-[14px] leading-[1.8] sm:text-[15px] md:mt-8">
             {t('cta.subtitle')}
           </p>
         </AnimateIn>
@@ -62,7 +62,7 @@ export function CTASection() {
 
         {/* Note */}
         <AnimateIn variant="fadeUp" delay={0.36}>
-          <p className="text-foreground/40 mx-auto mt-4 text-xs sm:text-sm">
+          <p className="text-foreground/50 mx-auto mt-4 text-[14px] sm:text-[15px]">
             {t('cta.note')}
           </p>
         </AnimateIn>

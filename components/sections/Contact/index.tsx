@@ -126,7 +126,7 @@ export function ContactSection() {
                   </span>
                 </h2>
 
-                <p className="text-foreground/55 mb-4 max-w-md text-[13px] leading-relaxed sm:mb-6 sm:text-[15px]">
+                <p className="text-foreground/70 mb-4 max-w-md text-[14px] leading-[1.8] sm:mb-6 sm:text-[15px]">
                   {t('contact.subtitle')}
                 </p>
 
