@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Twinspire',
   },
   description:
-    'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data. Join the founding pilot cohort.',
+    'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. EU data. Join the founding pilot cohort.',
   keywords: [
     'football injury prevention',
     'return to play AI',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title:
       'Twinspire — AI Decision Support for Football Rehab & Return to Play',
     description:
-      'One in five footballers tears the same muscle twice. Twinspire builds a personalised neuromuscular model for every footballer so physios can see the earliest signals of overload before they become reinjuries. Built with DTU Health Tech. GDPR compliant.',
+      'One in five footballers tears the same muscle twice. Twinspire builds a personalised neuromuscular model for every footballer so physios can see the earliest signals of overload before they become reinjuries.',
     images: [
       {
         url: `${SITE_URL}/og-image.png`,
