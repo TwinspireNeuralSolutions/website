@@ -93,7 +93,7 @@ export function HeroSection() {
               variant="paragraph"
               textColor="white"
               className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
-              as="p"
+              as="div"
             >
               <div className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
                 {dataTypes.map((d, i) => (
