@@ -136,10 +136,10 @@
       "marketAdvisor": "Markeds- & kommercialiseringsstrategi (efter projektet)"
     },
     "descriptions": {
-      "pouya": "Twinspire udsprang af hans direkte erfaring med skader og genoptræning i elitefodbold, som afslørede kløften mellem tilgængelige data og kvaliteten af individualiseret beslutningsstøtte. Han leder den overordnede forskningstranslation, strategiske retning og eksterne partnerskaber omkring projektet.",
-      "john": "Professor ved DTU Health og leder af det neuromuskulære forskningsmiljø, som projektet udsprang fra. Hans gruppe har arbejdet i flere år med digital tvilling-metodologi for fysiologiske systemer, og denne forskning udgør det videnskabelige fundament og institutionelle anker for Twinspire.",
-      "daryan": "Platformarkitektur & dataintegrationer.",
-      "roxane": "Sports-tech forskning & institutionelle partnerskaber.",
+      "pouya": "Pouya spillede professionel fodbold, indtil en genskade tvang ham til at tage en pause fra banen. Signalerne var der. Intet i processen havde værktøjerne til at læse dem. Han vendte tilbage til DTU, forvandlede erfaringen til et forskningsspørgsmål og byggede det, sporten manglede. Hans kandidatgrad i elektroteknologi med speciale i AI og kontrolsystemer blev grundlaget for Twinspires kernemetodologi og grundlaget for patentet. Han leder forskningstranslation, strategisk retning og eksterne partnerskaber.",
+      "john": "John er professor ved DTU og har brugt år på at lede forskning i digital tvilling-metodologi for fysiologiske systemer – arbejde, der udgør det videnskabelige fundament for Twinspire. Hans neuromuskulære forskningsgruppe er, hvor projektet opstod, og hans laboratorium forbliver dets institutionelle anker. Ud over forskning har John bygget og solgt teknologivirksomheder med exits til Facebook, Oculus og GN Audio, hvilket bringer en sjælden kombination af videnskabelig dybde og iværksættererfaring til teamet.",
+      "daryan": "Daryan har brugt syv år på at bygge software i skæringspunktet mellem arkitektur, dataengineering og personaleledelse. Hos Twinspire leder han den tekniske implementering, der forbinder klubdatakilder, app- og webinfrastrukturen, som praktikere bruger dagligt. Han har ledet udviklingsteams og vejledt ingeniører gennem hele sin karriere.",
+      "roxane": "Roxane har opbygget virksomheder på tre kontinenter. Hun var tidligere med til at stifte CUJU, et AI-sportscoutingselskab, der anvender computervision til at opdage talent i det globale syd, udviklet i tæt samarbejde med ROGON Sports Management. Inden da arbejdede hun med FN og Verdensbanken på udvikling af innovationsprogrammer. Hun har en kandidatgrad og CEMS Master fra NUS & CBS samt to Executive Degrees fra MIT. Hos Twinspire leder hun fundraising og den operationelle infrastruktur, der holder projektet i gang.",
       "kim": "Markeds- & kommercialiseringsstrategi (efter projektet)."
     }
   },
@@ -189,7 +189,7 @@
           "bullet3": "Teknisk risikoreduktion"
         }
       },
-      "researchTitle": "Aktuelle forskningsspørgsmål",
+      "researchTitle": "Det aktuelle arbejde adresserer tre spørgsmål:",
       "questions": {
         "q1": "Hvor tidligt kan afvigelser fra en atlets personlige baseline detekteres, og hvilke afvigelser er meningsfuldt forbundet med forhøjet sårbarhed efter tilbagevenden til spil?",
         "q2": "Hvad er den minimale sensor- og datakonfiguration, der kræves for at etablere en stabil og pålidelig individualiseret model?",
@@ -207,8 +207,25 @@
     },
     "headline1": "Fra populationsgennemsnit til individualiseret dynamik",
     "p1": "Twinspire udvikler en forskningsbaseret digital tvilling‑ramme, der modellerer hver atlet individuelt. Rammen integrerer longitudinelle multimodale data — ekstern belastning, styrke- og neuromuskulære tests, kliniske observationer og wearables‑målinger indsamlet både i og uden for træningsmiljøet — for at lære atlet‑specifikke reference‑mønstre og opdage meningsfulde afvigelser over tid. Ved at betragte atleten som et dynamisk system anvendes principper fra motorisk kontrol, adaptive systemer og personaliseret tidsserie‑læring. Metodikken bygger på forskning fra DTU og er patentansøgt. Parallelt bygger vi et struktureret, longitudinelt data‑lag, som kobler sessioner, tests, symptomer og kontekstuelle noter til en bærbar atlet‑historik; infrastrukturen bruges i forskningsfasen til at undersøge kontinuitet, fortolkbarhed og individualiseret beslutningsstøtte på tværs af performance og rehabilitering.",
+    "card1": {
+      "title": "Digital twin framework",
+      "body": "Twinspire is developing a research-based digital twin framework for individualized athlete modeling. The system integrates longitudinal data from multiple sources, including training load, neuromuscular testing, clinician input, and wearable-derived physiological measures."
+    },
+    "card2": {
+      "title": "Approach",
+      "body": "The approach combines principles from computational motor control, adaptive nonlinear systems, system identification, longitudinal sequence modelling, and self supervised learning to identify individualized representations of how an athlete’s physiological and functional state changes over time."
+    },
+    "card3": {
+      "title": "Structured data layer",
+      "body": "In parallel, Twinspire is building a structured data layer that links sessions, tests, symptoms, and contextual information into a portable athlete history, supporting continuity and decision-making across performance and rehabilitation."
+    },
     "headline2": "Fra forskningsprototype til anvendt validering",
     "p2": "Vi har udviklet en forskningsprototype til individualiseret atletmodellering på mobil, tablet og browser, som integrerer heterogene præstations-, fysiologiske og neuromuskulære data med minimal ekstra indsats fra praktikere. Prototypen går nu ind i realverdensvalidering for at sikre, at rammeværket forbliver brugbart, robust og fortolkeligt i elite‑performance og rehabiliteringspraksis. Det aktuelle arbejde fokuserer på tre praktiske spørgsmål: Er arbejdsgangene operationelt brugbare for personalet? Lever indtastnings‑pipelinesne tilstrækkelig datakvalitet og kontinuitet? Understøtter de indsamlede signaler meningsfuld individualiseret modellering i praksis?",
+    "questions": {
+      "q1": "Er arbejdsgangene operationelt brugbare for personalet?",
+      "q2": "Leverer data-pipelinesne tilstrækkelig kvalitet og kontinuitet?",
+      "q3": "Understøtter signalerne meningsfuld individualiseret modellering i praksis?"
+    },
     "mockupAlt": "Twinspire personale‑dashboard og spiller‑mobilapp med parametre og individualiserede parathedsmål",
     "readMore": "Læs mere",
     "readLess": "Læs mindre",
@@ -305,8 +322,7 @@
     "sectionLabel": "Data & Forskningsetik",
     "heading": "Atletdata skal håndteres",
     "headingAccent1": "ansvarligt, transparent",
-    "headingPart2": "og med",
-    "headingAccent2": "klare grænser.",
+    "headingAccent2": "og klare grænser.",
     "subtitle": "Sådan tilgår vi datastyring i alle faser af forskningen.",
     "description": "Twinspire udvikles med datastyring og forskningsetik som centrale designprincipper.",
     "card1Title": "Kerneprincipper",
@@ -326,7 +342,8 @@
     "name": "Navn",
     "email": "E-mail",
     "role": "Rolle",
-    "clubOrClinic": "Klub eller klinik",
+    "clubOrClinic": "Klub, klinik eller virksomhed",
+    "message": "Besked (valgfri)",
     "submit": "Ansøg om at deltage i studiet",
     "formTitle": "Kontakt os",
     "successTitle": "Du er på vores liste!",

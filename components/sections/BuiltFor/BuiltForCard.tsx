@@ -60,15 +60,15 @@ export const BuiltForCard = React.forwardRef<HTMLDivElement, BuiltForCardProps>(
           {/* Layer 2: bottom gradient scrim — keeps text readable */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[72%]"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[85%]"
             style={{
               background:
                 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 38%, rgba(0,0,0,0.15) 65%, transparent 100%)',
             }}
           />
 
-          {/* Overlay content — title starts at same position across cards */}
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 px-5 pb-7">
+          {/* Overlay content — fixed height so title always starts at same position */}
+          <div className="absolute inset-x-0 bottom-0 flex h-[210px] flex-col gap-3 px-5 pb-7">
             <Typography
               variant="heading"
               as="h3"
@@ -77,7 +77,7 @@ export const BuiltForCard = React.forwardRef<HTMLDivElement, BuiltForCardProps>(
             >
               {title}
             </Typography>
-            <p className="h-[82px] overflow-hidden text-[12px] leading-[1.7] text-white/75 sm:text-[12.5px]">
+            <p className="text-[14px] leading-[1.8] text-white/70 sm:text-[15px]">
               {description}
             </p>
           </div>

@@ -137,10 +137,10 @@
       "marketAdvisor": "Market & Commercialization Strategy (post-project)"
     },
     "descriptions": {
-      "pouya": "Twinspire began from his direct experience with injury and rehabilitation in elite football, which exposed the gap between available data and the quality of individualized decision support. He leads the overall research translation, strategic direction, and external partnerships around the project.",
-      "john": "Professor at DTU Health and lead of the neuromuscular research environment from which the project emerged. His group has worked for several years on digital twin methodology for physiological systems, and this research forms the scientific foundation and institutional anchor of Twinspire.",
-      "daryan": "Platform architecture & data integrations.",
-      "roxane": "Sports-tech research & institutional partnerships.",
+      "pouya": "Pouya played professional football until a reinjury forced him to take a break from the pitch. The signals were there. Nothing in the process had the tools to read them. He returned to DTU, turned that experience into a research question, and built what the sport was missing. His MSc in Electrical Engineering, specialising in AI and control systems, became the foundation for Twinspire's core methodology and the basis for the patent. He leads research translation, strategic direction, and external partnerships.",
+      "john": "John is a Professor at DTU and has spent years leading research into digital twin methodology for physiological systems - work that forms the scientific foundation of Twinspire. His neuromuscular research group is where the project was born, and his lab remains its institutional anchor. Beyond research, John has built and sold technology companies with exits to Facebook, Oculus, and GN Audio, bringing a rare combination of scientific depth and entrepreneurial experience to the team.",
+      "daryan": "Daryan has spent seven years building software at the intersection of architecture, data engineering, and people leadership. At Twinspire he leads the technical implementation that connects club data sources, the app and web infrastructure that practitioners use daily. He has led development teams and mentored engineers throughout his career.",
+      "roxane": "Roxane has built ventures across three continents. She previously co-founded CUJU, an AI sports scouting company using computer vision to detect talent in the Global South, developed closely with ROGON Sports Management. Before that she worked with the UN and World Bank on innovation programme development. She holds a M.Sc & CEMS Master's from NUS & CBS, and two Executive Degrees from MIT. At Twinspire she leads fundraising and the operational infrastructure that keeps the project moving.",
       "kim": "Market & Commercialization Strategy (post-project)."
     }
   },
@@ -190,7 +190,7 @@
           "bullet3": "Technical risk reduction"
         }
       },
-      "researchTitle": "Current Research Questions",
+      "researchTitle": "The current work addresses three questions:",
       "questions": {
         "q1": "How early can deviations from an athlete's personal baseline be detected, and which deviations are meaningfully associated with elevated vulnerability following return to play?",
         "q2": "What is the minimum sensor and data configuration required to establish a stable and reliable individualized model?",
@@ -208,8 +208,25 @@
     },
     "headline1": "From Population Averages to Individualized Dynamics",
     "p1": "The approach combines principles from computational motor control, adaptive nonlinear systems, system identification, longitudinal sequence modelling, and self supervised learning to identify individualized representations of how an athlete’s physiological and functional state changes over time.",
+    "card1": {
+      "title": "Digital twin framework",
+      "body": "Twinspire is developing a research-based digital twin framework for individualized athlete modeling. The system integrates longitudinal data from multiple sources, including training load, neuromuscular testing, clinician input, and wearable-derived physiological measures."
+    },
+    "card2": {
+      "title": "Approach",
+      "body": "The approach combines principles from computational motor control, adaptive nonlinear systems, system identification, longitudinal sequence modelling, and self supervised learning to identify individualized representations of how an athlete’s physiological and functional state changes over time."
+    },
+    "card3": {
+      "title": "Structured data layer",
+      "body": "In parallel, Twinspire is building a structured data layer that links sessions, tests, symptoms, and contextual information into a portable athlete history, supporting continuity and decision-making across performance and rehabilitation."
+    },
     "headline2": "From Research Prototype to Applied Validation",
-    "p2": "We have developed a research prototype for individualized athlete modeling across mobile, tablet, and browser environments. The system integrates heterogeneous performance, physiological, and neuromuscular data with minimal additional input from practitioners. The prototype now moves into real-world validation to ensure the framework remains usable, robust, and interpretable in elite performance and rehabilitation practice. Current work focuses on three practical questions: Are the workflows operationally usable for staff? Do the multi-source ingestion pipelines provide sufficient data quality and continuity? Do the captured signals support meaningful individualized modeling in practice?",
+    "p2": "A research prototype has been developed across mobile and web environments, designed to integrate heterogeneous data with minimal input from practitioners. The system now enters real-world validation, focusing on whether it remains usable, robust, and interpretable within elite performance settings.",
+    "questions": {
+      "q1": "Are workflows operationally usable for staff?",
+      "q2": "Do data pipelines provide sufficient quality and continuity?",
+      "q3": "Do the signals support meaningful individualized modeling in practice?"
+    },
     "mockupAlt": "Twinspire staff dashboard and player mobile app showing simulation parameters and individualized readiness metrics",
     "readMore": "Read more",
     "readLess": "Read less",
@@ -306,8 +323,7 @@
     "sectionLabel": "Data & Research Ethics",
     "heading": "Athlete Data Must Be Handled",
     "headingAccent1": "Responsibly, Transparently,",
-    "headingPart2": "and with",
-    "headingAccent2": "Clear Boundaries.",
+    "headingAccent2": "and Clear Boundaries.",
     "subtitle": "How we approach data governance at every stage of research.",
     "description": "Twinspire is being developed with data governance and research ethics as core design principles.",
     "card1Title": "Core Principles",
@@ -327,7 +343,8 @@
     "name": "Name",
     "email": "Email",
     "role": "Role",
-    "clubOrClinic": "Club or Clinic",
+    "clubOrClinic": "Club, Clinic, or Company",
+    "message": "Message (optional)",
     "submit": "Apply to Join the Study",
     "formTitle": "Apply to Join",
     "successTitle": "You're on our list!",
