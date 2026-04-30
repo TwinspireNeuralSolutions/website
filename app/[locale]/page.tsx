@@ -42,7 +42,9 @@ export default function Home() {
           />
           <div className="relative z-10">
             <HeroSection />
-            <PartnersSection transparentBg />
+            <div className="bg-primary/80">
+              <PartnersSection transparentBg />
+            </div>
           </div>
         </div>
         <ProblemSection />
