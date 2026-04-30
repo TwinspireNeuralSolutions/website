@@ -33,7 +33,7 @@ export function HeroSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative min-h-[600px] w-full sm:min-h-[680px] md:h-svh">
+    <section className="relative min-h-[600px] w-full sm:min-h-[680px] md:h-[80vh] md:min-h-[700px] lg:h-svh">
       {/* ── Bottom vignette ── */}
       <div className="from-primary/55 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
 
@@ -42,7 +42,7 @@ export function HeroSection() {
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-0 text-center">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
-            <h1 className="mb-6 text-center text-[22px] leading-[1.2] font-extrabold tracking-wide break-words whitespace-normal text-white uppercase sm:mb-8 sm:text-[28px] md:mb-10 md:text-[38px] md:whitespace-nowrap lg:mb-6 lg:text-[44px] xl:text-[50px]">
+            <h1 className="mb-6 text-center text-[24px] leading-[1.2] font-extrabold tracking-wide break-words whitespace-normal text-white uppercase sm:mb-12 sm:text-[36px] md:mb-10 md:text-[32px] md:whitespace-nowrap lg:mb-6 lg:text-[38px] xl:text-[44px]">
               {t('hero.headlineLine1Start')}
               <span className="text-white">
                 {t('hero.headlineLine1Highlight')}
@@ -72,14 +72,14 @@ export function HeroSection() {
 
           {/* ── Value proposition ── */}
           <AnimateIn variant="fadeUp" delay={0.25} immediate>
-            <p className="mx-auto mb-5 max-w-2xl px-2 text-sm leading-relaxed text-white/90 sm:mb-6 sm:text-base md:mb-6 md:text-lg lg:mb-4 lg:text-base">
+            <p className="mx-auto mb-5 max-w-2xl px-2 text-sm leading-relaxed text-white/90 sm:mb-10 sm:text-base md:mb-6 md:text-lg lg:mb-4 lg:text-base">
               {t('hero.valueProp')}
             </p>
           </AnimateIn>
 
           {/* ── Credibility subtext ── */}
           <AnimateIn variant="fadeUp" delay={0.32} immediate>
-            <p className="mb-6 text-sm text-white/90 sm:mb-8 sm:text-base md:text-lg lg:mb-5 lg:text-base">
+            <p className="mb-6 text-sm text-white/90 sm:mb-12 sm:text-base md:text-lg lg:mb-5 lg:text-base">
               {t('hero.credibility')}
             </p>
           </AnimateIn>
