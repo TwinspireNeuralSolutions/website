@@ -5,6 +5,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { Typography } from '@/components/ui/typography'
 import { useTranslation } from '@/i18n'
 
@@ -48,15 +49,21 @@ const sliderSettings = {
  */
 export function PartnersSection({
   showPartnershipText = false,
+  transparentBg = false,
 }: {
   showPartnershipText?: boolean
+  transparentBg?: boolean
 }) {
   const { t } = useTranslation()
 
   return (
     <section
       aria-label="Our partners"
-      className="bg-partners-bg relative z-10 w-full overflow-hidden shadow-[0_-12px_48px_rgba(0,0,0,0.15)] backdrop-blur-md"
+      className={cn(
+        'relative z-10 w-full overflow-hidden',
+        !transparentBg &&
+          'bg-partners-bg shadow-[0_-12px_48px_rgba(0,0,0,0.15)] backdrop-blur-md'
+      )}
     >
       {showPartnershipText && (
         <div className="section-x section-inner mx-auto py-16 md:py-20">
