@@ -119,7 +119,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative flex h-auto min-h-[520px] w-full flex-col items-center justify-center overflow-hidden sm:block sm:h-svh sm:min-h-[600px]">
+    <section className="relative h-svh min-h-[600px] w-full overflow-hidden">
       {/* â”€â”€ Background image â€” anchored right â”€â”€ */}
       <Image
         src="/hero/image.png"
@@ -147,8 +147,8 @@ export function HeroSection() {
       <BackgroundVideo src="/hero-video.mp4" opacity={0.12} className="z-[3]" />
 
       {/* â”€â”€ Content â”€â”€ */}
-      <div className="relative z-10 flex w-full flex-col items-center justify-center sm:absolute sm:inset-0">
-        <div className="mx-auto w-full max-w-4xl px-6 py-14 sm:px-10 sm:pt-20 sm:pb-10 lg:px-16">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+        <div className="mx-auto w-full max-w-4xl px-6 pt-20 pb-10 sm:px-10 lg:px-16">
           <div className="flex flex-col items-center text-center">
             {/* Headline */}
             <AnimateIn variant="fadeUp" immediate>
