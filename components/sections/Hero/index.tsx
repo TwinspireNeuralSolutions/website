@@ -119,7 +119,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative h-auto min-h-[520px] w-full overflow-hidden sm:h-svh sm:min-h-[600px]">
+    <section className="relative flex h-auto min-h-[520px] w-full flex-col items-center justify-center overflow-hidden sm:block sm:h-svh sm:min-h-[600px]">
       {/* â”€â”€ Background image â€” anchored right â”€â”€ */}
       <Image
         src="/hero/image.png"
@@ -147,8 +147,8 @@ export function HeroSection() {
       <BackgroundVideo src="/hero-video.mp4" opacity={0.12} className="z-[3]" />
 
       {/* â”€â”€ Content â”€â”€ */}
-      <div className="relative z-10 flex flex-col items-center justify-center sm:absolute sm:inset-0">
-        <div className="mx-auto w-full max-w-4xl px-6 pt-24 pb-14 sm:px-10 sm:pt-20 sm:pb-10 lg:px-16">
+      <div className="relative z-10 flex w-full flex-col items-center justify-center sm:absolute sm:inset-0">
+        <div className="mx-auto w-full max-w-4xl px-6 py-14 sm:px-10 sm:pt-20 sm:pb-10 lg:px-16">
           <div className="flex flex-col items-center text-center">
             {/* Headline */}
             <AnimateIn variant="fadeUp" immediate>
@@ -162,7 +162,7 @@ export function HeroSection() {
 
             {/* Data pills */}
             <AnimateIn variant="fadeUp" delay={0.1} immediate>
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <div className="mt-6 hidden flex-wrap justify-center gap-2 md:flex">
                 {dataPills.map((pill, index) => (
                   <div
                     key={index}
@@ -178,8 +178,7 @@ export function HeroSection() {
             {/* Value proposition + credibility */}
             <AnimateIn variant="fadeUp" delay={0.2} immediate>
               <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-white/65 sm:text-base lg:text-[17px]">
-                {t('hero.valueProp')}{' '}
-                <span className="text-white/80">{t('hero.credibility')}</span>
+                {t('hero.valueProp')} {t('hero.credibility')}
               </p>
             </AnimateIn>
 
