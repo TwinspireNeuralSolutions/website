@@ -162,7 +162,7 @@ export function HeroSection() {
 
             {/* Data pills */}
             <AnimateIn variant="fadeUp" delay={0.1} immediate>
-              <div className="mt-6 hidden flex-wrap justify-center gap-2 md:flex">
+              <div className="mt-6 flex flex-wrap justify-center gap-2">
                 {dataPills.map((pill, index) => (
                   <div
                     key={index}
