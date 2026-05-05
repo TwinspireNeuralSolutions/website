@@ -60,7 +60,7 @@ export function JoinUsHero() {
                 showIcon
                 onClick={() =>
                   document
-                    .getElementById('roles')
+                    .getElementById('open-roles')
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
