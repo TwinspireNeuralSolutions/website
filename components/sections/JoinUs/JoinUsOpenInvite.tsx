@@ -1,7 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { Button } from '@/components/ui/button'
 import { useTranslation } from '@/i18n'
@@ -11,7 +9,6 @@ import { useTranslation } from '@/i18n'
  */
 export function JoinUsOpenInvite() {
   const { t } = useTranslation()
-  const { locale } = useParams<{ locale: string }>()
 
   return (
     <section className="bg-background border-border relative z-10 w-full border-b">
@@ -40,11 +37,11 @@ export function JoinUsOpenInvite() {
             <p className="text-foreground/65 mx-auto mb-8 max-w-lg text-[14px] leading-[1.9] sm:text-[15px]">
               {t('joinUsPage.intro.p6')}
             </p>
-            <Link href={`/${locale}#contact`}>
+            <a href={`mailto:${t('joinUsPage.contactEmail')}`}>
               <Button variant="primary" size="lg" showIcon>
                 {t('joinUsPage.openInviteButton')}
               </Button>
-            </Link>
+            </a>
           </div>
         </AnimateIn>
       </div>

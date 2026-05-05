@@ -155,13 +155,13 @@ export function JoinUsRoles() {
           <p className="text-muted-foreground mb-8 text-[16px]">
             {t('joinUsPage.noOpeningLine2')}
           </p>
-          <Link
-            href={`/${locale}#contact`}
+          <a
+            href={`mailto:${t('joinUsPage.contactEmail')}`}
             className="bg-primary inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-80"
           >
             <Mail className="h-4 w-4" aria-hidden />
             {t('joinUsPage.noOpeningCta')}
-          </Link>
+          </a>
         </div>
       </AnimateIn>
     </section>

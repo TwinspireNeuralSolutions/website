@@ -341,13 +341,13 @@ export default function CareerDetailPage() {
 
           {/* ── Apply button ── */}
           <div className="mt-12 pb-20">
-            <Link
-              href={`/${locale}#contact`}
+            <a
+              href={`mailto:${t('joinUsPage.contactEmail')}`}
               className="bg-primary hover:bg-primary-hover inline-flex items-center gap-3 rounded-lg px-8 py-4 text-[16px] font-semibold text-white transition-colors"
             >
               <Mail className="h-5 w-5" aria-hidden />
               {t('joinUsPage.applyButton')}
-            </Link>
+            </a>
           </div>
         </div>
       </main>
