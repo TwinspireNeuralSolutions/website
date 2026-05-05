@@ -20,7 +20,7 @@ type NestedKeyOf<T> = T extends object
     }[keyof T & string]
   : never
 
-type TranslationKey = NestedKeyOf<typeof en>
+type TranslationKey = string
 
 const dictionaries: Record<Locale, typeof en> = { en, da }
 

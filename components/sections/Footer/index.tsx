@@ -5,14 +5,14 @@ import Link from 'next/link'
 import { useTranslation } from '@/i18n'
 import { AnimateIn } from '@/components/ui/animate-in'
 
-const NAV_LINKS = [
-  { key: 'footer.navProblem' as const, id: 'problem' },
-  { key: 'footer.navSolution' as const, id: 'product' },
-  { key: 'footer.navScience' as const, id: 'science' },
-  { key: 'footer.navForWhom' as const, id: 'built-for' },
-  { key: 'footer.navTeam' as const, id: 'team' },
-  { key: 'footer.navJoin' as const, id: 'contact' },
-] as const
+const NAV_LINKS: readonly { key: string; id?: string; href?: string }[] = [
+  { key: 'footer.navProblem', id: 'problem' },
+  { key: 'footer.navSolution', id: 'product' },
+  { key: 'footer.navScience', id: 'science' },
+  { key: 'footer.navForWhom', id: 'built-for' },
+  { key: 'footer.navTeam', id: 'team' },
+  { key: 'footer.navJoin', href: 'join-us' },
+]
 
 /**
  * FooterSection — Site footer with nav links, full-width TWINSPIRE watermark,
@@ -29,17 +29,26 @@ export function FooterSection() {
           <nav className="mb-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:mb-12 sm:gap-x-5 md:mb-14">
             {NAV_LINKS.map((link, i) => (
               <React.Fragment key={link.key}>
-                <button
-                  type="button"
-                  onClick={() =>
-                    document
-                      .getElementById(link.id)
-                      ?.scrollIntoView({ behavior: 'smooth' })
-                  }
-                  className="hover:text-primary text-xs font-medium text-black/50 transition-colors"
-                >
-                  {t(link.key)}
-                </button>
+                {link.href ? (
+                  <Link
+                    href={`/${locale}/${link.href}`}
+                    className="hover:text-primary text-xs font-medium text-black/50 transition-colors"
+                  >
+                    {t(link.key as Parameters<typeof t>[0])}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      document
+                        .getElementById(link.id!)
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                    className="hover:text-primary text-xs font-medium text-black/50 transition-colors"
+                  >
+                    {t(link.key as Parameters<typeof t>[0])}
+                  </button>
+                )}
                 {i < NAV_LINKS.length - 1 && (
                   <span className="text-xs text-black/20 select-none">·</span>
                 )}
