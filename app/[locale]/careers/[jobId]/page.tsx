@@ -1,12 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { Mail, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { FooterSection } from '@/components/sections/Footer'
 import { PartnersSection } from '@/components/sections/Partners'
 import { Navbar } from '@/components/ui/navbar'
 import { BackgroundVideo } from '@/components/ui/background-video'
+import { ApplyModal } from '@/components/ui/apply-modal'
 import { useTranslation } from '@/i18n'
 import { cn } from '@/lib/utils'
 import { getJob } from '@/data/jobs'
@@ -39,7 +41,7 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <div className="rounded-xl bg-white p-6 sm:p-8">
+    <div className="border-border border-t pt-6">
       <h2 className="text-primary mb-2 text-[11px] font-semibold tracking-[0.15em] uppercase">
         {title}
       </h2>
@@ -69,12 +71,10 @@ function BulletList({ items }: { items: string[] }) {
 function PhysioContent() {
   const { t } = useTranslation()
   return (
-    <div className="flex flex-col gap-4">
-      <div className="rounded-xl bg-white p-6 sm:p-8">
-        <div className="flex flex-col gap-3">
-          <Para>{t('joinUsPage.physio.intro')}</Para>
-          <Quote>{t('joinUsPage.physio.question')}</Quote>
-        </div>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-3">
+        <Para>{t('joinUsPage.physio.intro')}</Para>
+        <Quote>{t('joinUsPage.physio.question')}</Quote>
       </div>
 
       <Section title={t('joinUsPage.physio.theRoleTitle')}>
@@ -135,12 +135,10 @@ function PhysioContent() {
 function EngineeringContent() {
   const { t } = useTranslation()
   return (
-    <div className="flex flex-col gap-4">
-      <div className="rounded-xl bg-white p-6 sm:p-8">
-        <div className="flex flex-col gap-3">
-          <Para>{t('joinUsPage.engineering.intro')}</Para>
-          <Para>{t('joinUsPage.engineering.nowChallenge')}</Para>
-        </div>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-3">
+        <Para>{t('joinUsPage.engineering.intro')}</Para>
+        <Para>{t('joinUsPage.engineering.nowChallenge')}</Para>
       </div>
 
       <Section title={t('joinUsPage.engineering.theRoleTitle')}>
@@ -250,6 +248,7 @@ function EngineeringContent() {
 export default function CareerDetailPage() {
   const { t } = useTranslation()
   const { locale, jobId } = useParams<{ locale: string; jobId: string }>()
+  const [applyOpen, setApplyOpen] = useState(false)
 
   const job = getJob(jobId)
 
@@ -301,7 +300,7 @@ export default function CareerDetailPage() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* ── Header card — half overlaps hero ── */}
-          <div className="relative z-10 -mt-20 mb-10 rounded-xl bg-white p-6 sm:p-8">
+          <div className="relative z-10 -mt-20 mb-6 rounded-xl bg-white p-6 sm:p-8">
             <span
               className={cn(
                 'mb-4 inline-block rounded-md px-2.5 py-0.5 text-[11px] font-semibold tracking-wide uppercase',
@@ -321,7 +320,7 @@ export default function CareerDetailPage() {
           {/* ── Two-column layout ── */}
           <div className="flex flex-col gap-6 pb-20 lg:flex-row lg:items-start">
             {/* Left — body content */}
-            <div className="min-w-0 flex-1">
+            <div className="min-w-0 flex-1 rounded-xl bg-white p-6 sm:p-8">
               {job.id === 'physio' && <PhysioContent />}
               {job.id === 'engineering' && <EngineeringContent />}
             </div>
@@ -356,18 +355,9 @@ export default function CareerDetailPage() {
                   </div>
                 </div>
 
-                <a
-                  href={`mailto:${t('joinUsPage.contactEmail')}`}
-                  className="bg-primary hover:bg-primary-hover mt-8 flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-[15px] font-semibold text-white transition-colors"
-                >
-                  <Mail className="h-4 w-4" aria-hidden />
-                  {t('joinUsPage.applyButton')}
-                </a>
-              </div>
+                <div className="border-border my-6 border-t" />
 
-              {/* Contact card — below sidebar */}
-              <div className="rounded-xl bg-white p-6">
-                <p className="text-foreground/70 font-sans text-[14px] leading-[1.8]">
+                <p className="text-foreground/70 text-[14px] leading-[1.8]">
                   {t(`joinUsPage.${job.id}.contactCtaText`)}{' '}
                   <a
                     href={`mailto:${t('joinUsPage.contactEmail')}`}
@@ -376,7 +366,7 @@ export default function CareerDetailPage() {
                     {t('joinUsPage.contactEmail')}
                   </a>
                 </p>
-                <p className="text-foreground/50 mt-1 font-sans text-[13px]">
+                <p className="text-foreground/50 mt-1 text-[13px]">
                   DTU · Copenhagen ·{' '}
                   <a
                     href={`https://${t('joinUsPage.contactWebsite')}`}
@@ -387,6 +377,13 @@ export default function CareerDetailPage() {
                     {t('joinUsPage.contactWebsite')}
                   </a>
                 </p>
+
+                <button
+                  onClick={() => setApplyOpen(true)}
+                  className="bg-primary hover:bg-primary-hover mt-6 flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-[15px] font-semibold text-white transition-colors"
+                >
+                  {t('joinUsPage.applyButton')}
+                </button>
               </div>
             </div>
           </div>
@@ -394,6 +391,12 @@ export default function CareerDetailPage() {
       </main>
       <PartnersSection />
       <FooterSection />
+      <ApplyModal
+        jobTitle={t(`joinUsPage.${job.id}.title`)}
+        jobId={job.id}
+        isOpen={applyOpen}
+        onClose={() => setApplyOpen(false)}
+      />
     </>
   )
 }

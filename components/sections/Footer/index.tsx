@@ -11,7 +11,7 @@ const NAV_LINKS: readonly { key: string; id?: string; href?: string }[] = [
   { key: 'footer.navScience', id: 'science' },
   { key: 'footer.navForWhom', id: 'built-for' },
   { key: 'footer.navTeam', id: 'team' },
-  { key: 'footer.navJoin', href: 'join-us' },
+  { key: 'footer.navJoin', href: 'careers' },
 ]
 
 /**
@@ -86,7 +86,7 @@ export function FooterSection() {
               {t('footer.copyright')}
             </p>
 
-            {/* Legal links + Instagram */}
+            {/* Legal links */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <Link
                 href={`/${locale}/privacy`}
@@ -94,32 +94,6 @@ export function FooterSection() {
               >
                 {t('footer.privacyPolicy')}
               </Link>
-
-              <a
-                href="https://www.instagram.com/twinspire.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t('footer.instagramLabel')}
-                className="text-footer-muted hover:text-primary inline-flex items-center gap-1.5 text-xs transition-colors"
-              >
-                {/* Instagram icon */}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-                </svg>
-                Instagram
-              </a>
             </div>
           </div>
 

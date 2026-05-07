@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { Button } from '@/components/ui/button'
+import { ReachOutModal } from '@/components/ui/reach-out-modal'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -9,6 +11,7 @@ import { useTranslation } from '@/i18n'
  */
 export function CareersOpenInvite() {
   const { t } = useTranslation()
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <section className="bg-background border-border relative z-10 w-full border-b">
@@ -31,21 +34,26 @@ export function CareersOpenInvite() {
                 />
               </svg>
             </div>
-            <h2 className="text-primary mb-3 text-[18px] font-bold tracking-[0.08em] uppercase sm:text-[20px] lg:text-[22px]">
+            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
               {t('joinUsPage.openInviteTitle')}
             </h2>
-            <div className="bg-primary/30 mx-auto mb-6 h-px w-12" />
-            <p className="text-foreground/65 mx-auto mb-8 max-w-lg text-[14px] leading-[1.9] sm:text-[15px]">
+            <div className="bg-primary mx-auto mb-6 h-[3px] w-12 rounded-full" />
+            <p className="text-foreground/70 mx-auto mb-8 max-w-lg text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.intro.p6')}
             </p>
-            <a href={`mailto:${t('joinUsPage.contactEmail')}`}>
-              <Button variant="primary" size="lg" showIcon>
-                {t('joinUsPage.openInviteButton')}
-              </Button>
-            </a>
+            <Button
+              variant="primary"
+              size="lg"
+              showIcon
+              onClick={() => setModalOpen(true)}
+            >
+              {t('joinUsPage.openInviteButton')}
+            </Button>
           </div>
         </AnimateIn>
       </div>
+
+      <ReachOutModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   )
 }

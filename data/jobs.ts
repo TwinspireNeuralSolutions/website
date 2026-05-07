@@ -1,5 +1,12 @@
 export type JobId = 'physio' | 'engineering'
-export type JobBadge = 'science' | 'engineering'
+export type JobBadge =
+  | 'science'
+  | 'engineering'
+  | 'product'
+  | 'design'
+  | 'data'
+  | 'marketing'
+  | 'operations'
 
 export interface JobConfig {
   id: JobId

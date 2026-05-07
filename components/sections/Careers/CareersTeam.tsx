@@ -14,11 +14,11 @@ export function CareersTeam() {
       <div className="section-x section-inner mx-auto pt-6 pb-4 md:pt-8 md:pb-6">
         <AnimateIn variant="fadeUp">
           <div className="mx-auto flex max-w-3xl flex-col gap-4">
-            <h2 className="text-primary mb-3 text-[18px] font-bold tracking-[0.08em] uppercase sm:text-[20px] lg:text-[22px]">
+            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
               {t('joinUsPage.teamTitle')}
             </h2>
-            <div className="bg-primary/30 mb-6 h-px w-12" />
-            <p className="text-foreground/70 text-[16px] leading-[1.8] sm:text-[18px]">
+            <div className="bg-primary mb-6 h-[3px] w-12 rounded-full" />
+            <p className="text-foreground/70 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.teamBody')}
             </p>
           </div>

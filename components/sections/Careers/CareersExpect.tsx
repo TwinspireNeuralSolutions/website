@@ -47,10 +47,10 @@ export function CareersExpect() {
       <div className="section-x section-inner mx-auto py-10 md:py-14">
         <AnimateIn variant="fadeUp">
           <div className="mb-12 text-center lg:mb-16">
-            <h2 className="text-primary mb-3 text-[18px] font-bold tracking-[0.08em] uppercase sm:text-[20px] lg:text-[22px]">
+            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
               {t('joinUsPage.expectTitle')}
             </h2>
-            <div className="bg-primary/30 mx-auto h-px w-12" />
+            <div className="bg-primary mx-auto h-[3px] w-12 rounded-full" />
           </div>
         </AnimateIn>
 
@@ -61,7 +61,7 @@ export function CareersExpect() {
                 <h3 className="text-foreground text-[17px] leading-snug font-bold">
                   {t(titleKey)}
                 </h3>
-                <p className="text-muted-foreground text-[15px] leading-relaxed">
+                <p className="text-muted-foreground text-[14px] leading-[1.8] font-normal sm:text-[15px]">
                   {t(descKey)}
                 </p>
               </div>

@@ -13,7 +13,7 @@ export function CareersHero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative min-h-[420px] w-full overflow-hidden sm:min-h-[500px]">
+    <section className="relative min-h-[420px] w-full overflow-hidden sm:min-h-[520px]">
       {/* ── Layer 1: Background image ── */}
       <Image
         src="/hero/image.png"

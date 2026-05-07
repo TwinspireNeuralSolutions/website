@@ -47,6 +47,9 @@ export default function CareersPage() {
 
         {/* ── Open Roles ── */}
         <CareersRoles />
+
+        {/* ── Partners ── */}
+        <PartnersSection />
       </main>
       <FooterSection />
     </>

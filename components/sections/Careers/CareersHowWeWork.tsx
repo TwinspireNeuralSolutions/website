@@ -28,15 +28,16 @@ export function CareersHowWeWork() {
   const { t } = useTranslation()
 
   return (
-    <section className="bg-background border-border relative z-10 w-full border-t border-b">
-      <div className="section-x section-inner mx-auto py-16 md:py-24">
+    <section className="bg-background relative z-10 w-full">
+      <div className="section-x section-inner mx-auto pt-16 pb-6 md:pt-24 md:pb-8">
+        <div className="border-border mb-16 border-t md:mb-20" />
         {/* Section label */}
         <AnimateIn variant="fadeUp">
           <div className="mb-12 lg:mb-16">
-            <h2 className="text-primary mb-3 text-[18px] font-bold tracking-[0.08em] uppercase sm:text-[20px] lg:text-[22px]">
+            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
               {t('joinUsPage.howWeWorkTitle')}
             </h2>
-            <div className="bg-primary/30 h-px w-12" />
+            <div className="bg-primary h-[3px] w-12 rounded-full" />
           </div>
         </AnimateIn>
 
@@ -48,13 +49,14 @@ export function CareersHowWeWork() {
                 <h3 className="text-foreground text-[17px] leading-snug font-bold">
                   {t(titleKey)}
                 </h3>
-                <p className="text-foreground/65 text-[15px] leading-[1.8]">
+                <p className="text-foreground/70 text-justify text-[14px] leading-[1.8] font-normal [hyphens:auto] sm:text-[15px]">
                   {t(descKey)}
                 </p>
               </div>
             </AnimateIn>
           ))}
         </div>
+        <div className="border-border mt-16 border-t md:mt-20" />
       </div>
     </section>
   )

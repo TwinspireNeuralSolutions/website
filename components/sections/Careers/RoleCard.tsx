@@ -80,7 +80,7 @@ export function RoleSummaryCard({
 
             {/* Two-line summary — only shown when collapsed */}
             {!expanded && (
-              <p className="text-foreground/55 line-clamp-2 max-w-2xl text-[13px] leading-relaxed">
+              <p className="text-foreground/70 line-clamp-2 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
                 {summary}
               </p>
             )}
