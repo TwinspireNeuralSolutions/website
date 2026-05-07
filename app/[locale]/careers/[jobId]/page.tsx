@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { Mail, ArrowLeft } from 'lucide-react'
@@ -16,7 +15,7 @@ import { getJob } from '@/data/jobs'
 
 function Para({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-foreground/70 mt-3 font-sans text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+    <p className="text-foreground/70 text-[14px] leading-[1.85] sm:text-[15px]">
       {children}
     </p>
   )
@@ -24,9 +23,11 @@ function Para({ children }: { children: React.ReactNode }) {
 
 function Quote({ children }: { children: React.ReactNode }) {
   return (
-    <p className="border-primary/25 text-primary/80 mt-3 border-l-2 pl-3 font-sans text-[14px] leading-[1.8] font-normal italic sm:text-[15px]">
-      {children}
-    </p>
+    <blockquote className="border-primary/25 mt-4 border-l-2 pl-4">
+      <p className="text-primary/75 text-[14px] leading-[1.85] italic sm:text-[15px]">
+        {children}
+      </p>
+    </blockquote>
   )
 }
 
@@ -38,22 +39,23 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <div className="mt-10">
-      <h2 className="text-foreground mb-4 border-b border-gray-200 pb-3 font-sans text-[16px] leading-snug font-bold">
+    <div className="rounded-xl bg-white p-6 sm:p-8">
+      <h2 className="text-primary mb-2 text-[11px] font-semibold tracking-[0.15em] uppercase">
         {title}
       </h2>
-      {children}
+      <div className="bg-primary/20 mb-5 h-px w-10" />
+      <div className="flex flex-col gap-3">{children}</div>
     </div>
   )
 }
 
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="mt-3 space-y-2 pl-10">
+    <ul className="space-y-2 pl-5">
       {items.map((item, i) => (
         <li
           key={i}
-          className="text-foreground/70 list-disc font-sans text-[14px] leading-[1.8] font-normal sm:text-[15px]"
+          className="text-foreground/70 list-disc text-[14px] leading-[1.85] sm:text-[15px]"
         >
           {item}
         </li>
@@ -67,9 +69,13 @@ function BulletList({ items }: { items: string[] }) {
 function PhysioContent() {
   const { t } = useTranslation()
   return (
-    <>
-      <Para>{t('joinUsPage.physio.intro')}</Para>
-      <Quote>{t('joinUsPage.physio.question')}</Quote>
+    <div className="flex flex-col gap-4">
+      <div className="rounded-xl bg-white p-6 sm:p-8">
+        <div className="flex flex-col gap-3">
+          <Para>{t('joinUsPage.physio.intro')}</Para>
+          <Quote>{t('joinUsPage.physio.question')}</Quote>
+        </div>
+      </div>
 
       <Section title={t('joinUsPage.physio.theRoleTitle')}>
         <Para>{t('joinUsPage.physio.theRoleDesc')}</Para>
@@ -122,16 +128,20 @@ function PhysioContent() {
           ]}
         />
       </Section>
-    </>
+    </div>
   )
 }
 
 function EngineeringContent() {
   const { t } = useTranslation()
   return (
-    <>
-      <Para>{t('joinUsPage.engineering.intro')}</Para>
-      <Para>{t('joinUsPage.engineering.nowChallenge')}</Para>
+    <div className="flex flex-col gap-4">
+      <div className="rounded-xl bg-white p-6 sm:p-8">
+        <div className="flex flex-col gap-3">
+          <Para>{t('joinUsPage.engineering.intro')}</Para>
+          <Para>{t('joinUsPage.engineering.nowChallenge')}</Para>
+        </div>
+      </div>
 
       <Section title={t('joinUsPage.engineering.theRoleTitle')}>
         <Para>{t('joinUsPage.engineering.theRoleDesc')}</Para>
@@ -227,7 +237,7 @@ function EngineeringContent() {
         />
         <Para>{t('joinUsPage.engineering.dtuNote')}</Para>
       </Section>
-    </>
+    </div>
   )
 }
 
@@ -310,12 +320,10 @@ export default function CareerDetailPage() {
 
           {/* ── Two-column layout ── */}
           <div className="flex flex-col gap-6 pb-20 lg:flex-row lg:items-start">
-            {/* Left — body content only */}
+            {/* Left — body content */}
             <div className="min-w-0 flex-1">
-              <div className="rounded-xl bg-white p-6 sm:p-8">
-                {job.id === 'physio' && <PhysioContent />}
-                {job.id === 'engineering' && <EngineeringContent />}
-              </div>
+              {job.id === 'physio' && <PhysioContent />}
+              {job.id === 'engineering' && <EngineeringContent />}
             </div>
 
             {/* Right — sidebar + contact card */}
