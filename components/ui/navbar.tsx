@@ -29,7 +29,7 @@ const NAV_LINKS: NavLink[] = [
   { key: 'nav.builtFor', id: 'built-for' },
   { key: 'nav.science', id: 'science' },
   { key: 'nav.team', id: 'team' },
-  { key: 'nav.joinUs', href: 'join-us' },
+  { key: 'nav.joinUs', href: 'careers' },
 ]
 
 /** Glass blur applied to both the scrolled bar and the mobile dropdown. */

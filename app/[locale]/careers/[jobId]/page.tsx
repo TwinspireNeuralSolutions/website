@@ -1,20 +1,16 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { Clock, MapPin, Mail, ArrowLeft } from 'lucide-react'
+import { Mail, ArrowLeft } from 'lucide-react'
 import { FooterSection } from '@/components/sections/Footer'
 import { PartnersSection } from '@/components/sections/Partners'
+import { Navbar } from '@/components/ui/navbar'
+import { BackgroundVideo } from '@/components/ui/background-video'
 import { useTranslation } from '@/i18n'
 import { cn } from '@/lib/utils'
 import { getJob } from '@/data/jobs'
-
-// ─── Badge colours ─────────────────────────────────────────────────────────────
-
-const BADGE_COLORS: Record<string, string> = {
-  science: 'bg-green-50 text-green-700',
-  engineering: 'bg-blue-50 text-blue-700',
-}
 
 // ─── Typography helpers ────────────────────────────────────────────────────────
 
@@ -251,10 +247,11 @@ export default function CareerDetailPage() {
   if (!job) {
     return (
       <>
+        <Navbar />
         <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-white px-6">
           <p className="text-foreground/60 text-[15px]">Position not found.</p>
           <Link
-            href={`/${locale}/join-us#open-roles`}
+            href={`/${locale}/careers#open-roles`}
             className="text-primary text-[14px] underline hover:opacity-80"
           >
             ← {t('joinUsPage.backToPositions')}
@@ -268,86 +265,122 @@ export default function CareerDetailPage() {
 
   return (
     <>
-      <main className="min-h-screen bg-white">
-        <div className="mx-auto max-w-[700px] px-6 py-10 sm:py-14">
-          {/* ── Back link ── */}
-          <div className="border-border mb-10 border-b pb-6">
+      <Navbar />
+      <main className="min-h-screen bg-neutral-100">
+        {/* ── Hero — blue + video ── */}
+        <div className="relative h-[340px] w-full overflow-hidden sm:h-[360px]">
+          <div className="bg-primary absolute inset-0" />
+          <BackgroundVideo
+            src="/hero-video.mp4"
+            opacity={0.3}
+            className="z-[1]"
+          />
+
+          {/* Back link — same left alignment as cards below */}
+          <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Link
-              href={`/${locale}/join-us#open-roles`}
+              href={`/${locale}/careers#open-roles`}
               prefetch={true}
-              className="text-primary inline-flex items-center gap-1.5 text-[13px] font-medium transition-opacity hover:opacity-80"
+              className="text-foreground inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-medium shadow-sm transition-shadow hover:shadow-md"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               {t('joinUsPage.backToPositions')}
             </Link>
           </div>
+        </div>
 
-          {/* ── Department badge ── */}
-          <div className="mb-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* ── Header card — half overlaps hero ── */}
+          <div className="relative z-10 -mt-20 mb-10 rounded-xl bg-white p-6 sm:p-8">
             <span
               className={cn(
-                'inline-block rounded-sm px-3 py-1.5 text-[12px] font-bold tracking-wider uppercase',
-                BADGE_COLORS[job.badge]
+                'mb-4 inline-block rounded-md px-2.5 py-0.5 text-[11px] font-semibold tracking-wide uppercase',
+                job.badge === 'science'
+                  ? 'bg-green-100 text-green-700'
+                  : 'bg-blue-100 text-blue-700'
               )}
             >
               {t(`joinUsPage.${job.id}.department`)}
             </span>
+
+            <h1 className="text-foreground text-[22px] leading-snug font-bold sm:text-[30px]">
+              {t(`joinUsPage.${job.id}.title`)}
+            </h1>
           </div>
 
-          {/* ── Title ── */}
-          <h1 className="text-foreground mb-6 text-[36px] leading-[1.1] font-bold sm:text-[48px]">
-            {t(`joinUsPage.${job.id}.title`)}
-          </h1>
+          {/* ── Two-column layout ── */}
+          <div className="flex flex-col gap-6 pb-20 lg:flex-row lg:items-start">
+            {/* Left — body content only */}
+            <div className="min-w-0 flex-1">
+              <div className="rounded-xl bg-white p-6 sm:p-8">
+                {job.id === 'physio' && <PhysioContent />}
+                {job.id === 'engineering' && <EngineeringContent />}
+              </div>
+            </div>
 
-          {/* ── Meta ── */}
-          <div className="text-muted-foreground mb-12 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
-            <span className="flex items-center gap-2">
-              <Clock className="h-4 w-4 shrink-0" aria-hidden />
-              {t(`joinUsPage.${job.id}.employmentType`)}
-            </span>
-            <span className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0" aria-hidden />
-              {t(`joinUsPage.${job.id}.location`)}
-            </span>
-          </div>
+            {/* Right — sidebar + contact card */}
+            <div className="flex w-full shrink-0 flex-col gap-6 lg:w-72 xl:w-80">
+              <div className="flex flex-col rounded-xl bg-white p-6">
+                <div className="space-y-4 text-[13px]">
+                  <div>
+                    <p className="text-muted-foreground mb-0.5 text-[11px] font-medium tracking-wide uppercase">
+                      {t('joinUsPage.employmentTypeLabel')}
+                    </p>
+                    <p className="text-foreground font-medium">
+                      {t(`joinUsPage.${job.id}.employmentType`)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground mb-0.5 text-[11px] font-medium tracking-wide uppercase">
+                      {t('joinUsPage.locationLabel')}
+                    </p>
+                    <p className="text-foreground font-medium">
+                      {t(`joinUsPage.${job.id}.location`)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground mb-0.5 text-[11px] font-medium tracking-wide uppercase">
+                      {t('joinUsPage.departmentLabel')}
+                    </p>
+                    <p className="text-foreground font-medium">
+                      {t(`joinUsPage.${job.id}.department`)}
+                    </p>
+                  </div>
+                </div>
 
-          {/* ── Body content ── */}
-          {job.id === 'physio' && <PhysioContent />}
-          {job.id === 'engineering' && <EngineeringContent />}
+                <a
+                  href={`mailto:${t('joinUsPage.contactEmail')}`}
+                  className="bg-primary hover:bg-primary-hover mt-8 flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3.5 text-[15px] font-semibold text-white transition-colors"
+                >
+                  <Mail className="h-4 w-4" aria-hidden />
+                  {t('joinUsPage.applyButton')}
+                </a>
+              </div>
 
-          {/* ── Contact footer ── */}
-          <div className="mt-10 border-t pt-6">
-            <p className="text-foreground/70 font-sans text-[14px] leading-[1.8] font-normal sm:text-[15px]">
-              {t(`joinUsPage.${job.id}.contactCtaText`)}{' '}
-              <a
-                href={`mailto:${t('joinUsPage.contactEmail')}`}
-                className="text-primary transition-opacity hover:opacity-80"
-              >
-                {t('joinUsPage.contactEmail')}
-              </a>
-            </p>
-            <p className="text-foreground/70 mt-1 font-sans text-[14px] leading-[1.8] font-normal sm:text-[15px]">
-              {t(`joinUsPage.${job.id}.addressLineText`)}{' '}
-              <a
-                href={`https://${t('joinUsPage.contactWebsite')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary transition-opacity hover:opacity-80"
-              >
-                {t('joinUsPage.contactWebsite')}
-              </a>
-            </p>
-          </div>
-
-          {/* ── Apply button ── */}
-          <div className="mt-12 pb-20">
-            <a
-              href={`mailto:${t('joinUsPage.contactEmail')}`}
-              className="bg-primary hover:bg-primary-hover inline-flex items-center gap-3 rounded-lg px-8 py-4 text-[16px] font-semibold text-white transition-colors"
-            >
-              <Mail className="h-5 w-5" aria-hidden />
-              {t('joinUsPage.applyButton')}
-            </a>
+              {/* Contact card — below sidebar */}
+              <div className="rounded-xl bg-white p-6">
+                <p className="text-foreground/70 font-sans text-[14px] leading-[1.8]">
+                  {t(`joinUsPage.${job.id}.contactCtaText`)}{' '}
+                  <a
+                    href={`mailto:${t('joinUsPage.contactEmail')}`}
+                    className="text-primary transition-opacity hover:opacity-80"
+                  >
+                    {t('joinUsPage.contactEmail')}
+                  </a>
+                </p>
+                <p className="text-foreground/50 mt-1 font-sans text-[13px]">
+                  DTU · Copenhagen ·{' '}
+                  <a
+                    href={`https://${t('joinUsPage.contactWebsite')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary transition-opacity hover:opacity-80"
+                  >
+                    {t('joinUsPage.contactWebsite')}
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </main>

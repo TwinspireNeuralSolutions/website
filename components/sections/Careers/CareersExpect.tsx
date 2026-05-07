@@ -39,16 +39,19 @@ const ITEMS = [
 /**
  * JoinUsExpect — Six items listing what a team member can expect.
  */
-export function JoinUsExpect() {
+export function CareersExpect() {
   const { t } = useTranslation()
 
   return (
     <section className="bg-background border-border relative z-10 w-full border-t border-b">
       <div className="section-x section-inner mx-auto py-10 md:py-14">
         <AnimateIn variant="fadeUp">
-          <h2 className="text-foreground mb-12 text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-16 lg:text-[32px]">
-            {t('joinUsPage.expectTitle')}
-          </h2>
+          <div className="mb-12 text-center lg:mb-16">
+            <h2 className="text-primary mb-3 text-[18px] font-bold tracking-[0.08em] uppercase sm:text-[20px] lg:text-[22px]">
+              {t('joinUsPage.expectTitle')}
+            </h2>
+            <div className="bg-primary/30 mx-auto h-px w-12" />
+          </div>
         </AnimateIn>
 
         <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">

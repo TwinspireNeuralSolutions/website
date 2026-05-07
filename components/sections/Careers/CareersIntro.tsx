@@ -1,12 +1,12 @@
-﻿'use client'
+'use client'
 
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /**
- * JoinUsStatement â€” Large bold pull-quote shown immediately below the hero.
+ * JoinUsStatement — Large bold pull-quote shown immediately below the hero.
  */
-export function JoinUsIntro() {
+export function CareersIntro() {
   const { t } = useTranslation()
 
   return (

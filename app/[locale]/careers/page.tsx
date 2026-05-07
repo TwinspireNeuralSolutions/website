@@ -5,26 +5,22 @@ import { Navbar } from '@/components/ui/navbar'
 import { FooterSection } from '@/components/sections/Footer'
 import { PartnersSection } from '@/components/sections/Partners'
 import {
-  JoinUsHero,
-  JoinUsWhoWeAre,
-  JoinUsHowWeWork,
-  JoinUsExpect,
-  JoinUsLocation,
-  JoinUsTeam,
-  JoinUsRoles,
-} from '@/components/sections/JoinUs'
+  CareersHero,
+  CareersWhoWeAre,
+  CareersHowWeWork,
+  CareersRoles,
+} from '@/components/sections/Careers'
 
 /**
- * Join Us page — hero + 6 culture sections + searchable open roles.
+ * Careers page — hero + culture sections + open roles.
  */
-export default function JoinUsPage() {
+export default function CareersPage() {
   // Scroll to hash section on mount (e.g. arriving from /careers/:id back button)
   useEffect(() => {
     const hash = window.location.hash
     if (!hash) return
     const el = document.getElementById(hash.slice(1))
     if (el) {
-      // Small delay lets the page layout settle before scrolling
       const timer = setTimeout(
         () => el.scrollIntoView({ behavior: 'smooth' }),
         120
@@ -38,30 +34,20 @@ export default function JoinUsPage() {
       <Navbar />
       <main>
         {/* ── Hero ── */}
-        <JoinUsHero />
+        <CareersHero />
 
         {/* ── Partners ── */}
         <PartnersSection />
 
         {/* ── Who We Are ── */}
-        <JoinUsWhoWeAre />
+        <CareersWhoWeAre />
 
         {/* ── How We Work ── */}
-        <JoinUsHowWeWork />
-
-        {/* ── Our Team ── */}
-        <JoinUsTeam />
-
-        {/* ── What You Can Expect ── */}
-        <JoinUsExpect />
-
-        {/* ── Based in Copenhagen ── */}
-        <JoinUsLocation />
+        <CareersHowWeWork />
 
         {/* ── Open Roles ── */}
-        <JoinUsRoles />
+        <CareersRoles />
       </main>
-      <PartnersSection />
       <FooterSection />
     </>
   )

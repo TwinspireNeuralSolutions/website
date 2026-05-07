@@ -22,28 +22,33 @@ const CARDS = [
 ] as const
 
 /**
- * JoinUsHowWeWork — Three value cards describing how the team operates.
+ * CareersHowWeWork — Three value items describing how the team operates.
  */
-export function JoinUsHowWeWork() {
+export function CareersHowWeWork() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative z-10 w-full bg-[#f7f7f8]">
+    <section className="bg-background border-border relative z-10 w-full border-t border-b">
       <div className="section-x section-inner mx-auto py-16 md:py-24">
+        {/* Section label */}
         <AnimateIn variant="fadeUp">
-          <h2 className="text-foreground mb-12 text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-16 lg:text-[32px]">
-            {t('joinUsPage.howWeWorkTitle')}
-          </h2>
+          <div className="mb-12 lg:mb-16">
+            <h2 className="text-primary mb-3 text-[18px] font-bold tracking-[0.08em] uppercase sm:text-[20px] lg:text-[22px]">
+              {t('joinUsPage.howWeWorkTitle')}
+            </h2>
+            <div className="bg-primary/30 h-px w-12" />
+          </div>
         </AnimateIn>
 
-        <div className="grid gap-6 sm:grid-cols-3">
+        {/* Cards */}
+        <div className="grid gap-8 sm:grid-cols-3 sm:gap-10">
           {CARDS.map(({ titleKey, descKey, delay }) => (
             <AnimateIn key={titleKey} variant="fadeUp" delay={delay}>
-              <div className="flex h-full flex-col gap-5 rounded-2xl bg-white p-8 shadow-sm">
-                <h3 className="text-foreground text-[20px] leading-snug font-bold">
+              <div className="flex flex-col gap-4">
+                <h3 className="text-foreground text-[17px] leading-snug font-bold">
                   {t(titleKey)}
                 </h3>
-                <p className="text-muted-foreground text-[15px] leading-relaxed">
+                <p className="text-foreground/65 text-[15px] leading-[1.8]">
                   {t(descKey)}
                 </p>
               </div>
