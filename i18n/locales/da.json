@@ -201,16 +201,16 @@
     "headline1": "Fra populationsgennemsnit til individualiseret dynamik",
     "p1": "Twinspire udvikler en forskningsbaseret digital tvilling‑ramme, der modellerer hver atlet individuelt. Rammen integrerer longitudinelle multimodale data — ekstern belastning, styrke- og neuromuskulære tests, kliniske observationer og wearables‑målinger indsamlet både i og uden for træningsmiljøet — for at lære atlet‑specifikke reference‑mønstre og opdage meningsfulde afvigelser over tid. Ved at betragte atleten som et dynamisk system anvendes principper fra motorisk kontrol, adaptive systemer og personaliseret tidsserie‑læring. Metodikken bygger på forskning fra DTU og er patentansøgt. Parallelt bygger vi et struktureret, longitudinelt data‑lag, som kobler sessioner, tests, symptomer og kontekstuelle noter til en bærbar atlet‑historik; infrastrukturen bruges i forskningsfasen til at undersøge kontinuitet, fortolkbarhed og individualiseret beslutningsstøtte på tværs af performance og rehabilitering.",
     "card1": {
-      "title": "Digital twin framework",
-      "body": "Twinspire is developing a research-based digital twin framework for individualized athlete modeling. The system integrates longitudinal data from multiple sources, including training load, neuromuscular testing, clinician input, and wearable-derived physiological measures."
+      "title": "Digital tvilling-ramme",
+      "body": "Twinspire udvikler en forskningsbaseret digital tvilling-ramme til individualiseret atletmodellering. Systemet integrerer longitudinelle data fra flere kilder, herunder træningsbelastning, neuromuskulær testning, klinisk input og wearable-afledte fysiologiske målinger."
     },
     "card2": {
-      "title": "Approach",
-      "body": "The approach combines principles from computational motor control, adaptive nonlinear systems, system identification, longitudinal sequence modelling, and self supervised learning to identify individualized representations of how an athlete’s physiological and functional state changes over time."
+      "title": "Tilgang",
+      "body": "Tilgangen kombinerer principper fra beregningsorienteret motorisk kontrol, adaptive ikke-lineære systemer, systemidentifikation, longitudinel sekvensmodellering og selvsupervisioneret læring for at identificere individualiserede repræsentationer af, hvordan en atlets fysiologiske og funktionelle tilstand ændrer sig over tid."
     },
     "card3": {
-      "title": "Structured data layer",
-      "body": "In parallel, Twinspire is building a structured data layer that links sessions, tests, symptoms, and contextual information into a portable athlete history, supporting continuity and decision-making across performance and rehabilitation."
+      "title": "Struktureret datalag",
+      "body": "Parallelt bygger Twinspire et struktureret datalag, der kobler sessioner, tests, symptomer og kontekstuelle oplysninger til en portabel atlethistorik, som understøtter kontinuitet og beslutningstagning på tværs af præstation og rehabilitering."
     },
     "headline2": "Fra forskningsprototype til anvendt validering",
     "p2": "Vi har udviklet en forskningsprototype til individualiseret atletmodellering på mobil, tablet og browser, som integrerer heterogene præstations-, fysiologiske og neuromuskulære data med minimal ekstra indsats fra praktikere. Prototypen går nu ind i realverdensvalidering for at sikre, at rammeværket forbliver brugbart, robust og fortolkeligt i elite‑performance og rehabiliteringspraksis. Det aktuelle arbejde fokuserer på tre praktiske spørgsmål: Er arbejdsgangene operationelt brugbare for personalet? Lever indtastnings‑pipelinesne tilstrækkelig datakvalitet og kontinuitet? Understøtter de indsamlede signaler meningsfuld individualiseret modellering i praksis?",
@@ -320,7 +320,7 @@
     "description": "Twinspire udvikles med datastyring og forskningsetik som centrale designprincipper.",
     "card1Title": "Kerneprincipper",
     "card1": "Den nuværende fase er fokuseret på videnskabelig validering med opmærksomhed på lovlig behandling, sporbarhed, gennemsigtighed og ansvarlig håndtering af longitudinelle atletdata.",
-    "card2Title": "Governance & Compliance",
+    "card2Title": "Styring & Overholdelse",
     "card2": "Projektet er bygget op omkring GDPR-tilpassede datapraksisser, EU-baseret hosting og behandling, relevante databehandleraftaler og forskningsworkflows designet til at understøtte klar governance på tværs af klubber, behandlere og atleter. Hvor det er relevant, er forskningsdatastyring struktureret i overensstemmelse med FAIR-principperne.",
     "card3Title": "Forskningsansvarsfraskrivelse",
     "card3": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",

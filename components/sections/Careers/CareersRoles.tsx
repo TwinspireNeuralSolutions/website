@@ -69,15 +69,16 @@ export function CareersRoles() {
 
   return (
     <section id="open-roles" className="bg-background relative z-10 w-full">
-      <div className="section-x section-inner mx-auto pt-6 pb-16 md:pt-8 md:pb-24">
+      <div className="section-x section-inner mx-auto py-16 md:py-24">
         {/* Header */}
         <AnimateIn variant="fadeUp">
           <div className="mb-8">
-            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-              {t('joinUsPage.openRoles')}
+            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+              <span className="text-foreground font-bold">
+                {t('joinUsPage.openRoles')}
+              </span>
             </h2>
-            <div className="bg-primary mb-4 h-[3px] w-12 rounded-full" />
-            <p className="text-muted-foreground text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+            <p className="text-muted-foreground text-center text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.openRolesSubtitle')}
             </p>
           </div>
@@ -129,7 +130,7 @@ export function CareersRoles() {
         </AnimateIn>
 
         {/* Cards grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.length === 0 && (
             <p className="text-muted-foreground col-span-3 py-12 text-center text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.noResults')}

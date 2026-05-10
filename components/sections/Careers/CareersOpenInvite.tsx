@@ -15,7 +15,7 @@ export function CareersOpenInvite() {
 
   return (
     <section className="bg-background border-border relative z-10 w-full border-b">
-      <div className="section-x section-inner mx-auto py-16 md:py-24">
+      <div className="section-x section-inner mx-auto py-10 md:py-14">
         <AnimateIn variant="scaleUp">
           <div className="border-primary/15 bg-primary/[0.04] mx-auto max-w-2xl rounded-3xl border px-8 py-12 text-center sm:px-12">
             <div className="bg-primary/10 mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl">
@@ -34,10 +34,11 @@ export function CareersOpenInvite() {
                 />
               </svg>
             </div>
-            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-              {t('joinUsPage.openInviteTitle')}
+            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+              <span className="text-foreground font-bold">
+                {t('joinUsPage.openInviteTitle')}
+              </span>
             </h2>
-            <div className="bg-primary mx-auto mb-6 h-[3px] w-12 rounded-full" />
             <p className="text-foreground/70 mx-auto mb-8 max-w-lg text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.intro.p6')}
             </p>

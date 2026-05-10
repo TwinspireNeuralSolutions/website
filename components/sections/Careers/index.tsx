@@ -1,7 +1,7 @@
 export { CareersHero } from './CareersHero'
 export { CareersIntro } from './CareersIntro'
 export { CareersWhoWeAre } from './CareersWhoWeAre'
-export { CareersHowWeWork } from './CareersHowWeWork'
+export { CareersOurTeam } from './CareersOurTeam'
 export { CareersExpect } from './CareersExpect'
 export { CareersLocation } from './CareersLocation'
 export { CareersTeam } from './CareersTeam'

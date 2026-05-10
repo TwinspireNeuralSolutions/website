@@ -7,7 +7,7 @@ import { PartnersSection } from '@/components/sections/Partners'
 import {
   CareersHero,
   CareersWhoWeAre,
-  CareersHowWeWork,
+  CareersOurTeam,
   CareersRoles,
 } from '@/components/sections/Careers'
 
@@ -42,8 +42,12 @@ export default function CareersPage() {
         {/* ── Who We Are ── */}
         <CareersWhoWeAre />
 
-        {/* ── How We Work ── */}
-        <CareersHowWeWork />
+        <div className="border-border mx-6 border-t lg:mx-12" aria-hidden="true" />
+
+        {/* ── Our Team ── */}
+        <CareersOurTeam />
+
+        <div className="border-border mx-6 border-t lg:mx-12" aria-hidden="true" />
 
         {/* ── Open Roles ── */}
         <CareersRoles />

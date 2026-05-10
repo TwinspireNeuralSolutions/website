@@ -4,80 +4,57 @@ import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 /**
- * CareersWhoWeAre — "The Problem We're Solving" + "Our Team" sections.
+ * CareersWhoWeAre — "The Problem We're Solving" section.
  */
 export function CareersWhoWeAre() {
   const { t } = useTranslation()
 
+  const title = t('joinUsPage.whoWeAreTitle')
+  // Highlight "We're" in primary
+  const titleParts = title.split(/(We're)/i)
+
   return (
     <section className="bg-background relative z-10 w-full">
-      <div className="section-x section-inner mx-auto pt-16 pb-0 md:pt-24">
-        {/* ── Problem ── */}
+      <div className="section-x section-inner mx-auto py-16 md:py-24">
+
+        {/* Headline */}
         <AnimateIn variant="fadeUp">
-          <div className="mb-16 md:mb-20">
-            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-              {t('joinUsPage.whoWeAreTitle')}
-            </h2>
-            <div className="bg-primary mb-8 h-[3px] w-12 rounded-full" />
-
-            {/* Lead — the hook */}
-            <p className="text-foreground mb-5 text-[17px] leading-[1.7] font-semibold sm:text-[19px]">
-              {t('joinUsPage.problemLead')}
-            </p>
-
-            {/* Body paragraphs */}
-            <div className="space-y-3">
-              <p className="text-foreground/70 text-justify text-[14px] leading-[1.8] font-normal [hyphens:auto] sm:text-[15px]">
-                {t('joinUsPage.problemPara1')}
-              </p>
-              <p className="text-foreground/70 text-justify text-[14px] leading-[1.8] font-normal [hyphens:auto] sm:text-[15px]">
-                {t('joinUsPage.problemPara2')}
-              </p>
-            </div>
-          </div>
+          <h2 className="mb-12 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-16 lg:text-[32px]">
+            {titleParts.map((part, i) =>
+              /^we're$/i.test(part) ? (
+                <span key={i} className="text-primary font-bold">{part}</span>
+              ) : (
+                <span key={i} className="text-foreground font-bold">{part}</span>
+              )
+            )}
+          </h2>
         </AnimateIn>
 
-        {/* Section separator */}
-        <div className="border-border border-t" />
+        {/* Two-column: stat left, text right */}
+        <div className="grid items-start gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
 
-        {/* ── Our Team ── */}
-        <AnimateIn variant="fadeUp" delay={0.1}>
-          <div className="pt-16 md:pt-20">
-            {/* Question headline */}
-            <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-              {t('joinUsPage.ourTeamTitle')}
-            </h2>
-            <div className="bg-primary mb-6 h-[3px] w-12 rounded-full" />
-
-            {/* Lead paragraph */}
-            <p className="text-foreground mb-5 text-[17px] leading-[1.7] font-semibold sm:text-[18px]">
-              {t('joinUsPage.ourTeamBody1')}
-            </p>
-
-            {/* Detail paragraphs — 2-col on large */}
-            <div className="grid gap-10 lg:grid-cols-2">
-              <div className="py-2">
-                <p className="text-foreground/70 text-justify text-[14px] leading-[1.8] font-normal [hyphens:auto] sm:text-[15px]">
-                  {t('joinUsPage.ourTeamBody2')}
-                </p>
-              </div>
-              <div className="py-2">
-                <p className="text-foreground/70 text-justify text-[14px] leading-[1.8] font-normal [hyphens:auto] sm:text-[15px]">
-                  {t('joinUsPage.ourTeamBody3')}
-                </p>
-              </div>
+          {/* Left — "1 in 5" stat */}
+          <AnimateIn variant="slideLeft">
+            <div className="flex flex-col items-center lg:items-start">
+              <span className="text-primary text-[80px] leading-none font-bold tracking-tight sm:text-[96px]">
+                1 in 5
+              </span>
+              <p className="text-foreground/70 mt-2 max-w-[220px] text-center text-[16px] leading-[1.4] font-normal tracking-tight uppercase sm:text-[18px] lg:text-left">
+                Footballers tears the same muscle twice.
+              </p>
             </div>
+          </AnimateIn>
 
-            {/* Pull quote */}
-            <AnimateIn variant="fadeUp" delay={0.15}>
-              <div className="bg-primary/5 border-primary/15 mt-10 rounded-xl border p-8 text-center">
-                <p className="text-primary text-[14px] leading-[1.8] font-normal italic sm:text-[15px]">
-                  &ldquo;{t('joinUsPage.ourTeamQuote')}&rdquo;
-                </p>
-              </div>
-            </AnimateIn>
-          </div>
-        </AnimateIn>
+          {/* Right — text */}
+          <AnimateIn variant="slideRight">
+            <p className="text-foreground/80 px-4 text-justify text-[15px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:px-0 sm:text-[16px]">
+              {t('joinUsPage.problemLead')}{' '}
+              {t('joinUsPage.problemPara1')}{' '}
+              {t('joinUsPage.problemPara2')}
+            </p>
+          </AnimateIn>
+
+        </div>
       </div>
     </section>
   )

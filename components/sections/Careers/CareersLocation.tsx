@@ -13,15 +13,16 @@ export function CareersLocation() {
 
   return (
     <section className="bg-background relative z-10 w-full">
-      <div className="section-x section-inner mx-auto pt-20 pb-16 md:pt-28 md:pb-24">
+      <div className="section-x section-inner mx-auto py-10 md:py-14">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Text */}
           <AnimateIn variant="slideLeft">
             <div className="flex flex-col gap-6">
-              <h2 className="mb-3 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-                {t('joinUsPage.locationTitle')}
+              <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+                <span className="text-foreground font-bold">
+                  {t('joinUsPage.locationTitle')}
+                </span>
               </h2>
-              <div className="bg-primary mb-2 h-[3px] w-12 rounded-full" />
 
               <div className="flex flex-col gap-4">
                 <p className="text-foreground/70 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
