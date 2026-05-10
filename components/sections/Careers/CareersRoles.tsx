@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { AnimateIn } from '@/components/ui/animate-in'
+import { Button } from '@/components/ui/button'
 import { ReachOutModal } from '@/components/ui/reach-out-modal'
 import { useTranslation } from '@/i18n'
 import { ArrowRight, Search } from 'lucide-react'
@@ -181,17 +182,21 @@ export function CareersRoles() {
       <AnimateIn variant="fadeUp">
         <div className="bg-footer-bg w-full px-6 py-16 text-center">
           <p className="text-foreground mb-2 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
-            {t('joinUsPage.noOpeningLine1')}
+            <span className="text-foreground">{"Don't see an "}</span>
+            <span className="text-primary">{'opening'}</span>
+            <span className="text-foreground">{' that '}</span>
+            <span className="text-primary">{'fits you?'}</span>
           </p>
           <p className="text-muted-foreground mb-8 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
             {t('joinUsPage.noOpeningLine2')}
           </p>
-          <button
+          <Button
+            variant="primary"
+            showIcon
             onClick={() => setReachOutOpen(true)}
-            className="bg-primary inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-80"
           >
             {t('joinUsPage.noOpeningCta')}
-          </button>
+          </Button>
         </div>
       </AnimateIn>
 
