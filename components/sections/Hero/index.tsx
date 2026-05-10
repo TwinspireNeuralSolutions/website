@@ -44,7 +44,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="sticky top-0 z-0 h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
+    <section className="bg-primary sticky top-0 z-0 h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
       {/* ── Layer 1: Background image ── */}
       <Image
         src="/hero/image.png"
@@ -57,13 +57,13 @@ export function HeroSection() {
       />
 
       {/* ── Layer 2: Primary blue wash ── */}
-      <div className="bg-primary/55 absolute inset-0 z-[1]" />
+      <div className="bg-primary/75 absolute inset-0 z-[1]" />
 
       {/* ── Layer 3: Ambient video texture ── */}
       <BackgroundVideo src="/hero-video.mp4" opacity={0.25} className="z-[2]" />
 
       {/* ── Layer 4: Bottom vignette ── */}
-      <div className="from-primary/45 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
+      <div className="from-primary/55 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
 
       {/* ── Layer 5: UI content — parallax drift on scroll ── */}
       <div

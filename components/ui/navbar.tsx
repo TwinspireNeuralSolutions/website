@@ -101,7 +101,7 @@ export function Navbar() {
             </Link>
 
             {/* Desktop links */}
-            <ul className="hidden items-center gap-6 lg:flex">
+            <ul className="hidden items-center gap-0.5 lg:flex">
               {NAV_LINKS.map(({ key, id }) => (
                 <li key={key}>
                   <button
@@ -112,17 +112,13 @@ export function Navbar() {
                         ?.scrollIntoView({ behavior: 'smooth' })
                     }
                     className={cn(
-                      'group relative py-1 text-sm font-medium transition-colors duration-200',
-                      glass ? 'text-foreground' : 'text-white'
+                      'rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors duration-200',
+                      glass
+                        ? 'text-foreground hover:bg-foreground/[0.06]'
+                        : 'text-white hover:bg-white/[0.12]'
                     )}
                   >
                     {t(key)}
-                    <span
-                      className={cn(
-                        'absolute -bottom-0.5 left-0 right-0 h-px scale-x-0 transition-transform duration-200 group-hover:scale-x-100',
-                        glass ? 'bg-foreground' : 'bg-white'
-                      )}
-                    />
                   </button>
                 </li>
               ))}
@@ -131,7 +127,7 @@ export function Navbar() {
             <div className="flex-1" />
 
             {/* Desktop: lang selector + CTA */}
-            <div className="hidden items-center gap-2 lg:flex">
+            <div className="hidden items-center gap-1.5 lg:flex">
               <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
               <Link href={`/${locale}/admin`}>
                 <Button variant="primary" size="sm" showIcon>
@@ -200,7 +196,7 @@ export function Navbar() {
                           .getElementById(id)
                           ?.scrollIntoView({ behavior: 'smooth' })
                       }}
-                      className="flex w-full items-center justify-between border-b border-foreground/10 py-4 text-sm font-medium text-foreground transition-colors duration-150 hover:text-foreground/60"
+                      className="border-foreground/10 text-foreground hover:text-foreground/60 flex w-full items-center justify-between border-b py-4 text-sm font-medium transition-colors duration-150"
                     >
                       {t(key)}
                       <span className="text-foreground/40">›</span>
