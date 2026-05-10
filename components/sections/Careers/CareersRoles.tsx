@@ -74,9 +74,8 @@ export function CareersRoles() {
         <AnimateIn variant="fadeUp">
           <div className="mb-8">
             <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
-              <span className="text-foreground font-bold">
-                {t('joinUsPage.openRoles')}
-              </span>
+              <span className="text-foreground font-bold">Open </span>
+              <span className="text-primary font-bold">Positions</span>
             </h2>
             <p className="text-muted-foreground text-center text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.openRolesSubtitle')}
@@ -109,9 +108,9 @@ export function CareersRoles() {
                 setActiveFilter(e.target.value as FilterCategory)
               }
               aria-label={t('joinUsPage.filterDepartmentLabel')}
-              className="border-border focus:border-primary text-foreground cursor-pointer rounded-xl border-2 bg-white px-4 py-2.5 text-[14px] font-medium transition-colors outline-none sm:w-56"
+              className={`border-border focus:border-primary cursor-pointer rounded-lg border bg-white px-4 py-2.5 text-[14px] font-normal transition-colors outline-none sm:w-56 ${activeFilter === 'All' ? 'text-muted-foreground' : 'text-foreground'}`}
             >
-              <option value="All">{t('joinUsPage.allDepartments')}</option>
+              <option value="All">All Categories</option>
               <option value="Engineering">
                 {t('joinUsPage.filterEngineering')}
               </option>
@@ -130,7 +129,7 @@ export function CareersRoles() {
         </AnimateIn>
 
         {/* Cards grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.length === 0 && (
             <p className="text-muted-foreground col-span-3 py-12 text-center text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.noResults')}

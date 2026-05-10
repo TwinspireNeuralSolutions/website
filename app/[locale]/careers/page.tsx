@@ -42,12 +42,18 @@ export default function CareersPage() {
         {/* ── Who We Are ── */}
         <CareersWhoWeAre />
 
-        <div className="border-border mx-6 border-t lg:mx-12" aria-hidden="true" />
+        <div
+          className="border-border mx-6 border-t lg:mx-12"
+          aria-hidden="true"
+        />
 
         {/* ── Our Team ── */}
         <CareersOurTeam />
 
-        <div className="border-border mx-6 border-t lg:mx-12" aria-hidden="true" />
+        <div
+          className="border-border mx-6 border-t lg:mx-12"
+          aria-hidden="true"
+        />
 
         {/* ── Open Roles ── */}
         <CareersRoles />
