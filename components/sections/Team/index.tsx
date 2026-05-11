@@ -38,19 +38,8 @@ export function TeamSection() {
           </h2>
         </AnimateIn>
 
-        {/* Subtitle */}
-        <AnimateIn variant="fadeUp">
-          <Typography
-            variant="subtitle"
-            as="p"
-            textColor="muted"
-            className="mx-auto mb-10 max-w-[720px] text-center lg:mb-14"
-          >
-            {t('team.subtitle')}
-          </Typography>
-        </AnimateIn>
-
         {/* ── All team members (founders + research) ─────────────────────── */}
+        <div className="mb-16 lg:mb-20" />
         <StaggerContainer
           className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
           stagger={0.07}
