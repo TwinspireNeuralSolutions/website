@@ -1380,7 +1380,10 @@ export function ScienceDataTrustSection() {
           </div>
         </AnimateIn>
         {/* ── Bottom divider ── */}
-        <div className="border-border mt-10 border-t md:mt-14" aria-hidden="true" />
+        <div
+          className="border-border mt-10 border-t md:mt-14"
+          aria-hidden="true"
+        />
       </div>
     </section>
   )
