@@ -1332,7 +1332,7 @@ export function ScienceDataTrustSection() {
       aria-label="Science and data trust"
       className="bg-background relative z-10 w-full"
     >
-      <div className="section-x section-y section-inner mx-auto flex flex-col">
+      <div className="section-x section-y section-inner mx-auto flex flex-col pb-0">
         <div className="border-border mb-6 border-t" aria-hidden="true" />
         {/* ── Section header ── */}
         <div className="mt-6 flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
@@ -1379,6 +1379,8 @@ export function ScienceDataTrustSection() {
             </ol>
           </div>
         </AnimateIn>
+        {/* ── Bottom divider ── */}
+        <div className="border-border mt-10 border-t md:mt-14" aria-hidden="true" />
       </div>
     </section>
   )
