@@ -102,35 +102,31 @@ export function ContactSection() {
       className="bg-footer-bg relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto overflow-hidden">
-        <AnimateIn variant="scaleUp" duration={0.6}>
-          <div className="mx-auto w-full max-w-[1080px]">
-            <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
+        <div className="mx-auto w-full max-w-[1080px]">
 
-              {/* Left: Title + description + contact info */}
-              <AnimateIn
-                variant="slideLeft"
-                delay={0.2}
-                duration={0.6}
-                className="order-1 flex flex-1 flex-col lg:order-1"
-              >
+          {/* ── Two-column: contact info left, form right ── */}
+          <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
+
+            {/* Left: Title + subtitle + contact info */}
+            <AnimateIn
+              variant="slideLeft"
+              delay={0.2}
+              duration={0.6}
+              className="order-1 flex flex-1 flex-col lg:order-1"
+            >
                 <h2
                   id="contact-heading"
-                  className="mb-3 text-[22px] leading-[1.2] tracking-wide uppercase sm:mb-5 sm:text-[26px] lg:mb-6 lg:text-[32px]"
+                  className="mb-4 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-5 lg:text-[32px]"
                 >
-                  <span className="text-foreground font-bold">
-                    {t('contact.title')}
-                  </span>
-                  <br />
-                  <span className="text-primary font-bold">
-                    {t('contact.titleAccent')}
-                  </span>
+                  <span className="text-foreground">{t('contact.title')}</span>{' '}
+                  <span className="text-primary">{t('contact.titleAccent')}</span>
                 </h2>
 
-                <p className="text-foreground/70 mb-4 max-w-md text-[14px] leading-[1.8] sm:mb-6 sm:text-[15px]">
+                <p className="text-foreground/70 mb-8 text-[14px] leading-[1.8] sm:text-[15px]">
                   {t('contact.subtitle')}
                 </p>
 
-                <div className="mt-auto flex flex-col gap-1">
+                <div className="flex flex-col gap-1">
                   {/* Email */}
                   <div className="hover:bg-foreground/5 flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200">
                     <div className="bg-primary flex h-7 w-7 items-center justify-center rounded-full">
@@ -234,8 +230,39 @@ export function ContactSection() {
                       Twinspire Neural Solutions
                     </span>
                   </a>
+
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/twinspire.ai/tagged/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:bg-foreground/5 flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200"
+                    aria-label="Twinspire on Instagram"
+                  >
+                    <div className="bg-primary flex h-7 w-7 items-center justify-center rounded-full">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-background shrink-0"
+                        aria-hidden="true"
+                      >
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                    </div>
+                    <span className="text-foreground/60 hover:text-foreground text-[15px] font-medium transition-colors duration-200">
+                      twinspire
+                    </span>
+                  </a>
                 </div>
-              </AnimateIn>
+            </AnimateIn>
 
               {/* Right: Form */}
               <div className="order-2 w-full lg:order-2 lg:w-[420px] lg:shrink-0">
@@ -356,9 +383,9 @@ export function ContactSection() {
                           rows={3}
                           className={
                             'border-border/30 bg-background min-h-[80px] resize-none rounded-xl border px-4 py-2.5 text-[14px] ' +
-                            'placeholder:text-foreground/30 placeholder:text-[14px] transition-all duration-200 ' +
-                            'hover:border-border/60 ' +
-                            'focus-visible:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary/15 focus-visible:ring-offset-0'
+                            'placeholder:text-foreground/30 transition-all duration-200 placeholder:text-[14px]' +
+                            'hover:border-border/60' +
+                            'focus-visible:border-primary/50 focus-visible:ring-primary/15 focus-visible:ring-2 focus-visible:ring-offset-0'
                           }
                         />
 
@@ -388,10 +415,8 @@ export function ContactSection() {
                   )}
                 </div>
               </div>
-
             </div>
           </div>
-        </AnimateIn>
       </div>
     </section>
   )
