@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      'Twinspire — AI Decision Support for Football Rehab & Return to Play | DTU Research | Europe',
+      'Twinspire AI Decision Support for Football Rehab & Return to Play | DTU Research | Europe',
     template: '%s | Twinspire',
   },
   description:
-    'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions. Built with DTU Health Tech. GDPR compliant. EU data. Join the founding pilot cohort.',
+    'Twinspire builds a personalised neuromuscular model for every footballer — unifying fragmented club and athlete data to help physios reduce days lost, lower reinjury rates, and make confident return-to-play decisions.',
   keywords: [
     'football injury prevention',
     'return to play AI',
@@ -58,22 +58,22 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'Twinspire',
     title:
-      'Twinspire — AI Decision Support for Football Rehab & Return to Play',
+      'Twinspire AI Decision Support for Football Rehab & Return to Play',
     description:
-      'One in five footballers tears the same muscle twice. Twinspire builds a personalised neuromuscular model for every footballer so physios can see the earliest signals of overload before they become reinjuries. Built with DTU Health Tech. GDPR compliant.',
+      'One in five footballers tears the same muscle twice. Twinspire builds a personalised neuromuscular model for every footballer so physios can see the earliest signals of overload before they become reinjuries.',
     images: [
       {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Twinspire — AI Return-to-Play Platform for Football',
+        alt: 'Twinspire AI Return-to-Play Platform for Football',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title:
-      'Twinspire — AI Decision Support for Football Rehab & Return to Play',
+      'Twinspire AI Decision Support for Football Rehab & Return to Play',
     description:
       'One in five footballers tears the same muscle twice. Twinspire connects the full picture and explains what is changing — before it becomes a setback.',
     images: [`${SITE_URL}/og-image.png`],

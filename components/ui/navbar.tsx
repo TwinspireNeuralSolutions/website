@@ -92,27 +92,27 @@ export function Navbar() {
       >
         <nav
           aria-label="Main navigation"
-          className="px-5 py-3.5 sm:px-10 sm:py-4 md:px-14 lg:px-20"
+          className="px-4 py-3 sm:px-6 sm:py-3.5 md:px-8 lg:px-10"
         >
-          <div className="section-inner mx-auto flex items-center gap-2">
-            {/* Logo — single dark asset, CSS filter inverts to white on the hero */}
+          <div className="flex items-center gap-2">
+            {/* Logo — full lockup on all devices, shrinks safely on mobile */}
             <Link
               href={`/${locale}`}
               aria-label="Twinspire — go to home"
-              className="relative mr-2 h-7 w-[120px] shrink-0 sm:h-8 sm:w-[132px]"
+              className="relative mr-2 flex shrink-0 items-center"
             >
-              <Image
-                src="/logo-text/logo-black.png"
-                alt="Twinspire"
-                fill
-                priority
-                className="object-contain object-left transition-[filter] duration-300"
-                style={{
-                  filter: glass
-                    ? 'brightness(1) invert(0)'
-                    : 'brightness(0) invert(1)',
-                }}
-              />
+              <div className="relative h-8 w-[170px] shrink sm:h-10 sm:w-[253px] sm:shrink-0 lg:h-14 lg:w-[355px]">
+                <Image
+                  src="/logo/twinspire-lockup-reversed - Edited.png"
+                  alt="Twinspire"
+                  fill
+                  priority
+                  quality={100}
+                  sizes="(max-width: 640px) 170px, (max-width: 1024px) 253px, 355px"
+                  className="object-contain object-left transition-[filter] duration-300"
+                  style={{ filter: glass ? 'invert(1)' : 'none' }}
+                />
+              </div>
             </Link>
 
             {/* Desktop links */}
@@ -168,7 +168,7 @@ export function Navbar() {
             <div className="flex-1" />
 
             {/* Desktop: lang selector + CTA */}
-            <div className="hidden items-center gap-2 lg:flex">
+            <div className="hidden items-center gap-1.5 lg:flex">
               <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
               <Link href={`/${locale}/admin`}>
                 <Button variant="primary" size="sm" showIcon>
