@@ -120,7 +120,7 @@ export function HeroSection() {
 
   return (
     <section className="relative h-svh min-h-[600px] w-full overflow-hidden">
-      {/* â”€â”€ Background image â€” anchored right â”€â”€ */}
+      {/* ── Background image — anchored right ── */}
       <Image
         src="/hero/image.png"
         alt="Football player kicking ball in stadium"
@@ -131,7 +131,7 @@ export function HeroSection() {
         quality={90}
       />
 
-      {/* â”€â”€ Directional overlay: opaque left â†’ transparent right â”€â”€ */}
+      {/* ── Directional overlay: opaque left → transparent right ── */}
       <div
         className="from-primary via-primary/85 to-primary/20 absolute inset-0 z-[1] bg-gradient-to-r"
         aria-hidden="true"
