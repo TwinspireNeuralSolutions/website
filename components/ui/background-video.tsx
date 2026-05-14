@@ -25,21 +25,9 @@ export function BackgroundVideo({
     const video = videoRef.current
     if (!video) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {
-            // Autoplay blocked — silently fail
-          })
-        } else {
-          video.pause()
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    observer.observe(video)
-    return () => observer.disconnect()
+    video.play().catch(() => {
+      // Autoplay blocked — silently fail
+    })
   }, [])
 
   return (

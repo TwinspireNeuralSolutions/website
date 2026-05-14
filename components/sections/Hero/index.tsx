@@ -1,134 +1,209 @@
-'use client'
+﻿'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
-import { Typography } from '@/components/ui/typography'
 import { useTranslation } from '@/i18n'
 
 /**
- * HeroSection — Full-viewport sticky hero with parallax text.
- *
- * The section is sticky (z-0). As the user scrolls, sections below
- * rise up and cover the hero from the bottom. The text content
- * drifts upward at ~35% of scroll speed — so it's the last thing
- * to disappear, staying readable for longer.
+ * HeroSection â€” Full-viewport professional hero.
+ * Left-anchored content, background image revealed on the right,
+ * directional gradient, headline, data pills, CTA, and stats strip.
  */
 export function HeroSection() {
   const { t } = useTranslation()
-  const dataTypes = t('hero.dataTypes')
-    .split('.')
-    .map((s) => s.trim())
-    .filter(Boolean)
-  const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    let raf: number
-    const onScroll = () => {
-      raf = requestAnimationFrame(() => {
-        if (!contentRef.current) return
-        const y = window.scrollY
-        contentRef.current.style.transform = `translateY(${-y * 0.35}px)`
-        contentRef.current.style.opacity = String(
-          Math.max(0, 1 - y / (window.innerHeight * 0.85))
-        )
-      })
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(raf)
-    }
-  }, [])
+  const dataPills = [
+    {
+      label: t('hero.pill.gps'),
+      icon: (
+        <svg
+          className="h-3.5 w-3.5 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t('hero.pill.strength'),
+      icon: (
+        <svg
+          className="h-3.5 w-3.5 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t('hero.pill.physio'),
+      icon: (
+        <svg
+          className="h-3.5 w-3.5 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t('hero.pill.biomech'),
+      icon: (
+        <svg
+          className="h-3.5 w-3.5 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t('hero.pill.neuro'),
+      icon: (
+        <svg
+          className="h-3.5 w-3.5 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+          />
+        </svg>
+      ),
+    },
+  ]
 
   return (
-    <section className="bg-primary sticky top-0 z-0 h-svh min-h-[500px] w-full overflow-hidden sm:min-h-[600px]">
-      {/* ── Layer 1: Background image ── */}
+    <section className="relative h-svh min-h-[600px] w-full overflow-hidden">
+      {/* ── Background image — anchored right ── */}
       <Image
         src="/hero/image.png"
         alt="Football player kicking ball in stadium"
         fill
         sizes="100vw"
-        className="absolute inset-0 object-cover object-[50%_30%] md:object-[55%_10%]"
+        className="absolute inset-0 object-cover object-center"
         priority
         quality={90}
       />
 
-      {/* ── Layer 2: Primary blue wash ── */}
-      <div className="bg-primary/75 absolute inset-0 z-[1]" />
-
-      {/* ── Layer 3: Ambient video texture ── */}
-      <BackgroundVideo src="/hero-video.mp4" opacity={0.25} className="z-[2]" />
-
-      {/* ── Layer 4: Bottom vignette ── */}
-      <div className="from-primary/55 absolute inset-0 z-[3] bg-gradient-to-t via-transparent to-transparent" />
-
-      {/* ── Layer 5: UI content — parallax drift on scroll ── */}
+      {/* ── Directional overlay: opaque left → transparent right ── */}
       <div
-        ref={contentRef}
-        className="absolute inset-0 z-10 flex items-center justify-center px-4 py-6 will-change-transform sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
-      >
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2 text-center sm:gap-2 md:gap-2 lg:gap-3">
-          {/* ── Headline ── */}
-          <AnimateIn variant="fadeUp" immediate>
-            <h1 className="text-center text-[18px] leading-[1.15] font-extrabold tracking-wide break-words whitespace-normal text-white/90 uppercase sm:text-[22px] md:text-[28px] md:whitespace-nowrap lg:text-[36px] xl:text-[40px]">
-              {t('hero.headlineLine1Start')}
-              <span className="text-white">
-                {t('hero.headlineLine1Highlight')}
-              </span>
-              <br />
-              {t('hero.headlineLine2Start')}
-              <span className="text-white">
-                {t('hero.headlineLine2Highlight')}
-              </span>
-            </h1>
-          </AnimateIn>
+        className="from-primary via-primary/85 to-primary/20 absolute inset-0 z-[1] bg-gradient-to-r"
+        aria-hidden="true"
+      />
 
-          {/* (Deduplicated) */}
-          {/* ── Data tags + Value proposition (single paragraph) ── */}
-          <AnimateIn variant="fadeUp" delay={0.15} immediate>
-            <Typography
-              variant="paragraph"
-              textColor="white"
-              className="mx-auto mt-2 mb-2 max-w-[720px] text-center md:max-w-none"
-              as="div"
-            >
-              <span className="flex flex-wrap justify-center gap-3 text-[12px] tracking-wider text-[#C0BEC7] uppercase md:flex-nowrap">
-                {dataTypes.map((d, i) => (
-                  <span key={i} className="font-semibold whitespace-nowrap">
-                    {d}
-                    {i < dataTypes.length - 1 ? '.' : ''}
-                  </span>
+      {/* â”€â”€ Subtle bottom vignette â”€â”€ */}
+      <div
+        className="absolute inset-0 z-[2] bg-gradient-to-t from-black/40 via-transparent to-transparent"
+        aria-hidden="true"
+      />
+
+      {/* â”€â”€ Ambient video texture â”€â”€ */}
+      <BackgroundVideo src="/hero-video.mp4" opacity={0.12} className="z-[3]" />
+
+      {/* Content */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div className="mx-auto w-full max-w-5xl px-6 pt-20 pb-10 sm:px-10 lg:px-16">
+          <div className="flex flex-col items-center gap-6 text-center">
+            {/* Headline */}
+            <AnimateIn variant="fadeUp" delay={0.05} immediate>
+              <h1 className="text-[26px] leading-[1.15] font-extrabold tracking-tight text-white uppercase sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[50px]">
+                <span className="block">
+                  {t('hero.headlineLine1Start')}
+                  {t('hero.headlineLine1Highlight')}
+                </span>
+                <span className="block">
+                  {t('hero.headlineLine2Start')}
+                  {t('hero.headlineLine2Highlight')}
+                </span>
+              </h1>
+            </AnimateIn>
+
+            {/* Data pills */}
+            <AnimateIn variant="fadeUp" delay={0.1} immediate>
+              <div className="flex flex-wrap justify-center gap-2">
+                {dataPills.map((pill, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/8 px-3 py-1.5 text-white/80 backdrop-blur-sm"
+                  >
+                    {pill.icon}
+                    <span className="text-xs font-medium">{pill.label}</span>
+                  </div>
                 ))}
-              </span>
+              </div>
+            </AnimateIn>
 
-              <span className="mt-3 block text-[14px] leading-[1.6] text-white/90">
-                {t('hero.valueProp')}
-              </span>
+            {/* Value proposition + credibility */}
+            <AnimateIn variant="fadeUp" delay={0.15} immediate>
+              <p className="max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+                {t('hero.valueProp')} {t('hero.credibility')}
+              </p>
+            </AnimateIn>
 
-              <span className="mt-2 block pt-1 text-[13px] leading-[1.4] font-semibold text-[#C0BEC7] lowercase">
-                {t('hero.credibility')}
-              </span>
-            </Typography>
-          </AnimateIn>
-
-          {/* ── CTA ── */}
-          <AnimateIn variant="fadeUp" delay={0.4} immediate>
-            <Button
-              variant="white"
-              size="lg"
-              showIcon
-              onClick={() =>
-                document
-                  .getElementById('contact')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              {t('hero.cta')}
-            </Button>
-          </AnimateIn>
+            {/* CTA */}
+            <AnimateIn variant="fadeUp" delay={0.2} immediate>
+              <div>
+                <Button
+                  variant="white"
+                  size="lg"
+                  showIcon
+                  onClick={() =>
+                    document
+                      .getElementById('contact')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                >
+                  {t('hero.cta')}
+                </Button>
+              </div>
+            </AnimateIn>
+          </div>
         </div>
       </div>
     </section>
