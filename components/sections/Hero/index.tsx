@@ -146,27 +146,31 @@ export function HeroSection() {
       {/* â”€â”€ Ambient video texture â”€â”€ */}
       <BackgroundVideo src="/hero-video.mp4" opacity={0.12} className="z-[3]" />
 
-      {/* â”€â”€ Content â”€â”€ */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-        <div className="mx-auto w-full max-w-4xl px-6 pt-20 pb-10 sm:px-10 lg:px-16">
-          <div className="flex flex-col items-center text-center">
+      {/* Content */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div className="mx-auto w-full max-w-5xl px-6 pt-20 pb-10 sm:px-10 lg:px-16">
+          <div className="flex flex-col items-center gap-6 text-center">
             {/* Headline */}
-            <AnimateIn variant="fadeUp" immediate>
-              <h1 className="text-[22px] leading-[1.2] font-extrabold tracking-tight text-white uppercase sm:text-[28px] md:text-[34px] lg:text-[40px] xl:text-[46px]">
-                {t('hero.headlineLine1Start')}
-                {t('hero.headlineLine1Highlight')}{' '}
-                {t('hero.headlineLine2Start')}
-                {t('hero.headlineLine2Highlight')}
+            <AnimateIn variant="fadeUp" delay={0.05} immediate>
+              <h1 className="text-[26px] leading-[1.15] font-extrabold tracking-tight text-white uppercase sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[50px]">
+                <span className="block">
+                  {t('hero.headlineLine1Start')}
+                  {t('hero.headlineLine1Highlight')}
+                </span>
+                <span className="block">
+                  {t('hero.headlineLine2Start')}
+                  {t('hero.headlineLine2Highlight')}
+                </span>
               </h1>
             </AnimateIn>
 
             {/* Data pills */}
             <AnimateIn variant="fadeUp" delay={0.1} immediate>
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {dataPills.map((pill, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/8 px-3 py-1.5 text-white/85 backdrop-blur-sm transition-all duration-200 hover:border-white/40 hover:bg-white/15"
+                    className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/8 px-3 py-1.5 text-white/80 backdrop-blur-sm"
                   >
                     {pill.icon}
                     <span className="text-xs font-medium">{pill.label}</span>
@@ -176,15 +180,15 @@ export function HeroSection() {
             </AnimateIn>
 
             {/* Value proposition + credibility */}
-            <AnimateIn variant="fadeUp" delay={0.2} immediate>
-              <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-white/65 sm:text-base lg:text-[17px]">
+            <AnimateIn variant="fadeUp" delay={0.15} immediate>
+              <p className="max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
                 {t('hero.valueProp')} {t('hero.credibility')}
               </p>
             </AnimateIn>
 
             {/* CTA */}
-            <AnimateIn variant="fadeUp" delay={0.3} immediate>
-              <div className="mt-8">
+            <AnimateIn variant="fadeUp" delay={0.2} immediate>
+              <div>
                 <Button
                   variant="white"
                   size="lg"
