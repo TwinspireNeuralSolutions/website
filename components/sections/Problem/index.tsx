@@ -69,16 +69,19 @@ export function ProblemSection() {
           </h2>
         </AnimateIn>
 
-        {/* Cards — three equal columns */}
+        {/* Cards — 1 left, 2 right, 3 left */}
         <div className="mx-auto my-10 mt-14 max-w-7xl">
           <StaggerContainer
-            className="grid grid-cols-1 gap-10 sm:grid-cols-3"
+            className="flex flex-col gap-10"
             stagger={0.15}
             delayChildren={0.05}
           >
             {items.map((item) => (
-              <StaggerItem key={item.key} className="flex flex-col">
-                <div className="flex flex-col gap-4 border-l border-[#1433C8]/40 pt-1 pl-3">
+              <StaggerItem
+                key={item.key}
+                className={item.side === 'right' ? 'flex justify-end' : 'flex justify-start'}
+              >
+                <div className={`flex flex-col gap-4 border-l border-[#1433C8]/40 pt-1 pl-3 w-full sm:w-1/2`}>
                   <span className="text-primary text-[10px] font-semibold tracking-[0.25em] uppercase opacity-50">
                     {item.number}
                   </span>
