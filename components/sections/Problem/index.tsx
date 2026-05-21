@@ -1,7 +1,11 @@
 'use client'
 
 import { Typography } from '@/components/ui/typography'
-import { AnimateIn } from '@/components/ui/animate-in'
+import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
 
 export function ProblemSection() {
@@ -46,7 +50,7 @@ export function ProblemSection() {
       className="bg-background relative z-10 w-full"
     >
       <div className="section-x section-y section-inner mx-auto">
-        <AnimateIn variant="fadeUp">
+        <AnimateIn variant="headingReveal">
           <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
             {headlineParts.map((part, i) =>
               highlights.includes(part) ? (
@@ -65,109 +69,38 @@ export function ProblemSection() {
           </h2>
         </AnimateIn>
 
-        {/* Timeline container */}
-        <div className="relative mx-auto mt-16 max-w-6xl">
-          <div className="hidden md:block">
-            <div className="bg-border absolute top-6 left-1/2 h-[calc(100%_-_3rem)] w-px -translate-x-1/2" />
-          </div>
-
-          <div className="mt-6 space-y-10 md:space-y-12">
-            {items.map((item, i) => (
-              <AnimateIn key={item.key} variant="fadeUp" delay={i * 0.08}>
-                <div className="grid grid-cols-1 items-start gap-y-6 md:grid-cols-[1fr_48px_1fr] md:items-center md:gap-x-2 md:gap-y-12">
-                  {/* Left column (desktop) */}
-                  <div className="hidden md:flex md:justify-end">
-                    {item.side === 'left' ? (
-                      <div className="w-full max-w-[820px]">
-                        <div className="px-0 py-0">
-                          <Typography
-                            variant="heading"
-                            as="h3"
-                            textColor="default"
-                            className="text-left uppercase"
-                          >
-                            {item.title}
-                          </Typography>
-                          <Typography
-                            variant="paragraph"
-                            as="p"
-                            className="mt-2 text-left"
-                          >
-                            {item.body}
-                          </Typography>
-                        </div>
-                      </div>
-                    ) : (
-                      <div />
-                    )}
-                  </div>
-
-                  {/* Center column: timeline + badge */}
-                  <div className="flex justify-center md:order-none">
-                    <div className="relative flex items-center">
-                      <div className="hidden items-center justify-center md:flex">
-                        <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full font-bold text-white">
-                          {item.number}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right column (desktop) */}
-                  <div className="hidden md:flex md:justify-start">
-                    {item.side === 'right' ? (
-                      <div className="w-full max-w-[820px]">
-                        <div className="px-0 py-0">
-                          <Typography
-                            variant="heading"
-                            as="h3"
-                            textColor="default"
-                            className="text-left uppercase"
-                          >
-                            {item.title}
-                          </Typography>
-                          <Typography
-                            variant="paragraph"
-                            as="p"
-                            className="mt-2 text-left"
-                          >
-                            {item.body}
-                          </Typography>
-                        </div>
-                      </div>
-                    ) : (
-                      <div />
-                    )}
-                  </div>
-
-                  {/* Mobile stacked: centered number above title */}
-                  <div className="md:hidden">
-                    <div className="space-y-2 text-center">
-                      <div>
-                        <div className="bg-primary mx-auto flex h-8 w-8 items-center justify-center rounded-full font-bold text-white">
-                          {item.number}
-                        </div>
-                      </div>
-
-                      <div>
-                        <Typography
-                          variant="heading"
-                          as="h3"
-                          textColor="default"
-                          className="uppercase"
-                        >
-                          {item.title}
-                        </Typography>
-                        <Typography variant="paragraph" as="p" className="mt-2">
-                          {item.body}
-                        </Typography>
-                      </div>
-                    </div>
-                  </div>
+        {/* Cards — three equal columns */}
+        <div className="mx-auto my-10 mt-14 max-w-7xl">
+          <StaggerContainer
+            className="grid grid-cols-1 gap-10 sm:grid-cols-3"
+            stagger={0.15}
+            delayChildren={0.05}
+          >
+            {items.map((item) => (
+              <StaggerItem key={item.key} className="flex flex-col">
+                <div className="flex flex-col gap-4 border-l border-[#1433C8]/40 pt-1 pl-3">
+                  <span className="text-primary text-[10px] font-semibold tracking-[0.25em] uppercase opacity-50">
+                    {item.number}
+                  </span>
+                  <Typography
+                    variant="heading"
+                    as="h3"
+                    textColor="default"
+                    className="uppercase"
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="paragraph"
+                    as="p"
+                    className="text-foreground/60 text-justify leading-[1.8] [hyphens:auto]"
+                  >
+                    {item.body}
+                  </Typography>
                 </div>
-              </AnimateIn>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
         {/* Restyled 'Why This Research Began' section — use CTA background */}

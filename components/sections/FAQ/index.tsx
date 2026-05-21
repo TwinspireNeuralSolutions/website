@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { Typography } from '@/components/ui/typography'
 import { Card } from '@/components/ui/card'
@@ -70,10 +71,15 @@ const FAQ_ITEMS = [
   },
 ] as const
 
+/** Easing curve matching the rest of the design system */
+const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1]
+
 /**
  * FAQSection
  *
  * Expand/collapse FAQ list with single-open-item behavior.
+ * Uses Framer Motion AnimatePresence for a smooth height:auto accordion —
+ * the same technique used by Linear and Stripe for premium feel.
  */
 export function FAQSection() {
   const { t } = useTranslation()
@@ -96,10 +102,16 @@ export function FAQSection() {
         variant="fadeUp"
         delay={(index + delayOffset) * 0.04}
       >
-        <Card className="border-border/80 bg-background overflow-hidden rounded-xl shadow-none">
+        <Card
+          className={cn(
+            'border-border/80 bg-background overflow-hidden rounded-xl shadow-none transition-shadow duration-200',
+            isOpen && 'shadow-sm'
+          )}
+        >
+          {/* Trigger */}
           <button
             type="button"
-            className="group flex min-h-11 w-full items-center justify-between gap-4 px-4 py-3 text-left transition-colors duration-200 sm:min-h-12 sm:px-5"
+            className="group flex min-h-11 w-full items-center justify-between gap-4 px-4 py-3 text-left sm:min-h-12 sm:px-5"
             onClick={() =>
               setOpenId((current) => (current === item.id ? null : item.id))
             }
@@ -110,51 +122,51 @@ export function FAQSection() {
               variant="heading"
               as="h3"
               textColor="default"
-              className="text-foreground pr-4 text-[13px] leading-[1.45] font-medium transition-colors duration-200 sm:text-[14px]"
+              className={cn(
+                'pr-4 text-[13px] leading-[1.45] font-medium transition-colors duration-200 sm:text-[14px]',
+                isOpen ? 'text-brand-blue' : 'text-foreground'
+              )}
             >
               {t(item.questionKey)}
             </Typography>
-            <span
+
+            {/* Animated expand/collapse icon — chevron rotates to × */}
+            <motion.span
               aria-hidden
-              className={cn(
-                'text-primary text-xl leading-none font-light transition-transform duration-300 ease-out',
-                isOpen ? 'scale-110 rotate-45' : 'scale-100 rotate-0'
-              )}
+              animate={{ rotate: isOpen ? 45 : 0 }}
+              transition={{ duration: 0.25, ease: EASE }}
+              className="text-brand-blue flex h-5 w-5 shrink-0 items-center justify-center text-xl font-light leading-none"
             >
               +
-            </span>
+            </motion.span>
           </button>
 
-          <div
-            id={answerId}
-            aria-hidden={!isOpen}
-            className={cn(
-              'grid overflow-hidden transition-all duration-400 ease-in-out',
-              isOpen
-                ? 'grid-rows-[1fr] opacity-100'
-                : 'grid-rows-[0fr] opacity-0'
+          {/* Answer — Framer Motion height:auto accordion */}
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                id={answerId}
+                key={answerId}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.32, ease: EASE }}
+                className="overflow-hidden"
+                aria-hidden={!isOpen}
+              >
+                <div className="border-border/80 border-t px-4 pt-3 pb-4 sm:px-5 sm:pt-3.5 sm:pb-5">
+                  <Typography
+                    variant="paragraph"
+                    as="p"
+                    textColor="default"
+                    className="text-foreground/70 text-[14px] leading-[1.8] whitespace-pre-line sm:text-[15px]"
+                  >
+                    {t(item.answerKey)}
+                  </Typography>
+                </div>
+              </motion.div>
             )}
-          >
-            <div
-              className={cn(
-                'min-h-0 transition-all duration-300 ease-out',
-                isOpen
-                  ? 'translate-y-0 opacity-100'
-                  : '-translate-y-1 opacity-0'
-              )}
-            >
-              <div className="border-border/80 border-t px-4 pt-3 pb-4 sm:px-5 sm:pt-3.5 sm:pb-5">
-                <Typography
-                  variant="paragraph"
-                  as="p"
-                  textColor="default"
-                  className="text-foreground/70 text-[14px] leading-[1.8] whitespace-pre-line sm:text-[15px]"
-                >
-                  {t(item.answerKey)}
-                </Typography>
-              </div>
-            </div>
-          </div>
+          </AnimatePresence>
         </Card>
       </AnimateIn>
     )
@@ -165,7 +177,7 @@ export function FAQSection() {
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
         <AnimateIn variant="scaleUp" duration={0.6}>
           {/* Header */}
-          <AnimateIn variant="fadeUp" delay={0.15}>
+          <AnimateIn variant="headingReveal" delay={0.15}>
             <div className="mb-7 text-left sm:mb-8 lg:mb-9">
               <div className="max-w-[680px]">
                 <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
@@ -200,3 +212,4 @@ export function FAQSection() {
     </section>
   )
 }
+

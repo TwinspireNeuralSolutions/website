@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { BackgroundVideo } from '@/components/ui/background-video'
 import { Button } from '@/components/ui/button'
 import { AnimateIn } from '@/components/ui/animate-in'
+import { SectionStatus } from '@/components/ui/section-status'
 import { useTranslation } from '@/i18n'
 
 /**
@@ -119,8 +120,11 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="relative h-svh min-h-[600px] w-full overflow-hidden">
-      {/* ── Background image — anchored right ── */}
+    <section
+      id="hero"
+      className="relative h-svh min-h-[600px] w-full overflow-hidden"
+    >
+      <SectionStatus label={t('sectionStatus.hero')} />
       <Image
         src="/hero/image.png"
         alt="Football player kicking ball in stadium"

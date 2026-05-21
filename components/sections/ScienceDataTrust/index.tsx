@@ -3,6 +3,7 @@
 import React from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
+import { SectionStatus } from '@/components/ui/section-status'
 import { useTranslation } from '@/i18n'
 import { cn } from '@/lib/utils'
 import { highlightLastWord } from '@/lib/utils'
@@ -1332,11 +1333,12 @@ export function ScienceDataTrustSection() {
       aria-label="Science and data trust"
       className="bg-background relative z-10 w-full"
     >
+      <SectionStatus label={t('sectionStatus.science')} />
       <div className="section-x section-y section-inner mx-auto flex flex-col pb-0">
         <div className="border-border mb-6 border-t" aria-hidden="true" />
         {/* ── Section header ── */}
         <div className="mt-6 flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
-          <AnimateIn variant="fadeUp">
+          <AnimateIn variant="headingReveal">
             <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
               <span className="text-foreground font-bold">
                 {t('product.science.heading')}
@@ -1380,7 +1382,10 @@ export function ScienceDataTrustSection() {
           </div>
         </AnimateIn>
         {/* ── Bottom divider ── */}
-        <div className="border-border mt-10 border-t md:mt-14" aria-hidden="true" />
+        <div
+          className="border-border mt-10 border-t md:mt-14"
+          aria-hidden="true"
+        />
       </div>
     </section>
   )

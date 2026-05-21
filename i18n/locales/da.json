@@ -609,5 +609,23 @@
     "errorGeneric": "Noget gik galt. Prøv igen.",
     "subject": "Emne",
     "subjectPlaceholder": "Hvad handler din henvendelse om?"
+  },
+  "sectionNav": {
+    "ariaLabel": "Sideafsnit",
+    "progressAriaLabel": "Fremskridt på siden",
+    "hero": "Oversigt",
+    "problem": "Problem",
+    "product": "Produkt",
+    "science": "Videnskab",
+    "team": "Team",
+    "contact": "Kontakt"
+  },
+  "sectionStatus": {
+    "hero": "Live model aktiv",
+    "problem": "Mønsteranalyse kørende",
+    "product": "Systemarkitektur",
+    "science": "Signalanalyse kørende",
+    "team": "Team online",
+    "contact": "Sikker kanal åben"
   }
 }

@@ -9,6 +9,7 @@
   --primary-hover: #06018a;
   --primary-active: #050170;
   --primary-foreground: #ffffff;
+  --brand-blue: #1433c8;
 
   /* Semantic colors — Light mode */
   --background: #ffffff;
@@ -79,6 +80,7 @@
   --color-primary-hover: var(--primary-hover);
   --color-primary-active: var(--primary-active);
   --color-primary-foreground: var(--primary-foreground);
+  --color-brand-blue: var(--brand-blue);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);

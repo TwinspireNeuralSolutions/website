@@ -610,5 +610,23 @@
     "errorRequired": "This field is required",
     "errorEmail": "Enter a valid email address",
     "errorGeneric": "Something went wrong. Please try again."
+  },
+  "sectionNav": {
+    "ariaLabel": "Page sections",
+    "progressAriaLabel": "Page scroll progress",
+    "hero": "Overview",
+    "problem": "Problem",
+    "product": "Product",
+    "science": "Science",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "sectionStatus": {
+    "hero": "Live model active",
+    "problem": "Pattern analysis running",
+    "product": "System architecture",
+    "science": "Signal analysis running",
+    "team": "Team online",
+    "contact": "Secure channel open"
   }
 }
