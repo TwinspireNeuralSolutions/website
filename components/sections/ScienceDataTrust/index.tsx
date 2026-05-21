@@ -3,10 +3,12 @@
 import React from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
-import { SectionStatus } from '@/components/ui/section-status'
 import { useTranslation } from '@/i18n'
 import { cn } from '@/lib/utils'
 import { highlightLastWord } from '@/lib/utils'
+// canvas components were added previously for animated illustrations but
+// the static images are restored here. Canvas components remain available
+// in the repo if you want them re-integrated later.
 
 /* ────────────────────────────────────────────────────────────────────────────
  * Pillar icons — used both as small badge icons and as large card icons.
@@ -1333,8 +1335,7 @@ export function ScienceDataTrustSection() {
       aria-label="Science and data trust"
       className="bg-background relative z-10 w-full"
     >
-      <SectionStatus label={t('sectionStatus.science')} />
-      <div className="section-x section-y section-inner mx-auto flex flex-col pb-0">
+      <div className="section-x section-y section-inner relative mx-auto flex flex-col pb-0">
         <div className="border-border mb-6 border-t" aria-hidden="true" />
         {/* ── Section header ── */}
         <div className="mt-6 flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">

@@ -56,7 +56,7 @@ export function PartnersSection({
   return (
     <section
       aria-label="Our partners"
-      className="bg-primary relative z-10 w-full overflow-hidden shadow-[0_-12px_48px_rgba(0,0,0,0.15)]"
+      className="bg-primary relative z-10 w-full overflow-hidden shadow-[0_12px_48px_rgba(0,0,0,0.15)]"
     >
       {showPartnershipText && (
         <div className="section-x section-inner mx-auto py-16 md:py-20">

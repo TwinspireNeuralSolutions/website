@@ -68,11 +68,16 @@
     "textareaPlaceholder": "Write your message..."
   },
   "nav": {
+    "hero": "Overview",
     "problem": "Problem",
     "product": "Solution",
     "builtFor": "For Whom",
     "science": "Science",
     "team": "Team",
+    "dataEthics": "Data Ethics",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "sections": "Section navigation",
     "partnerships": "Partnerships",
     "joinUs": "Careers",
     "teamLogin": "Team Login"
@@ -140,14 +145,16 @@
       "aiEngineer": "Generative AI Engineer",
       "advisor": "Advisor",
       "strategicAdvisor": "Strategic Advisor",
-      "marketAdvisor": "Market & Commercialization Strategy (post-project)"
+      "marketAdvisor": "Market & Commercialization Strategy (post-project)",
+      "machineLearningIntern": "Machine Learning Intern"
     },
     "descriptions": {
       "pouya": "Pouya played professional football until a reinjury forced him to take a break from the pitch. The signals were there. Nothing in the process had the tools to read them. He returned to DTU, turned that experience into a research question, and built what the sport was missing. His MSc in Electrical Engineering, specialising in AI and control systems, became the foundation for Twinspire's core methodology and the basis for the patent. He leads research translation, strategic direction, and external partnerships.",
       "john": "John is a Professor at DTU and has spent years leading research into digital twin methodology for physiological systems - work that forms the scientific foundation of Twinspire. His neuromuscular research group is where the project was born, and his lab remains its institutional anchor. Beyond research, John has built and sold technology companies with exits to Facebook, Oculus, and GN Audio, bringing a rare combination of scientific depth and entrepreneurial experience to the team.",
       "daryan": "Daryan has spent seven years building software at the intersection of architecture, data engineering, and people leadership. At Twinspire he leads the technical implementation that connects club data sources, the app and web infrastructure that practitioners use daily. He has led development teams and mentored engineers throughout his career.",
       "roxane": "Roxane has built and taken AI ventures to market across three continents. She previously co-founded CUJU, an AI sports scouting company developed in close partnership with ROGON Sports Management, using computer vision to identify talent in the Global South, taking it from zero to exit. Before that she worked with the UN and World Bank on innovation programme development, and has evaluated and supported 100+ early-stage ventures. She holds an M.Sc. and CEMS Master's from CBS and NUS, and two Executive Degrees from MIT Sloan. At Twinspire she leads fundraising, partnerships, and the commercial strategy that takes the platform from research validation to market.",
-      "kim": "Market & Commercialization Strategy (post-project)."
+      "kim": "Market & Commercialization Strategy (post-project).",
+      "ali": "Ali has a solid background in machine learning and applied analytics, with experience building ML pipelines and data-driven solutions. His work includes research in anomaly detection and predictive quality using complex industrial datasets, reflecting his interest in practical AI applications and intelligent systems that solve real-world problems and create meaningful impact. He holds an MSc in Computer Engineering from Aarhus University."
     }
   },
   "builtFor": {
@@ -626,7 +633,9 @@
     "problem": "Pattern analysis running",
     "product": "System architecture",
     "science": "Signal analysis running",
+    "builtFor": "Profiling athletes",
     "team": "Team online",
+    "faq": "Docs loaded",
     "contact": "Secure channel open"
   }
 }

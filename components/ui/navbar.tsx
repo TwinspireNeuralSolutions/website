@@ -76,11 +76,20 @@ export function Navbar() {
   // Glass state: active when scrolled OR when mobile menu is open on the hero
   const glass = scrolled || mobileOpen
 
+  const headerClass = glass
+    ? 'fixed inset-x-0 top-0 z-50'
+    : 'relative w-full z-50'
+
+  // When not glass and on the homepage, render navbar with the same solid
+  // background as the hero so it visually appears identical before scrolling.
+  const topStyle = glass
+    ? GLASS_STYLE
+    : isHome
+      ? { background: '#020B1E' }
+      : undefined
+
   return (
-    <header
-      ref={navRef}
-      className="pointer-events-none fixed inset-x-0 top-0 z-50"
-    >
+    <header ref={navRef} className={cn('pointer-events-none', headerClass)}>
       {/* Bar — glass only when scrolled */}
       <div
         className={cn(
@@ -88,11 +97,11 @@ export function Navbar() {
           glass &&
             'border-b border-[var(--navbar-glass-border)] shadow-[var(--navbar-glass-shadow)]'
         )}
-        style={glass ? GLASS_STYLE : undefined}
+        style={topStyle}
       >
         <nav
           aria-label="Main navigation"
-          className="px-4 py-3 sm:px-6 sm:py-3.5 md:px-8 lg:px-10"
+          className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6 sm:py-3.5 md:px-8 lg:px-10"
         >
           <div className="flex items-center gap-2">
             {/* Logo — full lockup on all devices, shrinks safely on mobile */}
@@ -123,7 +132,7 @@ export function Navbar() {
                     <Link
                       href={`/${locale}/${href}`}
                       className={cn(
-                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        'rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200',
                         glass
                           ? 'text-foreground hover:bg-foreground/[0.06]'
                           : 'text-white hover:bg-white/[0.12]'
@@ -140,7 +149,7 @@ export function Navbar() {
                           ?.scrollIntoView({ behavior: 'smooth' })
                       }
                       className={cn(
-                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        'rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200',
                         glass
                           ? 'text-foreground hover:bg-foreground/[0.06]'
                           : 'text-white hover:bg-white/[0.12]'
@@ -152,7 +161,7 @@ export function Navbar() {
                     <Link
                       href={`/${locale}#${id}`}
                       className={cn(
-                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        'rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-200',
                         glass
                           ? 'text-foreground hover:bg-foreground/[0.06]'
                           : 'text-white hover:bg-white/[0.12]'

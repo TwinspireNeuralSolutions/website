@@ -49,7 +49,7 @@ export function ProblemSection() {
       aria-labelledby="problem-heading"
       className="bg-background relative z-10 w-full"
     >
-      <div className="section-x section-y section-inner mx-auto">
+      <div className="section-x section-y section-inner relative mx-auto">
         <AnimateIn variant="headingReveal">
           <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
             {headlineParts.map((part, i) =>
@@ -79,9 +79,15 @@ export function ProblemSection() {
             {items.map((item) => (
               <StaggerItem
                 key={item.key}
-                className={item.side === 'right' ? 'flex justify-end' : 'flex justify-start'}
+                className={
+                  item.side === 'right'
+                    ? 'flex justify-end'
+                    : 'flex justify-start'
+                }
               >
-                <div className={`flex flex-col gap-4 border-l border-[#1433C8]/40 pt-1 pl-3 w-full sm:w-1/2`}>
+                <div
+                  className={`flex w-full flex-col gap-4 border-l border-[#1433C8]/40 pt-1 pl-3 sm:w-1/2`}
+                >
                   <span className="text-primary text-[10px] font-semibold tracking-[0.25em] uppercase opacity-50">
                     {item.number}
                   </span>

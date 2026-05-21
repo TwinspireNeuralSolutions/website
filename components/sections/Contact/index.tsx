@@ -101,7 +101,7 @@ export function ContactSection() {
       aria-labelledby="contact-heading"
       className="bg-footer-bg relative z-10 w-full"
     >
-      <div className="section-x section-y section-inner mx-auto overflow-hidden">
+      <div className="section-x section-y section-inner relative mx-auto overflow-hidden">
         <div className="mx-auto w-full max-w-[1080px]">
           {/* ── Two-column: contact info left, form right ── */}
           <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">

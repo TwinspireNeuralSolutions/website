@@ -135,7 +135,7 @@ export function FAQSection() {
               aria-hidden
               animate={{ rotate: isOpen ? 45 : 0 }}
               transition={{ duration: 0.25, ease: EASE }}
-              className="text-brand-blue flex h-5 w-5 shrink-0 items-center justify-center text-xl font-light leading-none"
+              className="text-brand-blue flex h-5 w-5 shrink-0 items-center justify-center text-xl leading-none font-light"
             >
               +
             </motion.span>
@@ -174,7 +174,7 @@ export function FAQSection() {
 
   return (
     <section id="faq" className="bg-muted relative z-10 w-full">
-      <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
+      <div className="section-x section-inner relative mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
         <AnimateIn variant="scaleUp" duration={0.6}>
           {/* Header */}
           <AnimateIn variant="headingReveal" delay={0.15}>
@@ -212,4 +212,3 @@ export function FAQSection() {
     </section>
   )
 }
-

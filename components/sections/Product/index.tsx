@@ -3,7 +3,6 @@
 import React from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
-import { SectionStatus } from '@/components/ui/section-status'
 import { useTranslation } from '@/i18n'
 import Image from 'next/image'
 // Card removed for Part 2 layout adjustments
@@ -16,8 +15,7 @@ export function ProductSection() {
 
   return (
     <section id="product" className="bg-background relative z-10 w-full">
-      <SectionStatus label={t('sectionStatus.product')} />
-      <div className="section-x section-inner mx-auto py-0">
+      <div className="section-x section-inner relative mx-auto py-0">
         <div className="space-y-16">
           {/* Part 1 — top (two-column info card like Part 2) */}
           <AnimateIn variant="headingReveal" className="flex flex-col gap-8">

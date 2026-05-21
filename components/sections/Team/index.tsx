@@ -6,7 +6,6 @@ import {
   StaggerContainer,
   StaggerItem,
 } from '@/components/ui/animate-in'
-import { SectionStatus } from '@/components/ui/section-status'
 import { useTranslation } from '@/i18n'
 import { TeamMember } from './TeamMember'
 import { founders, advisers, teamMembers } from './teamData'
@@ -26,8 +25,7 @@ export function TeamSection() {
 
   return (
     <section id="team" className="bg-background relative z-10 w-full">
-      <SectionStatus label={t('sectionStatus.team')} />
-      <div className="section-x section-y section-inner mx-auto">
+      <div className="section-x section-y section-inner relative mx-auto">
         {/* Heading */}
         <AnimateIn variant="headingReveal">
           <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">

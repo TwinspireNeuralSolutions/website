@@ -68,11 +68,16 @@
     "textareaPlaceholder": "Skriv din besked..."
   },
   "nav": {
+    "hero": "Oversigt",
     "problem": "Problem",
     "product": "Løsning",
     "builtFor": "For Hvem",
     "science": "Videnskab",
     "team": "Holdet",
+    "dataEthics": "Dataetik",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "sections": "Sektionsnavigation",
     "partnerships": "Partnerskaber",
     "joinUs": "Karriere",
     "teamLogin": "Team Login"
@@ -139,14 +144,16 @@
       "aiEngineer": "Generativ AI Ingeniør",
       "advisor": "Rådgiver",
       "strategicAdvisor": "Strategisk Rådgiver",
-      "marketAdvisor": "Markeds- & kommercialiseringsstrategi (efter projektet)"
+      "marketAdvisor": "Markeds- & kommercialiseringsstrategi (efter projektet)",
+      "machineLearningIntern": "Maskinlæringspraktikant"
     },
     "descriptions": {
       "pouya": "Pouya spillede professionel fodbold, indtil en genskade tvang ham til at tage en pause fra banen. Signalerne var der. Intet i processen havde værktøjerne til at læse dem. Han vendte tilbage til DTU, forvandlede erfaringen til et forskningsspørgsmål og byggede det, sporten manglede. Hans kandidatgrad i elektroteknologi med speciale i AI og kontrolsystemer blev grundlaget for Twinspires kernemetodologi og grundlaget for patentet. Han leder forskningstranslation, strategisk retning og eksterne partnerskaber.",
       "john": "John er professor ved DTU og har brugt år på at lede forskning i digital tvilling-metodologi for fysiologiske systemer – arbejde, der udgør det videnskabelige fundament for Twinspire. Hans neuromuskulære forskningsgruppe er, hvor projektet opstod, og hans laboratorium forbliver dets institutionelle anker. Ud over forskning har John bygget og solgt teknologivirksomheder med exits til Facebook, Oculus og GN Audio, hvilket bringer en sjælden kombination af videnskabelig dybde og iværksættererfaring til teamet.",
       "daryan": "Daryan har brugt syv år på at bygge software i skæringspunktet mellem arkitektur, dataengineering og personaleledelse. Hos Twinspire leder han den tekniske implementering, der forbinder klubdatakilder, app- og webinfrastrukturen, som praktikere bruger dagligt. Han har ledet udviklingsteams og vejledt ingeniører gennem hele sin karriere.",
       "roxane": "Roxane has built and taken AI ventures to market across three continents. She previously co-founded CUJU, an AI sports scouting company developed in close partnership with ROGON Sports Management, using computer vision to identify talent in the Global South, taking it from zero to exit. Before that she worked with the UN and World Bank on innovation programme development, and has evaluated and supported 100+ early-stage ventures. She holds an M.Sc. and CEMS Master's from CBS and NUS, and two Executive Degrees from MIT Sloan. At Twinspire she leads fundraising, partnerships, and the commercial strategy that takes the platform from research validation to market.",
-      "kim": "Markeds- & kommercialiseringsstrategi (efter projektet)."
+      "kim": "Markeds- & kommercialiseringsstrategi (efter projektet).",
+      "ali": "Ali har en solid baggrund inden for maskinlæring og anvendt analyse med erfaring i at bygge ML‑pipelines og datadrevne løsninger. Hans arbejde omfatter forskning i anomalidetektion og prediktiv kvalitet på komplekse industrielle datasæt, hvilket afspejler hans interesse for praktiske AI‑anvendelser og intelligente systemer, der løser virkelige problemer og skaber meningsfuld effekt. Han har en MSc i Computer Engineering fra Aarhus Universitet."
     }
   },
   "builtFor": {
@@ -625,7 +632,9 @@
     "problem": "Mønsteranalyse kørende",
     "product": "Systemarkitektur",
     "science": "Signalanalyse kørende",
+    "builtFor": "Profilerer atleter",
     "team": "Team online",
+    "faq": "Dokumentation indlæst",
     "contact": "Sikker kanal åben"
   }
 }
