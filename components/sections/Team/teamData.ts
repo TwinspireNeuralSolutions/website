@@ -64,6 +64,12 @@ export const teamMembers: TeamMemberData[] = [
     linkedin: 'https://www.linkedin.com/in/hajar-el-mhassani-54202b120/',
   },
   {
+    name: 'Ali',
+    role: 'team.roles.machineLearningIntern',
+    description: 'team.descriptions.ali',
+    image: '/team/ali.png',
+  },
+  {
     name: 'Nicola Stefani',
     role: 'team.roles.researchTeam',
     image: '/team/nicola.png',

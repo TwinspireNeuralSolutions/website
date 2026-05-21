@@ -56,12 +56,12 @@ export function PartnersSection({
   return (
     <section
       aria-label="Our partners"
-      className="bg-primary relative z-10 w-full overflow-hidden shadow-[0_-12px_48px_rgba(0,0,0,0.15)]"
+      className="bg-primary relative z-10 w-full overflow-hidden shadow-[0_12px_48px_rgba(0,0,0,0.15)]"
     >
       {showPartnershipText && (
         <div className="section-x section-inner mx-auto py-16 md:py-20">
           <AnimateIn
-            variant="fadeUp"
+            variant="headingReveal"
             className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16"
           >
             <div className="flex flex-col gap-4 md:max-w-[560px]">
@@ -94,9 +94,9 @@ export function PartnersSection({
           <div
             style={{
               maskImage:
-                'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
               WebkitMaskImage:
-                'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)',
             }}
           >
             <Slider {...sliderSettings}>

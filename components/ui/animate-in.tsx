@@ -17,6 +17,12 @@ export const animationVariants = {
     hidden: { opacity: 0, y: 28 },
     visible: { opacity: 1, y: 0 },
   },
+  // Subtle heading reveal — smaller y offset so it reads as "information surfacing"
+  // rather than flying in. Use on section headings and subheadings.
+  headingReveal: {
+    hidden: { opacity: 0, y: 14 },
+    visible: { opacity: 1, y: 0 },
+  },
   fadeDown: {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0 },

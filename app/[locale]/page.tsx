@@ -11,6 +11,7 @@ import { ScienceDataTrustSection } from '@/components/sections/ScienceDataTrust'
 import { DataEthicsSection } from '@/components/sections/DataEthics'
 import { TeamSection } from '@/components/sections/Team'
 import { Navbar } from '@/components/ui/navbar'
+import { SectionNavDots } from '@/components/ui/section-nav-dots'
 
 /**
  * Home Page
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <SectionNavDots />
       <main>
         <HeroSection />
         <PartnersSection />

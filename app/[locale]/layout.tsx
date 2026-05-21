@@ -2,6 +2,7 @@ import { type Locale, i18n } from '@/i18n/config'
 import { I18nProvider } from '@/i18n'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { AuthProvider } from '@/components/providers/AuthProvider'
+import { SectionDotNav } from '@/components/ui/section-dot-nav'
 import { Analytics } from '@vercel/analytics/next'
 import { notFound } from 'next/navigation'
 
@@ -32,7 +33,10 @@ export default async function LocaleLayout({
   return (
     <ThemeProvider>
       <I18nProvider initialLocale={locale as Locale}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          {children}
+          <SectionDotNav />
+        </AuthProvider>
       </I18nProvider>
       <Analytics />
     </ThemeProvider>
