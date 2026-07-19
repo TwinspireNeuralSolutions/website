@@ -609,5 +609,55 @@
     "errorGeneric": "Noget gik galt. Prøv igen.",
     "subject": "Emne",
     "subjectPlaceholder": "Hvad handler din henvendelse om?"
+  },
+  "digitalTwin": {
+    "sectionLabel": "What a Decision Support System Actually Is",
+    "heading": "A dashboard displays variables.",
+    "headingAccent": "It does not explain what matters, why it matters, or what to do next.",
+    "attribution": "Dr. Lorena Martin, USC Marshall — ECSS Lausanne 2026",
+    "intro": "At the European College of Sport Science conference in 2026, independent researchers arrived at the same diagnosis of the current market: more data has not produced better decisions, and a single readiness score discards the estimate, its uncertainty, its drivers, and its trajectory. Below is the external checklist they proposed for what a genuine decision support system requires — and where Twinspire stands against it honestly.",
+    "criteria": {
+      "individualized": {
+        "label": "Individualized",
+        "status": "met",
+        "body": "Every metric is measured against that specific player's own evolving baseline — not a squad average, not a population norm."
+      },
+      "dynamicallyUpdated": {
+        "label": "Dynamically Updated",
+        "status": "met",
+        "body": "The model updates continuously with every new data point from both club and personal streams. The longer it runs for a player, the more precisely it understands them."
+      },
+      "connectedToDecisions": {
+        "label": "Connected to Decisions",
+        "status": "met",
+        "body": "Output is framed as a decision — is this player ready to train at full intensity today — not as a data export or a chart to interpret."
+      },
+      "explicitAboutUncertainty": {
+        "label": "Explicit About Uncertainty",
+        "status": "met",
+        "body": "The model surfaces its key drivers explicitly. Coaching and medical staff see which signals are driving any deviation, not just that a deviation exists. Not a black box score."
+      },
+      "validatedAgainstOutcomes": {
+        "label": "Validated Against Outcomes",
+        "status": "inProgress",
+        "body": "This is the criterion the current validation study is designed to close. We are honest about the fact that it is not yet fully met, and that closing it is the specific purpose of the founding partner cohort."
+      }
+    },
+    "closingNote": "We use this checklist internally. We think you should hold us to it."
+  },
+  "passport": {
+    "sectionLabel": "The Athletic Passport",
+    "heading": "Every time a player transfers,",
+    "headingAccent": "their physiological history resets to zero.",
+    "intro": "A new club inherits a name, a transfer fee, and a medical record. What they do not inherit is 18 months of individual baseline data — what load that specific body responds well to, what recovery looks like on a good week, where the personal thresholds actually sit. They start from scratch. Every time.",
+    "howItWorks": "The Athletic Passport changes that. Every session, load, injury, and rehabilitation milestone is structured into a portable, consent-based record that belongs to the athlete — not the club, not the platform. When they sign for a new club, their baseline arrives with them. The new club does not spend months re-establishing what normal looks like. They already know.",
+    "forClubs": "For clubs, this means inheriting objective physiological data on every new signing from day one. For players, it means their career-long performance history is portable and owned by them — not left behind at a previous club's platform when they move on.",
+    "differentiator": "No platform at ECSS 2026 demonstrated cross-club physiological continuity built on a proper consent and GDPR architecture. This is what distinguishes Twinspire from single-club deployment tools: the data does not belong to the club. It belongs to the athlete, and it follows them.",
+    "passportItems": {
+      "item1": "Individual baseline, continuously updated across every club",
+      "item2": "Full load, injury, and rehabilitation history",
+      "item3": "Portable consent — the athlete controls who sees what",
+      "item4": "New club inherits objective data from day one of signing"
+    }
   }
 }
