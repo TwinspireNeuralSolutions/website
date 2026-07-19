@@ -3,8 +3,6 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 
-/* ─── Video sources ─────────────────────────────────────────────────── */
-/* Download MP4s from Higgsfield and place in /public/hero/             */
 const VIDEOS = {
   treadmill: '/hero/treadmill.mp4',
   squat:     '/hero/squat.mp4',
@@ -14,70 +12,9 @@ const VIDEOS = {
 
 type SceneKey = 'treadmill' | 'squat' | 'isolation' | 'rehab'
 
-/* ─── Chart ─────────────────────────────────────────────────────────── */
-interface ChartConfig {
-  values:    number[]
-  baseline:  number
-  min:       number
-  max:       number
-  colorFn:   (v: number) => string
-  zones?:    { from: number; to: number; fill: string }[]
-  dangerAt?: number
-  baselineLabel?: string
-}
+const REC_BASE = 74
+const HRV_BASE = 65
 
-function buildChart(cfg: ChartConfig, frac: number): string {
-  const W = 180, H = 44, pL = 3, pR = 3, pT = 6, pB = 4
-  const xR = W - pL - pR
-  const yR = H - pT - pB
-  const n  = cfg.values.length
-  const toX = (i: number) => pL + (i / (n - 1)) * xR
-  const toY = (v: number) => pT + (cfg.max - v) / (cfg.max - cfg.min) * yR
-  const steps = Math.max(2, Math.min(n, Math.round(frac * (n - 1)) + 2))
-  const pts   = cfg.values.slice(0, steps)
-  const lastV = pts[pts.length - 1]
-  const col   = cfg.colorFn(lastV)
-  const yBase = toY(cfg.baseline)
-  let svg = ''
-
-  cfg.zones?.forEach(z => {
-    const y1 = toY(Math.min(z.to,   cfg.max))
-    const y2 = toY(Math.max(z.from, cfg.min))
-    svg += `<rect x="${pL}" y="${y1}" width="${xR}" height="${y2 - y1}" fill="${z.fill}" rx="1"/>`
-  })
-
-  if (pts.length > 1) {
-    let fp = `M${toX(0)},${yBase}`
-    pts.forEach((v, i) => { fp += ` L${toX(i)},${toY(v)}` })
-    fp += ` L${toX(pts.length - 1)},${yBase} Z`
-    svg += `<path d="${fp}" fill="${col}" opacity="0.13"/>`
-  }
-
-  if (cfg.dangerAt !== undefined) {
-    const yD = toY(cfg.dangerAt)
-    svg += `<line x1="${pL}" y1="${yD}" x2="${W - pR}" y2="${yD}" stroke="rgba(239,68,68,0.5)" stroke-width="0.8" stroke-dasharray="3,3"/>`
-    svg += `<text x="${W - pR - 1}" y="${yD - 2}" font-size="5" fill="rgba(239,68,68,0.6)" text-anchor="end">${cfg.dangerAt}</text>`
-  }
-
-  svg += `<line x1="${pL}" y1="${yBase}" x2="${W - pR}" y2="${yBase}" stroke="rgba(100,200,255,0.75)" stroke-width="1" stroke-dasharray="5,3"/>`
-  if (cfg.baselineLabel) {
-    svg += `<text x="${pL + 2}" y="${yBase - 2.5}" font-size="5" fill="rgba(100,200,255,0.75)">${cfg.baselineLabel}</text>`
-  }
-
-  if (pts.length > 1) {
-    let d = `M${toX(0)},${toY(pts[0])}`
-    pts.forEach((v, i) => { if (i > 0) d += ` L${toX(i)},${toY(v)}` })
-    svg += `<path d="${d}" fill="none" stroke="${col}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`
-    svg += `<circle cx="${toX(pts.length - 1)}" cy="${toY(lastV)}" r="2.8" fill="${col}"/>`
-  }
-  return svg
-}
-
-const acwrColor = (v: number) => v >= 1.5 ? '#EF4444' : v >= 1.3 ? '#F59E0B' : v < 0.6 ? '#64D2FF' : '#22C55E'
-const recColor  = (v: number, base = 74) => (base - v) > 20 ? '#EF4444' : (base - v) > 10 ? '#F59E0B' : '#22C55E'
-const hrvColor  = (v: number, base = 65) => (base - v) > 14 ? '#EF4444' : (base - v) > 7  ? '#F59E0B' : v > base ? '#22C55E' : '#00A8FF'
-
-/* ─── Scene data ────────────────────────────────────────────────────── */
 interface Scene {
   key:        SceneKey
   duration:   number
@@ -93,37 +30,34 @@ interface Scene {
   hrv:  number[]
 }
 
-const REC_BASE = 74
-const HRV_BASE = 65
-
 const SCENES: Scene[] = [
   {
     key: 'treadmill', duration: 7000,
     eyebrow: 'Club data · Week 3',
     headline: ['Two streams.', 'Neither connected.'],
-    sub: 'GPS at the club. Whoop at home. Two separate worlds — neither aware of the other.',
+    sub: 'GPS at the club. Whoop at home. Two separate worlds.',
     acwr: [1.05, 1.11, 1.18, 1.25, 1.32, 1.38, 1.44],
-    rec:  [74,   73,   72,   70,   68,   66,   63],
-    hrv:  [68,   67,   66,   64,   63,   61,   59],
+    rec:  [74, 73, 72, 70, 68, 66, 63],
+    hrv:  [68, 67, 66, 64, 63, 61, 59],
   },
   {
     key: 'squat', duration: 7000,
     eyebrow: 'Personal data · Week 6',
     headline: ['The signal existed.', 'Nobody saw it.'],
-    sub: 'In the Whoop. In the 6am HRV. In the rest-day recovery scores. Unread.',
+    sub: 'In the Whoop. In the 6am HRV. Unread.',
     acwr: [1.44, 1.52, 1.59, 1.65, 1.72, 1.78, 1.82],
-    rec:  [63,   59,   56,   53,   50,   47,   44],
-    hrv:  [59,   56,   53,   51,   49,   47,   45],
+    rec:  [63, 59, 56, 53, 50, 47, 44],
+    hrv:  [59, 56, 53, 51, 49, 47, 45],
   },
   {
     key: 'isolation', duration: 5500,
     eyebrow: 'The gap.',
     headline: ['The data existed.', 'Nothing connected it.'],
     redTint: true, showAlert: true,
-    alertText: 'Individual threshold exceeded. ACWR 1.82. Recovery 30pts below personal baseline. Pattern detectable 6 sessions prior — across both club and personal data.',
+    alertText: 'Individual threshold exceeded. ACWR 1.82. Recovery 30pts below personal baseline. Pattern detectable 6 sessions prior.',
     acwr: [1.82, 1.82, 1.82, 1.82, 1.82, 1.82, 1.82],
-    rec:  [44,   44,   43,   43,   43,   43,   43],
-    hrv:  [45,   44,   44,   44,   44,   44,   44],
+    rec:  [44, 44, 43, 43, 43, 43, 43],
+    hrv:  [45, 44, 44, 44, 44, 44, 44],
   },
   {
     key: 'rehab', duration: 9000,
@@ -132,96 +66,90 @@ const SCENES: Scene[] = [
     sub: "Twinspire connects both streams. Your platform doesn't need to change.",
     showDays: true,
     acwr: [0.08, 0.17, 0.27, 0.38, 0.48, 0.57, 0.67],
-    rec:  [30,   37,   45,   53,   59,   65,   70],
-    hrv:  [44,   47,   51,   55,   59,   62,   65],
+    rec:  [30, 37, 45, 53, 59, 65, 70],
+    hrv:  [44, 47, 51, 55, 59, 62, 65],
   },
 ]
 
-/* ─── Helpers ───────────────────────────────────────────────────────── */
+/* ── Helpers ── */
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
 function easeInOut(x: number) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2 }
-function clamp(v: number, a: number, b: number) { return Math.max(a, Math.min(b, v)) }
+function clamp(v: number, lo: number, hi: number) { return Math.max(lo, Math.min(hi, v)) }
 
-/* ─── Metric card ───────────────────────────────────────────────────── */
-interface MetricCardProps {
-  label: string
-  sublabel: string
-  value: string
-  status: string
-  colorClass: string
-  chartSvg: string
-  chartW?: number
+function acwrCol(v: number) { return v >= 1.5 ? '#EF4444' : v >= 1.3 ? '#F59E0B' : v < 0.6 ? '#64D2FF' : '#22C55E' }
+function recCol(v: number) { return (REC_BASE - v) > 20 ? '#EF4444' : (REC_BASE - v) > 10 ? '#F59E0B' : '#22C55E' }
+function hrvCol(v: number) { return (HRV_BASE - v) > 14 ? '#EF4444' : (HRV_BASE - v) > 7 ? '#F59E0B' : v > HRV_BASE ? '#22C55E' : '#00A8FF' }
+
+/* ── Chart builder — returns SVG inner HTML ── */
+function buildLine(
+  vals: number[], baseline: number, min: number, max: number,
+  col: string, steps: number, showZones?: boolean
+): string {
+  const W = 200, H = 38, pL = 2, pR = 2, pT = 4, pB = 4
+  const xR = W - pL - pR, yR = H - pT - pB
+  const n  = vals.length
+  const toX = (i: number) => pL + (i / (n - 1)) * xR
+  const toY = (v: number) => pT + (max - v) / (max - min) * yR
+  const pts = vals.slice(0, steps)
+  const yB  = toY(baseline)
+  let s = ''
+
+  if (showZones) {
+    s += `<rect x="${pL}" y="${toY(1.3)}" width="${xR}" height="${toY(0.8)-toY(1.3)}" fill="rgba(34,197,94,0.06)"/>`
+    s += `<rect x="${pL}" y="${toY(1.5)}" width="${xR}" height="${toY(1.3)-toY(1.5)}" fill="rgba(245,158,11,0.06)"/>`
+    s += `<line x1="${pL}" y1="${toY(1.5)}" x2="${W-pR}" y2="${toY(1.5)}" stroke="rgba(239,68,68,0.3)" stroke-width="0.6" stroke-dasharray="2,3"/>`
+  }
+
+  // Dashed baseline
+  s += `<line x1="${pL}" y1="${yB}" x2="${W-pR}" y2="${yB}" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" stroke-dasharray="4,3"/>`
+
+  if (pts.length > 1) {
+    // Deviation fill
+    let fp = `M${toX(0)},${yB}`
+    pts.forEach((v, i) => { fp += ` L${toX(i)},${toY(v)}` })
+    fp += ` L${toX(pts.length - 1)},${yB} Z`
+    s += `<path d="${fp}" fill="${col}" opacity="0.1"/>`
+    // Line
+    let lp = `M${toX(0)},${toY(pts[0])}`
+    pts.forEach((v, i) => { if (i > 0) lp += ` L${toX(i)},${toY(v)}` })
+    s += `<path d="${lp}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`
+    // End dot
+    s += `<circle cx="${toX(pts.length-1)}" cy="${toY(pts[pts.length-1])}" r="2.5" fill="${col}"/>`
+  }
+  return s
 }
 
-function MetricCard({ label, sublabel, value, status, colorClass, chartSvg, chartW = 180 }: MetricCardProps) {
-  const borderCol =
-    colorClass === 'crit' ? 'rgba(239,68,68,0.6)' :
-    colorClass === 'warn' ? 'rgba(245,158,11,0.55)' :
-    colorClass === 'good' ? 'rgba(34,197,94,0.5)' :
-    'rgba(0,168,255,0.22)'
-  const valCol =
-    colorClass === 'crit' ? '#EF4444' :
-    colorClass === 'warn' ? '#F59E0B' :
-    colorClass === 'good' ? '#22C55E' : '#fff'
-
-  return (
-    <div
-      style={{
-        background: 'rgba(2,6,36,0.88)',
-        border: `1px solid ${borderCol}`,
-        borderRadius: 12,
-        padding: '10px 13px',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        transition: 'border-color 0.5s',
-        flex: '1 1 0',
-        minWidth: 0,
-      }}
-    >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-        <div>
-          <div style={{ fontSize: 8, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'rgba(122,142,192,0.85)', lineHeight: 1.35 }}>{label}</div>
-          <div style={{ fontSize: 6.5, color: 'rgba(122,142,192,0.55)', letterSpacing: '0.06em', marginTop: 1 }}>{sublabel}</div>
-        </div>
-        <div
-          style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
-            fontSize: 22, fontWeight: 900, lineHeight: 1,
-            color: valCol,
-            transition: 'color 0.5s',
-            marginLeft: 8,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          {value}
-        </div>
-      </div>
-      <svg
-        width={chartW}
-        height="44"
-        style={{ display: 'block', overflow: 'visible', width: '100%' }}
-        dangerouslySetInnerHTML={{ __html: chartSvg }}
-      />
-      <div style={{ fontSize: 8, color: 'rgba(122,142,192,0.65)', marginTop: 5 }}>{status}</div>
-    </div>
-  )
-}
-
-/* ─── Main ──────────────────────────────────────────────────────────── */
+/* ── Main component ── */
 export function HeroStorySection() {
-  const [sceneIdx,     setSceneIdx]     = useState(0)
-  const [frac,         setFrac]         = useState(0)
-  const [alertVisible, setAlertVisible] = useState(false)
-  const [textVisible,  setTextVisible]  = useState(false)
+  const [sceneIdx, setSceneIdx] = useState(0)
 
-  const rafRef    = useRef<number | null>(null)
-  const startRef  = useRef(performance.now())
-  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([])
+  // Refs for video elements
   const videoRefs = useRef<Record<SceneKey, HTMLVideoElement | null>>({
     treadmill: null, squat: null, isolation: null, rehab: null,
   })
 
-  const scene = SCENES[sceneIdx]
+  // Refs for direct DOM animation (no React state re-renders)
+  const eyebrowRef   = useRef<HTMLParagraphElement>(null)
+  const headlineRef  = useRef<HTMLHeadingElement>(null)
+  const subRef       = useRef<HTMLParagraphElement>(null)
+  const textWrapRef  = useRef<HTMLDivElement>(null)
+  const alertRef     = useRef<HTMLDivElement>(null)
+  const alertTextRef = useRef<HTMLParagraphElement>(null)
+  const dayRef       = useRef<HTMLDivElement>(null)
+  const dayNumRef    = useRef<HTMLDivElement>(null)
+  const redTintRef   = useRef<HTMLDivElement>(null)
+  const dotsRef      = useRef<HTMLDivElement>(null)
+  const progressRef  = useRef<HTMLDivElement>(null)
+
+  // Metric DOM refs [0=ACWR, 1=Recovery, 2=HRV]
+  const mValRef    = useRef<(HTMLSpanElement | null)[]>([null, null, null])
+  const mStatusRef = useRef<(HTMLSpanElement | null)[]>([null, null, null])
+  const mSvgRef    = useRef<(SVGSVGElement | null)[]>([null, null, null])
+  const mRowRef    = useRef<(HTMLDivElement | null)[]>([null, null, null])
+
+  const rafRef    = useRef<number | null>(null)
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([])
+  const startRef  = useRef(0)
 
   const clearTimers = () => {
     timersRef.current.forEach(clearTimeout)
@@ -232,220 +160,285 @@ export function HeroStorySection() {
   const startScene = useCallback((idx: number) => {
     clearTimers()
     setSceneIdx(idx)
-    setFrac(0)
-    setAlertVisible(false)
-    setTextVisible(false)
     startRef.current = performance.now()
+    const sd = SCENES[idx]
 
+    // Videos
     Object.entries(videoRefs.current).forEach(([key, el]) => {
       if (!el) return
-      if (key === SCENES[idx].key) { el.currentTime = 0; el.play().catch(() => {}) }
+      if (key === sd.key) { el.currentTime = 0; el.play().catch(() => {}) }
       else { el.pause(); el.currentTime = 0 }
     })
 
-    const sd = SCENES[idx]
-    timersRef.current.push(setTimeout(() => setTextVisible(true), 500))
-    if (sd.showAlert) timersRef.current.push(setTimeout(() => setAlertVisible(true), 2000))
+    // Red tint
+    if (redTintRef.current) redTintRef.current.style.opacity = sd.redTint ? '1' : '0'
+
+    // Text (fade out, update, fade in)
+    if (textWrapRef.current) textWrapRef.current.style.opacity = '0'
+    if (alertRef.current) {
+      alertRef.current.style.opacity = '0'
+      alertRef.current.style.transform = 'translateX(-50%) translateY(8px) scale(0.96)'
+    }
+    if (dayRef.current) dayRef.current.style.opacity = '0'
+
+    timersRef.current.push(setTimeout(() => {
+      if (eyebrowRef.current)  eyebrowRef.current.textContent  = sd.eyebrow
+      if (headlineRef.current) headlineRef.current.innerHTML   =
+        `${sd.headline[0]}<br/><span style="color:${idx === 3 ? '#00A8FF' : '#fff'}">${sd.headline[1]}</span>`
+      if (subRef.current)      subRef.current.textContent      = sd.sub ?? ''
+      if (textWrapRef.current) textWrapRef.current.style.opacity = '1'
+      if (sd.showDays && dayRef.current) dayRef.current.style.opacity = '1'
+    }, 500))
+
+    if (sd.showAlert && alertTextRef.current) {
+      alertTextRef.current.textContent = sd.alertText ?? ''
+      timersRef.current.push(setTimeout(() => {
+        if (alertRef.current) {
+          alertRef.current.style.opacity = '1'
+          alertRef.current.style.transform = 'translateX(-50%) translateY(0) scale(1)'
+        }
+      }, 2000))
+    }
+
+    // Dots
+    if (dotsRef.current) {
+      Array.from(dotsRef.current.children).forEach((dot, i) => {
+        const el = dot as HTMLElement
+        el.style.width    = i === idx ? '22px' : '6px'
+        el.style.background = i === idx ? '#00A8FF' : 'rgba(255,255,255,0.22)'
+      })
+    }
+
+    // Next scene
     timersRef.current.push(setTimeout(() => startScene((idx + 1) % SCENES.length), sd.duration))
 
+    // Animation loop — direct DOM, no setState
     const tick = (now: number) => {
-      const f = clamp((now - startRef.current) / sd.duration, 0, 1)
-      setFrac(easeInOut(f))
-      if (f < 1) rafRef.current = requestAnimationFrame(tick)
+      const rawF = clamp((now - startRef.current) / sd.duration, 0, 1)
+      const f    = easeInOut(rawF)
+
+      // Progress bar
+      if (progressRef.current) progressRef.current.style.width = `${rawF * 100}%`
+
+      // Day counter
+      if (sd.showDays && dayNumRef.current) {
+        dayNumRef.current.textContent = `Day ${Math.round(lerp(1, 28, f))}`
+      }
+
+      // Metric updates
+      const steps = Math.max(2, Math.min(7, Math.round(f * 6) + 2))
+
+      // ACWR
+      const acwrNow = lerp(sd.acwr[0], sd.acwr[sd.acwr.length - 1], f)
+      const acwrPts = sd.acwr.slice(0, steps)
+      const aC = acwrCol(acwrNow)
+      const aSt = acwrNow >= 1.5 ? 'High risk zone (>1.5)' : acwrNow >= 1.3 ? 'Caution — above optimal' : acwrNow < 0.6 ? 'Rebuilding' : 'Optimal (0.8–1.3)'
+      if (mValRef.current[0])    { mValRef.current[0]!.textContent = acwrNow.toFixed(2); mValRef.current[0]!.style.color = aC }
+      if (mStatusRef.current[0]) mStatusRef.current[0]!.textContent = aSt
+      if (mSvgRef.current[0])    mSvgRef.current[0]!.innerHTML = buildLine(acwrPts, 1.0, 0.4, 2.1, aC, steps, true)
+      if (mRowRef.current[0])    mRowRef.current[0]!.style.borderBottomColor = `${aC}55`
+
+      // Recovery
+      const recNow = lerp(sd.rec[0], sd.rec[sd.rec.length - 1], f)
+      const recPts = sd.rec.slice(0, steps)
+      const rC = recColor(recNow)
+      const rDelta = Math.round(REC_BASE - recNow)
+      const rSt = rDelta > 20 ? `↓ ${rDelta} pts below baseline` : rDelta > 10 ? `↓ ${rDelta} pts — monitoring` : recNow >= REC_BASE ? 'Baseline restored' : 'Returning to baseline'
+      if (mValRef.current[1])    { mValRef.current[1]!.textContent = String(Math.round(recNow)); mValRef.current[1]!.style.color = rC }
+      if (mStatusRef.current[1]) mStatusRef.current[1]!.textContent = rSt
+      if (mSvgRef.current[1])    mSvgRef.current[1]!.innerHTML = buildLine(recPts, REC_BASE, 20, 90, rC, steps)
+      if (mRowRef.current[1])    mRowRef.current[1]!.style.borderBottomColor = `${rC}55`
+
+      // HRV
+      const hrvNow = lerp(sd.hrv[0], sd.hrv[sd.hrv.length - 1], f)
+      const hrvPts = sd.hrv.slice(0, steps)
+      const hC = hrvColor(hrvNow)
+      const hDelta = Math.round(HRV_BASE - hrvNow)
+      const hSt = hDelta > 14 ? `↓ ${hDelta}ms — significant` : hDelta > 7 ? `↓ ${hDelta}ms — mild suppression` : hrvNow > HRV_BASE ? `↑ ${Math.round(-hDelta)}ms above mean` : 'Within personal norms'
+      if (mValRef.current[2])    { mValRef.current[2]!.textContent = `${Math.round(hrvNow)}ms`; mValRef.current[2]!.style.color = hC }
+      if (mStatusRef.current[2]) mStatusRef.current[2]!.textContent = hSt
+      if (mSvgRef.current[2])    mSvgRef.current[2]!.innerHTML = buildLine(hrvPts, HRV_BASE, 36, 80, hC, steps)
+      if (mRowRef.current[2])    mRowRef.current[2]!.style.borderBottomColor = `${hC}55`
+
+      if (rawF < 1) rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
+
   }, []) // eslint-disable-line
+
+  function recColor(v: number) { return recCol(v) }
+  function hrvColor(v: number) { return hrvCol(v) }
 
   useEffect(() => { startScene(0); return clearTimers }, []) // eslint-disable-line
 
-  const handleDot = (idx: number) => { setSceneIdx(idx); startScene(idx) }
+  const handleDot = (idx: number) => startScene(idx)
 
-  /* Derived chart values */
-  const steps     = Math.max(2, Math.min(7, Math.round(frac * 6) + 2))
-  const acwrPts   = scene.acwr.slice(0, steps)
-  const recPts    = scene.rec.slice(0, steps)
-  const hrvPts    = scene.hrv.slice(0, steps)
-  const acwrNow   = acwrPts[acwrPts.length - 1]
-  const recNow    = recPts[recPts.length - 1]
-  const hrvNow    = hrvPts[hrvPts.length - 1]
-
-  const acwrCls = acwrNow >= 1.5 ? 'crit' : acwrNow >= 1.3 ? 'warn' : acwrNow < 0.6 ? 'good' : ''
-  const recCls  = (REC_BASE - recNow) > 20 ? 'crit' : (REC_BASE - recNow) > 10 ? 'warn' : recNow >= REC_BASE ? 'good' : ''
-  const hrvCls  = (HRV_BASE - hrvNow) > 14 ? 'crit' : (HRV_BASE - hrvNow) > 7  ? 'warn' : hrvNow > HRV_BASE ? 'good' : ''
-
-  const acwrStatus = acwrNow >= 1.5 ? 'High risk zone (>1.5)' : acwrNow >= 1.3 ? 'Caution — above optimal' : acwrNow < 0.6 ? 'Rebuilding' : 'Optimal (0.8–1.3)'
-  const recDelta   = REC_BASE - recNow
-  const recStatus  = recDelta > 20 ? `↓ ${Math.round(recDelta)} pts below baseline` : recDelta > 10 ? `↓ ${Math.round(recDelta)} pts — monitoring` : recNow >= REC_BASE ? 'Baseline restored' : 'Approaching baseline'
-  const hrvDelta   = HRV_BASE - hrvNow
-  const hrvStatus  = hrvDelta > 14 ? `↓ ${Math.round(hrvDelta)}ms suppressed` : hrvDelta > 7 ? `↓ ${Math.round(hrvDelta)}ms mild suppression` : hrvNow > HRV_BASE ? `↑ ${Math.round(-hrvDelta)}ms above mean` : `Within personal norms`
-
-  const acwrSvg = buildChart({
-    values: acwrPts, baseline: 1.0, min: 0.4, max: 2.1,
-    colorFn: acwrColor, dangerAt: 1.5, baselineLabel: '1.0',
-    zones: [
-      { from: 0.8, to: 1.3, fill: 'rgba(34,197,94,0.07)' },
-      { from: 1.3, to: 1.5, fill: 'rgba(245,158,11,0.07)' },
-      { from: 1.5, to: 2.5, fill: 'rgba(239,68,68,0.06)' },
-    ],
-  }, frac)
-  const recSvg = buildChart({ values: recPts, baseline: REC_BASE, min: 20, max: 90, colorFn: (v) => recColor(v), baselineLabel: `${REC_BASE}` }, frac)
-  const hrvSvg = buildChart({ values: hrvPts, baseline: HRV_BASE, min: 36, max: 80, colorFn: (v) => hrvColor(v), baselineLabel: `${HRV_BASE}ms` }, frac)
-
-  const day = scene.showDays ? Math.round(lerp(1, 28, frac)) : null
-
-  return (
-    <section
+  /* ── Metric column ── */
+  const metricCol = (i: number, label: string, sublabel: string, initVal: string) => (
+    <div
+      ref={el => { mRowRef.current[i] = el }}
       style={{
-        position: 'relative', width: '100%', height: '100svh', minHeight: 620,
-        overflow: 'hidden', background: '#020818',
-        fontFamily: "'Inter', system-ui, sans-serif",
+        flex: '1 1 0', minWidth: 0,
+        borderBottom: '1px solid rgba(255,255,255,0.15)',
+        paddingBottom: 10,
+        transition: 'border-color 0.5s',
       }}
     >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 2 }}>
+        <div>
+          <div style={{ fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>{label}</div>
+          <div style={{ fontSize: 7, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.06em', marginTop: 1 }}>{sublabel}</div>
+        </div>
+        <span
+          ref={el => { mValRef.current[i] = el }}
+          style={{
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontSize: 26, fontWeight: 900, color: '#fff',
+            lineHeight: 1, transition: 'color 0.4s',
+          }}
+        >
+          {initVal}
+        </span>
+      </div>
+      <svg
+        ref={el => { mSvgRef.current[i] = el }}
+        width="200" height="38"
+        style={{ display: 'block', width: '100%', overflow: 'visible', margin: '4px 0' }}
+      />
+      <span
+        ref={el => { mStatusRef.current[i] = el }}
+        style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)' }}
+      />
+    </div>
+  )
+
+  return (
+    <section style={{
+      position: 'relative', width: '100%', height: '100svh', minHeight: 620,
+      overflow: 'hidden', background: '#020818',
+      fontFamily: "'Inter', system-ui, sans-serif",
+    }}>
+
       {/* Videos */}
-      {SCENES.map(s => (
+      {SCENES.map((s, si) => (
         <video
           key={s.key}
           ref={el => { videoRefs.current[s.key] = el }}
           src={VIDEOS[s.key]}
-          muted playsInline loop={false} preload="auto"
+          muted playsInline preload="auto"
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover',
-            opacity: s.key === scene.key ? 1 : 0,
+            opacity: si === 0 ? 1 : 0,
             transition: 'opacity 1.4s ease',
+          }}
+          onLoad={e => {
+            // Keep correct video visible after re-renders
+            const el = e.currentTarget
+            const correct = SCENES[sceneIdx]?.key === s.key
+            el.style.opacity = correct ? '1' : '0'
           }}
         />
       ))}
 
       {/* Overlays */}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right,rgba(2,8,24,0.65) 0%,rgba(2,8,24,0.25) 55%,rgba(2,8,24,0.05) 100%)' }} />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top,rgba(2,8,24,0.9) 0%,transparent 50%)' }} />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom,rgba(2,8,24,0.5) 0%,transparent 20%)' }} />
-      {scene.redTint && <div style={{ position: 'absolute', inset: 0, background: 'rgba(55,5,5,0.22)', transition: 'opacity 1.2s' }} />}
-
-      {/* Wordmark */}
-      <div style={{ position: 'absolute', top: 28, left: 32, fontFamily: "'Barlow Condensed',sans-serif", fontWeight: 900, fontSize: 18, letterSpacing: '0.07em', color: 'rgba(255,255,255,0.92)', fontStyle: 'italic', opacity: textVisible ? 1 : 0, transition: 'opacity 0.8s' }}>
-        TWINSPIRE
-      </div>
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right,rgba(2,8,24,0.65) 0%,rgba(2,8,24,0.22) 55%,rgba(2,8,24,0.05) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top,rgba(2,8,24,0.92) 0%,transparent 52%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom,rgba(2,8,24,0.45) 0%,transparent 18%)' }} />
+      <div ref={redTintRef} style={{ position: 'absolute', inset: 0, background: 'rgba(55,5,5,0.22)', opacity: 0, transition: 'opacity 1.2s' }} />
 
       {/* Day counter */}
-      {day !== null && (
-        <div style={{ position: 'absolute', top: 64, right: 32, textAlign: 'right', opacity: textVisible ? 1 : 0, transition: 'opacity 0.8s' }}>
-          <div style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: 56, fontWeight: 900, color: '#fff', lineHeight: 1 }}>Day {day}</div>
-          <div style={{ fontSize: 10, color: 'rgba(122,142,192,0.7)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 3 }}>Rehabilitation</div>
-        </div>
-      )}
+      <div ref={dayRef} style={{ position: 'absolute', top: 28, right: 28, textAlign: 'right', opacity: 0, transition: 'opacity 0.8s' }}>
+        <div ref={dayNumRef} style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: 52, fontWeight: 900, color: '#fff', lineHeight: 1 }}>Day 1</div>
+        <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 2 }}>Rehabilitation</div>
+      </div>
 
-      {/* ── Hero text — upper portion ── */}
+      {/* Hero text */}
       <div
+        ref={textWrapRef}
         style={{
           position: 'absolute', top: 0, left: 0, right: 0,
-          height: '55%',
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center',
+          height: '52%',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           padding: '0 24px',
-          opacity: textVisible ? 1 : 0, transition: 'opacity 0.9s',
+          opacity: 0, transition: 'opacity 0.9s',
           pointerEvents: 'none',
         }}
       >
-        <p style={{ fontSize: 11, color: 'rgba(0,168,255,0.82)', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 14 }}>{scene.eyebrow}</p>
+        <p ref={eyebrowRef} style={{ fontSize: 11, color: 'rgba(0,168,255,0.82)', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 14 }} />
         <h1
+          ref={headlineRef}
           style={{
             fontFamily: "'Barlow Condensed',sans-serif",
-            fontSize: 'clamp(48px,6.5vw,82px)',
+            fontSize: 'clamp(46px,6.5vw,80px)',
             fontWeight: 900, lineHeight: 1, letterSpacing: '-0.02em',
             color: '#fff', textAlign: 'center', margin: '0 0 14px',
           }}
-        >
-          {scene.headline[0]}<br />
-          <span style={{ color: scene.key === 'rehab' ? '#00A8FF' : '#fff' }}>{scene.headline[1]}</span>
-        </h1>
-        {scene.sub && (
-          <p style={{ fontSize: 14, color: 'rgba(170,190,230,0.68)', maxWidth: 480, textAlign: 'center', lineHeight: 1.65, fontStyle: 'italic', margin: 0 }}>
-            {scene.sub}
-          </p>
-        )}
+        />
+        <p ref={subRef} style={{ fontSize: 14, color: 'rgba(170,190,230,0.65)', maxWidth: 460, textAlign: 'center', lineHeight: 1.65, fontStyle: 'italic', margin: 0 }} />
       </div>
 
-      {/* ── Alert card — above metrics row ── */}
+      {/* Alert card — centred, above metrics */}
       <div
+        ref={alertRef}
         style={{
           position: 'absolute',
-          bottom: 'calc(44px + 110px + 20px)', left: '50%',
-          background: 'rgba(2,6,32,0.94)',
-          border: '1.5px solid rgba(239,68,68,0.7)',
-          borderRadius: 14, padding: '14px 18px',
-          width: 'min(480px, calc(100% - 48px))',
-          backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
-          opacity: alertVisible ? 1 : 0,
-          transform: alertVisible ? 'translateX(-50%) translateY(0) scale(1)' : 'translateX(-50%) translateY(8px) scale(0.96)',
+          bottom: 'calc(44px + 90px + 28px)',
+          left: '50%',
+          transform: 'translateX(-50%) translateY(8px) scale(0.96)',
+          background: 'rgba(6,2,20,0.88)',
+          border: '1px solid rgba(239,68,68,0.6)',
+          borderRadius: 10, padding: '12px 16px',
+          width: 'min(460px, calc(100% - 48px))',
+          backdropFilter: 'blur(12px)',
+          opacity: 0,
           transition: 'opacity 0.45s, transform 0.45s',
           pointerEvents: 'none',
           display: 'flex', alignItems: 'flex-start', gap: 10,
         }}
       >
-        <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2.5">
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
-        </div>
-        <div>
-          <div style={{ fontSize: 11, fontWeight: 600, color: '#EF4444', letterSpacing: '0.05em', marginBottom: 4 }}>Individual Threshold Exceeded</div>
-          <p style={{ fontSize: 11, color: 'rgba(200,210,235,0.82)', lineHeight: 1.55, margin: 0 }}>{scene.alertText}</p>
-        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2.5" style={{ flexShrink: 0, marginTop: 1 }}>
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <p ref={alertTextRef} style={{ fontSize: 11, color: 'rgba(220,210,240,0.85)', lineHeight: 1.55, margin: 0 }} />
       </div>
 
-      {/* ── Metrics row — horizontal, pinned to bottom ── */}
+      {/* Metrics row — minimal, broadcast-style */}
       <div
         style={{
           position: 'absolute',
-          bottom: 44,
-          left: 24, right: 24,
-          display: 'flex', gap: 10,
-          opacity: textVisible ? 1 : 0, transition: 'opacity 0.9s',
+          bottom: 44, left: 28, right: 28,
+          display: 'flex', gap: 28,
         }}
       >
-        <MetricCard
-          label="ACWR"
-          sublabel="Acute : Chronic Workload Ratio"
-          value={acwrNow.toFixed(2)}
-          status={acwrStatus}
-          colorClass={acwrCls}
-          chartSvg={acwrSvg}
-        />
-        <MetricCard
-          label="Recovery Score"
-          sublabel={`vs personal baseline  ╌╌  ${REC_BASE}`}
-          value={String(Math.round(recNow))}
-          status={recStatus}
-          colorClass={recCls}
-          chartSvg={recSvg}
-        />
-        <MetricCard
-          label="Morning HRV"
-          sublabel={`personal wearable  ╌╌  ${HRV_BASE}ms`}
-          value={`${Math.round(hrvNow)}ms`}
-          status={hrvStatus}
-          colorClass={hrvCls}
-          chartSvg={hrvSvg}
-        />
+        {metricCol(0, 'ACWR',           'Acute : Chronic Workload',      '1.05')}
+        {metricCol(1, 'Recovery Score', `vs baseline  ╌  ${REC_BASE}`,   '74')}
+        {metricCol(2, 'Morning HRV',    `personal wearable  ╌  ${HRV_BASE}ms`, '68ms')}
       </div>
 
       {/* Scene dots */}
-      <div style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, alignItems: 'center' }}>
+      <div
+        ref={dotsRef}
+        style={{ position: 'absolute', bottom: 18, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8 }}
+      >
         {SCENES.map((s, i) => (
           <button
             key={s.key}
             onClick={() => handleDot(i)}
             aria-label={s.eyebrow}
-            style={{ height: 6, borderRadius: 3, border: 'none', cursor: 'pointer', padding: 0, width: i === sceneIdx ? 22 : 6, background: i === sceneIdx ? '#00A8FF' : 'rgba(255,255,255,0.22)', transition: 'width 0.3s, background 0.3s' }}
+            style={{
+              height: 5, borderRadius: 3, border: 'none', cursor: 'pointer', padding: 0,
+              width: i === 0 ? '22px' : '5px',
+              background: i === 0 ? '#00A8FF' : 'rgba(255,255,255,0.2)',
+              transition: 'width 0.3s, background 0.3s',
+            }}
           />
         ))}
       </div>
 
       {/* Progress bar */}
-      <div style={{ position: 'absolute', bottom: 0, left: 0, height: 2, background: '#00A8FF', width: `${frac * 100}%`, transition: 'width 0.1s linear' }} />
+      <div ref={progressRef} style={{ position: 'absolute', bottom: 0, left: 0, height: 2, background: '#00A8FF', width: '0%' }} />
     </section>
   )
 }
