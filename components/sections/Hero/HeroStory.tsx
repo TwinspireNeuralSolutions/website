@@ -370,7 +370,7 @@ export function HeroStorySection() {
       <div
         style={{
           position: 'absolute',
-          bottom: 130, left: '50%', transform: 'translateX(-50%)',
+          bottom: 130, left: '50%',
           background: 'rgba(2,6,32,0.94)',
           border: '1.5px solid rgba(239,68,68,0.7)',
           borderRadius: 14, padding: '14px 18px',
