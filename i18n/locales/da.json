@@ -251,7 +251,10 @@
     "originLabel": "Oprindelseshistorie",
     "originHeading": "Hvorfor denne forskning begyndte",
     "originBody": "Twinspire begyndte med en genoptræningsproces, der på papiret fulgte den forventede vej: monitorering, testning, trinvis progression og lægelig godkendelse. Alligevel fulgte en ny skade kort efter tilbagevenden. Den oplevelse afslørede et bredere forskningshul: selv i datarige elitemiljøer træffes kritiske beslutninger stadig på baggrund af fragmenterede data og uden en robust individualiseret model af atleten over tid. Twinspire blev grundlagt for at lukke det hul.",
-    "founderAlt": "Twinspires grundlægger under genoptræning — oplevelsen der inspirerede forskningen"
+    "founderAlt": "Twinspires grundlægger under genoptræning — oplevelsen der inspirerede forskningen",
+    "block1Body": "Training load. GPS output. Session data. Physio observations. All valuable. All incomplete — because they only capture what happens inside club hours.",
+    "block2Body": "Resting heart rate at home. Recovery scores on rest days. Sleep quality the night before a match. HRV trends across the week. This data exists on the player's wrist. Nobody is reading it in context.",
+    "block3Body": "One in five footballers re-injures the same muscle. That rate has not moved in a decade — not because the data is absent, but because the individual has never been properly modelled across both streams and over time."
   },
   "cta": {
     "title": "Vi udvælger",
@@ -321,6 +324,38 @@
       "howToGetStarted": {
         "question": "Hvordan kommer jeg i gang?",
         "answer": "Twinspire onboarder lige nu founding partner-klubber på tværs af Norden. Der er ingen forpligtelse ved at ansøge - blot en kort samtale for at se, om det er det rette match. Du kan kontakte os via kontaktformularen på hjemmesiden eller direkte på info@twinspire.ai."
+      },
+      "whatStageIsThisAt": {
+        "question": "What stage is Twinspire at?",
+        "answer": "Twinspire is at validation stage. The platform is deployed with a small founding partner cohort of clubs across the Nordics. The specific purpose of this cohort is to close the outcomes validation gap — the criterion on the external checklist we are honest about not yet fully meeting. We are not claiming live commercial traction we do not have. We are being precise about where we are and what the validation study is designed to close."
+      },
+      "doWeNeedToSwitchPlatforms": {
+        "question": "Do we need to switch platforms to use Twinspire?",
+        "answer": "No. Twinspire integrates with your current setup via API. Whether you use Catapult, Statsports, Bricks, or a custom internal platform — Twinspire sits underneath it, processing the combined data and returning outputs that appear inside your existing interface. No migration. No disruption to current workflows."
+      },
+      "whatAboutThePlayerApp": {
+        "question": "We already give our players an app. We cannot ask them to use two.",
+        "answer": "We hear this from almost every club. If you have an existing player-facing app, Twinspire can operate entirely in the background. The player's wearables sync to Twinspire automatically through a one-time consent setup. The readiness and deviation data generated appears in your staff dashboard — not in a separate player-facing interface. Twinspire is invisible to the player's daily workflow."
+      },
+      "whatWearablesDoYouSupport": {
+        "question": "Which wearables does Twinspire integrate with?",
+        "answer": "Whoop, Oura, Garmin, and Polar are currently supported, with further integrations in development. These are the devices your players most commonly use privately — the ones capturing recovery, sleep, and HRV data off-site that your club platform currently has no access to. If you have a specific device in mind, reach out and we will confirm where it sits on the roadmap."
+      },
+      "isThisReallyDifferentFromOurPlatform": {
+        "question": "How is this different from what our current platform does?",
+        "answer": "Your current platform captures what happens inside club hours — GPS output, gym load, physio notes. It has no access to what the player privately measures: Whoop recovery on a rest day, Oura sleep the night before a match, HRV at 6am on a Sunday. Twinspire is the only platform built to connect both streams under a proper GDPR and consent framework, and to model the individual against their own personal baseline rather than a squad or population average."
+      },
+      "canWePartnerWithTwinspire": {
+        "question": "We are a platform provider. Can we partner with Twinspire?",
+        "answer": "Yes. Twinspire is built to integrate, not compete. If you run a club performance platform and your customers are asking questions that squad-level data cannot answer at the individual level — or if you want to add private wearable integration with proper consent management — we should talk. The same applies to wearable manufacturers and sensor providers. Reach out at info@twinspire.ai."
+      },
+      "howDoesExplainabilityWork": {
+        "question": "Is the model a black box? Can staff understand why it flags something?",
+        "answer": "No. The model surfaces its key drivers explicitly at the individual level. When a deviation is flagged, coaching and medical staff see which specific signals are driving it — whether it is coming from club-side load data, personal HRV, recovery scores, or a combination — not just that a deviation exists. The output is framed as a decision with visible reasoning, not a score to interpret. This was a design requirement from the start, not a feature added later."
+      },
+      "whatIsValidationStudy": {
+        "question": "What is the validation study and why does it matter?",
+        "answer": "At ECSS 2026, independent researchers proposed a checklist for what a genuine decision support system requires. One criterion — validated against outcomes — is the specific one Twinspire's current validation study is designed to close. We are deploying with a founding partner cohort to build the longitudinal dataset needed to demonstrate that the individual baseline model predicts deviation events that matter clinically, not just that it detects statistical anomalies. We think it is more credible to be honest about this gap and show how we are closing it than to claim it is already closed."
       }
     }
   },
@@ -339,7 +374,9 @@
     "card3": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",
     "disclaimer": "Twinspire er en forskningsstadie-beslutningsstøtteprototype. Den er ikke beregnet til at diagnosticere, behandle eller erstatte klinisk vurdering.",
     "readMore": "Læs mere",
-    "readLess": "Læs mindre"
+    "readLess": "Læs mindre",
+    "card4Title": "Decision Support Disclaimer",
+    "card4": "Twinspire is a decision support platform. It surfaces signals for qualified staff to act on. It is not intended to diagnose, treat, or replace clinical judgment."
   },
   "joinUs": {
     "pageTitle": "Deltag i forskningen.",
