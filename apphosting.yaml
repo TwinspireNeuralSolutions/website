@@ -1,0 +1,81 @@
+# Firebase App Hosting runtime config
+# https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  minInstances: 0
+
+env:
+  # Firebase client SDK config (safe to expose - inlined into the client bundle at build time,
+  # same as it was with NEXT_PUBLIC_* vars on Vercel)
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: AIzaSyD6fhi8bm4IV1NUHnOKmyOYGQiQJMxcIuA
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: twinspire-neural-solutions.firebaseapp.com
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: twinspire-neural-solutions
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: twinspire-neural-solutions.firebasestorage.app
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "370982894972"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:370982894972:web:98cac00830e0f4d80238f9"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_DB_NAME
+    value: twinspire
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # App config
+  - variable: NEXT_PUBLIC_TEAM_ID
+    value: 3edc1602-9397-418f-a04d-f10e7cf7171c
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_APP_URL
+    value: https://website--twinspire-neural-solutions.europe-west4.hosted.app
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # GCP Storage service account (server-side only, must be created via
+  # `firebase apphosting:secrets:set <NAME> --project twinspire-neural-solutions`)
+  - variable: GCP_PROJECT_ID
+    secret: GCP_PROJECT_ID
+    availability:
+      - RUNTIME
+  - variable: GCP_CLIENT_EMAIL
+    secret: GCP_CLIENT_EMAIL
+    availability:
+      - RUNTIME
+  - variable: GCP_PRIVATE_KEY
+    secret: GCP_PRIVATE_KEY
+    availability:
+      - RUNTIME
+  - variable: GCP_BUCKET_NAME
+    secret: GCP_BUCKET_NAME
+    availability:
+      - RUNTIME
+
+  # Resend email API key (server-side only)
+  - variable: RESEND_API_KEY
+    secret: RESEND_API_KEY
+    availability:
+      - RUNTIME

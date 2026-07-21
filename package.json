@@ -2,6 +2,9 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -14,7 +17,6 @@
     "@google-cloud/storage": "^5.18.3",
     "@tanstack/react-query": "^5.90.7",
     "@tanstack/react-query-devtools": "^5.90.2",
-    "@vercel/analytics": "^1.6.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "firebase": "^12.5.0",

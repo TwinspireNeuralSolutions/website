@@ -15,11 +15,11 @@ const SECURITY_HEADERS: Record<string, string> = {
 
 const CONTENT_SECURITY_POLICY = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://*.calendly.com https://va.vercel-scripts.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://*.firebaseapp.com https://*.googleapis.com https://*.calendly.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.calendly.com https://api.fontshare.com;
   img-src 'self' data: https: blob:;
   font-src 'self' data: https://fonts.gstatic.com https://cdn.fontshare.com;
-  connect-src 'self' https://*.firebaseapp.com https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.calendly.com https://api.fontshare.com https://vitals.vercel-insights.com;
+  connect-src 'self' https://*.firebaseapp.com https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.calendly.com https://api.fontshare.com https://*.hosted.app;
   frame-src 'self' https://*.firebaseapp.com https://accounts.google.com https://*.calendly.com https://calendly.com;
   object-src 'none';
   base-uri 'self';

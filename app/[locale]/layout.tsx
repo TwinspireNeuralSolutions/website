@@ -2,7 +2,6 @@ import { type Locale, i18n } from '@/i18n/config'
 import { I18nProvider } from '@/i18n'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { AuthProvider } from '@/components/providers/AuthProvider'
-import { Analytics } from '@vercel/analytics/next'
 import { notFound } from 'next/navigation'
 
 interface LocaleLayoutProps {
@@ -17,7 +16,7 @@ export async function generateStaticParams() {
 /**
  * Locale Layout
  * Wraps every page with ThemeProvider, I18nProvider (locale from URL),
- * and AuthProvider. Analytics only rendered at this level.
+ * and AuthProvider.
  */
 export default async function LocaleLayout({
   children,
@@ -34,7 +33,6 @@ export default async function LocaleLayout({
       <I18nProvider initialLocale={locale as Locale}>
         <AuthProvider>{children}</AuthProvider>
       </I18nProvider>
-      <Analytics />
     </ThemeProvider>
   )
 }
