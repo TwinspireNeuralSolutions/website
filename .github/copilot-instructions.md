@@ -21,7 +21,7 @@
 
 ## � Project Structure
 
-```
+```text
 app/
   layout.tsx                     # Minimal root layout (html/body/theme-script only)
   sitemap.ts                     # Locale-aware sitemap
@@ -125,7 +125,7 @@ All UI primitives live in `components/ui/`. **Never create one-off styled elemen
 
 ## 🎨 Design Tokens — NEVER USE RAW HEX VALUES
 
-```
+```text
 Primary:    #0802A3  →  bg-primary / text-primary
 Hover:      #06018a  →  hover:bg-primary-hover
 Active:     #050170  →  active:bg-primary-active
@@ -405,7 +405,7 @@ Claude brings deep expertise in:
 - `Intl` API for date, number, currency, relative time formatting
 - Pluralization and gender-aware translation patterns
 
-### Security
+### Security Practices
 
 - XSS prevention: content sanitization, `dangerouslySetInnerHTML` avoidance
 - CSP (Content Security Policy) header configuration

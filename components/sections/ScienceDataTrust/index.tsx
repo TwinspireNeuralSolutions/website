@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
@@ -183,9 +184,11 @@ function ValidationIcon({ className }: { className?: string }) {
 function ModelingDiagram() {
   return (
     <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-4">
-      <img
+      <Image
         src="/science/1.png"
         alt="Modeling illustration"
+        width={1336}
+        height={726}
         className="block w-full rounded-xl object-contain"
       />
       {/* Original SVG retained as hidden fallback */}
@@ -560,9 +563,11 @@ function ModelingDiagram() {
 function SignalsDiagram() {
   return (
     <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-4">
-      <img
+      <Image
         src="/science/2.png"
         alt="Signals illustration"
+        width={992}
+        height={864}
         className="h-56 w-full rounded-xl object-cover sm:h-64 md:h-72"
       />
       <svg
@@ -924,9 +929,11 @@ function SignalsDiagram() {
 function ValidationDiagram() {
   return (
     <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-4">
-      <img
+      <Image
         src="/science/3.png"
         alt="Validation illustration"
+        width={976}
+        height={706}
         className="h-56 w-full rounded-xl object-contain object-top sm:h-64 md:h-72"
       />
       <svg
@@ -1154,32 +1161,6 @@ function ValidationDiagram() {
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Down-arrow connector between steps
- * ──────────────────────────────────────────────────────────────────────────── */
-
-function StepConnector() {
-  return (
-    <div className="flex justify-center py-6 sm:py-8" aria-hidden="true">
-      <svg
-        width="18"
-        height="24"
-        viewBox="0 0 18 24"
-        fill="none"
-        className="text-primary"
-      >
-        <path
-          d="M9 2v18M4 16l5 5 5-5"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  )
-}
-
-/* ────────────────────────────────────────────────────────────────────────────
  * Checkmark bullet
  * ──────────────────────────────────────────────────────────────────────────── */
 
@@ -1222,13 +1203,11 @@ interface StepBlockProps {
 
 function StepBlock({
   number,
-  badgeIcon,
   diagram,
   title,
   body,
   bullets,
   reverse,
-  delay = 0,
 }: StepBlockProps) {
   return (
     <div
@@ -1380,7 +1359,10 @@ export function ScienceDataTrustSection() {
           </div>
         </AnimateIn>
         {/* ── Bottom divider ── */}
-        <div className="border-border mt-10 border-t md:mt-14" aria-hidden="true" />
+        <div
+          className="border-border mt-10 border-t md:mt-14"
+          aria-hidden="true"
+        />
       </div>
     </section>
   )

@@ -12,14 +12,6 @@ import { type Locale, i18n } from './config'
 import en from './locales/en.json'
 import da from './locales/da.json'
 
-type NestedKeyOf<T> = T extends object
-  ? {
-      [K in keyof T & string]: T[K] extends object
-        ? `${K}.${NestedKeyOf<T[K]>}`
-        : K
-    }[keyof T & string]
-  : never
-
 type TranslationKey = string
 
 const dictionaries: Record<Locale, typeof en> = { en, da }
