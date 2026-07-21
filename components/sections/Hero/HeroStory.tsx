@@ -163,11 +163,18 @@ export function HeroStorySection() {
     startRef.current = performance.now()
     const sd = SCENES[idx]
 
-    // Videos
+    // Videos — set opacity directly (animation is DOM-driven, not React state)
     Object.entries(videoRefs.current).forEach(([key, el]) => {
       if (!el) return
-      if (key === sd.key) { el.currentTime = 0; el.play().catch(() => {}) }
-      else { el.pause(); el.currentTime = 0 }
+      if (key === sd.key) {
+        el.style.opacity = '1'
+        el.currentTime = 0
+        el.play().catch(() => {})
+      } else {
+        el.style.opacity = '0'
+        el.pause()
+        el.currentTime = 0
+      }
     })
 
     // Red tint
