@@ -1,6 +1,7 @@
 # Twinspire Frontend Skills
 
 ## Project Context
+
 - Next.js 15 (App Router) + TypeScript strict mode
 - Tailwind CSS v4 with custom design tokens
 - shadcn/ui component library in `components/ui/`
@@ -11,7 +12,9 @@
 - Dark/light theme support
 
 ## Component Library
+
 Always use components from `components/ui/`:
+
 - `Button` (variants: primary, white, ghost, outline, destructive, link, secondary; prop: showIcon for animated arrow)
 - `Typography` (variants: title 40px bold, subtitle 16px, heading 16px bold, paragraph 12px)
 - `Input`, `Textarea`, `Label` — form primitives
@@ -19,6 +22,7 @@ Always use components from `components/ui/`:
 - `LanguageSelector`, `ThemeToggle` — global controls
 
 ## Coding Standards
+
 1. All user-facing text via `useTranslation()` hook — never hardcode strings
 2. All colors via Tailwind design tokens — never raw hex in JSX
 3. Use `cn()` from `@/lib/utils` for conditional classNames
@@ -33,6 +37,7 @@ Always use components from `components/ui/`:
 12. Translation keys in both `en.json` and `da.json`
 
 ## Architecture
+
 - `app/` — Next.js pages (App Router)
 - `components/ui/` — Reusable design system components
 - `components/auth/` — Auth guard components
@@ -43,7 +48,9 @@ Always use components from `components/ui/`:
 - `lib/` — Utilities (cn, security helpers)
 
 ## Pre-Commit Review Checklist
+
 Suggest improvements (not hard blocks) for:
+
 - Missing translations in either locale file
 - Hardcoded text/colors not using design system
 - Missing TypeScript types

@@ -57,8 +57,7 @@ export const metadata: Metadata = {
     alternateLocale: 'da_DK',
     url: SITE_URL,
     siteName: 'Twinspire',
-    title:
-      'Twinspire AI Decision Support for Football Rehab & Return to Play',
+    title: 'Twinspire AI Decision Support for Football Rehab & Return to Play',
     description:
       'One in five footballers tears the same muscle twice. Twinspire builds a personalised neuromuscular model for every footballer so physios can see the earliest signals of overload before they become reinjuries.',
     images: [
@@ -72,8 +71,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Twinspire AI Decision Support for Football Rehab & Return to Play',
+    title: 'Twinspire AI Decision Support for Football Rehab & Return to Play',
     description:
       'One in five footballers tears the same muscle twice. Twinspire connects the full picture and explains what is changing — before it becomes a setback.',
     images: [`${SITE_URL}/og-image.png`],

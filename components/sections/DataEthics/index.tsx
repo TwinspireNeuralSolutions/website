@@ -76,9 +76,7 @@ function AlertTriangleIcon() {
 interface CardData {
   icon: React.ReactNode
   titleKey:
-    | 'dataEthics.card1Title'
-    | 'dataEthics.card2Title'
-    | 'dataEthics.card3Title'
+    'dataEthics.card1Title' | 'dataEthics.card2Title' | 'dataEthics.card3Title'
   bodyKey: 'dataEthics.card1' | 'dataEthics.card2' | 'dataEthics.card3'
 }
 

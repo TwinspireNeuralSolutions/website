@@ -58,15 +58,7 @@ const typographyVariants = cva('font-sans', {
 })
 
 type TypographyElement =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'p'
-  | 'span'
-  | 'div'
+  'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
 
 const variantElementMap: Record<string, TypographyElement> = {
   title: 'h1',
@@ -76,7 +68,8 @@ const variantElementMap: Record<string, TypographyElement> = {
 }
 
 export interface TypographyProps
-  extends React.HTMLAttributes<HTMLElement>,
+  extends
+    React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof typographyVariants> {
   /** Override the rendered HTML element */
   as?: TypographyElement
