@@ -22,7 +22,7 @@ export function CTASection() {
     >
       <div className="section-x section-y section-inner mx-auto text-center">
         {/* Headline */}
-        <AnimateIn variant="fadeUp">
+        <AnimateIn variant="headingReveal">
           <h2
             id="cta-heading"
             className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]"
