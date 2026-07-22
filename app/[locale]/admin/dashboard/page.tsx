@@ -1,6 +1,5 @@
 'use client'
 
-import { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useParams, useRouter } from 'next/navigation'
@@ -25,17 +24,8 @@ import {
 } from 'lucide-react'
 import { UploadSuccess } from '@/app/[locale]/admin/components/UploadSuccess'
 import { ChipSelect } from '@/components/ui/chipSelect'
-import {
-  validateFile as validateFileType,
-  formatFileSize,
-} from '@/app/[locale]/admin/lib/upload-validation'
-
-type UploadStatus = 'idle' | 'uploading' | 'success' | 'error'
-
-interface UploadedFile {
-  name: string
-  size: string
-}
+import { formatFileSize } from '@/app/[locale]/admin/lib/upload-validation'
+import { useFileUpload } from '@/app/[locale]/admin/dashboard/hooks/useFileUpload'
 
 function DashboardContent() {
   const router = useRouter()
@@ -46,152 +36,33 @@ function DashboardContent() {
   const displayName = profile?.name
   const avatarUrl = profile?.avatarUrl
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const [uploadStatus, setUploadStatus] = useState<UploadStatus>('idle')
-  const [uploadMessage, setUploadMessage] = useState('')
-  const [uploadedFile, setUploadedFile] = useState<UploadedFile | null>(null)
-  const [isDragging, setIsDragging] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-  const dropZoneRef = useRef<HTMLDivElement>(null)
-  const [deviceName, setDeviceName] = useState('')
-  const [selectedDevice, setSelectedDevice] = useState(false)
-
-  const deviceOptions = [
-    { value: 'vald', label: 'Vald' },
-    { value: 'statssports', label: 'Statssports' },
-  ]
-
-  const selectedDeviceLabel =
-    deviceOptions.find((opt) => opt.value === deviceName)?.label || ''
-
-  const getCurrentDate = () => {
-    const now = new Date()
-    const year = now.getFullYear()
-    const month = String(now.getMonth() + 1).padStart(2, '0')
-    const day = String(now.getDate()).padStart(2, '0')
-    return `${year}-${month}-${day}`
-  }
+  const {
+    deviceOptions,
+    selectedFile,
+    uploadStatus,
+    uploadMessage,
+    uploadedFile,
+    isDragging,
+    fileInputRef,
+    dropZoneRef,
+    deviceName,
+    selectedDevice,
+    selectedDeviceLabel,
+    handleFileChange,
+    handleDragEnter,
+    handleDragLeave,
+    handleDragOver,
+    handleDrop,
+    handleUpload,
+    handleRemoveSelectedFile,
+    handleUploadAnother,
+    handleBackToDeviceSelect,
+    handleDeviceSelect,
+  } = useFileUpload(user?.uid)
 
   const handleLogout = async () => {
     await signOut()
     router.push(`/${locale}/admin`)
-  }
-
-  const handleFileSelect = (file: File) => {
-    const result = validateFileType(file)
-    if (!result.valid) {
-      setUploadStatus('error')
-      setUploadMessage(result.error ?? 'Invalid file')
-      return
-    }
-    setSelectedFile(file)
-    setUploadStatus('idle')
-    setUploadMessage('')
-  }
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) handleFileSelect(file)
-  }
-
-  const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(true)
-  }
-
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    if (e.currentTarget === dropZoneRef.current) setIsDragging(false)
-  }
-
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsDragging(false)
-    const files = e.dataTransfer.files
-    if (files && files.length > 0) handleFileSelect(files[0])
-  }
-
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      setUploadStatus('error')
-      setUploadMessage('Please select a file first')
-      return
-    }
-
-    if (!selectedDevice) {
-      setUploadStatus('error')
-      setUploadMessage('Please select a device before uploading')
-      setSelectedDevice(false)
-      return
-    }
-
-    if (!user) {
-      setUploadStatus('error')
-      setUploadMessage('You must be logged in to upload files')
-      return
-    }
-
-    setUploadStatus('uploading')
-    setUploadMessage('Uploading file...')
-
-    try {
-      const formData = new FormData()
-      formData.append('file', selectedFile)
-      formData.append('teamId', process.env.NEXT_PUBLIC_TEAM_ID || '')
-      formData.append('measureDate', getCurrentDate())
-      formData.append('deviceName', deviceName)
-
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) throw new Error(data.error || 'Upload failed')
-
-      setUploadedFile({
-        name: selectedFile.name,
-        size: formatFileSize(selectedFile.size),
-      })
-      setUploadStatus('success')
-      setUploadMessage(`File uploaded successfully: ${data.fileName}`)
-      setSelectedFile(null)
-      if (fileInputRef.current) fileInputRef.current.value = ''
-    } catch (error) {
-      setUploadStatus('error')
-      setUploadMessage(
-        error instanceof Error
-          ? error.message
-          : 'Upload failed. Please try again.'
-      )
-      console.error('Upload error:', error)
-    }
-  }
-
-  const handleRemoveSelectedFile = () => {
-    setSelectedFile(null)
-    if (fileInputRef.current) fileInputRef.current.value = ''
-    setUploadStatus('idle')
-    setUploadMessage('')
-  }
-
-  const handleUploadAnother = () => {
-    setUploadStatus('idle')
-    setUploadMessage('')
-    setUploadedFile(null)
-    setSelectedFile(null)
-    setSelectedDevice(false)
-    setDeviceName('')
-    if (fileInputRef.current) fileInputRef.current.value = ''
   }
 
   return (
@@ -262,13 +133,7 @@ function DashboardContent() {
                   variant="ghost"
                   size="sm"
                   className="absolute top-4 left-4 text-white hover:bg-transparent hover:text-white"
-                  onClick={() => {
-                    setSelectedDevice(false)
-                    setDeviceName('')
-                    setSelectedFile(null)
-                    setUploadStatus('idle')
-                    setUploadMessage('')
-                  }}
+                  onClick={handleBackToDeviceSelect}
                 >
                   <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
                   Back
@@ -449,10 +314,7 @@ function DashboardContent() {
                 <div className="space-y-4">
                   <ChipSelect
                     value={deviceName}
-                    onValueChange={(value) => {
-                      setDeviceName(value)
-                      setSelectedDevice(true)
-                    }}
+                    onValueChange={handleDeviceSelect}
                     options={deviceOptions}
                   />
                 </div>
