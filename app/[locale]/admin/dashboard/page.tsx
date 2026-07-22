@@ -25,6 +25,10 @@ import {
 } from 'lucide-react'
 import { UploadSuccess } from '@/app/[locale]/admin/components/UploadSuccess'
 import { ChipSelect } from '@/components/ui/chipSelect'
+import {
+  validateFile as validateFileType,
+  formatFileSize,
+} from '@/app/[locale]/admin/lib/upload-validation'
 
 type UploadStatus = 'idle' | 'uploading' | 'success' | 'error'
 
@@ -73,35 +77,16 @@ function DashboardContent() {
     router.push(`/${locale}/admin`)
   }
 
-  const validateFile = (file: File): boolean => {
-    const validTypes = [
-      'application/vnd.ms-excel',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      'text/csv',
-      'application/csv',
-    ]
-    const isValidType =
-      validTypes.includes(file.type) ||
-      file.name.endsWith('.xlsx') ||
-      file.name.endsWith('.xls') ||
-      file.name.endsWith('.csv')
-
-    if (!isValidType) {
-      setUploadStatus('error')
-      setUploadMessage(
-        'Invalid file type. Please upload Excel or CSV files (.xlsx, .xls, .csv) only.'
-      )
-      return false
-    }
-    return true
-  }
-
   const handleFileSelect = (file: File) => {
-    if (validateFile(file)) {
-      setSelectedFile(file)
-      setUploadStatus('idle')
-      setUploadMessage('')
+    const result = validateFileType(file)
+    if (!result.valid) {
+      setUploadStatus('error')
+      setUploadMessage(result.error ?? 'Invalid file')
+      return
     }
+    setSelectedFile(file)
+    setUploadStatus('idle')
+    setUploadMessage('')
   }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -132,14 +117,6 @@ function DashboardContent() {
     setIsDragging(false)
     const files = e.dataTransfer.files
     if (files && files.length > 0) handleFileSelect(files[0])
-  }
-
-  const formatFileSize = (bytes: number): string => {
-    if (bytes === 0) return '0 Bytes'
-    const k = 1024
-    const sizes = ['Bytes', 'KB', 'MB', 'GB']
-    const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i]
   }
 
   const handleUpload = async () => {
