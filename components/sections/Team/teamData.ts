@@ -1,10 +1,8 @@
 export interface TeamMemberData {
   name: string
   role: string
-  /** Optional translation key for a short bio / description */
   description?: string
   image: string
-  /** Optional LinkedIn profile URL */
   linkedin?: string
 }
 
@@ -13,6 +11,7 @@ export interface TeamGroup {
   members: TeamMemberData[]
 }
 
+// Row 1 — Founders
 export const founders: TeamMemberData[] = [
   {
     name: 'Pouya Tobias Strand Nikoui',
@@ -44,6 +43,7 @@ export const founders: TeamMemberData[] = [
   },
 ]
 
+// Row 2 — Team
 export const teamMembers: TeamMemberData[] = [
   {
     name: 'Christos Andreas Ntemkas',
@@ -58,12 +58,6 @@ export const teamMembers: TeamMemberData[] = [
     linkedin: 'https://www.linkedin.com/in/csongor-tarnai-65a4042b5/',
   },
   {
-    name: 'Hajar El Mhassani',
-    role: 'team.roles.internFullStackDev',
-    image: '/team/hajar.png',
-    linkedin: 'https://www.linkedin.com/in/hajar-el-mhassani-54202b120/',
-  },
-  {
     name: 'Nicola Stefani',
     role: 'team.roles.researchTeam',
     image: '/team/nicola.png',
@@ -73,17 +67,37 @@ export const teamMembers: TeamMemberData[] = [
     name: 'Hilmar Snær Örvarsson',
     role: 'team.roles.researchTeam',
     image: '/team/hilmar.png',
-    linkedin:
-      'https://www.linkedin.com/in/hilmar-sn%C3%A6r-%C3%B6rvarsson-400850263/',
+    linkedin: 'https://www.linkedin.com/in/hilmar-sn%C3%A6r-%C3%B6rvarsson-400850263/',
   },
 ]
 
+// Row 3 — Advisory Board
 export const advisers: TeamMemberData[] = [
   {
-    name: 'Kim Kragbæk Larsen',
+    name: 'Adam Foss',
     role: 'team.roles.marketAdvisor',
-    description: 'team.descriptions.kim',
-    image: '/team/kim.png',
-    linkedin: 'https://www.linkedin.com/in/kimkragbaeklarsen/',
+    description: 'team.descriptions.adamFoss',
+    image: '/team/adam-foss.jpg',
+    linkedin: 'https://www.linkedin.com/in/adam-foss-88430a2/',
+  },
+  {
+    name: 'Kanishka Sina',
+    role: 'team.roles.footballAdvisor',
+    description: 'team.descriptions.kanishkaSina',
+    image: '/team/kanishka-sina.jpg',
+    linkedin: 'https://www.linkedin.com/in/kanishkasina/',
+  },
+  {
+    name: 'Joachim Christgau',
+    role: 'team.roles.brandAdvisor',
+    description: 'team.descriptions.joachimChristgau',
+    image: '/team/joachim-christgau.jpg',
+    linkedin: 'https://www.linkedin.com/in/joachimchristgau/',
+  },
+  {
+    name: 'Johan Kisum',
+    role: 'team.roles.advisor',
+    description: 'team.descriptions.johanKisum',
+    image: '/team/johan-kisum.jpg',
   },
 ]
