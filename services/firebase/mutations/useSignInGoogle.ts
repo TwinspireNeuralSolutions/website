@@ -1,64 +1,29 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { signInWithPopup } from 'firebase/auth'
-import { auth } from '../config/firebase-config'
 import { getGoogleProvider } from '../config/auth-config'
-import { SignInResponse, mapFirebaseUser } from '../types/auth.types'
-import { AUTH_KEYS, PROFILE_KEYS } from '../constants/query-keys'
+import { mapFirebaseUser } from '../types/auth.types'
 import {
-  createAuthNotInitializedError,
   handleOAuthError,
   isNewUser,
   handleNewUserRejection,
-  validateUserProfile,
 } from '../utils/auth-utils'
+import { useSignInCore } from './useSignInCore'
 
 export function useSignInGoogle() {
-  const queryClient = useQueryClient()
+  return useSignInCore({
+    acquireCredential: async (auth) => {
+      const provider = getGoogleProvider()
+      const userCredential = await signInWithPopup(auth, provider)
 
-  return useMutation({
-    retry: false,
-    mutationFn: async () => {
-      if (!auth) {
-        throw createAuthNotInitializedError()
+      if (isNewUser(userCredential.user)) {
+        await handleNewUserRejection(userCredential.user)
       }
 
-      let signInResult: SignInResponse
-      try {
-        const provider = getGoogleProvider()
-        const userCredential = await signInWithPopup(auth, provider)
-
-        if (isNewUser(userCredential.user)) {
-          await handleNewUserRejection(userCredential.user)
-        }
-
-        signInResult = {
-          user: mapFirebaseUser(userCredential.user),
-          providerId: userCredential.user.providerId || 'google.com',
-        }
-      } catch (error: any) {
-        throw handleOAuthError(error, 'google.com')
-      }
-
-      const profile = await validateUserProfile(signInResult.user.uid)
-      return { signInResult, profile }
-    },
-    onSuccess: async (data: { signInResult: SignInResponse; profile: any }) => {
-      queryClient.invalidateQueries({ queryKey: AUTH_KEYS.currentUser })
-      queryClient.invalidateQueries({ queryKey: AUTH_KEYS.authState })
-
-      if (data.profile) {
-        queryClient.setQueryData(
-          PROFILE_KEYS.profile(data.signInResult.user.uid),
-          data.profile
-        )
+      return {
+        user: mapFirebaseUser(userCredential.user),
+        providerId: userCredential.user.providerId || 'google.com',
       }
     },
-    onError: (error: Error) => {
-      // Error is handled by useAuth hook and displayed in UI
-      // Only log in development for debugging
-      if (process.env.NODE_ENV === 'development') {
-        console.error('Sign in with Google failed:', error.message)
-      }
-    },
+    mapError: (error) => handleOAuthError(error, 'google.com'),
+    logLabel: 'Sign in with Google',
   })
 }
