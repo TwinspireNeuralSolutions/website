@@ -34,7 +34,7 @@ const SCENES: Scene[] = [
   {
     key: 'treadmill', duration: 7000,
     eyebrow: 'Club data · Week 3',
-    headline: ['Two streams.', 'Neither connected.'],
+    headline: ['Two streams', 'Neither connected'],
     sub: 'GPS at the club. Whoop at home. Two separate worlds.',
     acwr: [1.05, 1.11, 1.18, 1.25, 1.32, 1.38, 1.44],
     rec:  [74, 73, 72, 70, 68, 66, 63],
@@ -43,7 +43,7 @@ const SCENES: Scene[] = [
   {
     key: 'squat', duration: 7000,
     eyebrow: 'Personal data · Week 6',
-    headline: ['The signal existed.', 'Nobody saw it.'],
+    headline: ['The signal existed', 'Nobody saw it'],
     sub: 'In the Whoop. In the 6am HRV. Unread.',
     acwr: [1.44, 1.52, 1.59, 1.65, 1.72, 1.78, 1.82],
     rec:  [63, 59, 56, 53, 50, 47, 44],
@@ -52,7 +52,7 @@ const SCENES: Scene[] = [
   {
     key: 'isolation', duration: 5500,
     eyebrow: 'The gap.',
-    headline: ['The data existed.', 'Nothing connected it.'],
+    headline: ['The data existed', 'Nothing connected it'],
     redTint: true, showAlert: true,
     alertText: 'Individual threshold exceeded. ACWR 1.82. Recovery 30pts below personal baseline. Pattern detectable 6 sessions prior.',
     acwr: [1.82, 1.82, 1.82, 1.82, 1.82, 1.82, 1.82],
@@ -62,7 +62,7 @@ const SCENES: Scene[] = [
   {
     key: 'rehab', duration: 9000,
     eyebrow: 'The connection.',
-    headline: ['Club data. Personal data.', 'One individual model.'],
+    headline: ['Club data · Personal data', 'One individual model'],
     sub: "Twinspire connects both streams. Your platform doesn't need to change.",
     showDays: true,
     acwr: [0.08, 0.17, 0.27, 0.38, 0.48, 0.57, 0.67],
