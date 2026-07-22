@@ -35,6 +35,9 @@ lint:
     - linters: [checkov]
       paths:
         - i18n/locales/da.json
+        # Firebase client SDK key - intentionally public, inlined into the
+        # client bundle at build time. See comment in apphosting.yaml.
+        - apphosting.yaml
 actions:
   enabled:
     - trunk-announce
