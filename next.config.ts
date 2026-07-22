@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['@google-cloud/storage'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
