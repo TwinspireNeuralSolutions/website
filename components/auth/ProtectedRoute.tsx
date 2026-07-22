@@ -2,6 +2,8 @@
 
 import { ReactNode, useEffect } from 'react'
 import { useAuth } from '@/hooks/useAuth'
+import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
+import { useIsTeamManager } from '@/hooks/useIsTeamManager'
 import { useRouter } from 'next/navigation'
 
 interface ProtectedRouteProps {
@@ -15,16 +17,24 @@ export function ProtectedRoute({
   redirectTo = '/sign-in',
   loadingComponent,
 }: ProtectedRouteProps) {
-  const { isAuthenticated, isLoading } = useAuth()
+  const { isAuthenticated, isLoading, user } = useAuth()
+  const { data: profile, isLoading: isProfileLoading } = useGetProfile(
+    user?.uid
+  )
+  const isManager = useIsTeamManager(profile)
   const router = useRouter()
 
+  const isCheckingRole = isAuthenticated && isProfileLoading
+  const isUnauthorized = isAuthenticated && !isProfileLoading && !isManager
+
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
+    if (isLoading) return
+    if (!isAuthenticated || isUnauthorized) {
       router.push(redirectTo)
     }
-  }, [isAuthenticated, isLoading, router, redirectTo])
+  }, [isAuthenticated, isLoading, isUnauthorized, router, redirectTo])
 
-  if (isLoading) {
+  if (isLoading || isCheckingRole) {
     return (
       <>
         {loadingComponent || (
@@ -39,7 +49,7 @@ export function ProtectedRoute({
     )
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || isUnauthorized) {
     return null
   }
 
