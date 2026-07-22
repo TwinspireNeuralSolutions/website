@@ -5,6 +5,18 @@ import { getUserProfile } from '../queries/useGetProfile'
 import { signOut } from '../mutations/useSignOut'
 
 /**
+ * Roles allowed to sign in and access manager-only areas of the site
+ */
+export const MANAGER_ROLES = ['team-manager', 'team', 'manager']
+
+/**
+ * Checks whether a profile role grants team-manager access
+ */
+export function isManagerRole(role: string | null | undefined): boolean {
+  return !!role && MANAGER_ROLES.includes(role)
+}
+
+/**
  * Creates an error with a specific name and message
  */
 function createAuthError(message: string, name: string): Error {
@@ -148,8 +160,7 @@ export async function validateUserProfile(
   try {
     const profile = await getUserProfile(uid)
 
-    const allowedRoles = ['team-manager', 'team', 'manager']
-    if (!profile || !profile.role || !allowedRoles.includes(profile.role)) {
+    if (!profile || !isManagerRole(profile.role)) {
       if (
         typeof window !== 'undefined' &&
         process.env.NODE_ENV === 'development'

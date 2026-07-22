@@ -1,6 +1,7 @@
 import { useAuth } from './useAuth'
 import { useGetProfile } from '@/services/firebase/queries/useGetProfile'
 import { TwinspireProfile } from '@/services/firebase/types/auth.types'
+import { isManagerRole } from '@/services/firebase'
 
 /**
  * Hook to check if the current user is a team manager
@@ -15,6 +16,5 @@ export function useIsTeamManager(profile?: TwinspireProfile | null): boolean {
 
   const profileToCheck = profile !== undefined ? profile : fetchedProfile
 
-  const allowedRoles = ['team-manager', 'team', 'manager']
-  return !!profileToCheck?.role && allowedRoles.includes(profileToCheck.role)
+  return isManagerRole(profileToCheck?.role)
 }

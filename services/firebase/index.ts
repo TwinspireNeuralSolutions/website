@@ -26,3 +26,5 @@ export { useSignInApple } from './mutations/useSignInApple'
 export { useSignOut } from './mutations/useSignOut'
 
 export { AUTH_KEYS, PROFILE_KEYS } from './constants/query-keys'
+
+export { MANAGER_ROLES, isManagerRole } from './utils/auth-utils'
