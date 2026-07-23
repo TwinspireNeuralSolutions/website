@@ -111,17 +111,17 @@
   },
   "problem": {
     "label": "The Gap",
-    "headline": "Two Data Streams — Neither Aware of the Other",
-    "p1": "Your club captures GPS, gym load, and physio notes. Valuable — but only what happens inside club hours. Meanwhile your players privately measure Whoop recovery, Oura sleep, and HRV at 6am on a Sunday. That data exists. Nobody is reading it in context.",
+    "headline": "Two Data Streams. Neither Aware of the Other.",
+    "p1": "Your club captures GPS, gym load, and physio notes. Valuable, but only what happens inside club hours. Meanwhile your players privately measure Whoop recovery, Oura sleep, and HRV at 6am on a Sunday. That data exists. Nobody is reading it in context.",
     "block1Title": "What the Club Sees",
     "block2Title": "What the Player Privately Measures",
     "block3Title": "Where the Signal Lives",
-    "p2": "Resting heart rate at home. Recovery scores on rest days. Sleep quality the night before a match. HRV trends across a week of training. This data sits on the player's wrist — and never reaches anyone who could act on it.",
-    "p3": "One in five footballers re-injures the same muscle. That rate has not moved in a decade — not because the data is absent, but because the individual has never been properly modelled across both streams and over time.",
+    "p2": "Resting heart rate at home. Recovery scores on rest days. Sleep quality the night before a match. HRV trends across a week of training. This data sits on the player's wrist, and never reaches anyone who could act on it.",
+    "p3": "One in five footballers re-injures the same muscle. That rate has not moved in a decade, not because the data is absent, but because the individual has never been properly modelled across both streams and over time.",
     "imageAlt": "Performance data",
     "originLabel": "Why We Built This",
-    "originHeading": "The Data Existed — Nothing Read It",
-    "originBody": "Twinspire began with a rehabilitation process that followed every expected protocol — monitoring, testing, staged progression, medical clearance. A second injury followed. The signals had been there, across separate systems that never spoke to each other, and no model was watching the individual closely enough to notice.",
+    "originHeading": "The Data Existed. Nothing Read It.",
+    "originBody": "Twinspire began with a rehabilitation process that followed every expected protocol, monitoring, testing, staged progression, medical clearance. A second injury followed. The signals had been there, across separate systems that never spoke to each other, and no model was watching the individual closely enough to notice.",
     "founderAlt": "Twinspire founder"
   },
   "product": {
@@ -129,25 +129,25 @@
       "label": "How It Works",
       "heading": "Club data. Personal data.",
       "headingAccent": "One individual model",
-      "intro": "Club data arrives via API — no platform switch required. Player data arrives via the Twinspire app, consented once. Both streams feed the individual baseline model. The output goes back into your existing setup.",
+      "intro": "Club data arrives via API, no platform switch required. Player data arrives via the Twinspire app, consented once. Both streams feed the individual baseline model. The output goes back into your existing setup.",
       "pillars": {
         "modeling": {
           "title": "Works With Your Current Setup",
-          "body": "API integration with your existing platform — Catapult, Statsports, Bricks, or any provider with an open API. No migration. Outputs appear in your current interface.",
+          "body": "API integration with your existing platform, Catapult, Statsports, Bricks, or any provider with an open API. No migration. Outputs appear in your current interface.",
           "bullet1": "API integration with existing platforms",
           "bullet2": "No platform switch required",
           "bullet3": "Outputs feed back into your current UI"
         },
         "signals": {
           "title": "Connects the Private Data Stream",
-          "body": "Whoop, Oura, Garmin, Polar — the wearables your players use off-site. Twinspire is the only platform with the consent architecture to legitimately integrate this data into club analytics.",
+          "body": "Whoop, Oura, Garmin, Polar, the wearables your players use off-site. Twinspire is the only platform with the consent architecture to legitimately integrate this data into club analytics.",
           "bullet1": "Whoop, Oura, Garmin, Polar integrations",
-          "bullet2": "Player consents once — data stays theirs",
+          "bullet2": "Player consents once, data stays theirs",
           "bullet3": "Off-site and rest-day signals included"
         },
         "validation": {
           "title": "Individual Baseline Modeling",
-          "body": "What normal looks like for this specific player — not for footballers in general. Built from both streams, continuously updated, surfacing deviation early with key drivers surfaced explicitly.",
+          "body": "What normal looks like for this specific player, not for footballers in general. Built from both streams, continuously updated, surfacing deviation early with key drivers surfaced explicitly.",
           "bullet1": "Personal baseline, not population average",
           "bullet2": "Continuous learning from every session",
           "bullet3": "Key drivers surfaced, not a black box score"
@@ -155,36 +155,36 @@
       },
       "researchTitle": "Three questions answered every day",
       "questions": {
-        "q1": "Is this player's current state within their personal normal range — combining club and personal data?",
+        "q1": "Is this player's current state within their personal normal range, combining club and personal data?",
         "q2": "Which signals are driving any deviation, and from which data stream?",
-        "q3": "Is this player ready to train at full intensity — by their individual model, not a population benchmark?",
-        "q4": "What has changed since last session — and does the pattern match anything seen before?"
+        "q3": "Is this player ready to train at full intensity, by their individual model, not a population benchmark?",
+        "q4": "What has changed since last session, and does the pattern match anything seen before?"
       }
     },
     "trust": {
       "heading": "",
-      "body": "GDPR-compliant from the ground up. EU servers. Player data is never sold. The Athletic Passport belongs to the athlete — it moves when they transfer. The squad data belongs to the club.",
+      "body": "GDPR-compliant from the ground up. EU servers. Player data is never sold. The Athletic Passport belongs to the athlete, it moves when they transfer. The squad data belongs to the club.",
       "bullet1": "GDPR compliance and Data Processing Agreements",
       "bullet2": "EU-based hosting and processing",
       "bullet3": "Medical device regulation standards",
       "disclaimer": "Twinspire is a decision support platform. It is not intended to diagnose or treat medical conditions."
     },
     "headline1": "The Individual Baseline",
-    "p1": "When your doctor runs blood tests, they track your values over time — because your normal might be different from the reference range. Twinspire does exactly that for every metric in your squad, continuously, across both the data the club controls and the data the player privately generates.",
+    "p1": "When your doctor runs blood tests, they track your values over time, because your normal might be different from the reference range. Twinspire does exactly that for every metric in your squad, continuously, across both the data the club controls and the data the player privately generates.",
     "card1": {
       "title": "Not a squad benchmark",
       "body": "A shift that looks unremarkable across a squad can be a significant warning for a particular player. Each individual's reference behavior is built and measured separately."
     },
     "card2": {
-      "title": "Trained staff leave — the model does not",
+      "title": "Trained staff leave. The model does not.",
       "body": "A good physio intuitively knows their long-term players. When staff turn over, that knowledge leaves. Twinspire makes it objective, permanent, and transferable."
     },
     "card3": {
       "title": "The Athletic Passport",
-      "body": "Every session, load, injury, and rehab milestone — portable, owned by the athlete. When they transfer, their full history transfers. New club inherits objective data from day one."
+      "body": "Every session, load, injury, and rehab milestone, portable, owned by the athlete. When they transfer, their full history transfers. New club inherits objective data from day one."
     },
     "headline2": "No Extra App for the Player",
-    "p2": "The most common objection: we cannot ask our players to use another app. If your platform already has a player-facing app, Twinspire operates entirely in the background. Wearables sync automatically. Output appears in your existing interface. Invisible to the player's daily workflow — and the data it generates is not.",
+    "p2": "The most common objection: we cannot ask our players to use another app. If your platform already has a player-facing app, Twinspire operates entirely in the background. Wearables sync automatically. Output appears in your existing interface. Invisible to the player's daily workflow, and the data it generates is not.",
     "mockupAlt": "Twinspire readiness dashboard",
     "readMore": "Read more",
     "readLess": "Read less",
@@ -196,29 +196,29 @@
     "subtitle": "One platform. Three roles.",
     "footballers": {
       "title": "Footballers",
-      "description": "Connect your Whoop, Oura, or Garmin once. Your individual baseline is yours — not the club's. When you move, it moves with you. A portable physiological record across your entire career."
+      "description": "Connect your Whoop, Oura, or Garmin once. Your individual baseline is yours, not the club's. When you move, it moves with you. A portable physiological record across your entire career."
     },
     "coaches": {
       "title": "Coaches & Performance Staff",
-      "description": "Squad-wide readiness built on individual baselines, not averages. Including the signal your current platform cannot access — the private data stream from the player's own wearables."
+      "description": "Squad-wide readiness built on individual baselines, not averages. Including the signal your current platform cannot access, the private data stream from the player's own wearables."
     },
     "physio": {
       "title": "Physiotherapists",
-      "description": "Deviation alerts across both club-controlled and player-controlled data — surfaced before they become conversations, and well before they become injuries."
+      "description": "Deviation alerts across both club-controlled and player-controlled data, surfaced before they become conversations, and well before they become injuries."
     }
   },
   "cta": {
     "title": "We Are Selecting Founding Partner Clubs",
     "titleAccent": "for the Validation Cohort",
     "titleEnd": "",
-    "subtitle": "Twinspire is at validation stage — deploying with a small number of clubs across the Nordics to close the outcomes validation gap. Founding partner clubs shape the product, contribute to the dataset, and secure preferential terms ahead of commercial launch. We are being selective.",
+    "subtitle": "Twinspire is at validation stage, deploying with a small number of clubs across the Nordics to close the outcomes validation gap. Founding partner clubs shape the product, contribute to the dataset, and secure preferential terms ahead of commercial launch. We are being selective.",
     "fields": "Name · Club · Role · Email",
     "button": "Apply to Join the Cohort",
-    "note": "No commitment — a short call to understand your setup and whether this is the right fit."
+    "note": "No commitment, a short call to understand your setup and whether this is the right fit."
   },
   "partners": {
     "heading": "Platform and Sensor Partners",
-    "body": "Built to integrate, not compete. If your customers are asking questions that squad-level data cannot answer at the individual level — let us talk.",
+    "body": "Built to integrate, not compete. If your customers are asking questions that squad-level data cannot answer at the individual level, let us talk.",
     "cta": "Partnership enquiries"
   },
   "faq": {
@@ -230,11 +230,11 @@
     "items": {
       "whatIsTwinspire": {
         "question": "What is Twinspire?",
-        "answer": "Twinspire connects the data your club platform captures with the personal wearable data your players generate off-site — and builds a continuously updated individual baseline for each athlete. The output feeds back into your existing setup as readiness scores, deviation alerts, and trend data. It is a decision support tool for coaching and medical staff, not a replacement for clinical judgment."
+        "answer": "Twinspire connects the data your club platform captures with the personal wearable data your players generate off-site, and builds a continuously updated individual baseline for each athlete. The output feeds back into your existing setup as readiness scores, deviation alerts, and trend data. It is a decision support tool for coaching and medical staff, not a replacement for clinical judgment."
       },
       "whatProblemDoesTwinspireSolve": {
         "question": "What problem does Twinspire solve?",
-        "answer": "Your club sees GPS and gym load. Your players privately measure Whoop recovery, Oura sleep, and HRV at 6am on a Sunday. These two streams have never been properly connected — and that gap is where the early warning signals live. Twinspire bridges them under a proper GDPR and consent framework, builds an individual baseline for each athlete, and surfaces deviation before it becomes injury."
+        "answer": "Your club sees GPS and gym load. Your players privately measure Whoop recovery, Oura sleep, and HRV at 6am on a Sunday. These two streams have never been properly connected, and that gap is where the early warning signals live. Twinspire bridges them under a proper GDPR and consent framework, builds an individual baseline for each athlete, and surfaces deviation before it becomes injury."
       },
       "whoIsTwinspireFor": {
         "question": "Who is Twinspire for?",
@@ -242,39 +242,39 @@
       },
       "howDoesTwinspireWork": {
         "question": "How does it actually work?",
-        "answer": "Club data arrives via API — no platform switch required. Player data arrives via the Twinspire app, through a one-time consent setup. Both streams feed the individual baseline model. Twinspire learns what normal looks like for each specific player, then continuously monitors for meaningful deviation. The output — readiness scores, deviation alerts, key drivers — appears in your existing setup."
+        "answer": "Club data arrives via API, no platform switch required. Player data arrives via the Twinspire app, through a one-time consent setup. Both streams feed the individual baseline model. Twinspire learns what normal looks like for each specific player, then continuously monitors for meaningful deviation. The output, readiness scores, deviation alerts, key drivers, appears in your existing setup."
       },
       "whatIsAthleticPassport": {
         "question": "What is the Athletic Passport?",
-        "answer": "Every time a player transfers, their physiological history resets to zero. A new club inherits a name and a transfer fee — not 18 months of individual baseline data. The Athletic Passport changes that. It is a portable, consent-based record of everything a player's body has generated: sessions, loads, injuries, rehab milestones, and the individual baseline built from both club and personal data. It belongs to the athlete. When they sign for a new club, their baseline arrives with them."
+        "answer": "Every time a player transfers, their physiological history resets to zero. A new club inherits a name and a transfer fee, not 18 months of individual baseline data. The Athletic Passport changes that. It is a portable, consent-based record of everything a player's body has generated: sessions, loads, injuries, rehab milestones, and the individual baseline built from both club and personal data. It belongs to the athlete. When they sign for a new club, their baseline arrives with them."
       },
       "isTwinspireDashboard": {
         "question": "Is this just another dashboard?",
-        "answer": "No. At ECSS 2026, Dr. Lorena Martin put it clearly: a dashboard displays variables — it does not explain what matters, why it matters, or what to do next. Twinspire is a decision support system. It builds an individual model for each athlete and answers three questions every day: is this player within their personal normal range, which signals are driving any deviation, and are they ready to train at full intensity. The output is a decision with visible reasoning, not a chart to interpret."
+        "answer": "No. At ECSS 2026, Dr. Lorena Martin put it clearly: a dashboard displays variables, it does not explain what matters, why it matters, or what to do next. Twinspire is a decision support system. It builds an individual model for each athlete and answers three questions every day: is this player within their personal normal range, which signals are driving any deviation, and are they ready to train at full intensity. The output is a decision with visible reasoning, not a chart to interpret."
       },
       "whatIsDigitalTwin": {
         "question": "What does individual baseline modeling mean in practice?",
-        "answer": "When your doctor runs blood tests, they track your values over time — because your normal may be different from the population reference range. Twinspire does exactly that for every performance and recovery metric in your squad. It builds what normal looks like for each specific player — across both the data the club controls and the data the player privately generates — and measures everything against it. A shift that looks unremarkable squad-wide can be a significant warning for a particular player."
+        "answer": "When your doctor runs blood tests, they track your values over time, because your normal may be different from the population reference range. Twinspire does exactly that for every performance and recovery metric in your squad. It builds what normal looks like for each specific player, across both the data the club controls and the data the player privately generates, and measures everything against it. A shift that looks unremarkable squad-wide can be a significant warning for a particular player."
       },
       "whatDataDoesTwinspireUse": {
         "question": "What data does Twinspire use?",
-        "answer": "From the club side: GPS and movement data, strength and gym output, physio notes and clinical assessments. From the player's own devices: Whoop, Oura, Garmin, and Polar — the wearables capturing recovery, sleep, and HRV data off-site that your club platform currently has no access to. Both streams are processed under a proper consent and GDPR framework."
+        "answer": "From the club side: GPS and movement data, strength and gym output, physio notes and clinical assessments. From the player's own devices: Whoop, Oura, Garmin, and Polar, the wearables capturing recovery, sleep, and HRV data off-site that your club platform currently has no access to. Both streams are processed under a proper consent and GDPR framework."
       },
       "whoOwnsData": {
         "question": "Who owns the player data?",
-        "answer": "The player owns their Athletic Passport — the longitudinal record of their individual baseline built from both club and personal data. The club owns its squad analytics. Twinspire hosts both under a formal Data Processing Agreement. Player data is never sold, never shared with third parties, and fully portable when a player transfers."
+        "answer": "The player owns their Athletic Passport, the longitudinal record of their individual baseline built from both club and personal data. The club owns its squad analytics. Twinspire hosts both under a formal Data Processing Agreement. Player data is never sold, never shared with third parties, and fully portable when a player transfers."
       },
       "isTwinspireGdprCompliant": {
         "question": "Is Twinspire GDPR compliant?",
-        "answer": "Yes — and built to a higher standard than most sports platforms. Twinspire is designed with medical device regulation principles, full GDPR compliance, EU-based hosting, and formal Data Processing Agreements for all club integrations. Granular consent controls mean the player decides what they share and can withdraw at any time. This is a structural differentiator as player associations and club legal teams increasingly scrutinise health data handling."
+        "answer": "Yes, and built to a higher standard than most sports platforms. Twinspire is designed with medical device regulation principles, full GDPR compliance, EU-based hosting, and formal Data Processing Agreements for all club integrations. Granular consent controls mean the player decides what they share and can withdraw at any time. This is a structural differentiator as player associations and club legal teams increasingly scrutinise health data handling."
       },
       "whereIsTwinspireBased": {
         "question": "Where is Twinspire based and who built it?",
-        "answer": "Founded at the Technical University of Denmark (DTU) in Copenhagen. Twinspire was started by Pouya Tobias Strand Nikoui — a former professional footballer who suffered a reinjury after full clinical clearance, and returned to DTU to build what the sport was missing. The team combines expertise in AI, individual baseline modeling, platform architecture, and data security. Backed by DTU Skylab and DIF Innovation Lab."
+        "answer": "Founded at the Technical University of Denmark (DTU) in Copenhagen. Twinspire was started by Pouya Tobias Strand Nikoui, a former professional footballer who suffered a reinjury after full clinical clearance, and returned to DTU to build what the sport was missing. The team combines expertise in AI, individual baseline modeling, platform architecture, and data security. Backed by DTU Skylab and DIF Innovation Lab."
       },
       "howToGetStarted": {
         "question": "How do we get started?",
-        "answer": "Twinspire is currently selecting founding partner clubs for the validation cohort across the Nordics. There is no commitment to reach out — just a short call to understand your current setup and whether this is the right fit for both sides. Apply via the form on this page or contact us directly at info@twinspire.ai."
+        "answer": "Twinspire is currently selecting founding partner clubs for the validation cohort across the Nordics. There is no commitment to reach out, just a short call to understand your current setup and whether this is the right fit for both sides. Apply via the form on this page or contact us directly at info@twinspire.ai."
       }
     }
   },
@@ -283,14 +283,14 @@
     "heading": "The Compliance Architecture",
     "headingAccent1": "Most Sports Platforms",
     "headingAccent2": "Were Never Built With",
-    "subtitle": "GDPR, medical device standards, and data ownership — designed in from the start, not retrofitted.",
+    "subtitle": "GDPR, medical device standards, and data ownership, designed in from the start, not retrofitted.",
     "description": "As player unions and club legal teams scrutinise how health data is handled, the compliance architecture your platform is built on matters.",
     "card1Title": "Data Ownership",
-    "card1": "The Athletic Passport belongs to the athlete — not the club, not the platform. Squad analytics belong to the club. Twinspire hosts both under formal Data Processing Agreements. Neither is ever sold or shared.",
+    "card1": "The Athletic Passport belongs to the athlete, not the club, not the platform. Squad analytics belong to the club. Twinspire hosts both under formal Data Processing Agreements. Neither is ever sold or shared.",
     "card2Title": "Compliance Architecture",
     "card2": "GDPR-aligned from the ground up. EU-based hosting and processing. Medical device regulation principles. Formal DPAs for all club and platform integrations. Granular consent controls throughout.",
     "card3Title": "Explainability by Design",
-    "card3": "The model is not a black box. Every deviation flag surfaces its key drivers explicitly — which signals, from which data stream, in which direction. Staff see the reasoning, not just the output.",
+    "card3": "The model is not a black box. Every deviation flag surfaces its key drivers explicitly, which signals, from which data stream, in which direction. Staff see the reasoning, not just the output.",
     "card4Title": "Decision Support Disclaimer",
     "card4": "Twinspire surfaces signals for qualified staff to act on. It is not intended to diagnose, treat, or replace clinical judgment.",
     "disclaimer": "Twinspire is a decision support platform. It is not intended to diagnose or treat medical conditions.",
@@ -390,14 +390,14 @@
       "businessAdvisor": "Business Advisor"
     },
     "descriptions": {
-      "pouya": "Pouya played professional football until a reinjury ended his season after a full clinical clearance. The signals had been there — across separate systems that never spoke to each other. He returned to DTU, turned that experience into a research question, and built what the sport was missing. MSc in Electrical Engineering specialising in AI and control systems. He leads research translation, strategic direction, and external partnerships.",
-      "john": "Professor at DTU leading research into digital twin methodology for physiological systems — the scientific foundation of Twinspire. His neuromuscular research group is where the project was born. Beyond research, John has built and sold technology companies with exits to Facebook, Oculus, and GN Audio.",
+      "pouya": "Pouya played professional football until a reinjury ended his season after a full clinical clearance. The signals had been there, across separate systems that never spoke to each other. He returned to DTU, turned that experience into a research question, and built what the sport was missing. MSc in Electrical Engineering specialising in AI and control systems. He leads research translation, strategic direction, and external partnerships.",
+      "john": "Professor at DTU leading research into digital twin methodology for physiological systems, the scientific foundation of Twinspire. His neuromuscular research group is where the project was born. Beyond research, John has built and sold technology companies with exits to Facebook, Oculus, and GN Audio.",
       "daryan": "Seven years building software at the intersection of architecture, data engineering, and people leadership. At Twinspire he leads the technical implementation connecting club data sources, wearable integrations, and the platform infrastructure that staff and athletes use daily.",
       "roxane": "Built and taken AI ventures to market across three continents. Previously co-founded CUJU, an AI sports scouting company developed with ROGON Sports Management, from zero to exit. Worked with the UN and World Bank on innovation programme development. At Twinspire she leads fundraising, partnerships, and commercial strategy.",
       "adamFoss": "Founder of Fossflakes, a Danish growth company he built from inception to exit over 17 years at an average annual growth rate of 15.4%. MSc Economics, University of Copenhagen. Brings operational and commercial experience in scaling product companies across Nordic and international markets.",
       "kanishkaSina": "VP Talent & Mentorship on the UEFA Academy Alumni Association Board. Brings direct access to the European football network and deep experience across club and federation-level sport. Active in shaping the next generation of football industry leadership through the UEFA mentorship programme.",
       "joachimChristgau": "Founder of WiiLDER WORLD. Previously built commercial partnerships across sport, media, and consumer brands at Munin Sports, Nordisk Film, and Carlsberg. Copenhagen Business School. Advises on brand positioning and commercial strategy.",
-      "johanKisum": "Placeholder — to be completed by Johan."
+      "johanKisum": "Placeholder, to be completed by Johan."
     }
   },
   "joinUs": {
@@ -411,13 +411,13 @@
     "sectionLabel": "What a Decision Support System Actually Is",
     "heading": "A dashboard displays variables",
     "headingAccent": "It does not explain what matters, why it matters, or what to do next",
-    "attribution": "Dr. Lorena Martin, USC Marshall — ECSS Lausanne 2026",
-    "intro": "At ECSS 2026, independent researchers proposed a checklist for what a genuine individual athlete model requires. Below is where Twinspire stands — honestly.",
+    "attribution": "Dr. Lorena Martin, USC Marshall, ECSS Lausanne 2026",
+    "intro": "At ECSS 2026, independent researchers proposed a checklist for what a genuine individual athlete model requires. Below is where Twinspire stands, honestly.",
     "criteria": {
       "individualized": {
         "label": "Individualized",
         "status": "met",
-        "body": "Every metric measured against that player's own evolving baseline — not a squad average, not a population norm."
+        "body": "Every metric measured against that player's own evolving baseline, not a squad average, not a population norm."
       },
       "dynamicallyUpdated": {
         "label": "Dynamically Updated",
@@ -427,12 +427,12 @@
       "connectedToDecisions": {
         "label": "Connected to Decisions",
         "status": "met",
-        "body": "Output is framed as a decision — is this player ready today — not as a data export or a chart to interpret."
+        "body": "Output is framed as a decision, is this player ready today, not as a data export or a chart to interpret."
       },
       "explicitAboutUncertainty": {
         "label": "Explicit About Uncertainty",
         "status": "met",
-        "body": "Key drivers surfaced explicitly. Staff see which signals are driving any deviation — not just that a deviation exists."
+        "body": "Key drivers surfaced explicitly. Staff see which signals are driving any deviation, not just that a deviation exists."
       },
       "validatedAgainstOutcomes": {
         "label": "Validated Against Outcomes",
@@ -447,13 +447,13 @@
     "heading": "Every time a player transfers,",
     "headingAccent": "their physiological history resets to zero",
     "intro": "A new club inherits a name and a transfer fee. What they do not inherit is 18 months of individual baseline data. They start from scratch. Every time.",
-    "howItWorks": "The Athletic Passport changes that. Every session, load, injury, and rehabilitation milestone — portable, consent-based, owned by the athlete. When they sign for a new club, their baseline arrives with them.",
+    "howItWorks": "The Athletic Passport changes that. Every session, load, injury, and rehabilitation milestone, portable, consent-based, owned by the athlete. When they sign for a new club, their baseline arrives with them.",
     "forClubs": "For clubs: objective data on every new signing from day one. For players: a career-long physiological record that is portable and owned by them.",
     "differentiator": "No platform presented at ECSS Lausanne 2026 demonstrated cross-club physiological continuity built on a proper GDPR and consent architecture.",
     "passportItems": {
       "item1": "Individual baseline, continuously updated across every club",
       "item2": "Full load, injury, and rehabilitation history",
-      "item3": "Portable consent — the athlete controls who sees what",
+      "item3": "Portable consent, the athlete controls who sees what",
       "item4": "New club inherits objective data from day one of signing"
     }
   }

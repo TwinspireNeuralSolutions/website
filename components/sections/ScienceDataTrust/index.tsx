@@ -13,6 +13,7 @@ import { highlightLastWord } from '@/lib/utils'
  * ──────────────────────────────────────────────────────────────────────────── */
 
 function ModelingIcon({ className }: { className?: string }) {
+  // Icon: Platform integration — two system blocks connected via API
   return (
     <svg
       viewBox="0 0 32 32"
@@ -21,13 +22,21 @@ function ModelingIcon({ className }: { className?: string }) {
       className={cn('h-7 w-7', className)}
       aria-hidden="true"
     >
-      <circle cx="8" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="8" cy="22" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="16" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="16" cy="16" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="16" cy="24" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="24" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="24" cy="20" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+      {/* Left platform */}
+      <rect x="2" y="9" width="10" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="5" y1="13" x2="9" y2="13" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <line x1="5" y1="16" x2="9" y2="16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <line x1="5" y1="19" x2="7" y2="19" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      {/* Right platform */}
+      <rect x="20" y="9" width="10" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="23" y1="13" x2="27" y2="13" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <line x1="23" y1="16" x2="27" y2="16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <line x1="23" y1="19" x2="25" y2="19" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      {/* API connector arrows */}
+      <line x1="12" y1="14.5" x2="20" y2="14.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <polyline points="17.5,12 20,14.5 17.5,17" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="20" y1="17.5" x2="12" y2="17.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <polyline points="14.5,15 12,17.5 14.5,20" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       <line
         x1="10.5"
         y1="10"
@@ -105,6 +114,7 @@ function ModelingIcon({ className }: { className?: string }) {
 }
 
 function SignalsIcon({ className }: { className?: string }) {
+  // Icon: Personal wearable device — Whoop/Oura style watch with HRV signal
   return (
     <svg
       viewBox="0 0 32 32"
@@ -113,37 +123,23 @@ function SignalsIcon({ className }: { className?: string }) {
       className={cn('h-7 w-7', className)}
       aria-hidden="true"
     >
-      <polyline
-        points="4,20 8,20 10,12 14,24 18,8 22,22 24,16 28,16"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <line
-        x1="4"
-        y1="26"
-        x2="28"
-        y2="26"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.3"
-      />
-      <line
-        x1="4"
-        y1="6"
-        x2="28"
-        y2="6"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.3"
-      />
+      {/* Watch face */}
+      <rect x="9" y="10" width="14" height="12" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
+      {/* Top band */}
+      <path d="M12 10 L12 6 Q12 5 13 5 L19 5 Q20 5 20 6 L20 10" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />
+      {/* Bottom band */}
+      <path d="M12 22 L12 26 Q12 27 13 27 L19 27 Q20 27 20 26 L20 22" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />
+      {/* HRV / heartrate line on watch face */}
+      <polyline points="10,16 12,16 13.5,13 15,19 16.5,13.5 17.5,16 18.5,16 20,16 21,16 23,16" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Signal waves left side */}
+      <path d="M5.5,12 Q4.5,16 5.5,20" stroke="currentColor" strokeWidth="1.2" opacity="0.55" fill="none" strokeLinecap="round" />
+      <path d="M3,10 Q1.5,16 3,22" stroke="currentColor" strokeWidth="1" opacity="0.3" fill="none" strokeLinecap="round" />
     </svg>
   )
 }
 
 function ValidationIcon({ className }: { className?: string }) {
+  // Icon: Individual baseline — person with personal trend vs dashed population mean
   return (
     <svg
       viewBox="0 0 32 32"
@@ -152,21 +148,15 @@ function ValidationIcon({ className }: { className?: string }) {
       className={cn('h-7 w-7', className)}
       aria-hidden="true"
     >
-      <path
-        d="M16 3L5 8v7c0 7.18 4.7 13.89 11 16 6.3-2.11 11-8.82 11-16V8L16 3z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-        strokeLinejoin="round"
-      />
-      <polyline
-        points="11,16 14.5,19.5 21,13"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      {/* Person */}
+      <circle cx="16" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M9 18 C9 14 12 12 16 12 C20 12 23 14 23 18" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      {/* Dashed baseline (population average) */}
+      <line x1="4" y1="26" x2="28" y2="26" stroke="currentColor" strokeWidth="1" opacity="0.35" strokeDasharray="3,2.5" />
+      {/* Individual trend line (deviating from baseline) */}
+      <polyline points="4,26 8,25 12,23 16,21 20,22 24,20 28,18" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {/* End dot — current position */}
+      <circle cx="28" cy="18" r="2" fill="currentColor" />
     </svg>
   )
 }
