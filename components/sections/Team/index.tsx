@@ -41,7 +41,7 @@ export function TeamSection() {
         {/* ── All team members (founders + research) ─────────────────────── */}
         <div className="mb-16 lg:mb-20" />
         <StaggerContainer
-          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
+          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5"
           stagger={0.07}
         >
           {[...founders, ...teamMembers].map((member, index) => (
@@ -80,7 +80,7 @@ export function TeamSection() {
           </AnimateIn>
 
           <StaggerContainer
-            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5 xl:grid-cols-5"
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-5"
             stagger={0.07}
           >
             {advisers.map((member, index) => (
