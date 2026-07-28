@@ -411,7 +411,7 @@
     "sectionLabel": "What a Decision Support System Actually Is",
     "heading": "A dashboard displays variables",
     "headingAccent": "It does not explain what matters, why it matters, or what to do next",
-    "attribution": "Dr. Lorena Martin, USC Marshall, ECSS Lausanne 2026",
+    "attribution": "Research presented at ECSS Lausanne 2026",
     "intro": "At ECSS 2026, independent researchers proposed a checklist for what a genuine individual athlete model requires. Below is where Twinspire stands, honestly.",
     "criteria": {
       "individualized": {
@@ -440,7 +440,7 @@
         "body": "The specific gap the validation cohort is designed to close. We are honest about the fact that it is not yet fully met."
       }
     },
-    "closingNote": "We use this checklist internally. We think you should hold us to it."
+    "closingNote": "This checklist did not originate with us. We think it should be the industry standard. We are building to it."
   },
   "passport": {
     "sectionLabel": "The Athletic Passport",
