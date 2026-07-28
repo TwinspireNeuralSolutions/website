@@ -4,10 +4,10 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 
 const VIDEOS = {
-  treadmill: '/hero/treadmill.mp4',
-  squat:     '/hero/squat.mp4',
+  treadmill: '/hero/isolation.mp4',
+  squat:     '/hero/isolation.mp4',
   isolation: '/hero/isolation.mp4',
-  rehab:     '/hero/rehab.mp4',
+  rehab:     '/hero/isolation.mp4',
 }
 
 type SceneKey = 'treadmill' | 'squat' | 'isolation' | 'rehab'
@@ -34,8 +34,8 @@ const SCENES: Scene[] = [
   {
     key: 'treadmill', duration: 7000,
     eyebrow: 'Club data · Week 3',
-    headline: ['Two streams', 'Neither connected'],
-    sub: 'GPS at the club. Whoop at home. Two separate worlds.',
+    headline: ['Many streams', 'None connected'],
+    sub: 'GPS at the club. Wearables at home. Separate worlds that never connect.',
     acwr: [1.05, 1.11, 1.18, 1.25, 1.32, 1.38, 1.44],
     rec:  [74, 73, 72, 70, 68, 66, 63],
     hrv:  [68, 67, 66, 64, 63, 61, 59],
@@ -44,7 +44,7 @@ const SCENES: Scene[] = [
     key: 'squat', duration: 7000,
     eyebrow: 'Personal data · Week 6',
     headline: ['The signal existed', 'Nobody saw it'],
-    sub: 'In the Whoop. In the 6am HRV. Unread.',
+    sub: 'In the wearable data. In the 6am HRV. In the rest-day recovery scores. Unread.',
     acwr: [1.44, 1.52, 1.59, 1.65, 1.72, 1.78, 1.82],
     rec:  [63, 59, 56, 53, 50, 47, 44],
     hrv:  [59, 56, 53, 51, 49, 47, 45],
@@ -53,8 +53,8 @@ const SCENES: Scene[] = [
     key: 'isolation', duration: 5500,
     eyebrow: 'The gap.',
     headline: ['The data existed', 'Nothing connected it'],
-    redTint: true, showAlert: true,
-    alertText: 'Individual threshold exceeded. ACWR 1.82. Recovery 30pts below personal baseline. Pattern detectable 6 sessions prior.',
+    redTint: true,
+
     acwr: [1.82, 1.82, 1.82, 1.82, 1.82, 1.82, 1.82],
     rec:  [44, 44, 43, 43, 43, 43, 43],
     hrv:  [45, 44, 44, 44, 44, 44, 44],
@@ -332,7 +332,7 @@ export function HeroStorySection() {
           key={s.key}
           ref={el => { videoRefs.current[s.key] = el }}
           src={VIDEOS[s.key]}
-          muted playsInline preload="auto"
+          muted playsInline loop preload="auto"
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover',

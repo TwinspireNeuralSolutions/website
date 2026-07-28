@@ -100,7 +100,7 @@
     "headlineLine1Highlight": "what the club measures",
     "headlineLine2Start": "Twinspire sees ",
     "headlineLine2Highlight": "what the player privately measures",
-    "valueProp": "GPS and training load from the club. Whoop, Oura, and Garmin from the player. Two streams that have never been connected properly. Twinspire connects them and builds an individual baseline for each athlete.",
+    "valueProp": "GPS and training load from the club. Personal wearables from the player. Many data streams that have never been properly connected. Twinspire connects them and builds an individual baseline for each athlete.",
     "credibility": "Developed at DTU · Presented at ECSS Lausanne 2026",
     "cta": "Apply to Join the Cohort",
     "stat": {
@@ -112,7 +112,7 @@
   "problem": {
     "label": "The Gap",
     "headline": "Two Data Streams. Neither Aware of the Other.",
-    "p1": "Your club captures GPS, gym load, and physio notes. Valuable, but only what happens inside club hours. Meanwhile your players privately measure Whoop recovery, Oura sleep, and HRV at 6am on a Sunday. That data exists. Nobody is reading it in context.",
+    "p1": "Your club captures GPS, gym load, and physio notes. Valuable, but only what happens inside club hours. Meanwhile your players privately measure wearable recovery, sleep, and HRV at 6am on a Sunday. That data exists. Nobody is reading it in context.",
     "block1Title": "What the Club Sees",
     "block2Title": "What the Player Privately Measures",
     "block3Title": "Where the Signal Lives",
@@ -140,8 +140,8 @@
         },
         "signals": {
           "title": "Connects the Private Data Stream",
-          "body": "Whoop, Oura, Garmin, Polar, the wearables your players use off-site. Twinspire is the only platform with the consent architecture to legitimately integrate this data into club analytics.",
-          "bullet1": "Whoop, Oura, Garmin, Polar integrations",
+          "body": "the personal wearables your players already use, the wearables your players use off-site. Twinspire is the only platform with the consent architecture to legitimately integrate this data into club analytics.",
+          "bullet1": "Recovery, sleep, and HRV wearable integrations",
           "bullet2": "Player consents once, data stays theirs",
           "bullet3": "Off-site and rest-day signals included"
         },
@@ -196,7 +196,7 @@
     "subtitle": "One platform. Three roles.",
     "footballers": {
       "title": "Footballers",
-      "description": "Connect your Whoop, Oura, or Garmin once. Your individual baseline is yours, not the club's. When you move, it moves with you. A portable physiological record across your entire career."
+      "description": "Connect your your wearable once. Your individual baseline is yours, not the club's. When you move, it moves with you. A portable physiological record across your entire career."
     },
     "coaches": {
       "title": "Coaches & Performance Staff",
@@ -234,7 +234,7 @@
       },
       "whatProblemDoesTwinspireSolve": {
         "question": "What problem does Twinspire solve?",
-        "answer": "Your club sees GPS and gym load. Your players privately measure Whoop recovery, Oura sleep, and HRV at 6am on a Sunday. These two streams have never been properly connected, and that gap is where the early warning signals live. Twinspire bridges them under a proper GDPR and consent framework, builds an individual baseline for each athlete, and surfaces deviation before it becomes injury."
+        "answer": "Your club sees GPS and gym load. Your players privately measure wearable recovery, sleep, and HRV at 6am on a Sunday. These two streams have never been properly connected, and that gap is where the early warning signals live. Twinspire bridges them under a proper GDPR and consent framework, builds an individual baseline for each athlete, and surfaces deviation before it becomes injury."
       },
       "whoIsTwinspireFor": {
         "question": "Who is Twinspire for?",
@@ -258,7 +258,7 @@
       },
       "whatDataDoesTwinspireUse": {
         "question": "What data does Twinspire use?",
-        "answer": "From the club side: GPS and movement data, strength and gym output, physio notes and clinical assessments. From the player's own devices: Whoop, Oura, Garmin, and Polar, the wearables capturing recovery, sleep, and HRV data off-site that your club platform currently has no access to. Both streams are processed under a proper consent and GDPR framework."
+        "answer": "From the club side: GPS and movement data, strength and gym output, physio notes and clinical assessments. From the player's own devices: personal wearables including recovery trackers, sleep monitors, and GPS watches, the wearables capturing recovery, sleep, and HRV data off-site that your club platform currently has no access to. Both streams are processed under a proper consent and GDPR framework."
       },
       "whoOwnsData": {
         "question": "Who owns the player data?",
