@@ -150,14 +150,40 @@ export function ProductSection() {
                       </ol>
                     </div>
 
-                    <div className="flex min-w-0 flex-1 items-center overflow-hidden md:-mt-6 lg:-mt-8 xl:-mt-10">
-                      <Image
-                        src="/product/product-mockup.png"
-                        alt="Product mockup"
-                        width={1200}
-                        height={800}
-                        className="w-full max-w-[720px] rounded-xl object-contain sm:h-80 md:h-96 lg:h-[520px]"
-                      />
+                    <div className="flex min-w-0 flex-1 flex-col gap-4 overflow-hidden md:-mt-6 lg:-mt-8 xl:-mt-10">
+                      {/* WebApp — dark mode via CSS filter */}
+                      <div className="w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl" style={{background:'#0A0E1A'}}>
+                        <div className="flex items-center gap-1.5 border-b border-white/5 bg-black/30 px-3 py-2">
+                          <div className="h-2 w-2 rounded-full bg-red-500/60" />
+                          <div className="h-2 w-2 rounded-full bg-yellow-500/60" />
+                          <div className="h-2 w-2 rounded-full bg-green-500/60" />
+                          <span className="ml-2 text-[9px] tracking-wide text-white/25">app.twinspire.ai / squad-hub</span>
+                        </div>
+                        <Image
+                          src="/product/webapp-screenshot.png"
+                          alt="Twinspire Squad Hub — staff view"
+                          width={1912}
+                          height={1016}
+                          className="block w-full object-cover"
+                          style={{filter:'invert(1) hue-rotate(180deg) brightness(0.88) contrast(1.06)'}}
+                        />
+                      </div>
+                      {/* Player app */}
+                      <div className="flex items-start gap-4">
+                        <div className="overflow-hidden rounded-2xl border border-white/10 shadow-xl" style={{maxWidth:120,flexShrink:0}}>
+                          <Image
+                            src="/product/app-screenshot.jpg"
+                            alt="Twinspire player app"
+                            width={390}
+                            height={844}
+                            className="block w-full object-cover"
+                          />
+                        </div>
+                        <div className="pt-2">
+                          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/50">Player App</p>
+                          <p className="mt-1 text-[12px] leading-relaxed text-white/35">Morning check-in, personal metrics, and the Athletic Passport. Where the private data stream enters the model.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
