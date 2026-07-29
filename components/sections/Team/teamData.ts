@@ -96,7 +96,7 @@ export const advisers: TeamMemberData[] = [
   },
   {
     name: 'Johan Kisum',
-    role: 'team.roles.advisor',
+    role: 'team.roles.platformAdvisor',
     description: 'team.descriptions.johanKisum',
     image: '/team/johan-kisum.jpg',
   },

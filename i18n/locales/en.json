@@ -387,7 +387,8 @@
       "marketAdvisor": "Commercial Advisor",
       "footballAdvisor": "Football Industry Advisor",
       "brandAdvisor": "Brand & Strategy Advisor",
-      "businessAdvisor": "Business Advisor"
+      "businessAdvisor": "Business Advisor",
+      "platformAdvisor": "Platform Architecture and Compliance Advisor"
     },
     "descriptions": {
       "pouya": "Pouya played professional football until a reinjury ended his season after a full clinical clearance. The signals had been there, across separate systems that never spoke to each other. He returned to DTU, turned that experience into a research question, and built what the sport was missing. MSc in Electrical Engineering specialising in AI and control systems. He leads research translation, strategic direction, and external partnerships.",
@@ -397,7 +398,7 @@
       "adamFoss": "Founder of Fossflakes, a Danish growth company he built from inception to exit over 17 years at an average annual growth rate of 15.4%. MSc Economics, University of Copenhagen. Brings operational and commercial experience in scaling product companies across Nordic and international markets.",
       "kanishkaSina": "VP Talent & Mentorship on the UEFA Academy Alumni Association Board. Brings direct access to the European football network and deep experience across club and federation-level sport. Active in shaping the next generation of football industry leadership through the UEFA mentorship programme.",
       "joachimChristgau": "Founder of WiiLDER WORLD. Previously built commercial partnerships across sport, media, and consumer brands at Munin Sports, Nordisk Film, and Carlsberg. Copenhagen Business School. Advises on brand positioning and commercial strategy.",
-      "johanKisum": "Placeholder, to be completed by Johan."
+      "johanKisum": "Senior Cloud Engineer and Technical Lead at Novo Nordisk, where he led the architecture of global-scale AI platform ecosystems including GxP-compliant infrastructure across research and development environments. Previously DevOps Engineer at ATP. BSc Computer Science, University of Copenhagen. Advises Twinspire on platform architecture, infrastructure maturation, and the compliance frameworks required to build to medical device standards."
     }
   },
   "joinUs": {
