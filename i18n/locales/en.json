@@ -188,7 +188,13 @@
     "mockupAlt": "Twinspire readiness dashboard",
     "readMore": "Read more",
     "readLess": "Read less",
-    "close": "Go back"
+    "close": "Go back",
+    "questions": {
+      "q1": "Is this player's current state within their personal normal range, combining club and personal data?",
+      "q2": "Which signals are driving any deviation, and from which data stream?",
+      "q3": "Is this player ready to train at full intensity, by their individual model, not a population benchmark?",
+      "q4": "What has changed since last session, and does the pattern match anything seen before?"
+    }
   },
   "builtFor": {
     "heading": "Built For",

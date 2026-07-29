@@ -240,7 +240,8 @@
     "questions": {
       "q1": "Er arbejdsgangene operationelt brugbare for personalet?",
       "q2": "Leverer data-pipelinesne tilstrækkelig kvalitet og kontinuitet?",
-      "q3": "Understøtter signalerne meningsfuld individualiseret modellering i praksis?"
+      "q3": "Understøtter signalerne meningsfuld individualiseret modellering i praksis?",
+      "q4": "What has changed since last session, and does the pattern match anything seen before?"
     },
     "mockupAlt": "Twinspire personale‑dashboard og spiller‑mobilapp med parametre og individualiserede parathedsmål",
     "readMore": "Læs mere",

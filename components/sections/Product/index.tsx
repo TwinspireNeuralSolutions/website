@@ -137,6 +137,7 @@ export function ProductSection() {
                           t('product.questions.q1'),
                           t('product.questions.q2'),
                           t('product.questions.q3'),
+                          t('product.questions.q4'),
                         ].map((question, index) => (
                           <li key={index} className="flex gap-4">
                             <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
@@ -150,39 +151,43 @@ export function ProductSection() {
                       </ol>
                     </div>
 
-                    <div className="flex min-w-0 flex-1 flex-col gap-4 overflow-hidden md:-mt-6 lg:-mt-8 xl:-mt-10">
-                      {/* WebApp — dark mode via CSS filter */}
-                      <div className="w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl" style={{background:'#0A0E1A'}}>
-                        <div className="flex items-center gap-1.5 border-b border-white/5 bg-black/30 px-3 py-2">
-                          <div className="h-2 w-2 rounded-full bg-red-500/60" />
-                          <div className="h-2 w-2 rounded-full bg-yellow-500/60" />
-                          <div className="h-2 w-2 rounded-full bg-green-500/60" />
-                          <span className="ml-2 text-[9px] tracking-wide text-white/25">app.twinspire.ai / squad-hub</span>
-                        </div>
-                        <Image
-                          src="/product/webapp-screenshot.png"
-                          alt="Twinspire Squad Hub — staff view"
-                          width={1912}
-                          height={1016}
-                          className="block w-full object-cover"
-                          style={{filter:'invert(1) hue-rotate(180deg) brightness(0.88) contrast(1.06)'}}
-                        />
-                      </div>
-                      {/* Player app */}
-                      <div className="flex items-start gap-4">
-                        <div className="overflow-hidden rounded-2xl border border-white/10 shadow-xl" style={{maxWidth:120,flexShrink:0}}>
+                    {/* Product showcase — overlapping laptop + phone frames */}
+                    <div className="relative flex min-w-0 flex-1 items-start justify-center overflow-visible md:-mt-6 lg:-mt-8 xl:-mt-10">
+                      {/* Laptop / browser frame */}
+                      <div className="w-full max-w-[580px]">
+                        {/* Screen bezel */}
+                        <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0A0E1A] shadow-2xl">
+                          {/* Browser chrome */}
+                          <div className="flex items-center gap-1.5 border-b border-white/5 bg-black/40 px-3 py-2">
+                            <div className="h-2 w-2 rounded-full bg-red-500/60" />
+                            <div className="h-2 w-2 rounded-full bg-yellow-500/60" />
+                            <div className="h-2 w-2 rounded-full bg-green-500/60" />
+                            <div className="ml-2 flex-1 rounded bg-white/5 px-2 py-0.5">
+                              <span className="text-[9px] tracking-wide text-white/20">app.twinspire.ai / squad-hub</span>
+                            </div>
+                          </div>
                           <Image
-                            src="/product/app-screenshot.jpg"
-                            alt="Twinspire player app"
-                            width={390}
-                            height={844}
+                            src="/product/webapp-screenshot.png"
+                            alt="Twinspire Squad Hub"
+                            width={1912}
+                            height={1016}
                             className="block w-full object-cover"
+                            style={{filter:'invert(1) hue-rotate(180deg) brightness(0.88) contrast(1.06)'}}
                           />
                         </div>
-                        <div className="pt-2">
-                          <p className="text-[11px] font-semibold uppercase tracking-widest text-white/50">Player App</p>
-                          <p className="mt-1 text-[12px] leading-relaxed text-white/35">Morning check-in, personal metrics, and the Athletic Passport. Where the private data stream enters the model.</p>
-                        </div>
+                        {/* Laptop base */}
+                        <div className="mx-auto h-2 w-[90%] rounded-b-sm bg-white/5" />
+                        <div className="mx-auto h-1.5 w-full rounded-b-lg bg-white/[0.03]" />
+                      </div>
+                      {/* Phone frame — overlapping bottom-right */}
+                      <div className="absolute -bottom-6 right-0 z-10 overflow-hidden rounded-[22px] border border-white/15 bg-[#111827] shadow-2xl" style={{width:'23%',minWidth:90,maxWidth:130}}>
+                        <Image
+                          src="/product/app-screenshot.jpg"
+                          alt="Twinspire player app"
+                          width={390}
+                          height={844}
+                          className="block w-full object-cover"
+                        />
                       </div>
                     </div>
                   </div>
