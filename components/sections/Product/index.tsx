@@ -128,31 +128,11 @@ export function ProductSection() {
                         {t('product.p2')}
                       </Typography>
 
-                      {/* Questions block — left column, no container */}
-                      <Typography variant="heading" as="h3" textColor="default">
-                        {t('product.science.researchTitle')}
-                      </Typography>
-                      <ol className="flex flex-col gap-1">
-                        {[
-                          t('product.questions.q1'),
-                          t('product.questions.q2'),
-                          t('product.questions.q3'),
-                          t('product.questions.q4'),
-                        ].map((question, index) => (
-                          <li key={index} className="flex gap-4">
-                            <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <Typography variant="paragraph" textColor="default">
-                              {question}
-                            </Typography>
-                          </li>
-                        ))}
-                      </ol>
+
                     </div>
 
                     {/* Product showcase — overlapping laptop + phone frames */}
-                    <div className="relative flex min-w-0 flex-1 items-start justify-center overflow-visible md:-mt-6 lg:-mt-8 xl:-mt-10">
+                    <div className="relative flex min-w-0 flex-1 items-end justify-center overflow-visible md:-mt-6 lg:-mt-8 xl:-mt-10">
                       {/* Laptop / browser frame */}
                       <div className="w-full max-w-[580px]">
                         {/* Screen bezel */}
@@ -179,8 +159,8 @@ export function ProductSection() {
                         <div className="mx-auto h-2 w-[90%] rounded-b-sm bg-white/5" />
                         <div className="mx-auto h-1.5 w-full rounded-b-lg bg-white/[0.03]" />
                       </div>
-                      {/* Phone frame — overlapping bottom-right */}
-                      <div className="absolute -bottom-6 right-0 z-10 overflow-hidden rounded-[22px] border border-white/15 bg-[#111827] shadow-2xl" style={{width:'23%',minWidth:90,maxWidth:130}}>
+                      {/* Phone frame — bottom aligned with laptop */}
+                      <div className="absolute bottom-4 right-0 z-10 overflow-hidden rounded-[22px] border border-white/15 bg-[#111827] shadow-2xl" style={{width:'23%',minWidth:90,maxWidth:130}}>
                         <Image
                           src="/product/app-screenshot.jpg"
                           alt="Twinspire player app"
