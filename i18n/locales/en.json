@@ -183,8 +183,8 @@
       "title": "The Athletic Passport",
       "body": "Every session, load, injury, and rehab milestone, portable, owned by the athlete. When they transfer, their full history transfers. New club inherits objective data from day one."
     },
-    "headline2": "No Extra App for the Player",
-    "p2": "The most common objection: we cannot ask our players to use another app. If your platform already has a player-facing app, Twinspire operates entirely in the background. Wearables sync automatically. Output appears in your existing interface. Invisible to the player's daily workflow, and the data it generates is not.",
+    "headline2": "The Player App",
+    "p2": "Players connect their personal wearables and complete a morning check-in directly in the Twinspire app. This is how the private data stream enters the model. The daily check-in captures subjective readiness, sleep quality, and wellness markers that no wearable measures automatically. Both streams together build the individual picture. If your club already has a player-facing app, Twinspire can integrate with it rather than sit alongside it.",
     "mockupAlt": "Twinspire readiness dashboard",
     "readMore": "Read more",
     "readLess": "Read less",
@@ -200,7 +200,7 @@
     },
     "coaches": {
       "title": "Coaches & Performance Staff",
-      "description": "Squad-wide readiness built on individual baselines, not averages. Including the signal your current platform cannot access, the private data stream from the player's own wearables."
+      "description": "Squad-level readiness built on individual baselines, not averages. Including the signal your current platform cannot access, the private data stream from the player's own wearables."
     },
     "physio": {
       "title": "Physiotherapists",
@@ -208,13 +208,13 @@
     }
   },
   "cta": {
-    "title": "We Are Selecting Founding Partner Clubs",
-    "titleAccent": "for the Validation Cohort",
+    "title": "Now Selecting Founding Partners",
+    "titleAccent": "Across Elite Sport",
     "titleEnd": "",
-    "subtitle": "Twinspire is at validation stage, deploying with a small number of clubs across the Nordics to close the outcomes validation gap. Founding partner clubs shape the product, contribute to the dataset, and secure preferential terms ahead of commercial launch. We are being selective.",
+    "subtitle": "Twinspire is moving to commercial partnerships. We are working with a small number of clubs, performance professionals, and elite athletes who want to be among the first to connect club and personal data into one individual model. Founding partners receive preferential commercial terms, direct input into the product roadmap, and priority access ahead of full market launch.",
     "fields": "Name · Club · Role · Email",
-    "button": "Apply to Join the Cohort",
-    "note": "No commitment, a short call to understand your setup and whether this is the right fit."
+    "button": "Apply for Founding Partnership",
+    "note": "We work across sports and beyond the Nordics. A short conversation to understand your context and whether this is the right fit."
   },
   "partners": {
     "heading": "Platform and Sensor Partners",

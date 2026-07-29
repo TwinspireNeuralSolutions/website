@@ -173,21 +173,11 @@ export function DataEthicsSection() {
                     {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
-                    className={`text-foreground/70 text-[14px] leading-[1.8] sm:text-[15px] ${!isShortCard && !isExpanded ? 'line-clamp-3' : ''}`}
+                    className={"text-foreground/70 text-[14px] leading-[1.8] sm:text-[15px]"}
                   >
                     {t(card.bodyKey)}
                   </p>
-                  {!isShortCard && (
-                    <button
-                      type="button"
-                      onClick={() => toggleCard(i)}
-                      className="text-primary mt-auto self-start text-[13px] font-medium transition-colors duration-150 hover:underline"
-                    >
-                      {isExpanded
-                        ? t('dataEthics.readLess')
-                        : t('dataEthics.readMore')}
-                    </button>
-                  )}
+
                 </div>
               </AnimateIn>
             )
