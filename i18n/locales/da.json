@@ -387,7 +387,43 @@
     "readMore": "Læs mere",
     "readLess": "Læs mindre",
     "card4Title": "Decision Support Disclaimer",
-    "card4": "Twinspire is a decision support platform. It surfaces signals for qualified staff to act on. It is not intended to diagnose, treat, or replace clinical judgment."
+    "card4": "Twinspire is a decision support platform. It surfaces signals for qualified staff to act on. It is not intended to diagnose, treat, or replace clinical judgment.",
+    "card5Title": "Present",
+    "card5": "Evidence-based, not a black box. Every output surfaces the signals behind it. Staff see what is driving a deviation, not just that one exists.",
+    "checklistTitle": "What We Measure Ourselves Against",
+    "checklistIntro": "Criteria proposed by independent researchers at ECSS Lausanne 2026 for what a genuine individual athlete model requires. Below is where Twinspire stands.",
+    "checklist": {
+      "individualized": {
+        "label": "Individualized",
+        "status": "yes",
+        "body": "Built per athlete, not per position or squad average."
+      },
+      "dynamicallyUpdated": {
+        "label": "Dynamically Updated",
+        "status": "yes",
+        "body": "Continuous, not a seasonal snapshot."
+      },
+      "connectedToDecisions": {
+        "label": "Connected to Decisions",
+        "status": "yes",
+        "body": "Surfaces into existing club workflow, not a separate tool."
+      },
+      "explicitAboutUncertainty": {
+        "label": "Explicit About Uncertainty",
+        "status": "yes",
+        "body": "Deviation shown with drivers, not a single collapsed score."
+      },
+      "predictive": {
+        "label": "Predictive",
+        "status": "no",
+        "body": "We detect deviation from personal baseline. We do not predict injury."
+      },
+      "validatedAgainstOutcomes": {
+        "label": "Validated Against Outcomes",
+        "status": "inProgress",
+        "body": "In progress. Multi-club validation study underway."
+      }
+    }
   },
   "joinUs": {
     "pageTitle": "Deltag i forskningen.",

@@ -131,44 +131,15 @@ export function ProductSection() {
 
                     </div>
 
-                    {/* Product showcase — overlapping laptop + phone frames */}
-                    <div className="relative flex min-w-0 flex-1 items-end justify-center overflow-visible md:-mt-6 lg:-mt-8 xl:-mt-10">
-                      {/* Laptop / browser frame */}
-                      <div className="w-full max-w-[580px]">
-                        {/* Screen bezel */}
-                        <div className="overflow-hidden rounded-xl border border-white/10 bg-[#0A0E1A] shadow-2xl">
-                          {/* Browser chrome */}
-                          <div className="flex items-center gap-1.5 border-b border-white/5 bg-black/40 px-3 py-2">
-                            <div className="h-2 w-2 rounded-full bg-red-500/60" />
-                            <div className="h-2 w-2 rounded-full bg-yellow-500/60" />
-                            <div className="h-2 w-2 rounded-full bg-green-500/60" />
-                            <div className="ml-2 flex-1 rounded bg-white/5 px-2 py-0.5">
-                              <span className="text-[9px] tracking-wide text-white/20">app.twinspire.ai / squad-hub</span>
-                            </div>
-                          </div>
-                          <Image
-                            src="/product/webapp-screenshot.png"
-                            alt="Twinspire Squad Hub"
-                            width={1912}
-                            height={1016}
-                            className="block w-full object-cover"
-                            style={{filter:'invert(1) hue-rotate(180deg) brightness(0.88) contrast(1.06)'}}
-                          />
-                        </div>
-                        {/* Laptop base */}
-                        <div className="mx-auto h-2 w-[90%] rounded-b-sm bg-white/5" />
-                        <div className="mx-auto h-1.5 w-full rounded-b-lg bg-white/[0.03]" />
-                      </div>
-                      {/* Phone frame — bottom aligned with laptop */}
-                      <div className="absolute bottom-4 right-0 z-10 overflow-hidden rounded-[22px] border border-white/15 bg-[#111827] shadow-2xl" style={{width:'23%',minWidth:90,maxWidth:130}}>
-                        <Image
-                          src="/product/app-screenshot.jpg"
-                          alt="Twinspire player app"
-                          width={390}
-                          height={844}
-                          className="block w-full object-cover"
-                        />
-                      </div>
+                    {/* Product showcase — composite device image */}
+                    <div className="flex min-w-0 flex-1 items-center justify-center md:-mt-6 lg:-mt-8 xl:-mt-10">
+                      <Image
+                        src="/product/product-dual-view.png"
+                        alt="Twinspire Squad Hub and player app"
+                        width={2667}
+                        height={1394}
+                        className="w-full max-w-[680px] object-contain drop-shadow-2xl"
+                      />
                     </div>
                   </div>
 

@@ -239,7 +239,7 @@ export function HeroStorySection() {
       const acwrNow = lerp(sd.acwr[0], sd.acwr[sd.acwr.length - 1], f)
       const acwrPts = sd.acwr.slice(0, steps)
       const aC = acwrCol(acwrNow)
-      const aSt = acwrNow >= 1.5 ? 'High risk zone (>1.5)' : acwrNow >= 1.3 ? 'Caution — above optimal' : acwrNow < 0.6 ? 'Rebuilding' : 'Optimal (0.8–1.3)'
+      const aSt = acwrNow >= 1.5 ? 'High risk zone (>1.5) · Club load' : acwrNow >= 1.3 ? 'Caution above optimal · Club load' : acwrNow < 0.6 ? 'Rebuilding · Load + recovery' : 'Optimal (0.8–1.3) · Club load'
       if (mValRef.current[0])    { mValRef.current[0]!.textContent = acwrNow.toFixed(2); mValRef.current[0]!.style.color = aC }
       if (mStatusRef.current[0]) mStatusRef.current[0]!.textContent = aSt
       if (mSvgRef.current[0])    mSvgRef.current[0]!.innerHTML = buildLine(acwrPts, 1.0, 0.4, 2.1, aC, steps, true)
@@ -250,7 +250,7 @@ export function HeroStorySection() {
       const recPts = sd.rec.slice(0, steps)
       const rC = recColor(recNow)
       const rDelta = Math.round(REC_BASE - recNow)
-      const rSt = rDelta > 20 ? `↓ ${rDelta} pts below baseline` : rDelta > 10 ? `↓ ${rDelta} pts — monitoring` : recNow >= REC_BASE ? 'Baseline restored' : 'Returning to baseline'
+      const rSt = rDelta > 20 ? `↓ ${rDelta} pts below baseline · Personal wearable` : rDelta > 10 ? `↓ ${rDelta} pts · Personal wearable` : recNow >= REC_BASE ? 'Baseline restored · Personal wearable' : 'Returning to baseline · Personal wearable'
       if (mValRef.current[1])    { mValRef.current[1]!.textContent = String(Math.round(recNow)); mValRef.current[1]!.style.color = rC }
       if (mStatusRef.current[1]) mStatusRef.current[1]!.textContent = rSt
       if (mSvgRef.current[1])    mSvgRef.current[1]!.innerHTML = buildLine(recPts, REC_BASE, 20, 90, rC, steps)
@@ -261,7 +261,7 @@ export function HeroStorySection() {
       const hrvPts = sd.hrv.slice(0, steps)
       const hC = hrvColor(hrvNow)
       const hDelta = Math.round(HRV_BASE - hrvNow)
-      const hSt = hDelta > 14 ? `↓ ${hDelta}ms — significant` : hDelta > 7 ? `↓ ${hDelta}ms — mild suppression` : hrvNow > HRV_BASE ? `↑ ${Math.round(-hDelta)}ms above mean` : 'Within personal norms'
+      const hSt = hDelta > 14 ? `↓ ${hDelta}ms — significant · Nocturnal HRV` : hDelta > 7 ? `↓ ${hDelta}ms suppressed · Nocturnal HRV` : hrvNow > HRV_BASE ? `↑ ${Math.round(-hDelta)}ms above mean · Nocturnal HRV` : 'Within personal norms · Nocturnal HRV'
       if (mValRef.current[2])    { mValRef.current[2]!.textContent = `${Math.round(hrvNow)}ms`; mValRef.current[2]!.style.color = hC }
       if (mStatusRef.current[2]) mStatusRef.current[2]!.textContent = hSt
       if (mSvgRef.current[2])    mSvgRef.current[2]!.innerHTML = buildLine(hrvPts, HRV_BASE, 36, 80, hC, steps)

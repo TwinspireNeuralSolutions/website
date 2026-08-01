@@ -256,7 +256,7 @@
       },
       "isTwinspireDashboard": {
         "question": "Is this just another dashboard?",
-        "answer": "No. At ECSS 2026, Dr. Lorena Martin put it clearly: a dashboard displays variables, it does not explain what matters, why it matters, or what to do next. Twinspire is a decision support system. It builds an individual model for each athlete and answers three questions every day: is this player within their personal normal range, which signals are driving any deviation, and are they ready to train at full intensity. The output is a decision with visible reasoning, not a chart to interpret."
+        "answer": "No. A dashboard displays variables. It does not explain what matters, why it matters, or what to do next. Twinspire is a decision support system. It builds an individual baseline model for each athlete, monitors continuously across both club and personal data streams, and surfaces deviation with the specific drivers behind it. The output is a decision with visible reasoning, not a score to interpret."
       },
       "whatIsDigitalTwin": {
         "question": "What does individual baseline modeling mean in practice?",
@@ -287,21 +287,57 @@
   "dataEthics": {
     "sectionLabel": "Data & Privacy",
     "heading": "The Compliance Architecture",
-    "headingAccent1": "Most Sports Platforms",
-    "headingAccent2": "Were Never Built With",
-    "subtitle": "GDPR, medical device standards, and data ownership, designed in from the start, not retrofitted.",
+    "headingAccent1": "Built Around Five Principles",
+    "headingAccent2": "",
+    "subtitle": "Most sports platforms were built for performance, then had compliance retrofitted. Twinspire started from the other direction.",
     "description": "As player unions and club legal teams scrutinise how health data is handled, the compliance architecture your platform is built on matters.",
-    "card1Title": "Data Ownership",
-    "card1": "The Athletic Passport belongs to the athlete, not the club, not the platform. Squad analytics belong to the club. Twinspire hosts both under formal Data Processing Agreements. Neither is ever sold or shared.",
-    "card2Title": "Compliance Architecture",
-    "card2": "GDPR-aligned from the ground up. EU-based hosting and processing. Medical device regulation principles. Formal DPAs for all club and platform integrations. Granular consent controls throughout.",
-    "card3Title": "Explainability by Design",
-    "card3": "The model is not a black box. Every deviation flag surfaces its key drivers explicitly, which signals, from which data stream, in which direction. Staff see the reasoning, not just the output.",
-    "card4Title": "Decision Support Disclaimer",
-    "card4": "Twinspire surfaces signals for qualified staff to act on. It is not intended to diagnose, treat, or replace clinical judgment.",
+    "card1Title": "Identify",
+    "card1": "KPIs grounded in physiology, not vanity metrics. Every variable in the model has a validated biological rationale and a defined relationship to athlete readiness.",
+    "card2Title": "Validate",
+    "card2": "Technology validated before it reaches a clinical decision. We apply the same validation rigour to our models that medical device standards require before a tool can inform care.",
+    "card3Title": "Consent",
+    "card3": "Granular, athlete-owned, withdrawable at any time. The player decides what they share, with whom, and for how long. Consent is not a checkbox on a terms page.",
+    "card4Title": "Collect",
+    "card4": "Standardised ingestion across club and personal streams. Every data source enters through the same validated pipeline, ensuring consistency, auditability, and traceability.",
     "disclaimer": "Twinspire is a decision support platform. It is not intended to diagnose or treat medical conditions.",
     "readMore": "Read more",
-    "readLess": "Read less"
+    "readLess": "Read less",
+    "card5Title": "Present",
+    "card5": "Evidence-based, not a black box. Every output surfaces the signals behind it. Staff see what is driving a deviation, not just that one exists.",
+    "checklistTitle": "What We Measure Ourselves Against",
+    "checklistIntro": "Criteria proposed by independent researchers at ECSS Lausanne 2026 for what a genuine individual athlete model requires. Below is where Twinspire stands.",
+    "checklist": {
+      "individualized": {
+        "label": "Individualized",
+        "status": "yes",
+        "body": "Built per athlete, not per position or squad average."
+      },
+      "dynamicallyUpdated": {
+        "label": "Dynamically Updated",
+        "status": "yes",
+        "body": "Continuous, not a seasonal snapshot."
+      },
+      "connectedToDecisions": {
+        "label": "Connected to Decisions",
+        "status": "yes",
+        "body": "Surfaces into existing club workflow, not a separate tool."
+      },
+      "explicitAboutUncertainty": {
+        "label": "Explicit About Uncertainty",
+        "status": "yes",
+        "body": "Deviation shown with drivers, not a single collapsed score."
+      },
+      "predictive": {
+        "label": "Predictive",
+        "status": "no",
+        "body": "We detect deviation from personal baseline. We do not predict injury."
+      },
+      "validatedAgainstOutcomes": {
+        "label": "Validated Against Outcomes",
+        "status": "inProgress",
+        "body": "In progress. Multi-club validation study underway."
+      }
+    }
   },
   "contact": {
     "title": "Apply to Join the Founding Partner Cohort",
