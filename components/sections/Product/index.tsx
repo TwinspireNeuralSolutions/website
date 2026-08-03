@@ -128,35 +128,17 @@ export function ProductSection() {
                         {t('product.p2')}
                       </Typography>
 
-                      {/* Questions block — left column, no container */}
-                      <Typography variant="heading" as="h3" textColor="default">
-                        {t('product.science.researchTitle')}
-                      </Typography>
-                      <ol className="flex flex-col gap-1">
-                        {[
-                          t('product.questions.q1'),
-                          t('product.questions.q2'),
-                          t('product.questions.q3'),
-                        ].map((question, index) => (
-                          <li key={index} className="flex gap-4">
-                            <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <Typography variant="paragraph" textColor="default">
-                              {question}
-                            </Typography>
-                          </li>
-                        ))}
-                      </ol>
+
                     </div>
 
-                    <div className="flex min-w-0 flex-1 items-center overflow-hidden md:-mt-6 lg:-mt-8 xl:-mt-10">
+                    {/* Product showcase — composite device image */}
+                    <div className="flex min-w-0 flex-1 items-center justify-center md:-mt-6 lg:-mt-8 xl:-mt-10">
                       <Image
-                        src="/product/product-mockup.png"
-                        alt="Product mockup"
-                        width={1200}
-                        height={800}
-                        className="w-full max-w-[720px] rounded-xl object-contain sm:h-80 md:h-96 lg:h-[520px]"
+                        src="/product/product-dual-view.png"
+                        alt="Twinspire Squad Hub and player app"
+                        width={2667}
+                        height={1394}
+                        className="w-full max-w-[680px] object-contain drop-shadow-2xl"
                       />
                     </div>
                   </div>
