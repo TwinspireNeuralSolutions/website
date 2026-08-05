@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslation } from '@/i18n'
 import Link from 'next/link'
 
 const ROLES = [
@@ -26,7 +25,6 @@ function CheckIcon() {
 }
 
 export function BookDemoSection() {
-  const { t } = useTranslation()
   const [form, setForm] = useState({
     name: '', email: '', role: '', club: '', league: '', gpsPlatform: '',
   })
@@ -88,8 +86,9 @@ export function BookDemoSection() {
           {/* Row 1 */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1.5 block text-[12px] font-medium text-white/60">Full name *</label>
+              <label htmlFor="bd-name" className="mb-1.5 block text-[12px] font-medium text-white/60">Full name *</label>
               <input
+                id="bd-name"
                 type="text"
                 className={inputCls}
                 placeholder="Jane Smith"
@@ -98,8 +97,9 @@ export function BookDemoSection() {
               />
             </div>
             <div>
-              <label className="mb-1.5 block text-[12px] font-medium text-white/60">Email *</label>
+              <label htmlFor="bd-email" className="mb-1.5 block text-[12px] font-medium text-white/60">Email *</label>
               <input
+                id="bd-email"
                 type="email"
                 className={inputCls}
                 placeholder="jane@club.com"
@@ -112,9 +112,10 @@ export function BookDemoSection() {
           {/* Row 2 */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1.5 block text-[12px] font-medium text-white/60">Your role *</label>
+              <label htmlFor="bd-role" className="mb-1.5 block text-[12px] font-medium text-white/60">Your role *</label>
               <div className="relative">
                 <select
+                  id="bd-role"
                   className={selectCls}
                   value={form.role}
                   onChange={e => set('role', e.target.value)}
@@ -126,8 +127,9 @@ export function BookDemoSection() {
               </div>
             </div>
             <div>
-              <label className="mb-1.5 block text-[12px] font-medium text-white/60">Club or organisation</label>
+              <label htmlFor="bd-club" className="mb-1.5 block text-[12px] font-medium text-white/60">Club or organisation</label>
               <input
+                id="bd-club"
                 type="text"
                 className={inputCls}
                 placeholder="Your club or organisation"
@@ -140,8 +142,9 @@ export function BookDemoSection() {
           {/* Row 3 */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1.5 block text-[12px] font-medium text-white/60">League or level</label>
+              <label htmlFor="bd-league" className="mb-1.5 block text-[12px] font-medium text-white/60">League or level</label>
               <input
+                id="bd-league"
                 type="text"
                 className={inputCls}
                 placeholder="e.g. Danish Superliga, U23"
@@ -150,9 +153,10 @@ export function BookDemoSection() {
               />
             </div>
             <div>
-              <label className="mb-1.5 block text-[12px] font-medium text-white/60">GPS platform you currently use</label>
+              <label htmlFor="bd-gps" className="mb-1.5 block text-[12px] font-medium text-white/60">GPS platform you currently use</label>
               <div className="relative">
                 <select
+                  id="bd-gps"
                   className={selectCls}
                   value={form.gpsPlatform}
                   onChange={e => set('gpsPlatform', e.target.value)}

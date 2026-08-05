@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
@@ -90,11 +89,7 @@ interface CardData {
  */
 export function DataEthicsSection() {
   const { t } = useTranslation()
-  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>(
-    {}
-  )
 
-  const toggleCard = (index: number) => {
     setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }))
   }
 
@@ -159,9 +154,6 @@ export function DataEthicsSection() {
         {/* ── 3-card grid ── */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-start sm:gap-10 lg:grid-cols-3 lg:gap-12">
           {cards.map((card, i) => {
-            const isExpanded = expandedCards[i] ?? false
-            const isShortCard = i === 2
-
             return (
               <AnimateIn
                 key={t(card.titleKey)}

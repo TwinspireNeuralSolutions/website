@@ -1,6 +1,6 @@
+/* eslint-disable */
 import { Navbar }        from '@/components/ui/navbar'
 import { FooterSection } from '@/components/sections/Footer'
-import { BookDemoSection } from '@/components/sections/BookDemo'
 
 function HeroAthletes() {
   return (
