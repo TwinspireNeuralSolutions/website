@@ -1,7 +1,7 @@
 /* eslint-disable */
 'use client'
 
-import { useState }      from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link              from 'next/link'
 import { Navbar }        from '@/components/ui/navbar'
 import { FooterSection } from '@/components/sections/Footer'
@@ -19,6 +19,65 @@ const ROLES = [
 
 const GPS = ['Catapult', 'Statsports', 'Bricks', 'Other', 'None yet']
 
+/* ── Custom dropdown ─────────────────────────────────────────── */
+function Select({
+  id, value, onChange, options, placeholder,
+}: {
+  id: string
+  value: string
+  onChange: (v: string) => void
+  options: string[]
+  placeholder: string
+}) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function close(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', close)
+    return () => document.removeEventListener('mousedown', close)
+  }, [])
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        id={id}
+        type="button"
+        onClick={() => setOpen(o => !o)}
+        className="flex w-full items-center justify-between rounded-lg border border-white/10 bg-[#0D1220] px-4 py-3 text-left text-[14px] transition-colors hover:border-white/20 focus:border-primary/50 focus:outline-none"
+      >
+        <span className={value ? 'text-white' : 'text-white/25'}>{value || placeholder}</span>
+        <svg
+          className={`h-4 w-4 flex-shrink-0 text-white/30 transition-transform ${open ? 'rotate-180' : ''}`}
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        >
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-white/10 bg-[#0D1220] shadow-2xl">
+          {options.map(opt => (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => { onChange(opt); setOpen(false) }}
+              className={`block w-full px-4 py-2.5 text-left text-[14px] transition-colors hover:bg-white/[0.06] ${
+                value === opt ? 'text-primary font-medium' : 'text-white/80'
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ── Field wrapper ───────────────────────────────────────────── */
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
     <div>
@@ -30,9 +89,9 @@ function Field({ label, required, children }: { label: string; required?: boolea
   )
 }
 
-const base = 'w-full rounded-lg border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-white/25 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
-const sel  = `${base} appearance-none bg-[#0D1220]`
+const base = 'w-full rounded-lg border border-white/10 bg-[#0D1220] px-4 py-3 text-[14px] text-white placeholder:text-white/25 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
 
+/* ── Page ────────────────────────────────────────────────────── */
 export default function BookDemoPage() {
   const [form, setForm] = useState({ name:'', email:'', role:'', club:'', league:'', gpsPlatform:'' })
   const [status, setStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle')
@@ -65,7 +124,7 @@ export default function BookDemoPage() {
               </div>
               <h1 className="mb-3 text-2xl font-black text-white">We will be in touch</h1>
               <p className="text-white/50 text-[15px] leading-relaxed">
-                Thanks for booking. We will reach out within one business day to confirm a time that works for you.
+                Thanks for booking. We will reach out within one business day to confirm a time.
               </p>
               <Link href="/" className="text-primary mt-8 inline-block text-[13px] hover:underline">
                 Back to twinspire.ai
@@ -73,7 +132,6 @@ export default function BookDemoPage() {
             </div>
           ) : (
             <>
-              {/* Header */}
               <div className="mb-12">
                 <p className="text-primary mb-3 text-[11px] font-semibold uppercase tracking-widest">Get started</p>
                 <h1 className="mb-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
@@ -84,7 +142,6 @@ export default function BookDemoPage() {
                 </p>
               </div>
 
-              {/* Form */}
               <div className="space-y-4">
 
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -100,13 +157,13 @@ export default function BookDemoPage() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field label="Your role" required>
-                    <div className="relative">
-                      <select id="dm-role" className={sel} value={form.role} onChange={e => set('role', e.target.value)}>
-                        <option value="" disabled>Select your role</option>
-                        {ROLES.map(r => <option key={r} value={r}>{r}</option>)}
-                      </select>
-                      <svg className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </div>
+                    <Select
+                      id="dm-role"
+                      value={form.role}
+                      onChange={v => set('role', v)}
+                      options={ROLES}
+                      placeholder="Select your role"
+                    />
                   </Field>
                   <Field label="Club or organisation">
                     <input id="dm-club" type="text" className={base} placeholder="Your club"
@@ -120,13 +177,13 @@ export default function BookDemoPage() {
                       value={form.league} onChange={e => set('league', e.target.value)} />
                   </Field>
                   <Field label="GPS platform you currently use">
-                    <div className="relative">
-                      <select id="dm-gps" className={sel} value={form.gpsPlatform} onChange={e => set('gpsPlatform', e.target.value)}>
-                        <option value="" disabled>Select platform</option>
-                        {GPS.map(p => <option key={p} value={p}>{p}</option>)}
-                      </select>
-                      <svg className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </div>
+                    <Select
+                      id="dm-gps"
+                      value={form.gpsPlatform}
+                      onChange={v => set('gpsPlatform', v)}
+                      options={GPS}
+                      placeholder="Select platform"
+                    />
                   </Field>
                 </div>
 
@@ -140,7 +197,9 @@ export default function BookDemoPage() {
                     {status === 'submitting' ? 'Sending...' : 'Book Demo'}
                   </button>
                   {status === 'error' && (
-                    <p className="mt-2 text-center text-[13px] text-red-400">Something went wrong. Please email info@twinspire.ai directly.</p>
+                    <p className="mt-2 text-center text-[13px] text-red-400">
+                      Something went wrong. Please email info@twinspire.ai directly.
+                    </p>
                   )}
                 </div>
 
