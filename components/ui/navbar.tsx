@@ -170,8 +170,13 @@ export function Navbar() {
             {/* Desktop: lang selector + CTA */}
             <div className="hidden items-center gap-1.5 lg:flex">
               <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
+              <Link href="/#book-demo" scroll={true}>
+                <Button variant="primary" size="sm">
+                  {t('nav.bookDemo')}
+                </Button>
+              </Link>
               <Link href={`/${locale}/admin`}>
-                <Button variant="primary" size="sm" showIcon>
+                <Button variant="outline" size="sm" showIcon>
                   {t('nav.teamLogin')}
                 </Button>
               </Link>

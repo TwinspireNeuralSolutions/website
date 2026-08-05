@@ -75,7 +75,9 @@
     "team": "Team",
     "partnerships": "Partners",
     "joinUs": "Careers",
-    "teamLogin": "Club Login"
+    "teamLogin": "Club Login",
+    "bookDemo": "Book Demo",
+    "forAthletes": "For Athletes"
   },
   "footer": {
     "copyright": "© 2026 Twinspire · All rights reserved",
@@ -100,7 +102,7 @@
     "headlineLine1Highlight": "what the club measures",
     "headlineLine2Start": "Twinspire sees ",
     "headlineLine2Highlight": "what the player privately measures",
-    "valueProp": "GPS and training load from the club. Personal wearables from the player. Many data streams that have never been properly connected. Twinspire connects them and builds an individual baseline for each athlete.",
+    "valueProp": "Your club measures training. Your players measure sleep and recovery at home. Twinspire combines both into one individual model per player and alerts you before a deviation becomes an injury.",
     "credibility": "Developed at DTU · Presented at ECSS Lausanne 2026",
     "cta": "Apply to Join the Cohort",
     "stat": {
@@ -112,12 +114,12 @@
   "problem": {
     "label": "The Gap",
     "headline": "Many Data Sources. No Architecture to Connect Them.",
-    "p1": "Most clubs sit on more performance data than ever before. GPS outputs, session load, strength data, physio notes. The problem is not volume. It is that the data lives in disconnected systems with no individual model underneath it. No standardised infrastructure. No strategy for consolidating across sources. No security architecture built for clinical data. Twinspire provides what most clubs are missing: a structured, expert-informed layer that connects the data already being collected and builds a coherent picture of each individual athlete.",
+    "p1": "Most clubs sit on more performance data than ever before. The problem is not volume. It is that the data lives in disconnected systems with no individual model underneath it. No standardised infrastructure. No consolidation strategy. No security architecture built for clinical data. Twinspire is the structured layer that connects what is already being collected.",
     "block1Title": "The Fragmentation Problem",
     "block2Title": "The Recovery Gap",
     "block3Title": "Why Both Streams Are Required by Science",
-    "p2": "The data your players generate off the training pitch, rest-day recovery scores, sleep quality, nocturnal HRV, resting heart rate trends, never reaches anyone who could act on it. It exists. It is simply never read in the context of what happened at training the day before. Research is clear: clubs not measuring recovery are not measuring half their performance picture. Training load data alone cannot produce a meaningful readiness observation. Recovery data is not supplementary. It is required.",
-    "p3": "Combining recovery monitoring with training load data provides the basis for modelling the athlete as a dynamic system, one where training is the input and physiological readiness is the output. A 2025 joint modelling study found that integrating sleep, HRV, and load data was necessary for robust individual readiness assessment. Neither stream is sufficient alone. Without both, you are not modelling a person. You are modelling a session.",
+    "p2": "The data your players generate off the training pitch, rest-day recovery scores, sleep quality, nocturnal HRV, never reaches anyone who could act on it. Research is clear: clubs not measuring recovery are not measuring half their performance picture. Training load data alone cannot produce a meaningful readiness observation.",
+    "p3": "Combining recovery monitoring with training load provides the basis for modelling the athlete as a dynamic system. A 2025 joint modelling study found integrating sleep, HRV, and load data was necessary for robust individual readiness assessment. Without both, you are not modelling a person. You are modelling a session.",
     "imageAlt": "Performance data",
     "originLabel": "Why We Built This",
     "originHeading": "The Data Existed. The Context Didn't.",
@@ -170,7 +172,7 @@
       "disclaimer": "Twinspire is a decision support platform. It is not intended to diagnose or treat medical conditions."
     },
     "headline1": "The Individual Baseline",
-    "p1": "When your doctor runs blood tests, they track your values over time, because your normal might be different from the reference range. Twinspire does exactly that for every metric in your squad, continuously, across both the data the club controls and the data the player privately generates.",
+    "p1": "When your doctor runs blood tests, they track your values over time because your normal may differ from the reference range. Twinspire does the same for every athlete in your squad, across both the data the club controls and the data the player privately generates.",
     "card1": {
       "title": "Not a squad benchmark",
       "body": "A shift that looks unremarkable across a squad can be a significant warning for a particular player. Each individual's reference behavior is built and measured separately."
