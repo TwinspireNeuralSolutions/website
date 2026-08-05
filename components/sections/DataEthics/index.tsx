@@ -90,9 +90,6 @@ interface CardData {
 export function DataEthicsSection() {
   const { t } = useTranslation()
 
-    setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }))
-  }
-
   const cards: CardData[] = [
     {
       icon: <ShieldCheckIcon />,
