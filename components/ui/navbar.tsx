@@ -172,7 +172,12 @@ export function Navbar() {
               <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
               <Link
                 href={`/${locale}/for-athletes`}
-                className="text-foreground/50 hover:text-foreground text-[13px] transition-colors"
+                className={cn(
+                  'text-[13px] transition-colors',
+                  glass
+                    ? 'text-foreground/50 hover:text-foreground'
+                    : 'text-white/60 hover:text-white'
+                )}
               >
                 {t('nav.forAthletes')}
               </Link>
@@ -182,7 +187,12 @@ export function Navbar() {
                 </Button>
               </Link>
               <Link href={`/${locale}/admin`}>
-                <Button variant="outline" size="sm" showIcon>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  showIcon
+                  className={glass ? '' : 'border-white/25 text-white hover:border-white/50 hover:bg-white/10'}
+                >
                   {t('nav.teamLogin')}
                 </Button>
               </Link>

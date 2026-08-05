@@ -31,7 +31,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
 }
 
 const base = 'w-full rounded-lg border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-white/25 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
-const sel  = `${base} appearance-none`
+const sel  = `${base} appearance-none bg-[#0D1220]`
 
 export default function BookDemoPage() {
   const [form, setForm] = useState({ name:'', email:'', role:'', club:'', league:'', gpsPlatform:'' })
@@ -146,7 +146,7 @@ export default function BookDemoPage() {
 
                 <p className="pt-1 text-center text-[13px] text-white/30">
                   Applying as a founding partner instead?{' '}
-                  <Link href="/#apply" className="text-white/50 underline underline-offset-2 hover:text-white transition-colors">
+                  <Link href="/#contact" className="text-white/50 underline underline-offset-2 hover:text-white transition-colors">
                     Apply here
                   </Link>
                 </p>
