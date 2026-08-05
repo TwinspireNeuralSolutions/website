@@ -170,7 +170,13 @@ export function Navbar() {
             {/* Desktop: lang selector + CTA */}
             <div className="hidden items-center gap-1.5 lg:flex">
               <LanguageSelector variant={glass ? 'glass' : 'transparent'} />
-              <Link href="/#book-demo" scroll={true}>
+              <Link
+                href={`/${locale}/for-athletes`}
+                className="text-foreground/50 hover:text-foreground text-[13px] transition-colors"
+              >
+                {t('nav.forAthletes')}
+              </Link>
+              <Link href={`/${locale}/book-demo`}>
                 <Button variant="primary" size="sm">
                   {t('nav.bookDemo')}
                 </Button>
