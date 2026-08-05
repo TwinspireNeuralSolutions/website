@@ -140,7 +140,7 @@
         },
         "signals": {
           "title": "Connects the Private Data Stream",
-          "body": "the personal wearables your players already use, the wearables your players use off-site. Twinspire is the only platform with the consent architecture to legitimately integrate this data into club analytics.",
+          "body": "The personal wearables your players use off-site. Built specifically with the consent architecture to integrate this data legitimately into club analytics.",
           "bullet1": "Recovery, sleep, and HRV wearable integrations",
           "bullet2": "Player consents once, data stays theirs",
           "bullet3": "Off-site and rest-day signals included"
@@ -153,7 +153,7 @@
           "bullet3": "Key drivers surfaced, not a black box score"
         }
       },
-      "researchTitle": "Three questions answered every day",
+      "researchTitle": "Four questions answered every day",
       "questions": {
         "q1": "Is this player's current state within their personal normal range, combining club and personal data?",
         "q2": "Which signals are driving any deviation, and from which data stream?",
@@ -202,7 +202,7 @@
     "subtitle": "One platform. Three roles.",
     "footballers": {
       "title": "Footballers",
-      "description": "Connect your your wearable once. Your individual baseline is yours, not the club's. When you move, it moves with you. A portable physiological record across your entire career."
+      "description": "Connect your wearable once. Your individual baseline is yours, not the club's. When you move, it moves with you. A portable physiological record across your entire career."
     },
     "coaches": {
       "title": "Coaches & Performance Staff",
