@@ -1,5 +1,4 @@
-import { useTranslations } from 'next-intl'
-import { AnimateIn } from '@/components/ui/AnimateIn'
+import { AnimateIn } from '@/components/ui/animate-in'
 
 const cases = [
   {

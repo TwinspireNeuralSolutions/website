@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslation } from '@/i18n'
 import Link from 'next/link'
 
 const ROLES = [
@@ -26,7 +26,7 @@ function CheckIcon() {
 }
 
 export function BookDemoSection() {
-  const t = useTranslations()
+  const { t } = useTranslation()
   const [form, setForm] = useState({
     name: '', email: '', role: '', club: '', league: '', gpsPlatform: '',
   })
