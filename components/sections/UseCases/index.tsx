@@ -54,7 +54,7 @@ export function UseCasesSection() {
                   {c.icon}
                 </div>
                 <h3 className="text-foreground text-[16px] font-bold">{c.title}</h3>
-                <p className="text-foreground/60 text-[14px] leading-relaxed">{c.body}</p>
+                <p className="text-foreground/80 text-[14px] leading-relaxed">{c.body}</p>
               </div>
             </AnimateIn>
           ))}

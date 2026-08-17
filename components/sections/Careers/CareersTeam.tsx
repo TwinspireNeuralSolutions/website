@@ -19,7 +19,7 @@ export function CareersTeam() {
                 {t('joinUsPage.teamTitle')}
               </span>
             </h2>
-            <p className="text-foreground/70 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+            <p className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.teamBody')}
             </p>
           </div>

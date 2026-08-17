@@ -77,7 +77,7 @@ export const BuiltForCard = React.forwardRef<HTMLDivElement, BuiltForCardProps>(
             >
               {title}
             </Typography>
-            <p className="text-[14px] leading-[1.8] text-white/70 sm:text-[15px]">
+            <p className="text-[14px] leading-[1.8] text-white/80 sm:text-[15px]">
               {description}
             </p>
           </div>

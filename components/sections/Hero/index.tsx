@@ -181,7 +181,7 @@ export function HeroSection() {
 
             {/* Value proposition + credibility */}
             <AnimateIn variant="fadeUp" delay={0.15} immediate>
-              <p className="max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+              <p className="max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
                 {t('hero.valueProp')} {t('hero.credibility')}
               </p>
             </AnimateIn>

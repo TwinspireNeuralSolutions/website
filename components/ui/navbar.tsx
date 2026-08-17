@@ -32,11 +32,9 @@ const NAV_LINKS: NavLink[] = [
   { key: 'nav.joinUs', href: 'careers' },
 ]
 
-/** Glass blur applied to both the scrolled bar and the mobile dropdown. */
+/** Solid surface applied to both the scrolled bar and the mobile dropdown. */
 const GLASS_STYLE: React.CSSProperties = {
   background: 'var(--navbar-glass-bg)',
-  backdropFilter: 'blur(24px) saturate(200%)',
-  WebkitBackdropFilter: 'blur(24px) saturate(200%)',
 }
 
 export function Navbar() {
@@ -123,7 +121,7 @@ export function Navbar() {
                     <Link
                       href={`/${locale}/${href}`}
                       className={cn(
-                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        'rounded-[6px] px-4 py-2 text-sm font-medium transition-colors duration-200',
                         glass
                           ? 'text-foreground hover:bg-foreground/[0.06]'
                           : 'text-white hover:bg-white/[0.12]'
@@ -140,7 +138,7 @@ export function Navbar() {
                           ?.scrollIntoView({ behavior: 'smooth' })
                       }
                       className={cn(
-                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        'rounded-[6px] px-4 py-2 text-sm font-medium transition-colors duration-200',
                         glass
                           ? 'text-foreground hover:bg-foreground/[0.06]'
                           : 'text-white hover:bg-white/[0.12]'
@@ -152,7 +150,7 @@ export function Navbar() {
                     <Link
                       href={`/${locale}#${id}`}
                       className={cn(
-                        'rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200',
+                        'rounded-[6px] px-4 py-2 text-sm font-medium transition-colors duration-200',
                         glass
                           ? 'text-foreground hover:bg-foreground/[0.06]'
                           : 'text-white hover:bg-white/[0.12]'
@@ -254,7 +252,7 @@ export function Navbar() {
                       <Link
                         href={`/${locale}/${href}`}
                         onClick={() => setMobileOpen(false)}
-                        className="text-foreground hover:bg-foreground/[0.06] block w-full rounded-full px-4 py-3 text-left text-base font-medium transition-colors duration-150"
+                        className="text-foreground hover:bg-foreground/[0.06] block w-full rounded-[6px] px-4 py-3 text-left text-base font-medium transition-colors duration-150"
                       >
                         {t(key)}
                       </Link>
@@ -267,7 +265,7 @@ export function Navbar() {
                             .getElementById(id!)
                             ?.scrollIntoView({ behavior: 'smooth' })
                         }}
-                        className="text-foreground hover:bg-foreground/[0.06] block w-full rounded-full px-4 py-3 text-left text-base font-medium transition-colors duration-150"
+                        className="text-foreground hover:bg-foreground/[0.06] block w-full rounded-[6px] px-4 py-3 text-left text-base font-medium transition-colors duration-150"
                       >
                         {t(key)}
                       </button>
@@ -275,7 +273,7 @@ export function Navbar() {
                       <Link
                         href={`/${locale}#${id}`}
                         onClick={() => setMobileOpen(false)}
-                        className="text-foreground hover:bg-foreground/[0.06] block w-full rounded-full px-4 py-3 text-left text-base font-medium transition-colors duration-150"
+                        className="text-foreground hover:bg-foreground/[0.06] block w-full rounded-[6px] px-4 py-3 text-left text-base font-medium transition-colors duration-150"
                       >
                         {t(key)}
                       </Link>

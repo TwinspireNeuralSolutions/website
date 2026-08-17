@@ -31,14 +31,12 @@
   --footer-muted: #6a6a6a;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #0802a3 0%, #3b35d6 100%);
-  --gradient-secondary: linear-gradient(135deg, #0802a3 0%, #b5b2ff 100%);
 
   /* Font */
   --font-sans: 'Satoshi', system-ui, -apple-system, sans-serif;
 
   /* Navbar glass — light mode */
-  --navbar-glass-bg: rgba(255, 255, 255, 0.9);
+  --navbar-glass-bg: rgba(247, 247, 245, 1);
   --navbar-glass-border: rgba(0, 0, 0, 0.08);
   --navbar-glass-shadow:
     0 2px 4px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.1),
@@ -61,7 +59,7 @@
   --destructive-foreground: #fafafa;
 
   /* Navbar glass — dark mode */
-  --navbar-glass-bg: rgba(14, 14, 16, 0.8);
+  --navbar-glass-bg: rgba(8, 12, 24, 1);
   --navbar-glass-border: rgba(255, 255, 255, 0.09);
   --navbar-glass-shadow:
     0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.36),

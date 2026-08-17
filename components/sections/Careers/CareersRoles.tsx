@@ -158,7 +158,7 @@ export function CareersRoles() {
               </h3>
 
               {/* Location */}
-              <p className="text-foreground/60 text-[13px] font-normal">
+              <p className="text-foreground/80 text-[13px] font-normal">
                 {role.location}
               </p>
 

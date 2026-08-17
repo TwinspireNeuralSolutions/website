@@ -39,7 +39,7 @@ export function CareersOpenInvite() {
                 {t('joinUsPage.openInviteTitle')}
               </span>
             </h2>
-            <p className="text-foreground/70 mx-auto mb-8 max-w-lg text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+            <p className="text-foreground/80 mx-auto mb-8 max-w-lg text-[14px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.intro.p6')}
             </p>
             <Button

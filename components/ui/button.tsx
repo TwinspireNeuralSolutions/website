@@ -21,7 +21,7 @@ import { ArrowRight } from 'lucide-react'
  * - Uses shadcn/ui CVA pattern
  */
 const buttonVariants = cva(
-  'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+  'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[6px] text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -124,7 +124,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <ArrowRight
               className={cn(
                 arrow,
-                '-rotate-45 transition-transform duration-200 group-hover:rotate-0'
+                ''
               )}
             />
           </span>
@@ -142,7 +142,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <ArrowRight
               className={cn(
                 arrow,
-                '-rotate-45 transition-transform duration-200 group-hover:rotate-0'
+                ''
               )}
             />
           </span>

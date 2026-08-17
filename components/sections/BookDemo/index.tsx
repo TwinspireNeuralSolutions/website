@@ -58,7 +58,7 @@ export function BookDemoSection() {
             <CheckIcon />
           </div>
           <h2 className="mb-3 text-2xl font-bold text-white">We will be in touch</h2>
-          <p className="text-foreground/60 text-[15px] leading-relaxed">
+          <p className="text-foreground/80 text-[15px] leading-relaxed">
             Thanks for requesting a demo. We will reach out within one business day to confirm a time.
           </p>
         </div>
@@ -76,7 +76,7 @@ export function BookDemoSection() {
           <h2 className="mb-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
             Book a Free Demo
           </h2>
-          <p className="text-foreground/55 mx-auto max-w-md text-[15px] leading-relaxed">
+          <p className="text-foreground/80 mx-auto max-w-md text-[15px] leading-relaxed">
             30 minutes. We will walk you through the platform with your setup in mind.
           </p>
         </div>
@@ -86,7 +86,7 @@ export function BookDemoSection() {
           {/* Row 1 */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="bd-name" className="mb-1.5 block text-[12px] font-medium text-white/60">Full name *</label>
+              <label htmlFor="bd-name" className="mb-1.5 block text-[12px] font-medium text-white/80">Full name *</label>
               <input
                 id="bd-name"
                 type="text"
@@ -97,7 +97,7 @@ export function BookDemoSection() {
               />
             </div>
             <div>
-              <label htmlFor="bd-email" className="mb-1.5 block text-[12px] font-medium text-white/60">Email *</label>
+              <label htmlFor="bd-email" className="mb-1.5 block text-[12px] font-medium text-white/80">Email *</label>
               <input
                 id="bd-email"
                 type="email"
@@ -112,7 +112,7 @@ export function BookDemoSection() {
           {/* Row 2 */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="bd-role" className="mb-1.5 block text-[12px] font-medium text-white/60">Your role *</label>
+              <label htmlFor="bd-role" className="mb-1.5 block text-[12px] font-medium text-white/80">Your role *</label>
               <div className="relative">
                 <select
                   id="bd-role"
@@ -127,7 +127,7 @@ export function BookDemoSection() {
               </div>
             </div>
             <div>
-              <label htmlFor="bd-club" className="mb-1.5 block text-[12px] font-medium text-white/60">Club or organisation</label>
+              <label htmlFor="bd-club" className="mb-1.5 block text-[12px] font-medium text-white/80">Club or organisation</label>
               <input
                 id="bd-club"
                 type="text"
@@ -142,7 +142,7 @@ export function BookDemoSection() {
           {/* Row 3 */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="bd-league" className="mb-1.5 block text-[12px] font-medium text-white/60">League or level</label>
+              <label htmlFor="bd-league" className="mb-1.5 block text-[12px] font-medium text-white/80">League or level</label>
               <input
                 id="bd-league"
                 type="text"
@@ -153,7 +153,7 @@ export function BookDemoSection() {
               />
             </div>
             <div>
-              <label htmlFor="bd-gps" className="mb-1.5 block text-[12px] font-medium text-white/60">GPS platform you currently use</label>
+              <label htmlFor="bd-gps" className="mb-1.5 block text-[12px] font-medium text-white/80">GPS platform you currently use</label>
               <div className="relative">
                 <select
                   id="bd-gps"
@@ -187,7 +187,7 @@ export function BookDemoSection() {
           {/* Secondary CTA */}
           <p className="pt-1 text-center text-[13px] text-white/35">
             Looking to apply as a founding partner instead?{' '}
-            <Link href="#apply" className="text-white/60 underline underline-offset-2 hover:text-white transition-colors">
+            <Link href="#apply" className="text-white/80 underline underline-offset-2 hover:text-white transition-colors">
               Apply here
             </Link>
           </p>
