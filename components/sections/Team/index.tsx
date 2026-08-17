@@ -72,7 +72,7 @@ export function TeamSection() {
               variant="heading"
               as="p"
               textColor="default"
-              className="text-foreground/50 shrink-0 text-[11px] tracking-widest uppercase"
+              className="text-foreground/80 shrink-0 text-[11px] tracking-widest uppercase"
             >
               {t('team.advisers')}
             </Typography>

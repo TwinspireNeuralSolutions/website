@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
@@ -90,13 +89,6 @@ interface CardData {
  */
 export function DataEthicsSection() {
   const { t } = useTranslation()
-  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>(
-    {}
-  )
-
-  const toggleCard = (index: number) => {
-    setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }))
-  }
 
   const cards: CardData[] = [
     {
@@ -120,7 +112,7 @@ export function DataEthicsSection() {
     <section
       id="data-ethics"
       aria-labelledby="data-ethics-heading"
-      className="bg-background relative z-10 w-full"
+      className="bg-muted/40 relative z-10 w-full"
     >
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
         {/* ── Top divider ── */}
@@ -159,9 +151,6 @@ export function DataEthicsSection() {
         {/* ── 3-card grid ── */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-start sm:gap-10 lg:grid-cols-3 lg:gap-12">
           {cards.map((card, i) => {
-            const isExpanded = expandedCards[i] ?? false
-            const isShortCard = i === 2
-
             return (
               <AnimateIn
                 key={t(card.titleKey)}
@@ -173,7 +162,7 @@ export function DataEthicsSection() {
                     {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
-                    className={"text-foreground/70 text-[14px] leading-[1.8] sm:text-[15px]"}
+                    className={"text-foreground/80 text-[14px] leading-[1.8] sm:text-[15px]"}
                   >
                     {t(card.bodyKey)}
                   </p>

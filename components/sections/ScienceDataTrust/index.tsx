@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { Typography } from '@/components/ui/typography'
 import { AnimateIn } from '@/components/ui/animate-in'
 import { useTranslation } from '@/i18n'
@@ -1220,7 +1219,7 @@ function ValidationDiagram() {
 
 function CheckBullet({ text }: { text: string }) {
   return (
-    <li className="text-foreground/70 flex items-center gap-2.5 text-[14px] sm:text-[15px]">
+    <li className="text-foreground/80 flex items-center gap-2.5 text-[14px] sm:text-[15px]">
       <svg
         className="text-primary/60 h-4 w-4 shrink-0"
         viewBox="0 0 16 16"

@@ -106,7 +106,7 @@ export function ProblemSection() {
                   <div className="flex justify-center md:order-none">
                     <div className="relative flex items-center">
                       <div className="hidden items-center justify-center md:flex">
-                        <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full font-bold text-white">
+                        <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-[6px] font-bold text-white">
                           {item.number}
                         </div>
                       </div>
@@ -192,7 +192,7 @@ export function ProblemSection() {
                   <Typography
                     variant="paragraph"
                     as="p"
-                    className="text-foreground/70 mx-auto mt-4 max-w-[720px]"
+                    className="text-foreground/80 mx-auto mt-4 max-w-[720px]"
                   >
                     {t('problem.originBody')}
                   </Typography>

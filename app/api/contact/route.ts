@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { buildConfirmationEmail } from '@/components/emails/ConfirmationEmail'
+import { emailShell, p, detailTable, escapeHtml, BRAND } from '@/lib/email/template'
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    throw new Error('RESEND_API_KEY is not configured')
-  }
+  if (!apiKey) throw new Error('RESEND_API_KEY is not configured')
   return new Resend(apiKey)
 }
 
@@ -36,69 +34,65 @@ export async function POST(req: NextRequest) {
 
   const { name, email, role, clubOrClinic, message } = body
 
-  // Basic server-side validation
   if (!name?.trim() || !email?.trim() || !role?.trim()) {
-    return NextResponse.json(
-      { error: 'name, email and role are required' },
-      { status: 422 }
-    )
+    return NextResponse.json({ error: 'name, email and role are required' }, { status: 422 })
   }
-
   if (!isValidEmail(email)) {
-    return NextResponse.json(
-      { error: 'Invalid email address' },
-      { status: 422 }
-    )
+    return NextResponse.json({ error: 'Invalid email address' }, { status: 422 })
   }
 
-  // Build confirmation HTML
-  const confirmationHtml = buildConfirmationEmail(name.trim())
+  const firstName = name.trim().split(' ')[0]
 
   try {
     const resend = getResendClient()
 
-    // 1. Send confirmation receipt to the applicant
+    // ── Applicant confirmation ──
     await resend.emails.send({
       from: FROM_ADDRESS,
       to: email.trim(),
-      subject: "Thanks for reaching out — we'll be in touch soon",
-      html: confirmationHtml,
+      subject: 'We received your application',
+      html: emailShell({
+        eyebrow: 'Application received',
+        heading: `Thanks, ${escapeHtml(firstName)}`,
+        preheader: 'We will respond within one business day.',
+        body:
+          p('We have your application to join the founding partner cohort and will respond within one business day.') +
+          p('The next step is a short call to understand your current setup, what data you already capture, and whether Twinspire is the right fit for both sides. No commitment.') +
+          p('If anything changes before then, just reply to this email.'),
+        cta: { label: 'Visit twinspire.ai', url: 'https://twinspire.ai' },
+      }),
     })
 
-    // 2. Notify the Twinspire team
+    // ── Internal notification ──
     await resend.emails.send({
       from: FROM_ADDRESS,
       to: TEAM_ADDRESS,
       replyTo: email.trim(),
-      subject: `New pilot cohort application — ${name.trim()}`,
-      html: `
-        <h2 style="font-family:sans-serif;color:#0802A3">New application received</h2>
-        <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Name</td><td>${escapeHtml(name)}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Email</td><td>${escapeHtml(email)}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Role</td><td>${escapeHtml(role)}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Club / Clinic</td><td>${escapeHtml(clubOrClinic ?? '—')}</td></tr>
-        </table>
-        ${message?.trim() ? `<p style="font-family:sans-serif;font-size:14px;color:#0a0a0a;margin-top:16px"><strong>Message:</strong><br/>${escapeHtml(message)}</p>` : ''}
-      `,
+      subject: `Founding partner application: ${name.trim()}${clubOrClinic?.trim() ? ` · ${clubOrClinic.trim()}` : ''}`,
+      html: emailShell({
+        eyebrow: 'New application',
+        heading: `${name.trim()} applied to the cohort`,
+        preheader: `${role.trim()}${clubOrClinic?.trim() ? ` at ${clubOrClinic.trim()}` : ''}`,
+        body:
+          detailTable([
+            ['Name',  name.trim()],
+            ['Email', email.trim()],
+            ['Role',  role.trim()],
+            ['Club',  clubOrClinic?.trim() || 'Not provided'],
+          ]) +
+          (message?.trim()
+            ? `<div style="margin-top:24px;padding:18px 20px;background-color:${BRAND.paper};border-radius:6px;">
+                 <p style="margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.muted};">Message</p>
+                 <p style="margin:0;font-size:14px;line-height:1.65;color:${BRAND.ink};white-space:pre-wrap;">${escapeHtml(message.trim())}</p>
+               </div>`
+            : ''),
+        cta: { label: `Reply to ${firstName}`, url: `mailto:${email.trim()}` },
+      }),
     })
 
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('[contact/route] Resend error', err)
-    return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to send email. Please try again later.' }, { status: 500 })
   }
-}
-
-/** Minimal HTML escaping to prevent XSS in team notification email. */
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;')
 }

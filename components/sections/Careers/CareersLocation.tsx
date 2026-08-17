@@ -25,10 +25,10 @@ export function CareersLocation() {
               </h2>
 
               <div className="flex flex-col gap-4">
-                <p className="text-foreground/70 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                <p className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
                   {t('joinUsPage.locationP1')}
                 </p>
-                <p className="text-foreground/70 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                <p className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
                   {t('joinUsPage.locationP2')}
                 </p>
               </div>
@@ -39,7 +39,7 @@ export function CareersLocation() {
                     className="text-primary mt-0.5 h-4 w-4 shrink-0"
                     aria-hidden
                   />
-                  <span className="text-foreground/70 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                  <span className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
                     {t('joinUsPage.locationAddress')}
                   </span>
                 </div>

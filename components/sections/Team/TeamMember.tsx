@@ -43,7 +43,8 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
               alt={name}
               fill
               className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
-              sizes="(max-width: 480px) 45vw, (max-width: 768px) 28vw, (max-width: 1280px) 18vw, 200px"
+              quality={92}
+              sizes="(max-width: 480px) 50vw, (max-width: 768px) 33vw, (max-width: 1280px) 25vw, 300px"
             />
 
             {/* Dark gradient scrim at bottom for text readability */}

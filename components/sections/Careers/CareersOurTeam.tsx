@@ -45,10 +45,10 @@ export function CareersOurTeam() {
               <p className="text-foreground border-primary border-l-[3px] pl-5 text-[17px] leading-[1.7] font-semibold sm:text-[18px]">
                 {t('joinUsPage.ourTeamBody1')}
               </p>
-              <p className="text-foreground/70 text-justify text-[14px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
+              <p className="text-foreground/80 text-justify text-[14px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
                 {t('joinUsPage.ourTeamBody2')}
               </p>
-              <p className="text-foreground/70 text-justify text-[14px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
+              <p className="text-foreground/80 text-justify text-[14px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
                 {t('joinUsPage.ourTeamBody3')}
               </p>
             </div>

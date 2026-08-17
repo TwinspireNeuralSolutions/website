@@ -41,7 +41,7 @@ export function CareersWhoWeAre() {
               <span className="text-primary text-[80px] leading-none font-bold tracking-tight sm:text-[96px]">
                 1 in 5
               </span>
-              <p className="text-foreground/70 mt-2 max-w-[220px] text-center text-[16px] leading-[1.4] font-normal tracking-tight uppercase sm:text-[18px] lg:text-left">
+              <p className="text-foreground/80 mt-2 max-w-[220px] text-center text-[16px] leading-[1.4] font-normal tracking-tight uppercase sm:text-[18px] lg:text-left">
                 Footballers tears the same muscle twice.
               </p>
             </div>

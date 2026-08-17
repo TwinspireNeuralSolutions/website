@@ -122,7 +122,7 @@ export function HeroSection() {
     <section className="relative h-svh min-h-[600px] w-full overflow-hidden">
       {/* ── Background image — anchored right ── */}
       <Image
-        src="/hero/image.png"
+        src="/hero/image.webp"
         alt="Football player kicking ball in stadium"
         fill
         sizes="100vw"
@@ -181,7 +181,7 @@ export function HeroSection() {
 
             {/* Value proposition + credibility */}
             <AnimateIn variant="fadeUp" delay={0.15} immediate>
-              <p className="max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+              <p className="max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">
                 {t('hero.valueProp')} {t('hero.credibility')}
               </p>
             </AnimateIn>
