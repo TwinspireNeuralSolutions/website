@@ -29,13 +29,13 @@ export function BuiltForSection() {
       description: t('builtFor.footballers.description'),
     },
     {
-      image: '/coaches.jpg',
+      image: '/coaches.webp',
       overlayOpacity: 0.65,
       title: t('builtFor.coaches.title'),
       description: t('builtFor.coaches.description'),
     },
     {
-      image: '/physio.png',
+      image: '/physio.webp',
       overlayOpacity: 0.6,
       title: t('builtFor.physio.title'),
       description: t('builtFor.physio.description'),

@@ -16,7 +16,7 @@ export function CareersHero() {
     <section className="relative min-h-[420px] w-full overflow-hidden sm:min-h-[520px]">
       {/* ── Layer 1: Background image ── */}
       <Image
-        src="/hero/image.png"
+        src="/hero/image.webp"
         alt="Twinspire — Join Us"
         fill
         sizes="100vw"
