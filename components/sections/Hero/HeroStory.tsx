@@ -64,9 +64,8 @@ export function HeroStorySection() {
     startRef.current = performance.now()
     const sd = SCENES[idx]
 
-    // Video — restart on first scene, loop throughout
+    // Video loops freely — never reset currentTime, text cycles independently
     if (videoRef.current) {
-      if (idx === 0) videoRef.current.currentTime = 0
       videoRef.current.play().catch(() => {})
     }
 

@@ -99,14 +99,16 @@ export function Navbar() {
               aria-label="Twinspire — go to home"
               className="relative mr-2 flex shrink-0 items-center"
             >
-              <div className="relative h-5 w-[130px] shrink sm:h-6 sm:w-[160px] sm:shrink-0">
+              <div className="relative h-8 w-[170px] shrink sm:h-10 sm:w-[253px] sm:shrink-0 lg:h-14 lg:w-[355px]">
                 <Image
-                  src={glass ? '/brand/twinspire-lockup-ink.svg' : '/brand/twinspire-lockup-reversed.svg'}
+                  src="/logo/twinspire-lockup-reversed - Edited.png"
                   alt="Twinspire"
                   fill
                   priority
-                  sizes="(max-width: 640px) 130px, 160px"
-                  className="object-contain object-left"
+                  quality={100}
+                  sizes="(max-width: 640px) 170px, (max-width: 1024px) 253px, 355px"
+                  className="object-contain object-left transition-[filter] duration-300"
+                  style={{ filter: glass ? 'invert(1)' : 'none' }}
                 />
               </div>
             </Link>
