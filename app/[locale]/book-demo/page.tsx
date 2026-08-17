@@ -46,11 +46,11 @@ function Select({
         id={id}
         type="button"
         onClick={() => setOpen(o => !o)}
-        className="flex w-full items-center justify-between rounded-lg border border-white/10 bg-[#0D1220] px-4 py-3 text-left text-[14px] transition-colors hover:border-white/20 focus:border-primary/50 focus:outline-none"
+        className="border-border bg-background flex w-full items-center justify-between rounded-[6px] border px-4 py-3 text-left text-[14px] transition-colors hover:border-foreground/30 focus:border-primary/50 focus:outline-none"
       >
-        <span className={value ? 'text-white' : 'text-white/25'}>{value || placeholder}</span>
+        <span className={value ? 'text-foreground' : 'text-foreground/40'}>{value || placeholder}</span>
         <svg
-          className={`h-4 w-4 flex-shrink-0 text-white/30 transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 flex-shrink-0 text-foreground/40 transition-transform ${open ? 'rotate-180' : ''}`}
           viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
         >
           <polyline points="6 9 12 15 18 9"/>
@@ -58,14 +58,14 @@ function Select({
       </button>
 
       {open && (
-        <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg border border-white/10 bg-[#0D1220] shadow-2xl">
+        <div className="border-border bg-background absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-[6px] border shadow-xl">
           {options.map(opt => (
             <button
               key={opt}
               type="button"
               onClick={() => { onChange(opt); setOpen(false) }}
-              className={`block w-full px-4 py-2.5 text-left text-[14px] transition-colors hover:bg-white/[0.06] ${
-                value === opt ? 'text-primary font-medium' : 'text-white/80'
+              className={`block w-full px-4 py-2.5 text-left text-[14px] transition-colors hover:bg-muted ${
+                value === opt ? 'text-primary font-medium' : 'text-foreground/80'
               }`}
             >
               {opt}
@@ -81,7 +81,7 @@ function Select({
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[12px] font-medium text-white/55">
+      <label className="mb-1.5 block text-foreground/80 text-[12px] font-medium">
         {label}{required && <span className="text-primary ml-1">*</span>}
       </label>
       {children}
@@ -89,7 +89,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
   )
 }
 
-const base = 'w-full rounded-lg border border-white/10 bg-[#0D1220] px-4 py-3 text-[14px] text-white placeholder:text-white/25 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
+const base = 'w-full rounded-[6px] border border-border bg-background px-4 py-3 text-[14px] text-foreground placeholder:text-foreground/40 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
 
 /* ── Page ────────────────────────────────────────────────────── */
 export default function BookDemoPage() {
@@ -114,7 +114,7 @@ export default function BookDemoPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#080C18]">
+      <main className="bg-background min-h-screen">
         <div className="mx-auto max-w-xl px-6 py-28 sm:py-36">
 
           {status === 'success' ? (
@@ -122,8 +122,8 @@ export default function BookDemoPage() {
               <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-green-500/10 text-green-400 ring-1 ring-green-500/20">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <h1 className="mb-3 text-2xl font-black text-white">We will be in touch</h1>
-              <p className="text-white/50 text-[15px] leading-relaxed">
+              <h1 className="text-foreground mb-3 text-2xl font-black">We will be in touch</h1>
+              <p className="text-foreground/80 text-[15px] leading-relaxed">
                 Thanks for booking. We will reach out within one business day to confirm a time.
               </p>
               <Link href="/" className="text-primary mt-8 inline-block text-[13px] hover:underline">
@@ -134,10 +134,10 @@ export default function BookDemoPage() {
             <>
               <div className="mb-12">
                 <p className="text-primary mb-3 text-[11px] font-semibold uppercase tracking-widest">Get started</p>
-                <h1 className="mb-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
+                <h1 className="mb-4 text-foreground text-4xl font-black tracking-tight sm:text-5xl">
                   Book a Free Demo
                 </h1>
-                <p className="text-white/45 text-[15px] leading-relaxed">
+                <p className="text-foreground/80 text-[15px] leading-relaxed">
                   30 minutes. We will walk you through the platform with your specific setup in mind.
                 </p>
               </div>
@@ -203,9 +203,9 @@ export default function BookDemoPage() {
                   )}
                 </div>
 
-                <p className="pt-1 text-center text-[13px] text-white/30">
+                <p className="pt-1 text-foreground/60 text-center text-[13px]">
                   Applying as a founding partner instead?{' '}
-                  <Link href="/#contact" className="text-white/50 underline underline-offset-2 hover:text-white transition-colors">
+                  <Link href="/#contact" className="text-foreground/70 hover:text-foreground underline underline-offset-2 transition-colors">
                     Apply here
                   </Link>
                 </p>

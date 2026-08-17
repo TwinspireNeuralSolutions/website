@@ -72,7 +72,8 @@ export function Navbar() {
   }, [mobileOpen])
 
   // Glass state: active when scrolled OR when mobile menu is open on the hero
-  const glass = scrolled || mobileOpen
+  // Non-home pages have light backgrounds — always use the solid/ink navbar there
+  const glass = scrolled || mobileOpen || !isHome
 
   return (
     <header

@@ -9,17 +9,17 @@ import { FooterSection } from '@/components/sections/Footer'
 /* ── Hero ────────────────────────────────────────────────────── */
 function HeroAthletes() {
   return (
-    <section className="relative flex min-h-[90svh] items-center justify-center overflow-hidden bg-[#080C18] px-6 py-32 text-center">
+    <section className="bg-background relative flex min-h-[85svh] items-center justify-center px-6 pb-20 pt-36 text-center">
       <div className="relative mx-auto max-w-3xl">
         <p className="text-primary mb-6 text-[11px] font-semibold uppercase tracking-widest">
           For athletes
         </p>
-        <h1 className="mb-6 font-['Barlow_Condensed',sans-serif] text-[clamp(48px,8vw,96px)] font-black leading-none tracking-tight text-white">
+        <h1 className="text-foreground mb-6 font-['Barlow_Condensed',sans-serif] text-[clamp(48px,8vw,96px)] font-black leading-none tracking-tight">
           Your data.<br />
           Your baseline.<br />
           <span className="text-primary">Your career.</span>
         </h1>
-        <p className="mx-auto mb-10 max-w-xl text-[16px] leading-relaxed text-white/80">
+        <p className="text-foreground/80 mx-auto mb-10 max-w-xl text-[16px] leading-relaxed">
           Every session, load, injury, and rehabilitation milestone. Portable, owned by you, shared only with the clubs you choose.
         </p>
         <a
@@ -119,16 +119,29 @@ function HowAppWorksSection() {
             ))}
           </div>
 
-          {/* Real app screenshot */}
-          <div className="mx-auto w-[240px] overflow-hidden rounded-[22px] border border-black/10 shadow-2xl lg:w-[260px]">
-            <Image
-              src="/product/app-screenshot.jpg"
-              alt="Twinspire player app: daily check-in, performance metrics, and individual baseline"
-              width={390}
-              height={844}
-              quality={92}
-              className="block w-full"
-            />
+          {/* Real app screenshot in iPhone frame */}
+          <div className="relative mx-auto w-[250px] lg:w-[270px]">
+            {/* Device body */}
+            <div className="relative overflow-hidden rounded-[36px] border-[7px] border-[#1a1a1c] bg-[#1a1a1c] shadow-2xl">
+              {/* Dynamic island */}
+              <div className="absolute left-1/2 top-2 z-10 h-[18px] w-[76px] -translate-x-1/2 rounded-full bg-[#1a1a1c]" />
+              {/* Screen */}
+              <div className="overflow-hidden rounded-[29px]">
+                <Image
+                  src="/product/app-screenshot.jpg"
+                  alt="Twinspire player app: daily check-in, performance metrics, and individual baseline"
+                  width={390}
+                  height={844}
+                  quality={92}
+                  className="block w-full"
+                />
+              </div>
+            </div>
+            {/* Side buttons */}
+            <div className="absolute -left-[2px] top-[110px] h-[26px] w-[3px] rounded-l-sm bg-[#2a2a2c]" />
+            <div className="absolute -left-[2px] top-[150px] h-[44px] w-[3px] rounded-l-sm bg-[#2a2a2c]" />
+            <div className="absolute -left-[2px] top-[205px] h-[44px] w-[3px] rounded-l-sm bg-[#2a2a2c]" />
+            <div className="absolute -right-[2px] top-[160px] h-[64px] w-[3px] rounded-r-sm bg-[#2a2a2c]" />
           </div>
         </div>
       </div>
