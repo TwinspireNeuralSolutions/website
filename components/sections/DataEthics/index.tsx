@@ -112,7 +112,7 @@ export function DataEthicsSection() {
     <section
       id="data-ethics"
       aria-labelledby="data-ethics-heading"
-      className="bg-background relative z-10 w-full"
+      className="bg-muted/40 relative z-10 w-full"
     >
       <div className="section-x section-inner mx-auto pt-10 pb-16 md:pt-12 md:pb-20">
         {/* ── Top divider ── */}

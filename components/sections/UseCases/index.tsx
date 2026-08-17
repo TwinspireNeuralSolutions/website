@@ -36,7 +36,7 @@ const cases = [
 
 export function UseCasesSection() {
   return (
-    <section className="bg-background py-20 sm:py-24">
+    <section className="bg-muted/40 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
 
         <AnimateIn variant="fadeUp">
