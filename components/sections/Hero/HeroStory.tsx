@@ -17,13 +17,13 @@ interface Scene {
 
 const SCENES: Scene[] = [
   {
-    key: 'setup', duration: 8000,
+    key: 'setup', duration: 8041,
     eyebrow: 'The gap',
     headline: ['Many streams.', 'None connected.'],
     sub: 'Your club captures training load. Your players measure sleep and recovery at home. Two separate worlds that have never been properly connected.',
   },
   {
-    key: 'payoff', duration: 10000,
+    key: 'payoff', duration: 8041,
     eyebrow: 'The connection',
     headline: ['Club data · Personal data.', 'One individual model.'],
     sub: 'Twinspire combines both into one individual model per player and alerts you before a deviation becomes an injury.',
