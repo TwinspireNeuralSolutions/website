@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { emailShell, p, detailTable } from '@/lib/email/template'
 
 function getResend() {
   const key = process.env.RESEND_API_KEY
@@ -9,11 +10,6 @@ function getResend() {
 
 const FROM = 'Twinspire <info@twinspire.ai>'
 const TEAM = 'info@twinspire.ai'
-
-function esc(s: string) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-          .replace(/"/g,'&quot;').replace(/'/g,'&#039;')
-}
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null)
@@ -26,21 +22,35 @@ export async function POST(req: NextRequest) {
   try {
     const resend = getResend()
 
+    // ── Internal notification ──
     await resend.emails.send({
       from: FROM,
       to: TEAM,
-      subject: `Athlete waitlist signup: ${esc(email.trim())}`,
-      html: `<p style="font-family:sans-serif;font-size:14px">New athlete waitlist signup: <strong>${esc(email.trim())}</strong></p>`,
+      replyTo: email.trim(),
+      subject: `Athlete waitlist: ${email.trim()}`,
+      html: emailShell({
+        eyebrow: 'Athlete waitlist',
+        heading: 'New waitlist signup',
+        preheader: email.trim(),
+        body: detailTable([['Email', email.trim()], ['Source', 'For Athletes page']]),
+      }),
     })
 
+    // ── Athlete confirmation ──
     await resend.emails.send({
       from: FROM,
       to: email.trim(),
       subject: 'You are on the Twinspire athlete waitlist',
-      html: `
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">You are on the list.</p>
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">Twinspire is currently deploying with founding partner clubs. We will send you one email when athlete access opens. No spam.</p>
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">The Twinspire team</p>`,
+      html: emailShell({
+        eyebrow: 'Waitlist confirmed',
+        heading: 'You are on the list',
+        preheader: 'One email when athlete access opens. Nothing else.',
+        body:
+          p('Twinspire is currently deploying with founding partner clubs across elite sport. Athlete access opens after that.') +
+          p('When it does, you will get one email. Your individual baseline, your Athletic Passport, and full control over who sees your data.') +
+          p('No spam in the meantime.'),
+        cta: { label: 'Learn more', url: 'https://twinspire.ai/en/for-athletes' },
+      }),
     })
 
     return NextResponse.json({ success: true })

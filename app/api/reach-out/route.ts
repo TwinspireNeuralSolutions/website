@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { emailShell, p, detailTable, BRAND } from '@/lib/email/template'
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY
@@ -68,12 +69,16 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from: FROM_ADDRESS,
         to: email.trim(),
-        subject: "Thanks for reaching out — we'll be in touch soon",
-        html: `
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">Hi ${safeName},</p>
-        <p style="font-family:sans-serif;font-size:15px;color:#555">Thanks for reaching out to Twinspire. We've received your message and will be in touch if there's a strong fit.</p>
-        <p style="font-family:sans-serif;font-size:15px;color:#555">— The Twinspire Team</p>
-      `,
+        subject: 'We received your message',
+        html: emailShell({
+          eyebrow: 'Message received',
+          heading: `Thanks, ${safeName.split(' ')[0]}`,
+          preheader: 'We will be in touch if there is a strong fit.',
+          body:
+            p('Thanks for reaching out to Twinspire. We have your message and will be in touch if there is a strong fit.') +
+            p('If anything changes before then, just reply to this email.'),
+          cta: { label: 'Visit twinspire.ai', url: 'https://twinspire.ai' },
+        }),
       }),
 
       // Notification to team
@@ -81,16 +86,23 @@ export async function POST(req: NextRequest) {
         from: FROM_ADDRESS,
         to: TEAM_ADDRESS,
         replyTo: email.trim(),
-        subject: `New open invitation — ${name.trim()}`,
-        html: `
-        <h2 style="font-family:sans-serif;color:#0802A3">New open invitation received</h2>
-        <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Name</td><td>${safeName}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Email</td><td>${safeEmail}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Subject</td><td>${safeSubject}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;vertical-align:top">Message</td><td>${safeMessage}</td></tr>
-        </table>
-      `,
+        subject: `Open invitation: ${name.trim()}`,
+        html: emailShell({
+          eyebrow: 'Open invitation',
+          heading: `${name.trim()} reached out`,
+          preheader: subject.trim(),
+          body:
+            detailTable([
+              ['Name',    name.trim()],
+              ['Email',   email.trim()],
+              ['Subject', subject.trim()],
+            ]) +
+            `<div style="margin-top:24px;padding:18px 20px;background-color:${BRAND.paper};border-radius:6px;">
+               <p style="margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.muted};">Message</p>
+               <p style="margin:0;font-size:14px;line-height:1.65;color:${BRAND.ink};white-space:pre-wrap;">${safeMessage}</p>
+             </div>`,
+          cta: { label: `Reply to ${name.trim().split(' ')[0]}`, url: `mailto:${email.trim()}` },
+        }),
       }),
     ])
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { emailShell, p, detailTable, escapeHtml } from '@/lib/email/template'
 
 function getResend() {
   const key = process.env.RESEND_API_KEY
@@ -9,11 +10,6 @@ function getResend() {
 
 const FROM = 'Twinspire <info@twinspire.ai>'
 const TEAM = 'info@twinspire.ai'
-
-function esc(s: string) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-          .replace(/"/g,'&quot;').replace(/'/g,'&#039;')
-}
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null)
@@ -27,32 +23,45 @@ export async function POST(req: NextRequest) {
 
   try {
     const resend = getResend()
+    const firstName = name.trim().split(' ')[0]
 
+    // ── Internal notification ──
     await resend.emails.send({
       from: FROM,
       to: TEAM,
       replyTo: email.trim(),
-      subject: `Demo request — ${esc(name.trim())} · ${esc(role.trim())} · ${esc(club?.trim() ?? 'no club')}`,
-      html: `
-        <h2 style="font-family:sans-serif;color:#0802A3">New demo request</h2>
-        <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Name</td><td>${esc(name)}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Email</td><td>${esc(email)}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Role</td><td>${esc(role)}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">Club</td><td>${esc(club ?? 'Not provided')}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600">League / level</td><td>${esc(league ?? 'Not provided')}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;color:#0802A3">GPS platform</td><td style="font-weight:700;color:#0802A3">${esc(gpsPlatform ?? 'Not provided')}</td></tr>
-        </table>`,
+      subject: `Demo request: ${name.trim()} · ${role.trim()}${club?.trim() ? ` · ${club.trim()}` : ''}`,
+      html: emailShell({
+        eyebrow: 'New demo request',
+        heading: `${name.trim()} wants a demo`,
+        preheader: `${role.trim()}${club?.trim() ? ` at ${club.trim()}` : ''}`,
+        body: detailTable([
+          ['Name',     name.trim()],
+          ['Email',    email.trim()],
+          ['Role',     role.trim()],
+          ['Club',     club?.trim()   || 'Not provided'],
+          ['League',   league?.trim() || 'Not provided'],
+          ['GPS platform', gpsPlatform?.trim() || 'Not provided'],
+        ], true),
+        cta: { label: 'Reply to ' + firstName, url: `mailto:${email.trim()}` },
+      }),
     })
 
+    // ── Requester confirmation ──
     await resend.emails.send({
       from: FROM,
       to: email.trim(),
       subject: 'Your Twinspire demo request',
-      html: `
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">Hi ${esc(name.trim().split(' ')[0])},</p>
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">Thanks for requesting a demo. We will be in touch within one business day to confirm a time.</p>
-        <p style="font-family:sans-serif;font-size:15px;color:#0a0a0a">The Twinspire team</p>`,
+      html: emailShell({
+        eyebrow: 'Demo request received',
+        heading: `Thanks, ${escapeHtml(firstName)}`,
+        preheader: 'We will confirm a time within one business day.',
+        body:
+          p('We have your demo request and will be in touch within one business day to confirm a time that works for you.') +
+          p('The session runs about 30 minutes. We will walk through the platform with your current setup in mind, and there is time at the end for questions.') +
+          p('If anything changes before then, just reply to this email.'),
+        cta: { label: 'Visit twinspire.ai', url: 'https://twinspire.ai' },
+      }),
     })
 
     return NextResponse.json({ success: true })
