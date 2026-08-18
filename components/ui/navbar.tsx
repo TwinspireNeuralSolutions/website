@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { LanguageSelector } from '@/components/ui/language-selector'
 import { useTranslation } from '@/i18n'
 import { cn } from '@/lib/utils'
+import { useAppUrl } from '@/hooks/useAppUrl'
 
 interface NavLink {
   key:
@@ -74,6 +75,9 @@ export function Navbar() {
   // Glass state: active when scrolled OR when mobile menu is open on the hero
   // Non-home pages have light backgrounds — always use the solid/ink navbar there
   const glass = scrolled || mobileOpen || !isHome
+
+  // Platform link follows the host we are on (preview → preview, prod → prod)
+  const appUrl = useAppUrl()
 
   return (
     <header
@@ -185,7 +189,7 @@ export function Navbar() {
                   {t('nav.bookDemo')}
                 </Button>
               </Link>
-              <Link href="https://app.twinspire.ai">
+              <Link href={appUrl}>
                 <Button
                   variant="outline"
                   size="sm"
@@ -283,7 +287,7 @@ export function Navbar() {
                 ))}
               </ul>
               <Link
-                href="https://app.twinspire.ai"
+                href={appUrl}
                 onClick={() => setMobileOpen(false)}
                 className="block"
               >
