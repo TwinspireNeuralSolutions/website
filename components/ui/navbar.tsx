@@ -185,7 +185,7 @@ export function Navbar() {
                   {t('nav.bookDemo')}
                 </Button>
               </Link>
-              <Link href={`/${locale}/admin`}>
+              <Link href="https://app.twinspire.ai">
                 <Button
                   variant="outline"
                   size="sm"
@@ -283,7 +283,7 @@ export function Navbar() {
                 ))}
               </ul>
               <Link
-                href={`/${locale}/admin`}
+                href="https://app.twinspire.ai"
                 onClick={() => setMobileOpen(false)}
                 className="block"
               >
