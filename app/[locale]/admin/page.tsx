@@ -17,7 +17,6 @@ import {
 import { ArrowLeft } from 'lucide-react'
 import { LoadingScreen } from '@/app/[locale]/admin/components/LoadingScreen'
 import { EmailPasswordForm } from '@/app/[locale]/admin/components/EmailPasswordForm'
-import { OAuthButtons } from '@/app/[locale]/admin/components/OAuthButtons'
 import { ErrorAlert } from '@/app/[locale]/admin/components/ErrorAlert'
 import { useAdminLogin } from '@/app/[locale]/admin/hooks/useAdminLogin'
 
@@ -42,13 +41,9 @@ export default function AdminLogin() {
     isRateLimited,
     isLoading,
     emailSignIn,
-    googleSignIn,
-    appleSignIn,
     setEmail,
     setPassword,
     handleEmailLogin,
-    handleGoogleLogin,
-    handleAppleLogin,
   } = useAdminLogin()
 
   useEffect(() => {
@@ -91,12 +86,12 @@ export default function AdminLogin() {
             </Button>
           </Link>
 
-          <Card className="w-full border-white/20 bg-white/10 backdrop-blur-sm">
+          <Card className="w-full border-white/15 bg-white/[0.07]">
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl font-bold text-white">
                 Team Manager Login
               </CardTitle>
-              <CardDescription className="text-white/70">
+              <CardDescription className="text-white/80">
                 Sign in to upload and manage your team&apos;s data
               </CardDescription>
             </CardHeader>
@@ -115,13 +110,16 @@ export default function AdminLogin() {
 
               <ErrorAlert message={error} />
 
-              <OAuthButtons
-                isGoogleLoading={googleSignIn.isLoading}
-                isAppleLoading={appleSignIn.isLoading}
-                isDisabled={isDisabled}
-                onGoogleClick={handleGoogleLogin}
-                onAppleClick={handleAppleLogin}
-              />
+              <p className="mt-6 border-t border-white/15 pt-5 text-[15px] leading-relaxed text-white/80">
+                Club accounts are provisioned by Twinspire. Need access or a
+                password reset? Email{' '}
+                <a
+                  href="mailto:info@twinspire.ai"
+                  className="text-white underline underline-offset-2 transition-colors hover:text-white/80"
+                >
+                  info@twinspire.ai
+                </a>
+              </p>
             </CardContent>
           </Card>
         </div>
