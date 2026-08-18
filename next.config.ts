@@ -12,7 +12,11 @@ const nextConfig: NextConfig = {
     ],
   },
   compress: true,
-  output: 'standalone',
+  // Firebase App Hosting's buildpack serves the standalone bundle directly, so
+  // it needs one. Vercel has its own optimized output and conflicts with
+  // standalone mode (ENOENT on .next/next-server.js.nft.json). Vercel sets the
+  // VERCEL env var during its builds; App Hosting does not.
+  ...(process.env.VERCEL ? {} : { output: 'standalone' as const }),
   async headers() {
     return [
       {

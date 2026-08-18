@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "if [ -d .next/standalone ]; then mkdir -p .next/standalone/public .next/standalone/.next/static && cp -r public/. .next/standalone/public/ && cp -r .next/static/. .next/standalone/.next/static/; fi",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
