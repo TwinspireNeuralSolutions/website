@@ -10,7 +10,11 @@
  *   anything else → app.twinspire.ai (Firebase App Hosting, production)
  */
 
-export const APP_URL_PRODUCTION = 'https://app.twinspire.ai'
+// Firebase App Hosting's default domain for the twinspire-webapp backend.
+// Swap this for https://app.twinspire.ai once that custom domain finishes
+// provisioning against this backend in the Firebase console.
+export const APP_URL_PRODUCTION =
+  'https://twinspire-webapp--twinspire-neural-solutions.europe-west4.hosted.app'
 export const APP_URL_VERCEL = 'https://twinspire-admin-twinspire.vercel.app'
 
 /** Resolve the platform URL for a given host. */

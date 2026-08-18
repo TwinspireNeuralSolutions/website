@@ -5,7 +5,7 @@
  * ========================= */
 :root {
   /* Brand colors */
-  --primary: #0802a3;
+  --primary: #1f2c7c;
   --primary-hover: #06018a;
   --primary-active: #050170;
   --primary-foreground: #ffffff;
@@ -18,12 +18,12 @@
   --card: #ffffff;
   --card-foreground: #0a0a0a;
   --border: #e5e5e5;
-  --ring: #0802a3;
+  --ring: #1f2c7c;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
   /* Partners strip */
-  --partners-bg: #0802a3;
+  --partners-bg: #1f2c7c;
 
   /* Footer */
   --footer-bg: #e8e5f0;
@@ -148,7 +148,7 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(270deg, #0802a3, #3b35d6, #b5b2ff);
+  background: linear-gradient(270deg, #1f2c7c, #3b35d6, #b5b2ff);
   background-size: 200% 200%;
   animation: gradient-shift 15s ease infinite;
 }

@@ -218,7 +218,7 @@ function ModelingDiagram() {
         />
         <path
           d="M415,48 C350,48 314,112 318,140"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.6"
         />
         <path
@@ -228,7 +228,7 @@ function ModelingDiagram() {
         />
         <path
           d="M415,232 C350,232 314,168 318,140"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.6"
         />
 
@@ -245,7 +245,7 @@ function ModelingDiagram() {
         />
         <polyline
           points="12,48 20,48 25,37 31,59 36,35 43,59 48,48 80,48"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
@@ -278,7 +278,7 @@ function ModelingDiagram() {
         />
         <polyline
           points="422,48 430,48 435,37 441,59 446,35 453,59 458,48 520,48"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
@@ -315,7 +315,7 @@ function ModelingDiagram() {
           width="9"
           height="8"
           rx="1"
-          fill="#0802A3"
+          fill="#1F2C7C"
           opacity="0.25"
         />
         <rect
@@ -324,17 +324,17 @@ function ModelingDiagram() {
           width="9"
           height="14"
           rx="1"
-          fill="#0802A3"
+          fill="#1F2C7C"
           opacity="0.55"
         />
-        <rect x="40" y="226" width="9" height="20" rx="1" fill="#0802A3" />
+        <rect x="40" y="226" width="9" height="20" rx="1" fill="#1F2C7C" />
         <rect
           x="53"
           y="230"
           width="9"
           height="16"
           rx="1"
-          fill="#0802A3"
+          fill="#1F2C7C"
           opacity="0.65"
         />
         <rect
@@ -343,7 +343,7 @@ function ModelingDiagram() {
           width="9"
           height="10"
           rx="1"
-          fill="#0802A3"
+          fill="#1F2C7C"
           opacity="0.35"
         />
         <text
@@ -395,12 +395,12 @@ function ModelingDiagram() {
           stroke="#c4c3d8"
           strokeWidth="1"
         />
-        <circle cx="422" cy="232" r="3.5" fill="#0802A3" />
-        <circle cx="442" cy="232" r="3.5" fill="#0802A3" />
-        <circle cx="462" cy="232" r="3.5" fill="#0802A3" />
-        <circle cx="482" cy="232" r="3" fill="#0802A3" opacity="0.7" />
-        <circle cx="502" cy="232" r="2.5" fill="#0802A3" opacity="0.45" />
-        <circle cx="522" cy="232" r="2" fill="#0802A3" opacity="0.25" />
+        <circle cx="422" cy="232" r="3.5" fill="#1F2C7C" />
+        <circle cx="442" cy="232" r="3.5" fill="#1F2C7C" />
+        <circle cx="462" cy="232" r="3.5" fill="#1F2C7C" />
+        <circle cx="482" cy="232" r="3" fill="#1F2C7C" opacity="0.7" />
+        <circle cx="502" cy="232" r="2.5" fill="#1F2C7C" opacity="0.45" />
+        <circle cx="522" cy="232" r="2" fill="#1F2C7C" opacity="0.25" />
         <text
           x="472"
           y="220"
@@ -619,7 +619,7 @@ function SignalsDiagram() {
         />
         <polyline
           points="14,52 26,42 38,56 50,44 62,50 74,40 86,54 98,46"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
@@ -652,7 +652,7 @@ function SignalsDiagram() {
         />
         <polyline
           points="14,140 30,130 46,148 62,132 78,144 94,136"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
@@ -692,7 +692,7 @@ function SignalsDiagram() {
         />
         <polyline
           points="14,228 22,228 26,218 32,238 36,216 42,238 46,228 60,228"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
@@ -727,7 +727,7 @@ function SignalsDiagram() {
         />
         <path
           d="M145,140 C200,140 240,140 255,140"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.6"
         />
         <path
@@ -836,17 +836,17 @@ function SignalsDiagram() {
         {/* Output connections */}
         <path
           d="M330,130 C360,120 390,90 420,80"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.4"
         />
         <path
           d="M330,140 C360,140 390,140 420,140"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.6"
         />
         <path
           d="M330,150 C360,160 390,190 420,200"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.4"
         />
 
@@ -1044,10 +1044,10 @@ function ValidationDiagram() {
           y1="140"
           x2="196"
           y2="140"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
         />
-        <polygon points="196,136 204,140 196,144" fill="#0802A3" />
+        <polygon points="196,136 204,140 196,144" fill="#1F2C7C" />
 
         {/* Phase 2: Uncertainty */}
         <rect
@@ -1107,10 +1107,10 @@ function ValidationDiagram() {
           y1="140"
           x2="376"
           y2="140"
-          stroke="#0802A3"
+          stroke="#1F2C7C"
           strokeWidth="1.5"
         />
-        <polygon points="376,136 384,140 376,144" fill="#0802A3" />
+        <polygon points="376,136 384,140 376,144" fill="#1F2C7C" />
 
         {/* Phase 3: Deployment */}
         <rect
@@ -1156,12 +1156,12 @@ function ValidationDiagram() {
 
         {/* Progress bar */}
         <rect x="60" y="220" width="420" height="6" rx="3" fill="#e0e0ea" />
-        <rect x="60" y="220" width="160" height="6" rx="3" fill="#0802A3" />
+        <rect x="60" y="220" width="160" height="6" rx="3" fill="#1F2C7C" />
         <circle
           cx="220"
           cy="223"
           r="5"
-          fill="#0802A3"
+          fill="#1F2C7C"
           stroke="white"
           strokeWidth="2"
         />

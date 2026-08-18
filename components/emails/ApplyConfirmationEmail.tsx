@@ -39,7 +39,7 @@ export function buildApplyConfirmationEmail(
 
               <!-- Header -->
               <tr>
-                <td style="background-color:#0802A3;padding:32px 40px;text-align:center;">
+                <td style="background-color:#1F2C7C;padding:32px 40px;text-align:center;">
                   <img
                     src="https://twinspire.ai/logo-text/logo-white.png"
                     alt="Twinspire"
@@ -81,7 +81,7 @@ export function buildApplyConfirmationEmail(
                 <td style="padding:24px 40px 32px;">
                   <p style="margin:0;font-size:13px;color:#a3a3a3;line-height:1.6;">
                     Twinspire Neural Solutions &mdash; DTU, Copenhagen<br/>
-                    <a href="https://twinspire.ai" style="color:#0802A3;text-decoration:none;">twinspire.ai</a>
+                    <a href="https://twinspire.ai" style="color:#1F2C7C;text-decoration:none;">twinspire.ai</a>
                   </p>
                 </td>
               </tr>

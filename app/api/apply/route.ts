@@ -112,7 +112,7 @@ export async function POST(req: NextRequest) {
         replyTo: email,
         subject: `New application — ${jobTitle} — ${name}`,
         html: `
-        <h2 style="font-family:sans-serif;color:#0802A3;margin:0 0 16px">New job application</h2>
+        <h2 style="font-family:sans-serif;color:#1F2C7C;margin:0 0 16px">New job application</h2>
         <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse;width:100%">
           <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Position</td><td>${escapeHtml(jobTitle)}</td></tr>
           <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Full Name</td><td>${escapeHtml(name)}</td></tr>

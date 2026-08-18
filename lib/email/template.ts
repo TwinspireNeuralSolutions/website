@@ -9,7 +9,7 @@
 const SITE = 'https://twinspire.ai'
 
 export const BRAND = {
-  navy:   '#0802A3',
+  navy:   '#1F2C7C',
   ink:    '#1a1a18',
   body:   '#3f3f46',
   muted:  '#71717a',

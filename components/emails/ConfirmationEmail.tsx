@@ -32,7 +32,7 @@ export function buildConfirmationEmail(name: string): string {
 
               <!-- Header strip -->
               <tr>
-                <td style="background-color:#0802A3;padding:32px 40px;text-align:center;">
+                <td style="background-color:#1F2C7C;padding:32px 40px;text-align:center;">
                   <img
                     src="https://twinspire.ai/logo-text/logo-white.png"
                     alt="Twinspire"
@@ -82,7 +82,7 @@ export function buildConfirmationEmail(name: string): string {
                     Twinspire Neural Solutions &middot; Copenhagen, Denmark
                   </p>
                   <p style="margin:4px 0 0;font-size:12px;">
-                    <a href="mailto:info@twinspire.ai" style="color:#0802A3;text-decoration:none;">info@twinspire.ai</a>
+                    <a href="mailto:info@twinspire.ai" style="color:#1F2C7C;text-decoration:none;">info@twinspire.ai</a>
                   </p>
                 </td>
               </tr>

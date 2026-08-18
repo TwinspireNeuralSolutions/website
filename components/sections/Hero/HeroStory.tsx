@@ -164,13 +164,13 @@ export function HeroStorySection() {
           <a
             href="/en/book-demo"
             style={{
-              background: '#0802A3', color: '#fff',
+              background: '#1F2C7C', color: '#fff',
               padding: '12px 24px', borderRadius: 6,
               fontSize: 14, fontWeight: 600, textDecoration: 'none',
               transition: 'background 0.15s',
             }}
             onMouseEnter={e => (e.currentTarget.style.background = '#0610c4')}
-            onMouseLeave={e => (e.currentTarget.style.background = '#0802A3')}
+            onMouseLeave={e => (e.currentTarget.style.background = '#1F2C7C')}
           >
             Book a Demo
           </a>

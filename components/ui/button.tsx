@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
  * Button component — Primary design system button.
  *
  * Variants:
- * - `primary`: #0802A3 background, white text
+ * - `primary`: #1F2C7C background, white text
  * - `white`: White background, dark text
  * - `ghost`: Transparent background
  * - `outline`: Border only
