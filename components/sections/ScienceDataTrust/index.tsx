@@ -1219,7 +1219,7 @@ function ValidationDiagram() {
 
 function CheckBullet({ text }: { text: string }) {
   return (
-    <li className="text-foreground/80 flex items-center gap-2.5 text-[14px] sm:text-[15px]">
+    <li className="text-foreground/80 flex items-center gap-2.5 text-[15px] sm:text-[15px]">
       <svg
         className="text-primary/60 h-4 w-4 shrink-0"
         viewBox="0 0 16 16"
@@ -1282,7 +1282,7 @@ function StepBlock({
             variant="heading"
             as="h3"
             textColor="default"
-            className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+            className="text-[18px] break-words whitespace-normal sm:text-[22px]"
           >
             {highlightLastWord(title)}
           </Typography>
@@ -1369,7 +1369,7 @@ export function ScienceDataTrustSection() {
         {/* ── Section header ── */}
         <div className="mt-6 flex flex-col gap-4 pt-16 sm:pt-20 md:pt-24">
           <AnimateIn variant="fadeUp">
-            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-6 lg:text-[32px]">
               <span className="text-foreground font-bold">
                 {t('product.science.heading')}
               </span>{' '}
@@ -1400,7 +1400,7 @@ export function ScienceDataTrustSection() {
             <ol className="flex flex-col gap-4">
               {questions.map((question, index) => (
                 <li key={index} className="flex gap-4">
-                  <span className="text-primary mt-0.5 text-[14px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
+                  <span className="text-primary mt-0.5 text-[15px] leading-[1.8] font-bold tabular-nums sm:text-[15px]">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <Typography variant="paragraph" textColor="default">

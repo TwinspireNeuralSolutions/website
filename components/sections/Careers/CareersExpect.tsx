@@ -47,7 +47,7 @@ export function CareersExpect() {
       <div className="section-x section-inner mx-auto py-10 md:py-14">
         <AnimateIn variant="fadeUp">
           <div className="mb-12 text-center lg:mb-16">
-            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-8 lg:text-[32px]">
               <span className="text-foreground font-bold">
                 {t('joinUsPage.expectTitle')}
               </span>
@@ -59,10 +59,10 @@ export function CareersExpect() {
           {ITEMS.map(({ titleKey, descKey, delay }) => (
             <AnimateIn key={titleKey} variant="fadeUp" delay={delay}>
               <div className="flex flex-col gap-2">
-                <h3 className="text-foreground text-[17px] leading-snug font-bold">
+                <h3 className="text-foreground text-[18px] leading-snug font-bold">
                   {t(titleKey)}
                 </h3>
-                <p className="text-muted-foreground text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                <p className="text-muted-foreground text-[15px] leading-[1.8] font-normal sm:text-[15px]">
                   {t(descKey)}
                 </p>
               </div>

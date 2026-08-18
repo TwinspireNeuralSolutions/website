@@ -63,7 +63,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                 variant="heading"
                 as="p"
                 textColor="white"
-                className="text-[9px] leading-tight tracking-wide whitespace-nowrap sm:text-[11px] md:text-[13px]"
+                className="text-[11px] leading-tight tracking-wide whitespace-nowrap sm:text-[11px] md:text-[15px]"
               >
                 {name}
               </Typography>
@@ -71,7 +71,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                 variant="paragraph"
                 as="p"
                 textColor="white"
-                className="truncate text-[10px] leading-snug opacity-60 sm:text-[11px]"
+                className="truncate text-[11px] leading-snug opacity-60 sm:text-[11px]"
               >
                 {role}
               </Typography>
@@ -103,7 +103,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                   <button
                     type="button"
                     onClick={() => dialogRef.current?.showModal()}
-                    className="ml-auto rounded-full border border-white/40 px-2.5 py-0.5 text-[10px] font-medium text-white/80 transition-colors duration-150 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                    className="ml-auto rounded-full border border-white/40 px-2.5 py-0.5 text-[11px] font-medium text-white/80 transition-colors duration-150 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                   >
                     {readBioLabel}
                   </button>
@@ -181,7 +181,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                     variant="paragraph"
                     as="p"
                     textColor="muted"
-                    className="text-[12px] leading-snug sm:text-[13px]"
+                    className="text-[12px] leading-snug sm:text-[15px]"
                   >
                     {role}
                   </Typography>
@@ -190,7 +190,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                       href={linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary-hover mt-1 inline-flex w-fit items-center gap-1.5 text-[12px] font-medium transition-colors sm:text-[13px]"
+                      className="text-primary hover:text-primary-hover mt-1 inline-flex w-fit items-center gap-1.5 text-[12px] font-medium transition-colors sm:text-[15px]"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +217,7 @@ export const TeamMember = React.forwardRef<HTMLDivElement, TeamMemberProps>(
                   variant="paragraph"
                   as="p"
                   textColor="muted"
-                  className="text-justify text-[13px] leading-relaxed sm:text-[14px] sm:leading-[1.7]"
+                  className="text-justify text-[15px] leading-relaxed sm:text-[15px] sm:leading-[1.7]"
                 >
                   {description}
                 </Typography>

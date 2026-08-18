@@ -34,12 +34,12 @@ export function CareersOpenInvite() {
                 />
               </svg>
             </div>
-            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-8 lg:text-[32px]">
               <span className="text-foreground font-bold">
                 {t('joinUsPage.openInviteTitle')}
               </span>
             </h2>
-            <p className="text-foreground/80 mx-auto mb-8 max-w-lg text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+            <p className="text-foreground/80 mx-auto mb-8 max-w-lg text-[15px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.intro.p6')}
             </p>
             <Button

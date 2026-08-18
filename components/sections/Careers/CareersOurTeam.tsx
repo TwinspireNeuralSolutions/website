@@ -22,7 +22,7 @@ export function CareersOurTeam() {
       <div className="section-x section-inner mx-auto py-16 md:py-24">
         {/* Headline */}
         <AnimateIn variant="fadeUp">
-          <h2 className="mb-12 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-16 lg:text-[32px]">
+          <h2 className="mb-12 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-16 lg:text-[32px]">
             {titleParts.map((part, i) =>
               highlights.some((h) => h.toLowerCase() === part.toLowerCase()) ? (
                 <span key={i} className="text-primary font-bold">
@@ -42,13 +42,13 @@ export function CareersOurTeam() {
           {/* Left — text */}
           <AnimateIn variant="slideLeft">
             <div className="flex flex-col gap-8 px-4 sm:px-0">
-              <p className="text-foreground border-primary border-l-[3px] pl-5 text-[17px] leading-[1.7] font-semibold sm:text-[18px]">
+              <p className="text-foreground border-primary border-l-[3px] pl-5 text-[18px] leading-[1.7] font-semibold sm:text-[18px]">
                 {t('joinUsPage.ourTeamBody1')}
               </p>
-              <p className="text-foreground/80 text-justify text-[14px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
+              <p className="text-foreground/80 text-justify text-[15px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
                 {t('joinUsPage.ourTeamBody2')}
               </p>
-              <p className="text-foreground/80 text-justify text-[14px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
+              <p className="text-foreground/80 text-justify text-[15px] leading-[1.9] font-normal [hyphens:auto] [word-spacing:-0.03em] sm:text-[15px]">
                 {t('joinUsPage.ourTeamBody3')}
               </p>
             </div>

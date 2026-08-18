@@ -152,7 +152,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center gap-6 text-center">
             {/* Headline */}
             <AnimateIn variant="fadeUp" delay={0.05} immediate>
-              <h1 className="text-[26px] leading-[1.15] font-extrabold tracking-tight text-white uppercase sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[50px]">
+              <h1 className="text-[28px] leading-[1.15] font-extrabold tracking-tight text-white uppercase sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[50px]">
                 <span className="block">
                   {t('hero.headlineLine1Start')}
                   {t('hero.headlineLine1Highlight')}

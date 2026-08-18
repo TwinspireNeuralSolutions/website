@@ -124,7 +124,7 @@ export function DataEthicsSection() {
         {/* ── Heading (match Team section style) ── */}
         <AnimateIn variant="fadeUp">
           <h2
-            className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]"
+            className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-6 lg:text-[32px]"
             id="data-ethics-heading"
           >
             <span className="text-foreground font-bold">
@@ -162,7 +162,7 @@ export function DataEthicsSection() {
                     {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
-                    className={"text-foreground/80 text-[14px] leading-[1.8] sm:text-[15px]"}
+                    className={"text-foreground/80 text-[15px] leading-[1.8] sm:text-[15px]"}
                   >
                     {t(card.bodyKey)}
                   </p>

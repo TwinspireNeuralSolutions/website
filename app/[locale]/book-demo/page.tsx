@@ -46,7 +46,7 @@ function Select({
         id={id}
         type="button"
         onClick={() => setOpen(o => !o)}
-        className="border-border bg-background flex w-full items-center justify-between rounded-[6px] border px-4 py-3 text-left text-[14px] transition-colors hover:border-foreground/30 focus:border-primary/50 focus:outline-none"
+        className="border-border bg-background flex w-full items-center justify-between rounded-[6px] border px-4 py-3 text-left text-[15px] transition-colors hover:border-foreground/30 focus:border-primary/50 focus:outline-none"
       >
         <span className={value ? 'text-foreground' : 'text-foreground/40'}>{value || placeholder}</span>
         <svg
@@ -64,7 +64,7 @@ function Select({
               key={opt}
               type="button"
               onClick={() => { onChange(opt); setOpen(false) }}
-              className={`block w-full px-4 py-2.5 text-left text-[14px] transition-colors hover:bg-muted ${
+              className={`block w-full px-4 py-2.5 text-left text-[15px] transition-colors hover:bg-muted ${
                 value === opt ? 'text-primary font-medium' : 'text-foreground/80'
               }`}
             >
@@ -89,7 +89,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
   )
 }
 
-const base = 'w-full rounded-[6px] border border-border bg-background px-4 py-3 text-[14px] text-foreground placeholder:text-foreground/40 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
+const base = 'w-full rounded-[6px] border border-border bg-background px-4 py-3 text-[15px] text-foreground placeholder:text-foreground/40 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20 transition-colors'
 
 /* ── Page ────────────────────────────────────────────────────── */
 export default function BookDemoPage() {
@@ -126,7 +126,7 @@ export default function BookDemoPage() {
               <p className="text-foreground/80 text-[15px] leading-relaxed">
                 Thanks for booking. We will reach out within one business day to confirm a time.
               </p>
-              <Link href="/" className="text-primary mt-8 inline-block text-[13px] hover:underline">
+              <Link href="/" className="text-primary mt-8 inline-block text-[15px] hover:underline">
                 Back to twinspire.ai
               </Link>
             </div>
@@ -192,18 +192,18 @@ export default function BookDemoPage() {
                     type="button"
                     onClick={submit}
                     disabled={status === 'submitting' || !form.name || !form.email || !form.role}
-                    className="bg-primary hover:bg-primary/90 w-full rounded-lg px-6 py-3.5 text-[14px] font-semibold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                    className="bg-primary hover:bg-primary/90 w-full rounded-lg px-6 py-3.5 text-[15px] font-semibold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {status === 'submitting' ? 'Sending...' : 'Book Demo'}
                   </button>
                   {status === 'error' && (
-                    <p className="mt-2 text-center text-[13px] text-red-400">
+                    <p className="mt-2 text-center text-[15px] text-red-400">
                       Something went wrong. Please email info@twinspire.ai directly.
                     </p>
                   )}
                 </div>
 
-                <p className="pt-1 text-foreground/60 text-center text-[13px]">
+                <p className="pt-1 text-foreground/60 text-center text-[15px]">
                   Applying as a founding partner instead?{' '}
                   <Link href="/#contact" className="text-foreground/70 hover:text-foreground underline underline-offset-2 transition-colors">
                     Apply here

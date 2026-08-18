@@ -19,7 +19,7 @@ export function ProductSection() {
         <div className="space-y-16">
           {/* Part 1 — top (two-column info card like Part 2) */}
           <AnimateIn variant="fadeUp" className="flex flex-col gap-8">
-            <h2 className="mb-2 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-4 lg:text-[32px]">
+            <h2 className="mb-2 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-4 lg:text-[32px]">
               {(() => {
                 const [lead, last] = splitLastWord(t('product.headline1'))
                 return (
@@ -39,7 +39,7 @@ export function ProductSection() {
                       variant="heading"
                       as="h3"
                       textColor="muted"
-                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+                      className="text-[18px] break-words whitespace-normal sm:text-[22px]"
                     >
                       {t('product.card1.title')}
                     </Typography>
@@ -59,7 +59,7 @@ export function ProductSection() {
                       variant="heading"
                       as="h3"
                       textColor="muted"
-                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+                      className="text-[18px] break-words whitespace-normal sm:text-[22px]"
                     >
                       {t('product.card2.title')}
                     </Typography>
@@ -79,7 +79,7 @@ export function ProductSection() {
                       variant="heading"
                       as="h3"
                       textColor="muted"
-                      className="text-[18px] break-words whitespace-normal sm:text-[20px]"
+                      className="text-[18px] break-words whitespace-normal sm:text-[22px]"
                     >
                       {t('product.card3.title')}
                     </Typography>
@@ -102,7 +102,7 @@ export function ProductSection() {
             delay={0.08}
             className="flex flex-col gap-8"
           >
-            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-6 lg:text-[32px]">
+            <h2 className="mb-4 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-6 lg:text-[32px]">
               {(() => {
                 const [lead, last] = splitLastWord(t('product.headline2'))
                 return (

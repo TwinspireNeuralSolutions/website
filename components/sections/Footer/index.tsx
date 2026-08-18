@@ -73,7 +73,7 @@ export function FooterSection() {
       {/* Tagline + bottom bar */}
       <div className="section-x section-inner mx-auto pb-6 sm:pb-8 md:pb-10">
         <div className="mb-8 text-center select-none sm:mb-10">
-          <p className="text-[8px] font-bold tracking-[0.6em] text-black/70 sm:text-[10px] sm:tracking-[0.8em] md:text-xs md:tracking-[1em]">
+          <p className="text-[11px] font-bold tracking-[0.6em] text-black/70 sm:text-[11px] sm:tracking-[0.8em] md:text-xs md:tracking-[1em]">
             {t('footer.tagline')}
           </p>
         </div>
@@ -98,7 +98,7 @@ export function FooterSection() {
           </div>
 
           {/* Medical disclaimer */}
-          <p className="text-footer-muted mt-4 text-center text-[10px] leading-relaxed opacity-60 sm:text-xs">
+          <p className="text-footer-muted mt-4 text-center text-[11px] leading-relaxed opacity-60 sm:text-xs">
             {t('footer.disclaimer')}
           </p>
         </div>

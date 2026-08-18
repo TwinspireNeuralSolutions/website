@@ -17,7 +17,7 @@ import { getJob } from '@/data/jobs'
 
 function Para({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-foreground/70 text-[14px] leading-[1.85] sm:text-[15px]">
+    <p className="text-foreground/70 text-[15px] leading-[1.85] sm:text-[15px]">
       {children}
     </p>
   )
@@ -26,7 +26,7 @@ function Para({ children }: { children: React.ReactNode }) {
 function Quote({ children }: { children: React.ReactNode }) {
   return (
     <blockquote className="border-primary/25 mt-4 border-l-2 pl-4">
-      <p className="text-primary/75 text-[14px] leading-[1.85] italic sm:text-[15px]">
+      <p className="text-primary/75 text-[15px] leading-[1.85] italic sm:text-[15px]">
         {children}
       </p>
     </blockquote>
@@ -57,7 +57,7 @@ function BulletList({ items }: { items: string[] }) {
       {items.map((item, i) => (
         <li
           key={i}
-          className="text-foreground/70 list-disc text-[14px] leading-[1.85] sm:text-[15px]"
+          className="text-foreground/70 list-disc text-[15px] leading-[1.85] sm:text-[15px]"
         >
           {item}
         </li>
@@ -261,7 +261,7 @@ export default function CareerDetailPage() {
           <p className="text-foreground/60 text-[15px]">Position not found.</p>
           <Link
             href={`/${locale}/careers#open-roles`}
-            className="text-primary text-[14px] underline hover:opacity-80"
+            className="text-primary text-[15px] underline hover:opacity-80"
           >
             ← {t('joinUsPage.backToPositions')}
           </Link>
@@ -290,7 +290,7 @@ export default function CareerDetailPage() {
             <Link
               href={`/${locale}/careers#open-roles`}
               prefetch={true}
-              className="text-foreground inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-medium shadow-sm transition-shadow hover:shadow-md"
+              className="text-foreground inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[15px] font-medium shadow-sm transition-shadow hover:shadow-md"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               {t('joinUsPage.backToPositions')}
@@ -328,7 +328,7 @@ export default function CareerDetailPage() {
             {/* Right — sidebar + contact card */}
             <div className="flex w-full shrink-0 flex-col gap-6 lg:w-72 xl:w-80">
               <div className="flex flex-col rounded-xl bg-white p-6">
-                <div className="space-y-4 text-[13px]">
+                <div className="space-y-4 text-[15px]">
                   <div>
                     <p className="text-muted-foreground mb-0.5 text-[11px] font-medium tracking-wide uppercase">
                       {t('joinUsPage.employmentTypeLabel')}
@@ -357,7 +357,7 @@ export default function CareerDetailPage() {
 
                 <div className="border-border my-6 border-t" />
 
-                <p className="text-foreground/70 text-[14px] leading-[1.8]">
+                <p className="text-foreground/70 text-[15px] leading-[1.8]">
                   {t(`joinUsPage.${job.id}.contactCtaText`)}{' '}
                   <a
                     href={`mailto:${t('joinUsPage.contactEmail')}`}
@@ -366,7 +366,7 @@ export default function CareerDetailPage() {
                     {t('joinUsPage.contactEmail')}
                   </a>
                 </p>
-                <p className="text-foreground/50 mt-1 text-[13px]">
+                <p className="text-foreground/50 mt-1 text-[15px]">
                   DTU · Copenhagen ·{' '}
                   <a
                     href={`https://${t('joinUsPage.contactWebsite')}`}

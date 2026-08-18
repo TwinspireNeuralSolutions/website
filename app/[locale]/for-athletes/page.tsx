@@ -65,8 +65,8 @@ function PassportSection() {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
                 <div>
-                  <p className="text-foreground mb-1 text-[14px] font-semibold">{title}</p>
-                  <p className="text-foreground/80 text-[13px] leading-relaxed">{desc}</p>
+                  <p className="text-foreground mb-1 text-[15px] font-semibold">{title}</p>
+                  <p className="text-foreground/80 text-[15px] leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}
@@ -113,7 +113,7 @@ function HowAppWorksSection() {
                 <p className="text-primary/50 font-['Barlow_Condensed',sans-serif] text-[32px] font-black leading-none">{s.step}</p>
                 <div>
                   <h3 className="text-foreground mb-2 text-[16px] font-bold">{s.title}</h3>
-                  <p className="text-foreground/80 text-[14px] leading-relaxed">{s.body}</p>
+                  <p className="text-foreground/80 text-[15px] leading-relaxed">{s.body}</p>
                 </div>
               </div>
             ))}
@@ -218,18 +218,18 @@ function AthleteWaitlistSection() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && submit()}
-                className="bg-background border-border text-foreground flex-1 rounded-[6px] border px-4 py-3 text-[14px] placeholder:text-foreground/40 focus:border-primary/50 focus:outline-none"
+                className="bg-background border-border text-foreground flex-1 rounded-[6px] border px-4 py-3 text-[15px] placeholder:text-foreground/40 focus:border-primary/50 focus:outline-none"
               />
               <button
                 onClick={submit}
                 disabled={status === 'submitting' || !valid}
-                className="bg-primary hover:bg-primary/90 rounded-[6px] px-6 py-3 text-[14px] font-semibold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                className="bg-primary hover:bg-primary/90 rounded-[6px] px-6 py-3 text-[15px] font-semibold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {status === 'submitting' ? 'Sending...' : 'Join'}
               </button>
             </div>
             {status === 'error' && (
-              <p className="mt-3 text-[13px] text-red-500">Something went wrong. Try again or email info@twinspire.ai</p>
+              <p className="mt-3 text-[15px] text-red-500">Something went wrong. Try again or email info@twinspire.ai</p>
             )}
             <p className="text-foreground/50 mt-4 text-[12px]">No spam. One email when access opens.</p>
           </>

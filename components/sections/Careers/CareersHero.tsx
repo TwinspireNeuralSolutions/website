@@ -39,14 +39,14 @@ export function CareersHero() {
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-2 text-center">
           {/* ── Headline ── */}
           <AnimateIn variant="fadeUp" immediate>
-            <h1 className="text-[22px] leading-tight font-extrabold tracking-wide text-white uppercase sm:text-[28px] md:text-[34px] lg:text-[40px]">
+            <h1 className="text-[22px] leading-tight font-extrabold tracking-wide text-white uppercase sm:text-[28px] md:text-[36px] lg:text-[40px]">
               {t('nav.joinUs')}
             </h1>
           </AnimateIn>
 
           {/* ── Subtitle ── */}
           <AnimateIn variant="fadeUp" delay={0.15} immediate>
-            <p className="text-[14px] leading-[1.5] text-white/90 sm:text-[16px] md:text-[18px]">
+            <p className="text-[15px] leading-[1.5] text-white/90 sm:text-[16px] md:text-[18px]">
               {t('joinUs.heroSubtitle')}
             </p>
           </AnimateIn>

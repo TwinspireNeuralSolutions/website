@@ -70,8 +70,8 @@ export function ContactSection() {
   }
 
   const fieldClasses =
-    'h-11 rounded-xl border border-border/30 bg-background px-4 shadow-none text-[14px] ' +
-    'placeholder:text-foreground/30 placeholder:text-[14px] transition-all duration-200 ' +
+    'h-11 rounded-xl border border-border/30 bg-background px-4 shadow-none text-[15px] ' +
+    'placeholder:text-foreground/30 placeholder:text-[15px] transition-all duration-200 ' +
     'hover:border-border/60 ' +
     'focus-visible:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary/15 focus-visible:ring-offset-0'
 
@@ -114,13 +114,13 @@ export function ContactSection() {
             >
               <h2
                 id="contact-heading"
-                className="mb-4 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-5 lg:text-[32px]"
+                className="mb-4 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[28px] lg:mb-5 lg:text-[32px]"
               >
                 <span className="text-foreground">{t('contact.title')}</span>{' '}
                 <span className="text-primary">{t('contact.titleAccent')}</span>
               </h2>
 
-              <p className="text-foreground/80 mb-8 text-[14px] leading-[1.8] sm:text-[15px]">
+              <p className="text-foreground/80 mb-8 text-[15px] leading-[1.8] sm:text-[15px]">
                 {t('contact.subtitle')}
               </p>
 
@@ -294,7 +294,7 @@ export function ContactSection() {
                     >
                       {t('contact.successTitle')}
                     </Typography>
-                    <p className="text-foreground/80 text-[14px] leading-relaxed">
+                    <p className="text-foreground/80 text-[15px] leading-relaxed">
                       {t('contact.successMessage')}
                     </p>
                   </div>
@@ -378,15 +378,15 @@ export function ContactSection() {
                         aria-label={t('contact.message')}
                         rows={3}
                         className={
-                          'border-border/30 bg-background min-h-[80px] resize-none rounded-xl border px-4 py-2.5 text-[14px] ' +
-                          'placeholder:text-foreground/30 transition-all duration-200 placeholder:text-[14px]' +
+                          'border-border/30 bg-background min-h-[80px] resize-none rounded-xl border px-4 py-2.5 text-[15px] ' +
+                          'placeholder:text-foreground/30 transition-all duration-200 placeholder:text-[15px]' +
                           'hover:border-border/60' +
                           'focus-visible:border-primary/50 focus-visible:ring-primary/15 focus-visible:ring-2 focus-visible:ring-offset-0'
                         }
                       />
 
                       {submitError && (
-                        <p className="text-[13px] text-red-600" role="alert">
+                        <p className="text-[15px] text-red-600" role="alert">
                           {submitError}
                         </p>
                       )}

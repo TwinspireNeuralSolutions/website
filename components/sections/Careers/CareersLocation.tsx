@@ -18,17 +18,17 @@ export function CareersLocation() {
           {/* Text */}
           <AnimateIn variant="slideLeft">
             <div className="flex flex-col gap-6">
-              <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+              <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-8 lg:text-[32px]">
                 <span className="text-foreground font-bold">
                   {t('joinUsPage.locationTitle')}
                 </span>
               </h2>
 
               <div className="flex flex-col gap-4">
-                <p className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                <p className="text-foreground/80 text-[15px] leading-[1.8] font-normal sm:text-[15px]">
                   {t('joinUsPage.locationP1')}
                 </p>
-                <p className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                <p className="text-foreground/80 text-[15px] leading-[1.8] font-normal sm:text-[15px]">
                   {t('joinUsPage.locationP2')}
                 </p>
               </div>
@@ -39,7 +39,7 @@ export function CareersLocation() {
                     className="text-primary mt-0.5 h-4 w-4 shrink-0"
                     aria-hidden
                   />
-                  <span className="text-foreground/80 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+                  <span className="text-foreground/80 text-[15px] leading-[1.8] font-normal sm:text-[15px]">
                     {t('joinUsPage.locationAddress')}
                   </span>
                 </div>

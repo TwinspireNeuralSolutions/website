@@ -73,11 +73,11 @@ export const BuiltForCard = React.forwardRef<HTMLDivElement, BuiltForCardProps>(
               variant="heading"
               as="h3"
               textColor="white"
-              className="text-[17px] leading-[1.15] font-bold tracking-tight whitespace-nowrap sm:text-[18px] lg:text-[20px]"
+              className="text-[18px] leading-[1.15] font-bold tracking-tight whitespace-nowrap sm:text-[18px] lg:text-[22px]"
             >
               {title}
             </Typography>
-            <p className="text-[14px] leading-[1.8] text-white/80 sm:text-[15px]">
+            <p className="text-[15px] leading-[1.8] text-white/80 sm:text-[15px]">
               {description}
             </p>
           </div>

@@ -18,7 +18,7 @@ export function CareersWhoWeAre() {
       <div className="section-x section-inner mx-auto py-16 md:py-24">
         {/* Headline */}
         <AnimateIn variant="fadeUp">
-          <h2 className="mb-12 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-16 lg:text-[32px]">
+          <h2 className="mb-12 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-16 lg:text-[32px]">
             {titleParts.map((part, i) =>
               /^we're$/i.test(part) ? (
                 <span key={i} className="text-primary font-bold">

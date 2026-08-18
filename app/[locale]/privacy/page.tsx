@@ -336,7 +336,7 @@ export default function PrivacyPage() {
           >
             Data Consent &amp; Privacy Policy
           </Typography>
-          <p className="text-foreground/60 mt-4 max-w-2xl text-[14px] leading-[1.75] sm:text-[15px]">
+          <p className="text-foreground/60 mt-4 max-w-2xl text-[15px] leading-[1.75] sm:text-[15px]">
             This policy covers how Twinspire collects, uses, and protects
             personal data across its platform. It applies to all athletes,
             performance staff, and administrators.
@@ -351,10 +351,10 @@ export default function PrivacyPage() {
               id={`section-${section.id}`}
               className="py-8 md:grid md:grid-cols-[220px_1fr] md:gap-12 md:py-10"
             >
-              <h2 className="text-foreground mb-4 text-[13px] font-bold md:mb-0 md:pt-px">
+              <h2 className="text-foreground mb-4 text-[15px] font-bold md:mb-0 md:pt-px">
                 {section.title}
               </h2>
-              <div className="text-foreground/65 [&_ul]:marker:text-primary text-[13px] leading-[1.8] [&_li]:leading-[1.8] [&_ul]:list-disc">
+              <div className="text-foreground/65 [&_ul]:marker:text-primary text-[15px] leading-[1.8] [&_li]:leading-[1.8] [&_ul]:list-disc">
                 {section.content}
               </div>
             </div>

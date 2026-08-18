@@ -47,7 +47,7 @@ export function BookDemoSection() {
     }
   }
 
-  const inputCls = 'w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-[14px] text-white placeholder:text-white/30 focus:border-primary/60 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors'
+  const inputCls = 'w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-white placeholder:text-white/30 focus:border-primary/60 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors'
   const selectCls = `${inputCls} appearance-none`
 
   if (status === 'success') {
@@ -175,17 +175,17 @@ export function BookDemoSection() {
               type="button"
               onClick={handleSubmit}
               disabled={status === 'submitting' || !form.name || !form.email || !form.role}
-              className="bg-primary hover:bg-primary/90 w-full rounded-lg px-6 py-3.5 text-[14px] font-semibold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+              className="bg-primary hover:bg-primary/90 w-full rounded-lg px-6 py-3.5 text-[15px] font-semibold text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === 'submitting' ? 'Sending...' : 'Book Demo'}
             </button>
             {status === 'error' && (
-              <p className="mt-2 text-center text-[13px] text-red-400">Something went wrong. Please try again or email info@twinspire.ai</p>
+              <p className="mt-2 text-center text-[15px] text-red-400">Something went wrong. Please try again or email info@twinspire.ai</p>
             )}
           </div>
 
           {/* Secondary CTA */}
-          <p className="pt-1 text-center text-[13px] text-white/35">
+          <p className="pt-1 text-center text-[15px] text-white/35">
             Looking to apply as a founding partner instead?{' '}
             <Link href="#apply" className="text-white/80 underline underline-offset-2 hover:text-white transition-colors">
               Apply here

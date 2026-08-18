@@ -110,7 +110,7 @@ export function FAQSection() {
               variant="heading"
               as="h3"
               textColor="default"
-              className="text-foreground pr-4 text-[13px] leading-[1.45] font-medium transition-colors duration-200 sm:text-[14px]"
+              className="text-foreground pr-4 text-[15px] leading-[1.45] font-medium transition-colors duration-200 sm:text-[15px]"
             >
               {t(item.questionKey)}
             </Typography>
@@ -148,7 +148,7 @@ export function FAQSection() {
                   variant="paragraph"
                   as="p"
                   textColor="default"
-                  className="text-foreground/80 text-[14px] leading-[1.8] whitespace-pre-line sm:text-[15px]"
+                  className="text-foreground/80 text-[15px] leading-[1.8] whitespace-pre-line sm:text-[15px]"
                 >
                   {t(item.answerKey)}
                 </Typography>
@@ -168,10 +168,10 @@ export function FAQSection() {
           <AnimateIn variant="fadeUp" delay={0.15}>
             <div className="mb-7 text-left sm:mb-8 lg:mb-9">
               <div className="max-w-[680px]">
-                <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+                <h2 className="text-foreground text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[28px] lg:text-[32px]">
                   {t('faq.title')}
                 </h2>
-                <p className="text-foreground/80 mt-3 max-w-[580px] text-[14px] leading-[1.8] sm:mt-4 sm:text-[15px]">
+                <p className="text-foreground/80 mt-3 max-w-[580px] text-[15px] leading-[1.8] sm:mt-4 sm:text-[15px]">
                   {t('faq.subtitle')}
                 </p>
               </div>

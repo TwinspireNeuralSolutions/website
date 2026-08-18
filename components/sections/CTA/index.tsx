@@ -25,7 +25,7 @@ export function CTASection() {
         <AnimateIn variant="fadeUp">
           <h2
             id="cta-heading"
-            className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]"
+            className="text-foreground mx-auto max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[28px] lg:text-[32px]"
           >
             <span className="text-foreground font-bold">{t('cta.title')}</span>{' '}
             <span className="text-primary font-bold">
@@ -37,7 +37,7 @@ export function CTASection() {
 
         {/* Supporting paragraph */}
         <AnimateIn variant="fadeUp" delay={0.1}>
-          <p className="text-foreground/80 mx-auto mt-6 max-w-[720px] text-center text-[14px] leading-[1.8] sm:text-[15px] md:mt-8">
+          <p className="text-foreground/80 mx-auto mt-6 max-w-[720px] text-center text-[15px] leading-[1.8] sm:text-[15px] md:mt-8">
             {t('cta.subtitle')}
           </p>
         </AnimateIn>
@@ -62,7 +62,7 @@ export function CTASection() {
 
         {/* Note */}
         <AnimateIn variant="fadeUp" delay={0.36}>
-          <p className="text-foreground/80 mx-auto mt-4 text-[14px] sm:text-[15px]">
+          <p className="text-foreground/80 mx-auto mt-4 text-[15px] sm:text-[15px]">
             {t('cta.note')}
           </p>
         </AnimateIn>

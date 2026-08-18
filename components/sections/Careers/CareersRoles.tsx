@@ -74,11 +74,11 @@ export function CareersRoles() {
         {/* Header */}
         <AnimateIn variant="fadeUp">
           <div className="mb-8">
-            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+            <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-8 lg:text-[32px]">
               <span className="text-foreground font-bold">Open </span>
               <span className="text-primary font-bold">Positions</span>
             </h2>
-            <p className="text-muted-foreground text-center text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+            <p className="text-muted-foreground text-center text-[15px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.openRolesSubtitle')}
             </p>
           </div>
@@ -98,7 +98,7 @@ export function CareersRoles() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={t('joinUsPage.searchPlaceholder')}
-                className="border-border focus:border-primary text-foreground placeholder:text-muted-foreground w-full rounded-lg border bg-white py-2.5 pr-4 pl-10 text-[14px] transition-colors outline-none"
+                className="border-border focus:border-primary text-foreground placeholder:text-muted-foreground w-full rounded-lg border bg-white py-2.5 pr-4 pl-10 text-[15px] transition-colors outline-none"
               />
             </div>
 
@@ -109,7 +109,7 @@ export function CareersRoles() {
                 setActiveFilter(e.target.value as FilterCategory)
               }
               aria-label={t('joinUsPage.filterDepartmentLabel')}
-              className={`border-border focus:border-primary cursor-pointer rounded-lg border bg-white px-4 py-2.5 text-[14px] font-normal transition-colors outline-none sm:w-56 ${activeFilter === 'All' ? 'text-muted-foreground' : 'text-foreground'}`}
+              className={`border-border focus:border-primary cursor-pointer rounded-lg border bg-white px-4 py-2.5 text-[15px] font-normal transition-colors outline-none sm:w-56 ${activeFilter === 'All' ? 'text-muted-foreground' : 'text-foreground'}`}
             >
               <option value="All">All Categories</option>
               <option value="Engineering">
@@ -132,7 +132,7 @@ export function CareersRoles() {
         {/* Cards grid */}
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.length === 0 && (
-            <p className="text-muted-foreground col-span-3 py-12 text-center text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+            <p className="text-muted-foreground col-span-3 py-12 text-center text-[15px] leading-[1.8] font-normal sm:text-[15px]">
               {t('joinUsPage.noResults')}
             </p>
           )}
@@ -158,7 +158,7 @@ export function CareersRoles() {
               </h3>
 
               {/* Location */}
-              <p className="text-foreground/80 text-[13px] font-normal">
+              <p className="text-foreground/80 text-[15px] font-normal">
                 {role.location}
               </p>
 
@@ -167,7 +167,7 @@ export function CareersRoles() {
                 <Link
                   href={`/${locale}/careers/${role.id}`}
                   prefetch={true}
-                  className="text-primary flex items-center gap-1 text-[13px] font-semibold transition-all hover:gap-2"
+                  className="text-primary flex items-center gap-1 text-[15px] font-semibold transition-all hover:gap-2"
                 >
                   {t('joinUsPage.viewDetails')}
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden />
@@ -181,13 +181,13 @@ export function CareersRoles() {
       {/* Bottom CTA */}
       <AnimateIn variant="fadeUp">
         <div className="bg-footer-bg w-full px-6 py-16 text-center">
-          <p className="text-foreground mb-2 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:text-[32px]">
+          <p className="text-foreground mb-2 text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[28px] lg:text-[32px]">
             <span className="text-foreground">{"Don't see an "}</span>
             <span className="text-primary">{'opening'}</span>
             <span className="text-foreground">{' that '}</span>
             <span className="text-primary">{'fits you?'}</span>
           </p>
-          <p className="text-muted-foreground mb-8 text-[14px] leading-[1.8] font-normal sm:text-[15px]">
+          <p className="text-muted-foreground mb-8 text-[15px] leading-[1.8] font-normal sm:text-[15px]">
             {t('joinUsPage.noOpeningLine2')}
           </p>
           <Button

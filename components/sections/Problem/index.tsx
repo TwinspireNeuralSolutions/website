@@ -47,7 +47,7 @@ export function ProblemSection() {
     >
       <div className="section-x section-y section-inner mx-auto">
         <AnimateIn variant="fadeUp">
-          <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+          <h2 className="mb-6 text-center text-[22px] leading-[1.2] tracking-wide uppercase sm:text-[28px] lg:mb-8 lg:text-[32px]">
             {headlineParts.map((part, i) =>
               highlights.includes(part) ? (
                 <span key={`${part}-${i}`} className="text-primary font-bold">
@@ -183,7 +183,7 @@ export function ProblemSection() {
             <div className="section-x section-y section-inner mx-auto py-10 text-center md:py-14">
               <AnimateIn variant="fadeUp">
                 <div className="mx-auto max-w-[820px]">
-                  <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[26px] lg:mb-8 lg:text-[32px]">
+                  <h3 className="text-foreground mx-auto mb-6 max-w-[820px] text-center text-[22px] leading-[1.2] font-bold tracking-wide uppercase sm:text-[28px] lg:mb-8 lg:text-[32px]">
                     {t('problem.originHeading')}
                   </h3>
 
