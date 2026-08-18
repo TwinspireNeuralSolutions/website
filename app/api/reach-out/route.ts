@@ -57,8 +57,6 @@ export async function POST(req: NextRequest) {
   }
 
   const safeName = escapeHtml(name.trim())
-  const safeEmail = escapeHtml(email.trim())
-  const safeSubject = escapeHtml(subject.trim())
   const safeMessage = escapeHtml(message.trim())
 
   try {
