@@ -17,6 +17,19 @@ const nextConfig: NextConfig = {
   // standalone mode (ENOENT on .next/next-server.js.nft.json). Vercel sets the
   // VERCEL env var during its builds; App Hosting does not.
   ...(process.env.VERCEL ? {} : { output: 'standalone' as const }),
+  async redirects() {
+    return [
+      // App Hosting gives every backend a *.hosted.app address. It stays
+      // reachable after a custom domain is attached, which would leave a
+      // second indexable copy of the site. Send it to the real one.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'website--twinspire-neural-solutions.europe-west4.hosted.app' }],
+        destination: 'https://www.twinspire.ai/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://twinspire.ai'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.twinspire.ai'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
