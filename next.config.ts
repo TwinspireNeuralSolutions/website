@@ -24,7 +24,13 @@ const nextConfig: NextConfig = {
       // second indexable copy of the site. Send it to the real one.
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'website--twinspire-neural-solutions.europe-west4.hosted.app' }],
+        has: [
+          {
+            type: 'host',
+            value:
+              'website--twinspire-neural-solutions.europe-west4.hosted.app',
+          },
+        ],
         destination: 'https://www.twinspire.ai/:path*',
         permanent: true,
       },

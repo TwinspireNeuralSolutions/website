@@ -9,15 +9,15 @@
 const SITE = 'https://twinspire.ai'
 
 export const BRAND = {
-  navy:   '#1F2C7C',
-  ink:    '#1a1a18',
-  body:   '#3f3f46',
-  muted:  '#71717a',
-  line:   '#e4e4e7',
-  paper:  '#f7f7f5',
-  white:  '#ffffff',
-  green:  '#1D9E75',
-  amber:  '#BA7517',
+  navy: '#1F2C7C',
+  ink: '#1a1a18',
+  body: '#3f3f46',
+  muted: '#71717a',
+  line: '#e4e4e7',
+  paper: '#f7f7f5',
+  white: '#ffffff',
+  green: '#1D9E75',
+  amber: '#BA7517',
 } as const
 
 export function escapeHtml(s: string) {
@@ -46,7 +46,13 @@ interface ShellOptions {
  * Wraps content in the Twinspire branded shell:
  * navy header bar with logo → white content card → footer with legal line.
  */
-export function emailShell({ eyebrow, heading, body, cta, preheader }: ShellOptions) {
+export function emailShell({
+  eyebrow,
+  heading,
+  body,
+  cta,
+  preheader,
+}: ShellOptions) {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -121,14 +127,18 @@ export function emailShell({ eyebrow, heading, body, cta, preheader }: ShellOpti
               ${eyebrow ? `<p class="ts-eyebrow" style="margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:${BRAND.navy};">${escapeHtml(eyebrow)}</p>` : ''}
               <h1 class="ts-h1" style="margin:0 0 20px;font-size:24px;line-height:1.25;font-weight:800;color:${BRAND.ink};letter-spacing:-0.01em;">${escapeHtml(heading)}</h1>
               ${body}
-              ${cta ? `
+              ${
+                cta
+                  ? `
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:28px 0 0;">
                 <tr>
                   <td class="ts-btn" style="background-color:${BRAND.navy};border-radius:6px;">
                     <a href="${cta.url}" style="display:inline-block;padding:13px 28px;font-size:14px;font-weight:600;color:${BRAND.white};text-decoration:none;">${escapeHtml(cta.label)}</a>
                   </td>
                 </tr>
-              </table>` : ''}
+              </table>`
+                  : ''
+              }
             </td>
           </tr>
 
@@ -182,13 +192,15 @@ export function p(text: string) {
 
 /** Key/value detail table used in internal notification emails. */
 export function detailTable(rows: [string, string][], highlightLast = false) {
-  const cells = rows.map(([k, v], i) => {
-    const isLast = highlightLast && i === rows.length - 1
-    return `<tr>
+  const cells = rows
+    .map(([k, v], i) => {
+      const isLast = highlightLast && i === rows.length - 1
+      return `<tr>
       <td style="padding:9px 20px 9px 0;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:${BRAND.muted};white-space:nowrap;vertical-align:top;">${escapeHtml(k)}</td>
       <td style="padding:9px 0;font-size:14px;color:${isLast ? BRAND.navy : BRAND.ink};font-weight:${isLast ? '700' : '400'};">${escapeHtml(v)}</td>
     </tr>`
-  }).join('')
+    })
+    .join('')
 
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
     style="margin:8px 0 0;border-top:1px solid ${BRAND.line};border-bottom:1px solid ${BRAND.line};">

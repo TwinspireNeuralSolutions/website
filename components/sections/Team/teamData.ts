@@ -67,7 +67,8 @@ export const teamMembers: TeamMemberData[] = [
     name: 'Hilmar Snær Örvarsson',
     role: 'team.roles.researchTeam',
     image: '/team/hilmar.webp',
-    linkedin: 'https://www.linkedin.com/in/hilmar-sn%C3%A6r-%C3%B6rvarsson-400850263/',
+    linkedin:
+      'https://www.linkedin.com/in/hilmar-sn%C3%A6r-%C3%B6rvarsson-400850263/',
   },
 ]
 

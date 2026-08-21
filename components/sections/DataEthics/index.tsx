@@ -162,11 +162,12 @@ export function DataEthicsSection() {
                     {highlightLastWord(t(card.titleKey))}
                   </Typography>
                   <p
-                    className={"text-foreground/80 text-[15px] leading-[1.8] sm:text-[15px]"}
+                    className={
+                      'text-foreground/80 text-[15px] leading-[1.8] sm:text-[15px]'
+                    }
                   >
                     {t(card.bodyKey)}
                   </p>
-
                 </div>
               </AnimateIn>
             )

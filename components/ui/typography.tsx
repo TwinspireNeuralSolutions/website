@@ -31,10 +31,8 @@ const typographyVariants = cva('', {
         'font-sans text-[30px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[36px] lg:text-[44px]',
       section:
         'font-sans text-[22px] font-bold leading-[1.15] tracking-[-0.01em] sm:text-[25px] lg:text-[28px]',
-      heading:
-        'font-sans text-[17px] font-bold leading-snug sm:text-[18px]',
-      body:
-        'font-sans text-[15px] font-normal leading-[1.7] sm:text-[16px]',
+      heading: 'font-sans text-[17px] font-bold leading-snug sm:text-[18px]',
+      body: 'font-sans text-[15px] font-normal leading-[1.7] sm:text-[16px]',
       label:
         'font-sans text-[11px] font-semibold uppercase leading-none tracking-[0.12em] sm:text-[12px]',
 
@@ -55,13 +53,21 @@ const typographyVariants = cva('', {
   compoundVariants: [
     // Headings carry full strength
     { variant: 'display', textColor: 'default', className: 'text-foreground' },
-    { variant: 'title',   textColor: 'default', className: 'text-foreground' },
+    { variant: 'title', textColor: 'default', className: 'text-foreground' },
     { variant: 'section', textColor: 'default', className: 'text-foreground' },
     { variant: 'heading', textColor: 'default', className: 'text-foreground' },
     // Body sits at /80 — the floor, never lower
-    { variant: 'body',      textColor: 'default', className: 'text-foreground/80' },
-    { variant: 'subtitle',  textColor: 'default', className: 'text-foreground/80' },
-    { variant: 'paragraph', textColor: 'default', className: 'text-foreground/80' },
+    { variant: 'body', textColor: 'default', className: 'text-foreground/80' },
+    {
+      variant: 'subtitle',
+      textColor: 'default',
+      className: 'text-foreground/80',
+    },
+    {
+      variant: 'paragraph',
+      textColor: 'default',
+      className: 'text-foreground/80',
+    },
     // Labels are navy by default — they are signposts, not body copy
     { variant: 'label', textColor: 'default', className: 'text-primary' },
   ],

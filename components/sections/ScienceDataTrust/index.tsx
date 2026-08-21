@@ -23,20 +23,120 @@ function ModelingIcon({ className }: { className?: string }) {
       aria-hidden="true"
     >
       {/* Left platform */}
-      <rect x="2" y="9" width="10" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="5" y1="13" x2="9" y2="13" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-      <line x1="5" y1="16" x2="9" y2="16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-      <line x1="5" y1="19" x2="7" y2="19" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <rect
+        x="2"
+        y="9"
+        width="10"
+        height="14"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <line
+        x1="5"
+        y1="13"
+        x2="9"
+        y2="13"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="5"
+        y1="16"
+        x2="9"
+        y2="16"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="5"
+        y1="19"
+        x2="7"
+        y2="19"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
       {/* Right platform */}
-      <rect x="20" y="9" width="10" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="23" y1="13" x2="27" y2="13" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-      <line x1="23" y1="16" x2="27" y2="16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-      <line x1="23" y1="19" x2="25" y2="19" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      <rect
+        x="20"
+        y="9"
+        width="10"
+        height="14"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <line
+        x1="23"
+        y1="13"
+        x2="27"
+        y2="13"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="23"
+        y1="16"
+        x2="27"
+        y2="16"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="23"
+        y1="19"
+        x2="25"
+        y2="19"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
       {/* API connector arrows */}
-      <line x1="12" y1="14.5" x2="20" y2="14.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      <polyline points="17.5,12 20,14.5 17.5,17" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <line x1="20" y1="17.5" x2="12" y2="17.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      <polyline points="14.5,15 12,17.5 14.5,20" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <line
+        x1="12"
+        y1="14.5"
+        x2="20"
+        y2="14.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <polyline
+        points="17.5,12 20,14.5 17.5,17"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line
+        x1="20"
+        y1="17.5"
+        x2="12"
+        y2="17.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <polyline
+        points="14.5,15 12,17.5 14.5,20"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <line
         x1="10.5"
         y1="10"
@@ -124,16 +224,57 @@ function SignalsIcon({ className }: { className?: string }) {
       aria-hidden="true"
     >
       {/* Watch face */}
-      <rect x="9" y="10" width="14" height="12" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <rect
+        x="9"
+        y="10"
+        width="14"
+        height="12"
+        rx="2.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       {/* Top band */}
-      <path d="M12 10 L12 6 Q12 5 13 5 L19 5 Q20 5 20 6 L20 10" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />
+      <path
+        d="M12 10 L12 6 Q12 5 13 5 L19 5 Q20 5 20 6 L20 10"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        fill="none"
+        strokeLinejoin="round"
+      />
       {/* Bottom band */}
-      <path d="M12 22 L12 26 Q12 27 13 27 L19 27 Q20 27 20 26 L20 22" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />
+      <path
+        d="M12 22 L12 26 Q12 27 13 27 L19 27 Q20 27 20 26 L20 22"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        fill="none"
+        strokeLinejoin="round"
+      />
       {/* HRV / heartrate line on watch face */}
-      <polyline points="10,16 12,16 13.5,13 15,19 16.5,13.5 17.5,16 18.5,16 20,16 21,16 23,16" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <polyline
+        points="10,16 12,16 13.5,13 15,19 16.5,13.5 17.5,16 18.5,16 20,16 21,16 23,16"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       {/* Signal waves left side */}
-      <path d="M5.5,12 Q4.5,16 5.5,20" stroke="currentColor" strokeWidth="1.2" opacity="0.55" fill="none" strokeLinecap="round" />
-      <path d="M3,10 Q1.5,16 3,22" stroke="currentColor" strokeWidth="1" opacity="0.3" fill="none" strokeLinecap="round" />
+      <path
+        d="M5.5,12 Q4.5,16 5.5,20"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        opacity="0.55"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M3,10 Q1.5,16 3,22"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.3"
+        fill="none"
+        strokeLinecap="round"
+      />
     </svg>
   )
 }
@@ -150,11 +291,33 @@ function ValidationIcon({ className }: { className?: string }) {
     >
       {/* Person */}
       <circle cx="16" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M9 18 C9 14 12 12 16 12 C20 12 23 14 23 18" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <path
+        d="M9 18 C9 14 12 12 16 12 C20 12 23 14 23 18"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
+      />
       {/* Dashed baseline (population average) */}
-      <line x1="4" y1="26" x2="28" y2="26" stroke="currentColor" strokeWidth="1" opacity="0.35" strokeDasharray="3,2.5" />
+      <line
+        x1="4"
+        y1="26"
+        x2="28"
+        y2="26"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.35"
+        strokeDasharray="3,2.5"
+      />
       {/* Individual trend line (deviating from baseline) */}
-      <polyline points="4,26 8,25 12,23 16,21 20,22 24,20 28,18" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <polyline
+        points="4,26 8,25 12,23 16,21 20,22 24,20 28,18"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       {/* End dot — current position */}
       <circle cx="28" cy="18" r="2" fill="currentColor" />
     </svg>
@@ -173,34 +336,450 @@ function ValidationIcon({ className }: { className?: string }) {
 function ModelingDiagram() {
   return (
     <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-6">
-      <svg viewBox="0 0 480 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" aria-hidden="true">
-        <line x1="0" y1="65" x2="480" y2="65" stroke="currentColor" strokeWidth="0.4" opacity="0.06"/>
-        <line x1="0" y1="130" x2="480" y2="130" stroke="currentColor" strokeWidth="0.4" opacity="0.06"/>
-        <line x1="0" y1="195" x2="480" y2="195" stroke="currentColor" strokeWidth="0.4" opacity="0.06"/>
-        <rect x="8" y="30" width="140" height="200" rx="10" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="1" strokeOpacity="0.15"/>
-        <text x="78" y="55" textAnchor="middle" fill="currentColor" fontSize="9" fontWeight="700" opacity="0.5" fontFamily="sans-serif" letterSpacing="0.08em">CLUB PLATFORM</text>
-        <rect x="20" y="68" width="116" height="22" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><circle cx="31" cy="79" r="3.5" fill="#00A8FF" opacity="0.7"/><text x="40" y="82" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">GPS &amp; Movement</text>
-        <rect x="20" y="98" width="116" height="22" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><circle cx="31" cy="109" r="3.5" fill="#00A8FF" opacity="0.7"/><text x="40" y="112" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">Session Load</text>
-        <rect x="20" y="128" width="116" height="22" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><circle cx="31" cy="139" r="3.5" fill="#00A8FF" opacity="0.7"/><text x="40" y="142" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">Gym Output</text>
-        <rect x="20" y="158" width="116" height="22" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><circle cx="31" cy="169" r="3.5" fill="#00A8FF" opacity="0.7"/><text x="40" y="172" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">Physio Notes</text>
-        <rect x="148" y="118" width="40" height="16" rx="3" fill="#00A8FF" opacity="0.15" stroke="#00A8FF" strokeWidth="0.8" strokeOpacity="0.4"/><text x="168" y="129" textAnchor="middle" fill="#00A8FF" fontSize="7" fontWeight="700" fontFamily="sans-serif" opacity="0.9">API</text>
-        <line x1="148" y1="126" x2="188" y2="126" stroke="#00A8FF" strokeWidth="1.2" strokeOpacity="0.5" strokeDasharray="4,3"/><polyline points="183,122 188,126 183,130" stroke="#00A8FF" strokeWidth="1.2" fill="none" strokeOpacity="0.5" strokeLinecap="round"/>
-        <rect x="192" y="56" width="96" height="148" rx="10" fill="#00A8FF" opacity="0.05" stroke="#00A8FF" strokeWidth="1.2" strokeOpacity="0.35"/>
-        <text x="240" y="80" textAnchor="middle" fill="#00A8FF" fontSize="8" fontWeight="700" fontFamily="sans-serif" opacity="0.9" letterSpacing="0.07em">TWINSPIRE</text>
-        <circle cx="240" cy="112" r="18" fill="#00A8FF" opacity="0.08" stroke="#00A8FF" strokeWidth="0.8" strokeOpacity="0.3"/>
-        <circle cx="240" cy="106" r="5" fill="#00A8FF" opacity="0.5"/>
-        <path d="M228 124 C228 118 233 115 240 115 C247 115 252 118 252 124" stroke="#00A8FF" strokeWidth="1.2" fill="none" strokeOpacity="0.5" strokeLinecap="round"/>
-        <line x1="210" y1="145" x2="270" y2="145" stroke="#00A8FF" strokeWidth="0.8" strokeOpacity="0.3" strokeDasharray="3,2"/>
-        <polyline points="210,152 220,148 230,150 240,143 250,147 260,141 270,145" stroke="#00A8FF" strokeWidth="1.5" fill="none" strokeOpacity="0.7" strokeLinecap="round" strokeLinejoin="round"/>
-        <text x="240" y="182" textAnchor="middle" fill="#00A8FF" fontSize="7" fontFamily="sans-serif" opacity="0.6">Individual Model</text>
-        <line x1="288" y1="126" x2="328" y2="126" stroke="#00A8FF" strokeWidth="1.2" strokeOpacity="0.5" strokeDasharray="4,3"/><polyline points="323,122 328,126 323,130" stroke="#00A8FF" strokeWidth="1.2" fill="none" strokeOpacity="0.5" strokeLinecap="round"/>
-        <rect x="292" y="118" width="36" height="16" rx="3" fill="#00A8FF" opacity="0.15" stroke="#00A8FF" strokeWidth="0.8" strokeOpacity="0.4"/><text x="310" y="129" textAnchor="middle" fill="#00A8FF" fontSize="7" fontWeight="700" fontFamily="sans-serif" opacity="0.9">OUT</text>
-        <rect x="332" y="30" width="140" height="200" rx="10" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="1" strokeOpacity="0.15"/>
-        <text x="402" y="55" textAnchor="middle" fill="currentColor" fontSize="9" fontWeight="700" opacity="0.5" fontFamily="sans-serif" letterSpacing="0.06em">YOUR INTERFACE</text>
-        <rect x="344" y="68" width="116" height="30" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><text x="354" y="82" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">Readiness Score</text><text x="354" y="92" fill="#22C55E" fontSize="8" fontWeight="700" fontFamily="sans-serif" opacity="0.8">91% within norms</text>
-        <rect x="344" y="106" width="116" height="30" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><text x="354" y="120" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">Deviation Alert</text><text x="354" y="130" fill="#EF4444" fontSize="8" fontWeight="700" fontFamily="sans-serif" opacity="0.8">ACWR +2.3σ deviation</text>
-        <rect x="344" y="144" width="116" height="30" rx="4" fill="currentColor" opacity="0.06" stroke="currentColor" strokeOpacity="0.1" strokeWidth="0.8"/><text x="354" y="158" fill="currentColor" fontSize="8" opacity="0.55" fontFamily="sans-serif">Key Drivers</text><text x="354" y="168" fill="#F59E0B" fontSize="8" fontWeight="700" fontFamily="sans-serif" opacity="0.8">Load mismatch</text>
-        <text x="402" y="218" textAnchor="middle" fill="currentColor" fontSize="8" opacity="0.3" fontFamily="sans-serif">No migration needed</text>
+      <svg
+        viewBox="0 0 480 260"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full"
+        aria-hidden="true"
+      >
+        <line
+          x1="0"
+          y1="65"
+          x2="480"
+          y2="65"
+          stroke="currentColor"
+          strokeWidth="0.4"
+          opacity="0.06"
+        />
+        <line
+          x1="0"
+          y1="130"
+          x2="480"
+          y2="130"
+          stroke="currentColor"
+          strokeWidth="0.4"
+          opacity="0.06"
+        />
+        <line
+          x1="0"
+          y1="195"
+          x2="480"
+          y2="195"
+          stroke="currentColor"
+          strokeWidth="0.4"
+          opacity="0.06"
+        />
+        <rect
+          x="8"
+          y="30"
+          width="140"
+          height="200"
+          rx="10"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeOpacity="0.15"
+        />
+        <text
+          x="78"
+          y="55"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="9"
+          fontWeight="700"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          letterSpacing="0.08em"
+        >
+          CLUB PLATFORM
+        </text>
+        <rect
+          x="20"
+          y="68"
+          width="116"
+          height="22"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <circle cx="31" cy="79" r="3.5" fill="#00A8FF" opacity="0.7" />
+        <text
+          x="40"
+          y="82"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          GPS &amp; Movement
+        </text>
+        <rect
+          x="20"
+          y="98"
+          width="116"
+          height="22"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <circle cx="31" cy="109" r="3.5" fill="#00A8FF" opacity="0.7" />
+        <text
+          x="40"
+          y="112"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Session Load
+        </text>
+        <rect
+          x="20"
+          y="128"
+          width="116"
+          height="22"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <circle cx="31" cy="139" r="3.5" fill="#00A8FF" opacity="0.7" />
+        <text
+          x="40"
+          y="142"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Gym Output
+        </text>
+        <rect
+          x="20"
+          y="158"
+          width="116"
+          height="22"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <circle cx="31" cy="169" r="3.5" fill="#00A8FF" opacity="0.7" />
+        <text
+          x="40"
+          y="172"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Physio Notes
+        </text>
+        <rect
+          x="148"
+          y="118"
+          width="40"
+          height="16"
+          rx="3"
+          fill="#00A8FF"
+          opacity="0.15"
+          stroke="#00A8FF"
+          strokeWidth="0.8"
+          strokeOpacity="0.4"
+        />
+        <text
+          x="168"
+          y="129"
+          textAnchor="middle"
+          fill="#00A8FF"
+          fontSize="7"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.9"
+        >
+          API
+        </text>
+        <line
+          x1="148"
+          y1="126"
+          x2="188"
+          y2="126"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          strokeOpacity="0.5"
+          strokeDasharray="4,3"
+        />
+        <polyline
+          points="183,122 188,126 183,130"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          fill="none"
+          strokeOpacity="0.5"
+          strokeLinecap="round"
+        />
+        <rect
+          x="192"
+          y="56"
+          width="96"
+          height="148"
+          rx="10"
+          fill="#00A8FF"
+          opacity="0.05"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          strokeOpacity="0.35"
+        />
+        <text
+          x="240"
+          y="80"
+          textAnchor="middle"
+          fill="#00A8FF"
+          fontSize="8"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.9"
+          letterSpacing="0.07em"
+        >
+          TWINSPIRE
+        </text>
+        <circle
+          cx="240"
+          cy="112"
+          r="18"
+          fill="#00A8FF"
+          opacity="0.08"
+          stroke="#00A8FF"
+          strokeWidth="0.8"
+          strokeOpacity="0.3"
+        />
+        <circle cx="240" cy="106" r="5" fill="#00A8FF" opacity="0.5" />
+        <path
+          d="M228 124 C228 118 233 115 240 115 C247 115 252 118 252 124"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          fill="none"
+          strokeOpacity="0.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="210"
+          y1="145"
+          x2="270"
+          y2="145"
+          stroke="#00A8FF"
+          strokeWidth="0.8"
+          strokeOpacity="0.3"
+          strokeDasharray="3,2"
+        />
+        <polyline
+          points="210,152 220,148 230,150 240,143 250,147 260,141 270,145"
+          stroke="#00A8FF"
+          strokeWidth="1.5"
+          fill="none"
+          strokeOpacity="0.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <text
+          x="240"
+          y="182"
+          textAnchor="middle"
+          fill="#00A8FF"
+          fontSize="7"
+          fontFamily="sans-serif"
+          opacity="0.6"
+        >
+          Individual Model
+        </text>
+        <line
+          x1="288"
+          y1="126"
+          x2="328"
+          y2="126"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          strokeOpacity="0.5"
+          strokeDasharray="4,3"
+        />
+        <polyline
+          points="323,122 328,126 323,130"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          fill="none"
+          strokeOpacity="0.5"
+          strokeLinecap="round"
+        />
+        <rect
+          x="292"
+          y="118"
+          width="36"
+          height="16"
+          rx="3"
+          fill="#00A8FF"
+          opacity="0.15"
+          stroke="#00A8FF"
+          strokeWidth="0.8"
+          strokeOpacity="0.4"
+        />
+        <text
+          x="310"
+          y="129"
+          textAnchor="middle"
+          fill="#00A8FF"
+          fontSize="7"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.9"
+        >
+          OUT
+        </text>
+        <rect
+          x="332"
+          y="30"
+          width="140"
+          height="200"
+          rx="10"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeOpacity="0.15"
+        />
+        <text
+          x="402"
+          y="55"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="9"
+          fontWeight="700"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          letterSpacing="0.06em"
+        >
+          YOUR INTERFACE
+        </text>
+        <rect
+          x="344"
+          y="68"
+          width="116"
+          height="30"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <text
+          x="354"
+          y="82"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Readiness Score
+        </text>
+        <text
+          x="354"
+          y="92"
+          fill="#22C55E"
+          fontSize="8"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.8"
+        >
+          91% within norms
+        </text>
+        <rect
+          x="344"
+          y="106"
+          width="116"
+          height="30"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <text
+          x="354"
+          y="120"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Deviation Alert
+        </text>
+        <text
+          x="354"
+          y="130"
+          fill="#EF4444"
+          fontSize="8"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.8"
+        >
+          ACWR +2.3σ deviation
+        </text>
+        <rect
+          x="344"
+          y="144"
+          width="116"
+          height="30"
+          rx="4"
+          fill="currentColor"
+          opacity="0.06"
+          stroke="currentColor"
+          strokeOpacity="0.1"
+          strokeWidth="0.8"
+        />
+        <text
+          x="354"
+          y="158"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Key Drivers
+        </text>
+        <text
+          x="354"
+          y="168"
+          fill="#F59E0B"
+          fontSize="8"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.8"
+        >
+          Load mismatch
+        </text>
+        <text
+          x="402"
+          y="218"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          No migration needed
+        </text>
       </svg>
       {/* hidden fallback */}
       <svg
@@ -574,30 +1153,375 @@ function ModelingDiagram() {
 function SignalsDiagram() {
   return (
     <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-6">
-      <svg viewBox="0 0 480 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" aria-hidden="true">
-        <text x="90" y="24" textAnchor="middle" fill="currentColor" fontSize="9" fontWeight="700" opacity="0.4" fontFamily="sans-serif" letterSpacing="0.08em">CLUB DATA</text>
-        <rect x="8" y="34" width="164" height="38" rx="6" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.12"/><text x="18" y="50" fill="currentColor" fontSize="8" opacity="0.5" fontFamily="sans-serif" fontWeight="600">GPS Load</text><polyline points="18,64 32,64 36,55 42,70 48,58 56,68 62,60 72,64 86,64" stroke="#00A8FF" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-        <rect x="8" y="82" width="164" height="38" rx="6" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.12"/><text x="18" y="98" fill="currentColor" fontSize="8" opacity="0.5" fontFamily="sans-serif" fontWeight="600">Session RPE</text><polyline points="18,112 30,108 40,115 52,106 64,112 76,107 88,113" stroke="#00A8FF" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-        <rect x="8" y="130" width="164" height="38" rx="6" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.12"/><text x="18" y="146" fill="currentColor" fontSize="8" opacity="0.5" fontFamily="sans-serif" fontWeight="600">Strength Output</text><polyline points="18,158 34,154 46,160 58,152 70,157 82,150 94,156" stroke="#00A8FF" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-        <line x1="172" y1="53" x2="220" y2="130" stroke="#00A8FF" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4,3"/>
-        <line x1="172" y1="101" x2="220" y2="130" stroke="#00A8FF" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4,3"/>
-        <line x1="172" y1="149" x2="220" y2="130" stroke="#00A8FF" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4,3"/>
-        <text x="390" y="24" textAnchor="middle" fill="currentColor" fontSize="9" fontWeight="700" opacity="0.4" fontFamily="sans-serif" letterSpacing="0.08em">PERSONAL DATA</text>
-        <rect x="308" y="34" width="164" height="38" rx="6" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.12"/><text x="318" y="50" fill="currentColor" fontSize="8" opacity="0.5" fontFamily="sans-serif" fontWeight="600">Recovery Score</text><polyline points="318,64 332,60 344,68 356,58 368,65 380,57 392,63 406,64" stroke="#A78BFA" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-        <rect x="308" y="82" width="164" height="38" rx="6" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.12"/><text x="318" y="98" fill="currentColor" fontSize="8" opacity="0.5" fontFamily="sans-serif" fontWeight="600">Nocturnal HRV</text><polyline points="318,112 328,108 336,115 348,104 360,111 374,106 388,112 404,108" stroke="#A78BFA" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-        <rect x="308" y="130" width="164" height="38" rx="6" fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.12"/><text x="318" y="146" fill="currentColor" fontSize="8" opacity="0.5" fontFamily="sans-serif" fontWeight="600">Sleep Quality</text><polyline points="318,158 330,154 342,160 356,153 370,158 384,152 398,157" stroke="#A78BFA" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-        <line x1="308" y1="53" x2="260" y2="130" stroke="#A78BFA" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4,3"/>
-        <line x1="308" y1="101" x2="260" y2="130" stroke="#A78BFA" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4,3"/>
-        <line x1="308" y1="149" x2="260" y2="130" stroke="#A78BFA" strokeWidth="1" strokeOpacity="0.3" strokeDasharray="4,3"/>
-        <circle cx="240" cy="130" r="38" fill="#00A8FF" opacity="0.06" stroke="#00A8FF" strokeWidth="1.2" strokeOpacity="0.3"/>
-        <circle cx="240" cy="122" r="8" fill="#00A8FF" opacity="0.35"/>
-        <path d="M222 142 C222 135 230 131 240 131 C250 131 258 135 258 142" stroke="#00A8FF" strokeWidth="1.5" fill="none" strokeOpacity="0.6" strokeLinecap="round"/>
-        <text x="240" y="162" textAnchor="middle" fill="#00A8FF" fontSize="8" fontWeight="700" fontFamily="sans-serif" opacity="0.8">One Model</text>
-        <line x1="240" y1="168" x2="240" y2="210" stroke="#00A8FF" strokeWidth="1.5" strokeOpacity="0.4" strokeDasharray="4,3"/>
-        <polyline points="234,205 240,210 246,205" stroke="#00A8FF" strokeWidth="1.5" fill="none" strokeOpacity="0.4" strokeLinecap="round"/>
-        <rect x="152" y="214" width="176" height="50" rx="8" fill="#00A8FF" opacity="0.06" stroke="#00A8FF" strokeWidth="1" strokeOpacity="0.3"/>
-        <text x="240" y="234" textAnchor="middle" fill="currentColor" fontSize="9" fontWeight="700" opacity="0.55" fontFamily="sans-serif">Individual Baseline</text>
-        <text x="240" y="250" textAnchor="middle" fill="currentColor" fontSize="8" opacity="0.35" fontFamily="sans-serif">Continuously updated · Both streams</text>
+      <svg
+        viewBox="0 0 480 280"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full"
+        aria-hidden="true"
+      >
+        <text
+          x="90"
+          y="24"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="9"
+          fontWeight="700"
+          opacity="0.4"
+          fontFamily="sans-serif"
+          letterSpacing="0.08em"
+        >
+          CLUB DATA
+        </text>
+        <rect
+          x="8"
+          y="34"
+          width="164"
+          height="38"
+          rx="6"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="0.8"
+          strokeOpacity="0.12"
+        />
+        <text
+          x="18"
+          y="50"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          GPS Load
+        </text>
+        <polyline
+          points="18,64 32,64 36,55 42,70 48,58 56,68 62,60 72,64 86,64"
+          stroke="#00A8FF"
+          strokeWidth="1.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <rect
+          x="8"
+          y="82"
+          width="164"
+          height="38"
+          rx="6"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="0.8"
+          strokeOpacity="0.12"
+        />
+        <text
+          x="18"
+          y="98"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Session RPE
+        </text>
+        <polyline
+          points="18,112 30,108 40,115 52,106 64,112 76,107 88,113"
+          stroke="#00A8FF"
+          strokeWidth="1.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <rect
+          x="8"
+          y="130"
+          width="164"
+          height="38"
+          rx="6"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="0.8"
+          strokeOpacity="0.12"
+        />
+        <text
+          x="18"
+          y="146"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Strength Output
+        </text>
+        <polyline
+          points="18,158 34,154 46,160 58,152 70,157 82,150 94,156"
+          stroke="#00A8FF"
+          strokeWidth="1.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <line
+          x1="172"
+          y1="53"
+          x2="220"
+          y2="130"
+          stroke="#00A8FF"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+          strokeDasharray="4,3"
+        />
+        <line
+          x1="172"
+          y1="101"
+          x2="220"
+          y2="130"
+          stroke="#00A8FF"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+          strokeDasharray="4,3"
+        />
+        <line
+          x1="172"
+          y1="149"
+          x2="220"
+          y2="130"
+          stroke="#00A8FF"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+          strokeDasharray="4,3"
+        />
+        <text
+          x="390"
+          y="24"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="9"
+          fontWeight="700"
+          opacity="0.4"
+          fontFamily="sans-serif"
+          letterSpacing="0.08em"
+        >
+          PERSONAL DATA
+        </text>
+        <rect
+          x="308"
+          y="34"
+          width="164"
+          height="38"
+          rx="6"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="0.8"
+          strokeOpacity="0.12"
+        />
+        <text
+          x="318"
+          y="50"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Recovery Score
+        </text>
+        <polyline
+          points="318,64 332,60 344,68 356,58 368,65 380,57 392,63 406,64"
+          stroke="#A78BFA"
+          strokeWidth="1.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <rect
+          x="308"
+          y="82"
+          width="164"
+          height="38"
+          rx="6"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="0.8"
+          strokeOpacity="0.12"
+        />
+        <text
+          x="318"
+          y="98"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Nocturnal HRV
+        </text>
+        <polyline
+          points="318,112 328,108 336,115 348,104 360,111 374,106 388,112 404,108"
+          stroke="#A78BFA"
+          strokeWidth="1.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <rect
+          x="308"
+          y="130"
+          width="164"
+          height="38"
+          rx="6"
+          fill="currentColor"
+          opacity="0.04"
+          stroke="currentColor"
+          strokeWidth="0.8"
+          strokeOpacity="0.12"
+        />
+        <text
+          x="318"
+          y="146"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.5"
+          fontFamily="sans-serif"
+          fontWeight="600"
+        >
+          Sleep Quality
+        </text>
+        <polyline
+          points="318,158 330,154 342,160 356,153 370,158 384,152 398,157"
+          stroke="#A78BFA"
+          strokeWidth="1.3"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+        <line
+          x1="308"
+          y1="53"
+          x2="260"
+          y2="130"
+          stroke="#A78BFA"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+          strokeDasharray="4,3"
+        />
+        <line
+          x1="308"
+          y1="101"
+          x2="260"
+          y2="130"
+          stroke="#A78BFA"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+          strokeDasharray="4,3"
+        />
+        <line
+          x1="308"
+          y1="149"
+          x2="260"
+          y2="130"
+          stroke="#A78BFA"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+          strokeDasharray="4,3"
+        />
+        <circle
+          cx="240"
+          cy="130"
+          r="38"
+          fill="#00A8FF"
+          opacity="0.06"
+          stroke="#00A8FF"
+          strokeWidth="1.2"
+          strokeOpacity="0.3"
+        />
+        <circle cx="240" cy="122" r="8" fill="#00A8FF" opacity="0.35" />
+        <path
+          d="M222 142 C222 135 230 131 240 131 C250 131 258 135 258 142"
+          stroke="#00A8FF"
+          strokeWidth="1.5"
+          fill="none"
+          strokeOpacity="0.6"
+          strokeLinecap="round"
+        />
+        <text
+          x="240"
+          y="162"
+          textAnchor="middle"
+          fill="#00A8FF"
+          fontSize="8"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.8"
+        >
+          One Model
+        </text>
+        <line
+          x1="240"
+          y1="168"
+          x2="240"
+          y2="210"
+          stroke="#00A8FF"
+          strokeWidth="1.5"
+          strokeOpacity="0.4"
+          strokeDasharray="4,3"
+        />
+        <polyline
+          points="234,205 240,210 246,205"
+          stroke="#00A8FF"
+          strokeWidth="1.5"
+          fill="none"
+          strokeOpacity="0.4"
+          strokeLinecap="round"
+        />
+        <rect
+          x="152"
+          y="214"
+          width="176"
+          height="50"
+          rx="8"
+          fill="#00A8FF"
+          opacity="0.06"
+          stroke="#00A8FF"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+        />
+        <text
+          x="240"
+          y="234"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="9"
+          fontWeight="700"
+          opacity="0.55"
+          fontFamily="sans-serif"
+        >
+          Individual Baseline
+        </text>
+        <text
+          x="240"
+          y="250"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="8"
+          opacity="0.35"
+          fontFamily="sans-serif"
+        >
+          Continuously updated · Both streams
+        </text>
       </svg>
       <svg
         viewBox="0 0 540 280"
@@ -958,36 +1882,303 @@ function SignalsDiagram() {
 function ValidationDiagram() {
   return (
     <div className="border-border w-full overflow-hidden rounded-2xl border bg-transparent p-6">
-      <svg viewBox="0 0 480 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" aria-hidden="true">
-        <rect x="40" y="20" width="430" height="180" rx="6" fill="currentColor" opacity="0.02"/>
-        <text x="34" y="30" textAnchor="end" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">High</text>
-        <text x="34" y="110" textAnchor="end" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">Mid</text>
-        <text x="34" y="196" textAnchor="end" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">Low</text>
-        <line x1="40" y1="28" x2="470" y2="28" stroke="currentColor" strokeWidth="0.4" opacity="0.08"/>
-        <line x1="40" y1="108" x2="470" y2="108" stroke="currentColor" strokeWidth="0.4" opacity="0.08"/>
-        <line x1="40" y1="196" x2="470" y2="196" stroke="currentColor" strokeWidth="0.4" opacity="0.08"/>
-        <text x="40" y="216" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">Session 1</text>
-        <text x="160" y="216" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">Week 2</text>
-        <text x="280" y="216" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">Week 4</text>
-        <text x="400" y="216" fill="currentColor" fontSize="7" opacity="0.3" fontFamily="sans-serif">Week 6</text>
-        <path d="M40,90 L80,92 L120,88 L160,93 L200,89 L240,91 L280,90 L320,92 L360,88 L400,91 L440,90 L470,91 L470,120 L440,118 L400,120 L360,116 L320,119 L280,118 L240,119 L200,117 L160,120 L120,116 L80,119 L40,118 Z" fill="currentColor" opacity="0.05"/>
-        <text x="475" y="106" fill="currentColor" fontSize="7" opacity="0.25" fontFamily="sans-serif">Squad avg</text>
-        <line x1="40" y1="140" x2="470" y2="140" stroke="#00A8FF" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="6,4"/>
-        <text x="475" y="143" fill="#00A8FF" fontSize="7" opacity="0.6" fontFamily="sans-serif">Baseline</text>
-        <path d="M40,138 L80,135 L120,142 L160,136 L200,130" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
-        <path d="M200,130 L240,120 L280,108 L320,96 L360,88" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
-        <path d="M360,88 L400,78 L440,68" fill="none" stroke="#EF4444" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
-        <path d="M200,140 L440,140 L440,68 L400,78 L360,88 L320,96 L280,108 L240,120 L200,130 Z" fill="#EF4444" opacity="0.04"/>
-        <line x1="330" y1="96" x2="330" y2="140" stroke="#EF4444" strokeWidth="0.8" strokeOpacity="0.35" strokeDasharray="2,2"/>
-        <text x="332" y="112" fill="#EF4444" fontSize="7.5" fontWeight="700" fontFamily="sans-serif" opacity="0.8">+2.1σ</text>
-        <text x="332" y="123" fill="#EF4444" fontSize="6.5" fontFamily="sans-serif" opacity="0.6">Above baseline</text>
-        <circle cx="440" cy="68" r="5" fill="#EF4444" opacity="0.8"/>
-        <circle cx="440" cy="68" r="9" fill="#EF4444" opacity="0.12"/>
-        <rect x="338" y="40" width="128" height="22" rx="4" fill="#EF4444" opacity="0.08" stroke="#EF4444" strokeWidth="0.8" strokeOpacity="0.3"/>
-        <text x="402" y="55" textAnchor="middle" fill="#EF4444" fontSize="8" fontFamily="sans-serif" opacity="0.85">Deviation detected — session 28</text>
-        <line x1="40" y1="250" x2="64" y2="250" stroke="#22C55E" strokeWidth="2" opacity="0.7"/><text x="68" y="254" fill="currentColor" fontSize="7.5" opacity="0.45" fontFamily="sans-serif">Within personal norms</text>
-        <line x1="168" y1="250" x2="192" y2="250" stroke="#EF4444" strokeWidth="2" opacity="0.7"/><text x="196" y="254" fill="currentColor" fontSize="7.5" opacity="0.45" fontFamily="sans-serif">Individual deviation</text>
-        <line x1="310" y1="250" x2="334" y2="250" stroke="#00A8FF" strokeWidth="1" strokeDasharray="4,3" opacity="0.5"/><text x="338" y="254" fill="currentColor" fontSize="7.5" opacity="0.45" fontFamily="sans-serif">Personal baseline</text>
+      <svg
+        viewBox="0 0 480 280"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full"
+        aria-hidden="true"
+      >
+        <rect
+          x="40"
+          y="20"
+          width="430"
+          height="180"
+          rx="6"
+          fill="currentColor"
+          opacity="0.02"
+        />
+        <text
+          x="34"
+          y="30"
+          textAnchor="end"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          High
+        </text>
+        <text
+          x="34"
+          y="110"
+          textAnchor="end"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          Mid
+        </text>
+        <text
+          x="34"
+          y="196"
+          textAnchor="end"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          Low
+        </text>
+        <line
+          x1="40"
+          y1="28"
+          x2="470"
+          y2="28"
+          stroke="currentColor"
+          strokeWidth="0.4"
+          opacity="0.08"
+        />
+        <line
+          x1="40"
+          y1="108"
+          x2="470"
+          y2="108"
+          stroke="currentColor"
+          strokeWidth="0.4"
+          opacity="0.08"
+        />
+        <line
+          x1="40"
+          y1="196"
+          x2="470"
+          y2="196"
+          stroke="currentColor"
+          strokeWidth="0.4"
+          opacity="0.08"
+        />
+        <text
+          x="40"
+          y="216"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          Session 1
+        </text>
+        <text
+          x="160"
+          y="216"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          Week 2
+        </text>
+        <text
+          x="280"
+          y="216"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          Week 4
+        </text>
+        <text
+          x="400"
+          y="216"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.3"
+          fontFamily="sans-serif"
+        >
+          Week 6
+        </text>
+        <path
+          d="M40,90 L80,92 L120,88 L160,93 L200,89 L240,91 L280,90 L320,92 L360,88 L400,91 L440,90 L470,91 L470,120 L440,118 L400,120 L360,116 L320,119 L280,118 L240,119 L200,117 L160,120 L120,116 L80,119 L40,118 Z"
+          fill="currentColor"
+          opacity="0.05"
+        />
+        <text
+          x="475"
+          y="106"
+          fill="currentColor"
+          fontSize="7"
+          opacity="0.25"
+          fontFamily="sans-serif"
+        >
+          Squad avg
+        </text>
+        <line
+          x1="40"
+          y1="140"
+          x2="470"
+          y2="140"
+          stroke="#00A8FF"
+          strokeWidth="1"
+          strokeOpacity="0.4"
+          strokeDasharray="6,4"
+        />
+        <text
+          x="475"
+          y="143"
+          fill="#00A8FF"
+          fontSize="7"
+          opacity="0.6"
+          fontFamily="sans-serif"
+        >
+          Baseline
+        </text>
+        <path
+          d="M40,138 L80,135 L120,142 L160,136 L200,130"
+          fill="none"
+          stroke="#22C55E"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.8"
+        />
+        <path
+          d="M200,130 L240,120 L280,108 L320,96 L360,88"
+          fill="none"
+          stroke="#F59E0B"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.8"
+        />
+        <path
+          d="M360,88 L400,78 L440,68"
+          fill="none"
+          stroke="#EF4444"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.9"
+        />
+        <path
+          d="M200,140 L440,140 L440,68 L400,78 L360,88 L320,96 L280,108 L240,120 L200,130 Z"
+          fill="#EF4444"
+          opacity="0.04"
+        />
+        <line
+          x1="330"
+          y1="96"
+          x2="330"
+          y2="140"
+          stroke="#EF4444"
+          strokeWidth="0.8"
+          strokeOpacity="0.35"
+          strokeDasharray="2,2"
+        />
+        <text
+          x="332"
+          y="112"
+          fill="#EF4444"
+          fontSize="7.5"
+          fontWeight="700"
+          fontFamily="sans-serif"
+          opacity="0.8"
+        >
+          +2.1σ
+        </text>
+        <text
+          x="332"
+          y="123"
+          fill="#EF4444"
+          fontSize="6.5"
+          fontFamily="sans-serif"
+          opacity="0.6"
+        >
+          Above baseline
+        </text>
+        <circle cx="440" cy="68" r="5" fill="#EF4444" opacity="0.8" />
+        <circle cx="440" cy="68" r="9" fill="#EF4444" opacity="0.12" />
+        <rect
+          x="338"
+          y="40"
+          width="128"
+          height="22"
+          rx="4"
+          fill="#EF4444"
+          opacity="0.08"
+          stroke="#EF4444"
+          strokeWidth="0.8"
+          strokeOpacity="0.3"
+        />
+        <text
+          x="402"
+          y="55"
+          textAnchor="middle"
+          fill="#EF4444"
+          fontSize="8"
+          fontFamily="sans-serif"
+          opacity="0.85"
+        >
+          Deviation detected — session 28
+        </text>
+        <line
+          x1="40"
+          y1="250"
+          x2="64"
+          y2="250"
+          stroke="#22C55E"
+          strokeWidth="2"
+          opacity="0.7"
+        />
+        <text
+          x="68"
+          y="254"
+          fill="currentColor"
+          fontSize="7.5"
+          opacity="0.45"
+          fontFamily="sans-serif"
+        >
+          Within personal norms
+        </text>
+        <line
+          x1="168"
+          y1="250"
+          x2="192"
+          y2="250"
+          stroke="#EF4444"
+          strokeWidth="2"
+          opacity="0.7"
+        />
+        <text
+          x="196"
+          y="254"
+          fill="currentColor"
+          fontSize="7.5"
+          opacity="0.45"
+          fontFamily="sans-serif"
+        >
+          Individual deviation
+        </text>
+        <line
+          x1="310"
+          y1="250"
+          x2="334"
+          y2="250"
+          stroke="#00A8FF"
+          strokeWidth="1"
+          strokeDasharray="4,3"
+          opacity="0.5"
+        />
+        <text
+          x="338"
+          y="254"
+          fill="currentColor"
+          fontSize="7.5"
+          opacity="0.45"
+          fontFamily="sans-serif"
+        >
+          Personal baseline
+        </text>
       </svg>
       <svg
         viewBox="0 0 540 280"

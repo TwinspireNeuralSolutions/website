@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { emailShell, p, detailTable, escapeHtml, BRAND } from '@/lib/email/template'
+import {
+  emailShell,
+  p,
+  detailTable,
+  escapeHtml,
+  BRAND,
+} from '@/lib/email/template'
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY
@@ -35,10 +41,16 @@ export async function POST(req: NextRequest) {
   const { name, email, role, clubOrClinic, message } = body
 
   if (!name?.trim() || !email?.trim() || !role?.trim()) {
-    return NextResponse.json({ error: 'name, email and role are required' }, { status: 422 })
+    return NextResponse.json(
+      { error: 'name, email and role are required' },
+      { status: 422 }
+    )
   }
   if (!isValidEmail(email)) {
-    return NextResponse.json({ error: 'Invalid email address' }, { status: 422 })
+    return NextResponse.json(
+      { error: 'Invalid email address' },
+      { status: 422 }
+    )
   }
 
   const firstName = name.trim().split(' ')[0]
@@ -56,8 +68,12 @@ export async function POST(req: NextRequest) {
         heading: `Thanks, ${escapeHtml(firstName)}`,
         preheader: 'We will respond within one business day.',
         body:
-          p('We have your application to join the founding partner cohort and will respond within one business day.') +
-          p('The next step is a short call to understand your current setup, what data you already capture, and whether Twinspire is the right fit for both sides. No commitment.') +
+          p(
+            'We have your application to join the founding partner cohort and will respond within one business day.'
+          ) +
+          p(
+            'The next step is a short call to understand your current setup, what data you already capture, and whether Twinspire is the right fit for both sides. No commitment.'
+          ) +
           p('If anything changes before then, just reply to this email.'),
         cta: { label: 'Visit twinspire.ai', url: 'https://twinspire.ai' },
       }),
@@ -75,10 +91,10 @@ export async function POST(req: NextRequest) {
         preheader: `${role.trim()}${clubOrClinic?.trim() ? ` at ${clubOrClinic.trim()}` : ''}`,
         body:
           detailTable([
-            ['Name',  name.trim()],
+            ['Name', name.trim()],
             ['Email', email.trim()],
-            ['Role',  role.trim()],
-            ['Club',  clubOrClinic?.trim() || 'Not provided'],
+            ['Role', role.trim()],
+            ['Club', clubOrClinic?.trim() || 'Not provided'],
           ]) +
           (message?.trim()
             ? `<div style="margin-top:24px;padding:18px 20px;background-color:${BRAND.paper};border-radius:6px;">
@@ -93,6 +109,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('[contact/route] Resend error', err)
-    return NextResponse.json({ error: 'Failed to send email. Please try again later.' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Failed to send email. Please try again later.' },
+      { status: 500 }
+    )
   }
 }

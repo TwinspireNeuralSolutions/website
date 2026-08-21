@@ -73,8 +73,9 @@ export async function POST(req: NextRequest) {
           heading: `Thanks, ${safeName.split(' ')[0]}`,
           preheader: 'We will be in touch if there is a strong fit.',
           body:
-            p('Thanks for reaching out to Twinspire. We have your message and will be in touch if there is a strong fit.') +
-            p('If anything changes before then, just reply to this email.'),
+            p(
+              'Thanks for reaching out to Twinspire. We have your message and will be in touch if there is a strong fit.'
+            ) + p('If anything changes before then, just reply to this email.'),
           cta: { label: 'Visit twinspire.ai', url: 'https://twinspire.ai' },
         }),
       }),
@@ -91,15 +92,18 @@ export async function POST(req: NextRequest) {
           preheader: subject.trim(),
           body:
             detailTable([
-              ['Name',    name.trim()],
-              ['Email',   email.trim()],
+              ['Name', name.trim()],
+              ['Email', email.trim()],
               ['Subject', subject.trim()],
             ]) +
             `<div style="margin-top:24px;padding:18px 20px;background-color:${BRAND.paper};border-radius:6px;">
                <p style="margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.muted};">Message</p>
                <p style="margin:0;font-size:14px;line-height:1.65;color:${BRAND.ink};white-space:pre-wrap;">${safeMessage}</p>
              </div>`,
-          cta: { label: `Reply to ${name.trim().split(' ')[0]}`, url: `mailto:${email.trim()}` },
+          cta: {
+            label: `Reply to ${name.trim().split(' ')[0]}`,
+            url: `mailto:${email.trim()}`,
+          },
         }),
       }),
     ])

@@ -121,12 +121,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               iconCircleClass
             )}
           >
-            <ArrowRight
-              className={cn(
-                arrow,
-                ''
-              )}
-            />
+            <ArrowRight className={cn(arrow, '')} />
           </span>
         )}
 
@@ -139,12 +134,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             )}
             aria-hidden
           >
-            <ArrowRight
-              className={cn(
-                arrow,
-                ''
-              )}
-            />
+            <ArrowRight className={cn(arrow, '')} />
           </span>
         )}
       </button>

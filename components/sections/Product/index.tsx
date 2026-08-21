@@ -127,8 +127,6 @@ export function ProductSection() {
                       >
                         {t('product.p2')}
                       </Typography>
-
-
                     </div>
 
                     {/* Product showcase — composite device image */}
