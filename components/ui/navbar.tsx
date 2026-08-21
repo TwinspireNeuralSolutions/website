@@ -190,12 +190,7 @@ export function Navbar() {
                 </Button>
               </Link>
               <Link href={appUrl}>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  showIcon
-                  className={glass ? '' : 'border-white/25 text-white hover:border-white/50 hover:bg-white/10'}
-                >
+                <Button variant="white" size="sm" showIcon>
                   {t('nav.teamLogin')}
                 </Button>
               </Link>
