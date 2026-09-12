@@ -21,8 +21,9 @@ function HeroAthletes() {
           <span className="text-primary">Your career.</span>
         </h1>
         <p className="text-foreground/80 mx-auto mb-10 max-w-xl text-[16px] leading-relaxed">
-          Every session, load, injury, and rehabilitation milestone. Portable,
-          owned by you, shared only with the clubs you choose.
+          Your Individual Physiological Response Profile, built over time and
+          carried through the Athletic Passport, so your physiological context
+          does not have to reset when your club changes.
         </p>
         <a
           href="#athlete-waitlist"
@@ -46,42 +47,41 @@ function PassportSection() {
               The Athletic Passport
             </p>
             <h2 className="text-foreground mb-6 text-3xl font-black tracking-tight sm:text-4xl">
-              Every time you transfer,
+              Your club can change.
               <br />
-              your physiological history
+              Your physiological context
               <br />
-              <span className="text-primary">resets to zero.</span>
+              <span className="text-primary">does not have to reset.</span>
             </h2>
             <p className="text-foreground/80 mb-6 text-[15px] leading-relaxed">
-              A new club inherits your name and a transfer fee. What they do not
-              inherit is 18 months of individual baseline data. What load your
-              body responds to. What recovery looks like for you. Where your
-              personal thresholds actually sit.
+              Over time, Twinspire develops an Individual Physiological Response
+              Profile: a longitudinal understanding of how you respond to
+              training, recovery, and physical stress.
             </p>
             <p className="text-foreground/80 text-[15px] leading-relaxed">
-              The Athletic Passport changes that. Every session, load, injury,
-              and rehabilitation milestone is structured into a portable record
-              that belongs to you. When you sign for a new club, your baseline
-              arrives with you.
+              The Athletic Passport is the portable, athlete-centred
+              representation of that profile. With the right permissions and
+              governance, relevant physiological context can move with you when
+              you change clubs instead of being rebuilt from zero.
             </p>
           </div>
           <div className="grid gap-4">
             {[
               [
-                'Individual baseline, continuously updated',
-                'Not a squad average. Your normal, built over time.',
+                'Individual Physiological Response Profile',
+                'What your model has learned about your response over time.',
               ],
               [
-                'Full load, injury, and rehab history',
-                'Every session. Every milestone. Portable.',
+                'Portable longitudinal context',
+                'Relevant profile information can move with you, subject to permissions and governance.',
               ],
               [
-                'You control who sees what',
-                'Granular consent. Withdrawable at any time.',
+                'You control appropriate sharing',
+                'Granular permissions and consent where applicable.',
               ],
               [
-                'New club inherits your data from day one',
-                'No more starting from scratch after every transfer.',
+                'A new club does not have to start from zero',
+                'Appropriately shared physiological context can be available from day one.',
               ],
             ].map(([title, desc]) => (
               <div
@@ -200,28 +200,29 @@ function HowAppWorksSection() {
   )
 }
 
-/* ── Ownership ───────────────────────────────────────────────── */
+/* ── Governance ──────────────────────────────────────────────── */
 function OwnershipSection() {
   return (
     <section className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-2xl px-6 text-center">
         <p className="text-primary mb-4 text-[11px] font-semibold tracking-widest uppercase">
-          Data ownership
+          Portability & governance
         </p>
         <h2 className="text-foreground mb-6 text-3xl font-black tracking-tight sm:text-4xl">
-          The data is yours.
+          Your profile can move with you.
           <br />
-          Not the club&#39;s.
+          Source data follows its governance.
         </h2>
         <p className="text-foreground/80 mb-4 text-[15px] leading-relaxed">
-          Your Athletic Passport belongs to you. The club sees their squad
-          analytics. Twinspire hosts both under a formal Data Processing
-          Agreement. Your data is never sold, never shared without your consent,
-          and fully portable when you move.
+          The Athletic Passport is designed to remain portable and
+          athlete-centred. That does not mean every underlying club-generated
+          data point automatically transfers: source data, derived features, and
+          the physiological response profile can have different governance and
+          processing arrangements.
         </p>
         <p className="text-foreground/80 text-[15px] leading-relaxed">
-          You decide what you share, with which club, and for how long. You can
-          withdraw consent at any time.
+          Twinspire applies role-based access, formal Data Processing Agreements,
+          and granular permissions and consent where applicable.
         </p>
       </div>
     </section>
