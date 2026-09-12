@@ -16,8 +16,8 @@ const cases = [
         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
       </svg>
     ),
-    title: 'The hidden overload',
-    body: "A player's club metrics look normal. Three weeks of declining wearable recovery scores tell a different story. Twinspire flags the pattern before it becomes a conversation with the physio.",
+    title: 'The changing pattern',
+    body: "A player's club metrics look normal. Three weeks of declining wearable recovery scores tell a different story. Twinspire surfaces the pattern and the signals driving it, giving staff more context to interpret the change.",
   },
   {
     icon: (
@@ -36,7 +36,7 @@ const cases = [
       </svg>
     ),
     title: 'The return-to-play decision',
-    body: "Clearance decisions are currently made on subjective assessment and session data. Twinspire adds the player's individual recovery baseline and the trend since the injury. Objective criteria, documented.",
+    body: "Return-to-play decisions combine clinical assessment with performance and recovery data. Twinspire adds the player's individual response profile and longitudinal trend, giving staff documented context alongside clinical judgment.",
   },
   {
     icon: (
@@ -57,7 +57,7 @@ const cases = [
       </svg>
     ),
     title: 'The new signing',
-    body: 'A player transfers. Instead of starting the individual model from scratch, their Athletic Passport arrives with them. New club inherits 18 months of baseline data from day one.',
+    body: "A player transfers. Instead of rebuilding their physiological context from zero, relevant parts of their Athletic Passport can move with them, carrying forward their Individual Physiological Response Profile subject to permissions and governance.",
   },
 ]
 

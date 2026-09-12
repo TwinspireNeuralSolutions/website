@@ -28,7 +28,7 @@ const SCENES: Scene[] = [
     duration: 8041,
     eyebrow: 'The connection',
     headline: ['Club data · Personal data.', 'One individual model.'],
-    sub: 'Twinspire combines both into one individual model per player and alerts you before a deviation becomes an injury.',
+    sub: 'Twinspire combines both into one individual model per player, learns what is normal for that athlete, and surfaces meaningful deviations with the signals driving them.',
   },
 ]
 
