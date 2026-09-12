@@ -19,7 +19,7 @@ const SECTIONS: Section[] = [
       <div className="flex flex-col gap-3">
         <p>
           Twinspire is a digital platform designed to support athlete
-          performance, injury prevention, and applied sports research.
+          performance, recovery and rehabilitation, and applied sports research.
         </p>
         <p>This policy explains:</p>
         <ul className="flex flex-col gap-1 pl-4">
@@ -109,7 +109,7 @@ const SECTIONS: Section[] = [
         <ul className="flex flex-col gap-1 pl-4">
           <li>Supporting day-to-day performance and training decisions</li>
           <li>Monitoring workload and recovery trends</li>
-          <li>Supporting injury prevention and rehabilitation processes</li>
+          <li>Supporting performance, recovery and rehabilitation decision-making</li>
           <li>Providing insights and visualizations to athletes and staff</li>
           <li>Internal analysis and platform improvement</li>
           <li>Aggregated and anonymized research and reporting</li>
@@ -322,10 +322,10 @@ export default function PrivacyPage() {
         <div className="border-border mb-12 border-b pb-10 md:mb-16">
           <div className="mb-4 flex items-center gap-3">
             <span className="bg-primary/10 text-primary rounded-full px-3 py-1 text-[11px] font-semibold tracking-widest uppercase">
-              v1.0
+              v1.1
             </span>
             <span className="text-foreground/40 text-[11px]">
-              Last updated: 20 January 2026
+              Last updated: 12 September 2026
             </span>
           </div>
           <Typography
@@ -359,13 +359,6 @@ export default function PrivacyPage() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Footer rule */}
-        <div className="border-border mt-12 border-t pt-8 text-center">
-          <p className="text-foreground/40 text-[11px] tracking-wider uppercase">
-            End of Policy · Twinspire Neural Solutions · © 2026
-          </p>
         </div>
       </main>
     </div>
