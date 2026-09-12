@@ -101,7 +101,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from: FROM_ADDRESS,
         to: email,
-        subject: `Application received — ${jobTitle}`,
+        subject: `Application received: ${jobTitle}`,
         html: confirmationHtml,
       }),
 
@@ -110,15 +110,15 @@ export async function POST(req: NextRequest) {
         from: FROM_ADDRESS,
         to: RECRUITER_ADDRESS,
         replyTo: email,
-        subject: `New application — ${jobTitle} — ${name}`,
+        subject: `New application: ${jobTitle} | ${name}`,
         html: `
         <h2 style="font-family:sans-serif;color:#1F2C7C;margin:0 0 16px">New job application</h2>
         <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse;width:100%">
           <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Position</td><td>${escapeHtml(jobTitle)}</td></tr>
           <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Full Name</td><td>${escapeHtml(name)}</td></tr>
           <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Email</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Phone</td><td>${escapeHtml(phone || '—')}</td></tr>
-          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">LinkedIn</td><td>${linkedin ? `<a href="${escapeHtml(linkedin)}">${escapeHtml(linkedin)}</a>` : '—'}</td></tr>
+          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">Phone</td><td>${escapeHtml(phone || 'Not provided')}</td></tr>
+          <tr><td style="padding:6px 16px 6px 0;color:#737373;font-weight:600;white-space:nowrap">LinkedIn</td><td>${linkedin ? `<a href="${escapeHtml(linkedin)}">${escapeHtml(linkedin)}</a>` : 'Not provided'}</td></tr>
         </table>
         ${message ? `<p style="font-family:sans-serif;font-size:14px;color:#0a0a0a;margin-top:20px"><strong>Message:</strong><br/><span style="white-space:pre-wrap">${escapeHtml(message)}</span></p>` : ''}
         ${cvAttachment ? `<p style="font-family:sans-serif;font-size:13px;color:#737373;margin-top:12px">CV attached: ${escapeHtml(cvAttachment.filename)}</p>` : '<p style="font-family:sans-serif;font-size:13px;color:#737373;margin-top:12px">No CV attached.</p>'}
