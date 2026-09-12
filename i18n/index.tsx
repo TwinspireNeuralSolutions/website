@@ -25,6 +25,18 @@ interface I18nContextType {
 const I18nContext = createContext<I18nContextType | null>(null)
 
 /**
+ * Keep public copy punctuation simple and human. Translation strings should
+ * not use em dashes or double hyphens. This also protects older copy until
+ * every legacy string has been rewritten at source.
+ */
+function normalizePublicCopy(value: string): string {
+  return value
+    .replace(/\s*\u2014\s*/g, ', ')
+    .replace(/\s*--\s*/g, ', ')
+    .replace(/\s{2,}/g, ' ')
+}
+
+/**
  * Detect user locale from browser/navigator.
  * Checks navigator.language and falls back to geolocation-based timezone heuristic.
  */
@@ -62,7 +74,7 @@ function getNestedValue(obj: Record<string, unknown>, path: string): string {
 
 interface I18nProviderProps {
   children: ReactNode
-  /** Locale from the [locale] URL segment — takes priority over auto-detection */
+  /** Locale from the [locale] URL segment; takes priority over auto-detection */
   initialLocale?: Locale
 }
 
@@ -115,7 +127,7 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
           value = value.replace(`{${paramKey}}`, paramValue)
         })
       }
-      return value
+      return normalizePublicCopy(value)
     },
     [locale]
   )
