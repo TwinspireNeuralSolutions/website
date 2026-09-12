@@ -16,6 +16,21 @@ type TranslationKey = string
 
 const dictionaries: Record<Locale, typeof en> = { en, da }
 
+const copyOverrides: Record<Locale, Record<string, string>> = {
+  en: {
+    'team.descriptions.joachimChristgau':
+      'Formerly at Munin Sports, where he built commercial partnerships in sport. Later worked across media and consumer brands at Nordisk Film and Carlsberg. Founder of WiiLDER WORLD. Advises Twinspire on brand positioning and commercial strategy.',
+    'team.descriptions.johanKisum':
+      'Senior Cloud Engineer and Technical Lead at Novo Nordisk with experience building regulated, global-scale AI infrastructure. Has worked directly with EU MDR requirements and GxP-compliant environments. Previously DevOps Engineer at ATP. Advises Twinspire on platform architecture, infrastructure maturation and medical-device development controls.',
+  },
+  da: {
+    'team.descriptions.joachimChristgau':
+      'Tidligere hos Munin Sports, hvor han arbejdede med kommercielle partnerskaber i sport. Har siden arbejdet på tværs af medier og forbrugerbrands hos Nordisk Film og Carlsberg. Grundlægger af WiiLDER WORLD. Rådgiver Twinspire om brandpositionering og kommerciel strategi.',
+    'team.descriptions.johanKisum':
+      'Senior Cloud Engineer og Technical Lead hos Novo Nordisk med erfaring i at bygge reguleret AI-infrastruktur i global skala. Har arbejdet direkte med EU MDR-krav og GxP-regulerede miljøer. Tidligere DevOps Engineer hos ATP. Rådgiver Twinspire om platformarkitektur, infrastrukturmodning og udviklingskontroller for medicinsk udstyr.',
+  },
+}
+
 interface I18nContextType {
   locale: Locale
   setLocale: (locale: Locale) => void
@@ -118,10 +133,12 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
 
   const t = useCallback(
     (key: TranslationKey, params?: Record<string, string>): string => {
-      let value = getNestedValue(
-        dictionaries[locale] as unknown as Record<string, unknown>,
-        key
-      )
+      let value =
+        copyOverrides[locale][key] ??
+        getNestedValue(
+          dictionaries[locale] as unknown as Record<string, unknown>,
+          key
+        )
       if (params) {
         Object.entries(params).forEach(([paramKey, paramValue]) => {
           value = value.replace(`{${paramKey}}`, paramValue)
