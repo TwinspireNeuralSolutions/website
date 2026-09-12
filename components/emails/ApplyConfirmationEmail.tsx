@@ -2,7 +2,7 @@
  * buildApplyConfirmationEmail
  *
  * Returns a plain HTML string for the confirmation email sent to job applicants.
- * Same visual style as ConfirmationEmail — reusable, no React server rendering needed.
+ * Same visual style as ConfirmationEmail, reusable without React server rendering.
  */
 
 function escapeHtml(str: string): string {
@@ -26,7 +26,7 @@ export function buildApplyConfirmationEmail(
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Application received &mdash; Twinspire</title>
+  <title>Application received | Twinspire</title>
 </head>
 <body style="margin:0;padding:0;background-color:#f5f5fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;">
 
@@ -60,11 +60,7 @@ export function buildApplyConfirmationEmail(
                     and will review it carefully.
                   </p>
                   <p style="margin:16px 0 0;font-size:15px;color:#737373;line-height:1.8;">
-                    If your background looks like a strong fit, someone from the team will be
-                    in touch directly. Either way, we appreciate you taking the time to apply.
-                  </p>
-                  <p style="margin:16px 0 0;font-size:15px;color:#737373;line-height:1.8;">
-                    Feel free to reply to this email with any questions in the meantime.
+                    If there is a strong fit, someone from the team will contact you directly.
                   </p>
                 </td>
               </tr>
@@ -80,7 +76,7 @@ export function buildApplyConfirmationEmail(
               <tr>
                 <td style="padding:24px 40px 32px;">
                   <p style="margin:0;font-size:13px;color:#a3a3a3;line-height:1.6;">
-                    Twinspire Neural Solutions &mdash; DTU, Copenhagen<br/>
+                    Twinspire Neural Solutions · DTU, Copenhagen<br/>
                     <a href="https://twinspire.ai" style="color:#1F2C7C;text-decoration:none;">twinspire.ai</a>
                   </p>
                 </td>
