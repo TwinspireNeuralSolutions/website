@@ -2,7 +2,7 @@ import { HeroStorySection } from '@/components/sections/Hero/HeroStory'
 import { PartnersSection } from '@/components/sections/Partners'
 import { PublicProblemSummarySection } from '@/components/sections/PublicProblemSummary'
 import { UseCasesSection } from '@/components/sections/UseCases'
-import { ScienceDataTrustSection } from '@/components/sections/ScienceDataTrust'
+import { PublicHowItWorksSection } from '@/components/sections/PublicHowItWorks'
 import { ProductSection } from '@/components/sections/Product'
 import { BuiltForSection } from '@/components/sections/BuiltFor'
 import { TeamSection } from '@/components/sections/Team'
@@ -21,7 +21,7 @@ export default function Home() {
         <PartnersSection />
         <PublicProblemSummarySection />
         <UseCasesSection />
-        <ScienceDataTrustSection />
+        <PublicHowItWorksSection />
         <ProductSection />
         <BuiltForSection />
         <TeamSection />
