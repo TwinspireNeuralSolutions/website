@@ -87,7 +87,7 @@ export function PublicContactSection() {
               </a>
               <span className="text-foreground/70">{t('contact.addressValue')}</span>
               <a
-                href="https://www.linkedin.com/company/twinspire-neural-solutions"
+                href="https://www.linkedin.com/company/twinspire"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-primary w-fit font-medium transition-colors"
