@@ -1,14 +1,14 @@
 import { HeroStorySection } from '@/components/sections/Hero/HeroStory'
 import { PartnersSection } from '@/components/sections/Partners'
-import { ProblemSection } from '@/components/sections/Problem'
+import { PublicProblemSummarySection } from '@/components/sections/PublicProblemSummary'
 import { UseCasesSection } from '@/components/sections/UseCases'
-import { ScienceDataTrustSection } from '@/components/sections/ScienceDataTrust'
+import { PublicHowItWorksSection } from '@/components/sections/PublicHowItWorks'
 import { ProductSection } from '@/components/sections/Product'
 import { BuiltForSection } from '@/components/sections/BuiltFor'
 import { TeamSection } from '@/components/sections/Team'
 import { DataEthicsSection } from '@/components/sections/DataEthics'
-import { FAQSection } from '@/components/sections/FAQ'
-import { ContactSection } from '@/components/sections/Contact'
+import { PublicFAQSection } from '@/components/sections/PublicFAQ'
+import { PublicContactSection } from '@/components/sections/PublicContact'
 import { FooterSection } from '@/components/sections/Footer'
 import { Navbar } from '@/components/ui/navbar'
 
@@ -19,15 +19,15 @@ export default function Home() {
       <main>
         <HeroStorySection />
         <PartnersSection />
-        <ProblemSection />
+        <PublicProblemSummarySection />
         <UseCasesSection />
-        <ScienceDataTrustSection />
+        <PublicHowItWorksSection />
         <ProductSection />
         <BuiltForSection />
         <TeamSection />
         <DataEthicsSection />
-        <FAQSection />
-        <ContactSection />
+        <PublicFAQSection />
+        <PublicContactSection />
       </main>
       <FooterSection />
     </>
