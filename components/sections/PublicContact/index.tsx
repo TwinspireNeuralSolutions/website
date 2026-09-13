@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -16,6 +17,7 @@ interface ContactFormState {
   message: string
 }
 
+/** Public contact section with company contact details and enquiry form. */
 export function PublicContactSection() {
   const { t } = useTranslation()
   const [form, setForm] = useState<ContactFormState>({
@@ -78,21 +80,45 @@ export function PublicContactSection() {
               {t('contact.subtitle')}
             </p>
 
-            <div className="flex flex-col gap-3 text-[15px]">
+            <div className="flex flex-col gap-2 text-[15px]">
               <a
                 href={`mailto:${t('contact.emailContact')}`}
-                className="text-foreground/80 hover:text-primary w-fit font-medium transition-colors"
+                className="text-foreground/80 hover:text-primary w-fit px-2 py-1.5 font-medium transition-colors"
               >
                 {t('contact.emailContact')}
               </a>
-              <span className="text-foreground/70">{t('contact.addressValue')}</span>
+              <span className="text-foreground/70 px-2 py-1.5">
+                {t('contact.addressValue')}
+              </span>
+
               <a
                 href="https://www.linkedin.com/company/twinspire"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/80 hover:text-primary w-fit font-medium transition-colors"
+                className="hover:bg-foreground/5 flex w-fit items-center gap-3 rounded-lg px-2 py-1.5 transition-colors"
+                aria-label="Twinspire on LinkedIn"
               >
-                Twinspire
+                <span className="bg-primary text-background flex h-7 w-7 items-center justify-center rounded-full">
+                  <FaLinkedinIn size={13} aria-hidden="true" />
+                </span>
+                <span className="text-foreground/80 hover:text-foreground font-medium transition-colors">
+                  Twinspire
+                </span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/twinspire.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:bg-foreground/5 flex w-fit items-center gap-3 rounded-lg px-2 py-1.5 transition-colors"
+                aria-label="Twinspire on Instagram"
+              >
+                <span className="bg-primary text-background flex h-7 w-7 items-center justify-center rounded-full">
+                  <FaInstagram size={13} aria-hidden="true" />
+                </span>
+                <span className="text-foreground/80 hover:text-foreground font-medium transition-colors">
+                  twinspire.ai
+                </span>
               </a>
             </div>
           </AnimateIn>
