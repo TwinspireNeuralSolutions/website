@@ -8,7 +8,7 @@ import { BuiltForSection } from '@/components/sections/BuiltFor'
 import { TeamSection } from '@/components/sections/Team'
 import { DataEthicsSection } from '@/components/sections/DataEthics'
 import { PublicFAQSection } from '@/components/sections/PublicFAQ'
-import { ContactSection } from '@/components/sections/Contact'
+import { PublicContactSection } from '@/components/sections/PublicContact'
 import { FooterSection } from '@/components/sections/Footer'
 import { Navbar } from '@/components/ui/navbar'
 
@@ -27,7 +27,7 @@ export default function Home() {
         <TeamSection />
         <DataEthicsSection />
         <PublicFAQSection />
-        <ContactSection />
+        <PublicContactSection />
       </main>
       <FooterSection />
     </>
