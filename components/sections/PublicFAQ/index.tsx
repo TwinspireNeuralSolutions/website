@@ -42,7 +42,7 @@ const FAQ_ITEMS = [
 
 export function PublicFAQSection() {
   const { t } = useTranslation()
-  const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0].id)
+  const [openId, setOpenId] = useState<string | null>(null)
 
   return (
     <section id="faq" className="bg-muted relative z-10 w-full">
